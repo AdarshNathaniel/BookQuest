@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl_role">
+    <sys_security_acl_role action="INSERT_OR_UPDATE">
+        <sys_class_name>sys_security_acl_role</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-04-22 06:26:54</sys_created_on>
+        <sys_id>d037211893b10210ef267c5efaba107a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_1383151_bkquest_book_copy.x_1383151_bkquest.catalog_lib</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_security_acl display_value="x_1383151_bkquest_book_copy">dc37211893b10210ef267c5efaba1076</sys_security_acl>
+        <sys_update_name>sys_security_acl_role_d037211893b10210ef267c5efaba107a</sys_update_name>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-04-22 06:26:54</sys_updated_on>
+        <sys_user_role display_value="x_1383151_bkquest.catalog_lib" name="x_1383151_bkquest.catalog_lib">7c7c261f93250210ef267c5efaba103d</sys_user_role>
+        <transaction_id/>
+    </sys_security_acl_role>
+</record_update>

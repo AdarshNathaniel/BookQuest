@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="a2d5259493b10210ef267c5efaba106c" label="Book copy" max_length="40" name="x_1383151_bkquest_book_copy" type="collection">
+        <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Book id" max_length="40" name="number" read_only="true" type="string"/>
+        <element choice="3" default="not returned" label="Status" max_length="40" name="status" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Damaged" sequence="0" value="damaged"/>
+                <element inactive_on_update="false" label="Lost" sequence="1" value="lost"/>
+                <element inactive_on_update="false" label="Available" sequence="2" value="available"/>
+                <element inactive_on_update="false" label="Not returned" sequence="3" value="not returned"/>
+            </choice>
+        </element>
+        <element label="Title" mandatory="true" max_length="32" name="title" reference="x_1383151_bkquest_book" type="reference"/>
+        <index name="index">
+            <element name="title"/>
+        </index>
+    </element>
+</database>

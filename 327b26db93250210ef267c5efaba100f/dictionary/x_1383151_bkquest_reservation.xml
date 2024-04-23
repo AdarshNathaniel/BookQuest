@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="c6a2a5dc93710210ef267c5efaba10f7" label="Reservation" max_length="40" name="x_1383151_bkquest_reservation" type="collection">
+        <element display="true" label="Book title" mandatory="true" max_length="32" name="book_title" reference="x_1383151_bkquest_book" type="reference"/>
+        <element label="Reservation date" max_length="40" name="reservation_date" type="glide_date_time"/>
+        <element label="User ID" mandatory="true" max_length="32" name="user_id" reference="sys_user" type="reference"/>
+        <index name="index">
+            <element name="book_title"/>
+        </index>
+        <index name="index2">
+            <element name="user_id"/>
+        </index>
+    </element>
+</database>

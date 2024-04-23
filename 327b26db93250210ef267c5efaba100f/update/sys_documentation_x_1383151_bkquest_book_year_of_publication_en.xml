@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="year_of_publication" label="Year of publication" language="en" table="x_1383151_bkquest_book">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>year_of_publication</element>
+            <help/>
+            <hint/>
+            <label>Year of publication</label>
+            <language>en</language>
+            <name>x_1383151_bkquest_book</name>
+            <plural>Year of publications</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>adarsh.nathaniel</sys_created_by>
+            <sys_created_on>2024-04-19 10:11:46</sys_created_on>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Year of publication</sys_name>
+            <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+            <sys_update_name>sys_documentation_x_1383151_bkquest_book_year_of_publication_en</sys_update_name>
+            <sys_updated_by>adarsh.nathaniel</sys_updated_by>
+            <sys_updated_on>2024-04-19 10:11:46</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

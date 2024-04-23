@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="book_title" label="Book title" language="en" table="x_1383151_bkquest_reservation">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>book_title</element>
+            <help/>
+            <hint/>
+            <label>Book title</label>
+            <language>en</language>
+            <name>x_1383151_bkquest_reservation</name>
+            <plural>Book titles</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>adarsh.nathaniel</sys_created_by>
+            <sys_created_on>2024-04-22 06:21:36</sys_created_on>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Book title</sys_name>
+            <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+            <sys_update_name>sys_documentation_x_1383151_bkquest_reservation_book_title_en</sys_update_name>
+            <sys_updated_by>adarsh.nathaniel</sys_updated_by>
+            <sys_updated_on>2024-04-22 06:21:36</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>
