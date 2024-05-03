@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="4404b2ba93f58210ef267c5efaba105b" label="Author" max_length="40" name="x_1383151_bkquest_author" type="collection">
+        <element label="Date of birth" max_length="40" name="date_of_birth" type="glide_date"/>
+        <element label="Email" max_length="100" name="email" type="string"/>
+        <element display="true" label="Full name" max_length="70" name="full_name" type="string"/>
+        <element choice="3" default="male" label="Gender" max_length="20" name="gender" type="string">
+            <choice>
+                <element inactive_on_update="false" label="Male" sequence="100" value="male"/>
+                <element inactive_on_update="false" label="Female" sequence="200" value="female"/>
+                <element inactive_on_update="false" label="Other" sequence="300" value="other"/>
+            </choice>
+        </element>
+        <element label="Nationality" max_length="32" name="nationality" reference="core_country" type="reference"/>
+        <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Author ID" max_length="40" name="number" type="string"/>
+        <index name="index">
+            <element name="nationality"/>
+        </index>
+    </element>
+</database>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
-    <element db_object_id="34edf61393a50210ef267c5efaba10b1" label="Book" max_length="40" name="x_1383151_bkquest_book" type="collection">
+    <element db_object_id="34edf61393a50210ef267c5efaba10b1" label="Book Definition" max_length="40" name="x_1383151_bkquest_book" type="collection">
         <element label="Audio length" max_length="40" name="audio_length" type="glide_duration"/>
-        <element attributes="edge_encryption_enabled=true" label="Author" max_length="50" name="author" type="string"/>
+        <element label="Author" max_length="32" name="author" reference="x_1383151_bkquest_author" type="reference"/>
         <element label="Borrow count" max_length="40" name="borrow_count" read_only="true" type="integer"/>
         <element label="Date of publication" max_length="40" name="date_of_publication" type="glide_date"/>
         <element label="Genre" max_length="32" name="genre" reference="x_1383151_bkquest_genre_lookup" type="reference"/>
@@ -26,6 +26,9 @@
             </choice>
         </element>
         <index name="index">
+            <element name="author"/>
+        </index>
+        <index name="index2">
             <element name="genre"/>
         </index>
     </element>

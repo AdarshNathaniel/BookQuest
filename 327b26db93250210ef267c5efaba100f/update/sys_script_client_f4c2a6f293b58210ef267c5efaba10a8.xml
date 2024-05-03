@@ -3,17 +3,14 @@
         <active>true</active>
         <applies_extended>false</applies_extended>
         <condition/>
-        <description>ST00: Validate if the ISBN entered by the Catalog Librarian is valid or not</description>
-        <field>isbn</field>
+        <description>ST00: Making sure that the Catalog Librarian submits the form only if the ISBN entered by the Catalog Librarian is valid.</description>
+        <field/>
         <global>true</global>
         <isolate_script>true</isolate_script>
         <messages/>
-        <name>Validate ISBN Number</name>
+        <name>Validate ISBN Number Submission</name>
         <order/>
-        <script><![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
-    if (isLoading || newValue === '') {
-        return;
-    }
+        <script><![CDATA[function onSubmit() {
 
     // Function to validate ISBN format
     function validateISBN(isbn) {
@@ -21,33 +18,35 @@
         return regex.test(isbn.toUpperCase());
     }
 
-    // Validate the ISBN entered by the user
-    var isValid = validateISBN(newValue);
-    if (!isValid) {
-        g_form.showFieldMsg('isbn','Invalid ISBN format. Please enter "ISBN" followed by the 13 digit ISBN number.', 'error');
-    }
-	else {
-		g_form.hideFieldMsg('isbn');
-	}
+    // Get the ISBN field value
+    var isbnField = g_form.getValue('isbn');
 
+    // Validate the ISBN
+    if (!validateISBN(isbnField)) {
+        g_form.addErrorMessage("Invalid ISBN format. Please enter a valid ISBN number");
+		return false; // Prevent form submission
+    }
+
+    // Return true to allow form submission if ISBN is valid
+    return true;
 }]]></script>
         <sys_class_name>sys_script_client</sys_class_name>
         <sys_created_by>adarsh.nathaniel</sys_created_by>
-        <sys_created_on>2024-04-24 07:22:27</sys_created_on>
+        <sys_created_on>2024-04-30 05:18:26</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
-        <sys_id>689408819371c210ef267c5efaba1060</sys_id>
-        <sys_mod_count>16</sys_mod_count>
-        <sys_name>Validate ISBN Number</sys_name>
+        <sys_id>f4c2a6f293b58210ef267c5efaba10a8</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>Validate ISBN Number Submission</sys_name>
         <sys_overrides/>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
-        <sys_update_name>sys_script_client_689408819371c210ef267c5efaba1060</sys_update_name>
+        <sys_update_name>sys_script_client_f4c2a6f293b58210ef267c5efaba10a8</sys_update_name>
         <sys_updated_by>adarsh.nathaniel</sys_updated_by>
-        <sys_updated_on>2024-04-30 06:25:46</sys_updated_on>
+        <sys_updated_on>2024-04-30 06:05:22</sys_updated_on>
         <table>x_1383151_bkquest_book</table>
-        <type>onChange</type>
+        <type>onSubmit</type>
         <ui_type>0</ui_type>
         <view/>
     </sys_script_client>
