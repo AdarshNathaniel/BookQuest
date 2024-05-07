@@ -3,17 +3,32 @@
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
             <element>number</element>
-            <list_id display_value="x_1383151_bkquest_book_copy" element="NULL" name="x_1383151_bkquest_book_copy" parent="NULL" relationship="NULL" sys_domain="global" view="25cac060d9313110cedf7dffddb48f4f">a59a469093750210ef267c5efaba10b1</list_id>
+            <list_id display_value="x_1383151_bkquest_book_copy" element="NULL" name="x_1383151_bkquest_book_copy" parent="NULL" relationship="NULL" sys_domain="global" view="25cac060d9313110cedf7dffddb48f4f">1c0bd8fc93318210ef267c5efaba1011</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>0</position>
             <sum>false</sum>
             <sys_created_by>harini.srija</sys_created_by>
-            <sys_created_on>2024-04-22 09:01:32</sys_created_on>
-            <sys_id>e19a0ed093750210ef267c5efaba106f</sys_id>
+            <sys_created_on>2024-04-23 14:11:00</sys_created_on>
+            <sys_id>980bdcfc93318210ef267c5efaba10a3</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>harini.srija</sys_updated_by>
-            <sys_updated_on>2024-04-22 09:01:32</sys_updated_on>
+            <sys_updated_on>2024-04-23 14:11:00</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>title</element>
+            <list_id display_value="x_1383151_bkquest_book_copy" element="NULL" name="x_1383151_bkquest_book_copy" parent="NULL" relationship="NULL" sys_domain="global" view="25cac060d9313110cedf7dffddb48f4f">1c0bd8fc93318210ef267c5efaba1011</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>1</position>
+            <sum>false</sum>
+            <sys_created_by>harini.srija</sys_created_by>
+            <sys_created_on>2024-04-23 14:11:00</sys_created_on>
+            <sys_id>100bdcfc93318210ef267c5efaba10a4</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>harini.srija</sys_updated_by>
+            <sys_updated_on>2024-04-23 14:11:00</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
@@ -27,10 +42,10 @@
             <sum>false</sum>
             <sys_class_name>sys_ui_list</sys_class_name>
             <sys_created_by>harini.srija</sys_created_by>
-            <sys_created_on>2024-04-22 09:01:32</sys_created_on>
+            <sys_created_on>2024-04-23 14:11:00</sys_created_on>
             <sys_domain>global</sys_domain>
             <sys_domain_path>/</sys_domain_path>
-            <sys_id>a59a469093750210ef267c5efaba10b1</sys_id>
+            <sys_id>1c0bd8fc93318210ef267c5efaba1011</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_name>x_1383151_bkquest_book_copy</sys_name>
             <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
@@ -38,7 +53,7 @@
             <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
             <sys_update_name>sys_ui_list_x_1383151_bkquest_book_copy_sys_ref_list</sys_update_name>
             <sys_updated_by>harini.srija</sys_updated_by>
-            <sys_updated_on>2024-04-22 09:01:32</sys_updated_on>
+            <sys_updated_on>2024-04-23 14:11:00</sys_updated_on>
             <sys_user/>
             <view display_value="Reference List" name="sys_ref_list">25cac060d9313110cedf7dffddb48f4f</view>
             <view_name/>

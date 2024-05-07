@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script">
+    <sys_script action="DELETE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>false</action_insert>
+        <action_query>false</action_query>
+        <action_update>true</action_update>
+        <active>true</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>x_1383151_bkquest_borrow</collection>
+        <condition/>
+        <description/>
+        <execute_function>false</execute_function>
+        <filter_condition table="x_1383151_bkquest_borrow">due_dateISNOTEMPTY^EQ<item endquery="false" field="due_date" goto="false" newquery="false" operator="ISNOTEMPTY" or="false" value=""/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </filter_condition>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>Fine calculation</name>
+        <order>100</order>
+        <priority>100</priority>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[(function executeRule(current, previous) {
+    var dueDate = new GlideDateTime(current.due_date);
+    var returnDate = new GlideDateTime(current.returned_date || new GlideDateTime());
+
+    // Calculate the difference in days between the due date and the return date
+    var diffInDays = new GlideDuration(returnDate.getNumericValue() - dueDate.getNumericValue()).getDayPart();
+
+    // Check if the book is returned after the due date
+    if (diffInDays > 0) {
+        // Calculate the fine amount based on the number of days overdue
+        var finePerDay = 1.00; // Assuming a fine of $1 per day
+        var fineAmount = diffInDays * finePerDay;
+
+        // Set the fine amount on the record
+        current.fine_amount = fineAmount;
+    } else {
+        // No fine if returned on or before the due date
+        current.fine_amount = 0;
+    }
+})(current, previous);
+]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-04-24 04:24:05</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>342d53b093bd8210ef267c5efaba10a6</sys_id>
+        <sys_mod_count>12</sys_mod_count>
+        <sys_name>Fine calculation</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>sys_script_342d53b093bd8210ef267c5efaba10a6</sys_update_name>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-04-24 07:17:43</sys_updated_on>
+        <template/>
+        <when>before</when>
+    </sys_script>
+    <sys_translated_text action="DELETE" query="documentkey=342d53b093bd8210ef267c5efaba10a6"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="BookQuest">327b26db93250210ef267c5efaba100f</application>
+        <file_path/>
+        <instance_id>0535015fdb717d1002d9172913961922</instance_id>
+        <instance_name>dev186731</instance_name>
+        <name>sys_script_342d53b093bd8210ef267c5efaba10a6</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script"&gt;&lt;sys_script action="INSERT_OR_UPDATE"&gt;&lt;abort_action&gt;false&lt;/abort_action&gt;&lt;access&gt;package_private&lt;/access&gt;&lt;action_delete&gt;false&lt;/action_delete&gt;&lt;action_insert&gt;false&lt;/action_insert&gt;&lt;action_query&gt;false&lt;/action_query&gt;&lt;action_update&gt;true&lt;/action_update&gt;&lt;active&gt;true&lt;/active&gt;&lt;add_message&gt;false&lt;/add_message&gt;&lt;advanced&gt;true&lt;/advanced&gt;&lt;change_fields&gt;false&lt;/change_fields&gt;&lt;client_callable&gt;false&lt;/client_callable&gt;&lt;collection&gt;x_1383151_bkquest_borrow&lt;/collection&gt;&lt;condition/&gt;&lt;description/&gt;&lt;execute_function&gt;false&lt;/execute_function&gt;&lt;filter_condition table="x_1383151_bkquest_borrow"&gt;due_dateISNOTEMPTY^EQ&lt;item endquery="false" field="due_date" goto="false" newquery="false" operator="ISNOTEMPTY" or="false" value=""/&gt;&lt;item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/&gt;&lt;/filter_condition&gt;&lt;is_rest&gt;false&lt;/is_rest&gt;&lt;message/&gt;&lt;name&gt;Fine calculation&lt;/name&gt;&lt;order&gt;100&lt;/order&gt;&lt;priority&gt;100&lt;/priority&gt;&lt;rest_method/&gt;&lt;rest_method_text/&gt;&lt;rest_service/&gt;&lt;rest_service_text/&gt;&lt;rest_variables/&gt;&lt;role_conditions/&gt;&lt;script&gt;&lt;![CDATA[(function executeRule(current, previous) {
+    var dueDate = new GlideDateTime(current.due_date);
+    var returnDate = new GlideDateTime(current.returned_date || new GlideDateTime());
+
+    // Calculate the difference in days between the due date and the return date
+    var diffInDays = new GlideDuration(returnDate.getNumericValue() - dueDate.getNumericValue()).getDayPart();
+
+    // Check if the book is returned after the due date
+    if (diffInDays &gt; 0) {
+        // Calculate the fine amount based on the number of days overdue
+        var finePerDay = 1.00; // Assuming a fine of $1 per day
+        var fineAmount = diffInDays * finePerDay;
+
+        // Set the fine amount on the record
+        current.fine_amount = fineAmount;
+    } else {
+        // No fine if returned on or before the due date
+        current.fine_amount = 0;
+    }
+})(current, previous);
+]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script&lt;/sys_class_name&gt;&lt;sys_created_by&gt;harini.srija&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-04-24 04:24:05&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;342d53b093bd8210ef267c5efaba10a6&lt;/sys_id&gt;&lt;sys_mod_count&gt;12&lt;/sys_mod_count&gt;&lt;sys_name&gt;Fine calculation&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="BookQuest" source="x_1383151_bkquest"&gt;327b26db93250210ef267c5efaba100f&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="BookQuest"&gt;327b26db93250210ef267c5efaba100f&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_342d53b093bd8210ef267c5efaba10a6&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;harini.srija&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-04-24 07:17:43&lt;/sys_updated_on&gt;&lt;template/&gt;&lt;when&gt;before&lt;/when&gt;&lt;/sys_script&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=342d53b093bd8210ef267c5efaba10a6"/&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-313381977</payload_hash>
+        <record_name>Fine calculation</record_name>
+        <reverted_from/>
+        <source>76f656a493f54210ef267c5efaba102f</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-04-24 07:17:44</sys_created_on>
+        <sys_id>240640059371c210ef267c5efaba1098</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18f0ef7af110000001</sys_recorded_at>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-04-24 07:17:44</sys_updated_on>
+        <type>Business Rule</type>
+        <update_guid>680640053e71c2106a546f3fb5adc997</update_guid>
+        <update_guid_history>680640053e71c2106a546f3fb5adc997:-313381977,4def3ff88231c2100905063c5bccec2c:-283415967,15fd3b783431c21060a5d00acf73fe16:1704526459,bcfbb7b4af31c210494ac277606780bc:406395848,40b9eb3047fd82108dc216f180c1c397:125614887,7077677cb4bd821071b2e98b983eee36:-1295702363,c877677c43bd8210dd433d37837941a2:-174797418,e5c6277c6dbd82106b07a09b8ea393a4:-1869717804,3aa22b382dbd8210dbf7bb9939b20e8d:521940110,5d212fb45fbd82101a555c33b58ce0f6:229541328,e511ebb4d1bd82109e49c9de7c45d38e:-1937648847,8c5f9b34e8bd8210cb9240ecde44c382:-541867216,304edf30a2bd8210ab25e3ed89ba64f3:933881968</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-04-29 14:05:30</sys_created_on>
+        <sys_db_object display_value="" name="sys_script">sys_script</sys_db_object>
+        <sys_id>0a1b2e6884e04ab289479226a6b0cfe4</sys_id>
+        <sys_metadata>342d53b093bd8210ef267c5efaba10a6</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Fine calculation</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_parent display_value="Borrow">5a71615093b10210ef267c5efaba107d</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_scope_delete display_value="">18e926194902432895b35f3c99259089</sys_scope_delete>
+        <sys_update_name>sys_script_342d53b093bd8210ef267c5efaba10a6</sys_update_name>
+        <sys_update_version display_value="sys_script_342d53b093bd8210ef267c5efaba10a6">240640059371c210ef267c5efaba1098</sys_update_version>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-04-29 14:05:30</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

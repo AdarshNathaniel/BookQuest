@@ -1,56 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update>
-    <sys_ui_section caption="" section_id="020de95c93b10210ef267c5efaba101d" sys_domain="global" table="x_1383151_bkquest_borrow" version="3" view="">
+    <sys_ui_section caption="Fine" section_id="dc80156293fd0210ef267c5efaba1037" sys_domain="global" table="x_1383151_bkquest_borrow" version="3" view="">
         <sys_ui_element action="INSERT_OR_UPDATE">
-            <element>number</element>
+            <element>days_late</element>
             <position>0</position>
             <sys_created_by>harini.srija</sys_created_by>
             <sys_created_on>2024-04-30 07:09:27</sys_created_on>
-            <sys_id>29ad767a93398210ef267c5efaba103d</sys_id>
+            <sys_id>61ad767a93398210ef267c5efaba108c</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
-            <sys_ui_section caption="NULL" display_value="" name="x_1383151_bkquest_borrow" sys_domain="global" view="Default view">020de95c93b10210ef267c5efaba101d</sys_ui_section>
+            <sys_ui_section caption="Fine" display_value="Fine" name="x_1383151_bkquest_borrow" sys_domain="global" view="Default view">dc80156293fd0210ef267c5efaba1037</sys_ui_section>
             <sys_updated_by>harini.srija</sys_updated_by>
             <sys_updated_on>2024-04-30 07:09:27</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
-            <element>book_id</element>
+            <element>fine_amount</element>
             <position>1</position>
             <sys_created_by>harini.srija</sys_created_by>
             <sys_created_on>2024-04-30 07:09:27</sys_created_on>
-            <sys_id>a9ad767a93398210ef267c5efaba103d</sys_id>
+            <sys_id>e1ad767a93398210ef267c5efaba108c</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
-            <sys_ui_section caption="NULL" display_value="" name="x_1383151_bkquest_borrow" sys_domain="global" view="Default view">020de95c93b10210ef267c5efaba101d</sys_ui_section>
+            <sys_ui_section caption="Fine" display_value="Fine" name="x_1383151_bkquest_borrow" sys_domain="global" view="Default view">dc80156293fd0210ef267c5efaba1037</sys_ui_section>
             <sys_updated_by>harini.srija</sys_updated_by>
             <sys_updated_on>2024-04-30 07:09:27</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
-            <element>user_id</element>
+            <element>fine_paid_date</element>
             <position>2</position>
             <sys_created_by>harini.srija</sys_created_by>
             <sys_created_on>2024-04-30 07:09:27</sys_created_on>
-            <sys_id>2dad767a93398210ef267c5efaba103d</sys_id>
+            <sys_id>65ad767a93398210ef267c5efaba108c</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
-            <sys_ui_section caption="NULL" display_value="" name="x_1383151_bkquest_borrow" sys_domain="global" view="Default view">020de95c93b10210ef267c5efaba101d</sys_ui_section>
-            <sys_updated_by>harini.srija</sys_updated_by>
-            <sys_updated_on>2024-04-30 07:09:27</sys_updated_on>
-            <sys_user/>
-            <type/>
-        </sys_ui_element>
-        <sys_ui_element action="INSERT_OR_UPDATE">
-            <element>title</element>
-            <position>3</position>
-            <sys_created_by>harini.srija</sys_created_by>
-            <sys_created_on>2024-04-30 07:09:27</sys_created_on>
-            <sys_id>adad767a93398210ef267c5efaba103d</sys_id>
-            <sys_mod_count>0</sys_mod_count>
-            <sys_ui_formatter/>
-            <sys_ui_section caption="NULL" display_value="" name="x_1383151_bkquest_borrow" sys_domain="global" view="Default view">020de95c93b10210ef267c5efaba101d</sys_ui_section>
+            <sys_ui_section caption="Fine" display_value="Fine" name="x_1383151_bkquest_borrow" sys_domain="global" view="Default view">dc80156293fd0210ef267c5efaba1037</sys_ui_section>
             <sys_updated_by>harini.srija</sys_updated_by>
             <sys_updated_on>2024-04-30 07:09:27</sys_updated_on>
             <sys_user/>
@@ -58,40 +44,54 @@
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>.split</element>
-            <position>4</position>
+            <position>3</position>
             <sys_created_by>harini.srija</sys_created_by>
             <sys_created_on>2024-04-30 07:09:27</sys_created_on>
-            <sys_id>21ad767a93398210ef267c5efaba103e</sys_id>
+            <sys_id>e5ad767a93398210ef267c5efaba108c</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
-            <sys_ui_section caption="NULL" display_value="" name="x_1383151_bkquest_borrow" sys_domain="global" view="Default view">020de95c93b10210ef267c5efaba101d</sys_ui_section>
+            <sys_ui_section caption="Fine" display_value="Fine" name="x_1383151_bkquest_borrow" sys_domain="global" view="Default view">dc80156293fd0210ef267c5efaba1037</sys_ui_section>
             <sys_updated_by>harini.srija</sys_updated_by>
             <sys_updated_on>2024-04-30 07:09:27</sys_updated_on>
             <sys_user/>
             <type>.split</type>
         </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>fine_status</element>
+            <position>4</position>
+            <sys_created_by>harini.srija</sys_created_by>
+            <sys_created_on>2024-04-30 07:09:27</sys_created_on>
+            <sys_id>69ad767a93398210ef267c5efaba108c</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Fine" display_value="Fine" name="x_1383151_bkquest_borrow" sys_domain="global" view="Default view">dc80156293fd0210ef267c5efaba1037</sys_ui_section>
+            <sys_updated_by>harini.srija</sys_updated_by>
+            <sys_updated_on>2024-04-30 07:09:27</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
         <sys_ui_section action="INSERT_OR_UPDATE">
-            <caption/>
+            <caption>Fine</caption>
             <header>false</header>
             <name>x_1383151_bkquest_borrow</name>
             <roles/>
             <sys_class_name>sys_ui_section</sys_class_name>
             <sys_created_by>harini.srija</sys_created_by>
-            <sys_created_on>2024-04-22 06:52:25</sys_created_on>
+            <sys_created_on>2024-04-29 04:34:06</sys_created_on>
             <sys_domain>global</sys_domain>
             <sys_domain_path>/</sys_domain_path>
-            <sys_id>020de95c93b10210ef267c5efaba101d</sys_id>
+            <sys_id>dc80156293fd0210ef267c5efaba1037</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_name>x_1383151_bkquest_borrow</sys_name>
             <sys_overrides/>
             <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
             <sys_policy/>
             <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
-            <sys_update_name>sys_ui_section_020de95c93b10210ef267c5efaba101d</sys_update_name>
+            <sys_update_name>sys_ui_section_dc80156293fd0210ef267c5efaba1037</sys_update_name>
             <sys_updated_by>harini.srija</sys_updated_by>
-            <sys_updated_on>2024-04-22 06:52:25</sys_updated_on>
+            <sys_updated_on>2024-04-29 04:34:06</sys_updated_on>
             <sys_user/>
-            <title>true</title>
+            <title>false</title>
             <view display_value="Default view" name="NULL">Default view</view>
             <view_name/>
         </sys_ui_section>

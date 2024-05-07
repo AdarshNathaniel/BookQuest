@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_form_sections form_id="1080156293fd0210ef267c5efaba1039" sys_domain="global" table="x_1383151_bkquest_borrow" version="3">
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>0</position>
+            <sys_created_by>harini.srija</sys_created_by>
+            <sys_created_on>2024-04-29 04:34:06</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>5880156293fd0210ef267c5efaba103c</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="x_1383151_bkquest_borrow" name="x_1383151_bkquest_borrow" sys_domain="global" view="Default view">1080156293fd0210ef267c5efaba1039</sys_ui_form>
+            <sys_ui_section caption="NULL" display_value="" name="x_1383151_bkquest_borrow" sys_domain="global" view="Default view">020de95c93b10210ef267c5efaba101d</sys_ui_section>
+            <sys_updated_by>harini.srija</sys_updated_by>
+            <sys_updated_on>2024-04-29 04:34:06</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>1</position>
+            <sys_created_by>harini.srija</sys_created_by>
+            <sys_created_on>2024-04-29 04:34:06</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>5480156293fd0210ef267c5efaba103d</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="x_1383151_bkquest_borrow" name="x_1383151_bkquest_borrow" sys_domain="global" view="Default view">1080156293fd0210ef267c5efaba1039</sys_ui_form>
+            <sys_ui_section caption="Dates" display_value="Dates" name="x_1383151_bkquest_borrow" sys_domain="global" view="Default view">5880156293fd0210ef267c5efaba1035</sys_ui_section>
+            <sys_updated_by>harini.srija</sys_updated_by>
+            <sys_updated_on>2024-04-29 04:34:06</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>2</position>
+            <sys_created_by>harini.srija</sys_created_by>
+            <sys_created_on>2024-04-29 04:34:06</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>d480156293fd0210ef267c5efaba10b1</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="x_1383151_bkquest_borrow" name="x_1383151_bkquest_borrow" sys_domain="global" view="Default view">1080156293fd0210ef267c5efaba1039</sys_ui_form>
+            <sys_ui_section caption="Fine" display_value="Fine" name="x_1383151_bkquest_borrow" sys_domain="global" view="Default view">dc80156293fd0210ef267c5efaba1037</sys_ui_section>
+            <sys_updated_by>harini.srija</sys_updated_by>
+            <sys_updated_on>2024-04-29 04:34:06</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form action="INSERT_OR_UPDATE">
+            <name>x_1383151_bkquest_borrow</name>
+            <roles/>
+            <sys_class_name>sys_ui_form</sys_class_name>
+            <sys_created_by>harini.srija</sys_created_by>
+            <sys_created_on>2024-04-29 04:34:06</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>1080156293fd0210ef267c5efaba1039</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_1383151_bkquest_borrow</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+            <sys_update_name>sys_ui_form_sections_1080156293fd0210ef267c5efaba1039</sys_update_name>
+            <sys_updated_by>harini.srija</sys_updated_by>
+            <sys_updated_on>2024-04-29 04:34:06</sys_updated_on>
+            <sys_user/>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_form>
+    </sys_ui_form_sections>
+</record_update>

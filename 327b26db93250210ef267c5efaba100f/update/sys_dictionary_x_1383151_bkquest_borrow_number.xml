@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update>
-    <sys_dictionary action="INSERT_OR_UPDATE" element="user_id" table="x_1383151_bkquest_borrow">
+    <sys_dictionary action="INSERT_OR_UPDATE" element="number" table="x_1383151_bkquest_borrow">
         <active>true</active>
         <array>false</array>
-        <attributes/>
+        <attributes>ignore_filter_on_new=true</attributes>
         <audit>false</audit>
         <calculation><![CDATA[(function calculatedFieldValue(current) {
 
@@ -13,10 +13,10 @@
         <choice/>
         <choice_field/>
         <choice_table/>
-        <column_label>User id</column_label>
+        <column_label>Borrow id</column_label>
         <comments/>
         <create_roles/>
-        <default_value/>
+        <default_value>javascript:global.getNextObjNumberPadded();</default_value>
         <defaultsort/>
         <delete_roles/>
         <dependent/>
@@ -26,21 +26,21 @@
         <dynamic_creation_script/>
         <dynamic_default_value/>
         <dynamic_ref_qual/>
-        <element>user_id</element>
+        <element>number</element>
         <element_reference>false</element_reference>
         <foreign_database/>
         <formula/>
         <function_definition/>
         <function_field>false</function_field>
-        <internal_type display_value="Reference">reference</internal_type>
+        <internal_type display_value="String">string</internal_type>
         <mandatory>false</mandatory>
-        <max_length>32</max_length>
+        <max_length>40</max_length>
         <name>x_1383151_bkquest_borrow</name>
         <next_element/>
         <primary>false</primary>
         <read_only>true</read_only>
         <read_roles/>
-        <reference display_value="" name="sys_user">sys_user</reference>
+        <reference/>
         <reference_cascade_rule/>
         <reference_floats>false</reference_floats>
         <reference_key/>
@@ -51,14 +51,14 @@
         <staged>false</staged>
         <sys_class_name>sys_dictionary</sys_class_name>
         <sys_created_by>harini.srija</sys_created_by>
-        <sys_created_on>2024-04-22 06:59:39</sys_created_on>
-        <sys_name>User id</sys_name>
+        <sys_created_on>2024-04-23 10:38:22</sys_created_on>
+        <sys_name>Borrow id</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
-        <sys_update_name>sys_dictionary_x_1383151_bkquest_borrow_user_id</sys_update_name>
+        <sys_update_name>sys_dictionary_x_1383151_bkquest_borrow_number</sys_update_name>
         <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-04-23 08:40:26</sys_updated_on>
+        <sys_updated_on>2024-04-23 10:39:27</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>
