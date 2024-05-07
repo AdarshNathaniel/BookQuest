@@ -31,5 +31,8 @@
         <index name="index2">
             <element name="genre"/>
         </index>
+        <index name="index3" unique="true">
+            <element name="isbn"/>
+        </index>
     </element>
 </database>
