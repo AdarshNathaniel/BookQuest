@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="DELETE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description>auto populate title</description>
+        <field>book_id</field>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>Auto populate title</name>
+        <order/>
+        <script><![CDATA[function onChange(control, oldValue, newValue, isLoading) {
+
+    if (isLoading || newValue == '') {
+        return;
+    }
+
+    var ga = new GlideAjax('x_1383151_bkquest.AutoPopulateTitle');
+    ga.addParam('sysparm_name', 'gettitle');
+    ga.addParam('sysparm_emp', newValue);
+    ga.getXMLAnswer(setValue);
+
+    function setValue(response) {
+        var answer = response;
+        if (answer) {
+            var userDataObj = JSON.parse(answer);
+            g_form.setValue('title', userDataObj.BookTitle);
+
+        }
+    }
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-04-23 07:10:24</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>31e83a2093b94210ef267c5efaba108c</sys_id>
+        <sys_mod_count>16</sys_mod_count>
+        <sys_name>Auto populate title</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>sys_script_client_31e83a2093b94210ef267c5efaba108c</sys_update_name>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-05-07 06:40:13</sys_updated_on>
+        <table>x_1383151_bkquest_borrow</table>
+        <type>onChange</type>
+        <ui_type>10</ui_type>
+        <view/>
+    </sys_script_client>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="BookQuest">327b26db93250210ef267c5efaba100f</application>
+        <file_path/>
+        <instance_id>0535015fdb717d1002d9172913961922</instance_id>
+        <instance_name>dev186731</instance_name>
+        <name>sys_script_client_31e83a2093b94210ef267c5efaba108c</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script_client"&gt;&lt;sys_script_client action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;applies_extended&gt;false&lt;/applies_extended&gt;&lt;condition/&gt;&lt;description&gt;auto populate title&lt;/description&gt;&lt;field&gt;book_id&lt;/field&gt;&lt;global&gt;true&lt;/global&gt;&lt;isolate_script&gt;true&lt;/isolate_script&gt;&lt;messages/&gt;&lt;name&gt;Auto populate title&lt;/name&gt;&lt;order/&gt;&lt;script&gt;&lt;![CDATA[function onChange(control, oldValue, newValue, isLoading) {
+
+    if (isLoading || newValue == '') {
+        return;
+    }
+
+    var ga = new GlideAjax('x_1383151_bkquest.AutoPopulateTitle');
+    ga.addParam('sysparm_name', 'gettitle');
+    ga.addParam('sysparm_emp', newValue);
+    ga.getXMLAnswer(setValue);
+
+    function setValue(response) {
+        var answer = response;
+        if (answer) {
+            var userDataObj = JSON.parse(answer);
+            g_form.setValue('title', userDataObj.BookTitle);
+
+        }
+    }
+}]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_client&lt;/sys_class_name&gt;&lt;sys_created_by&gt;harini.srija&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-04-23 07:10:24&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;31e83a2093b94210ef267c5efaba108c&lt;/sys_id&gt;&lt;sys_mod_count&gt;16&lt;/sys_mod_count&gt;&lt;sys_name&gt;Auto populate title&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="BookQuest" source="x_1383151_bkquest"&gt;327b26db93250210ef267c5efaba100f&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="BookQuest"&gt;327b26db93250210ef267c5efaba100f&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_client_31e83a2093b94210ef267c5efaba108c&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;harini.srija&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-07 06:40:13&lt;/sys_updated_on&gt;&lt;table&gt;x_1383151_bkquest_borrow&lt;/table&gt;&lt;type&gt;onChange&lt;/type&gt;&lt;ui_type&gt;10&lt;/ui_type&gt;&lt;view/&gt;&lt;/sys_script_client&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>1036359742</payload_hash>
+        <record_name>Auto populate title</record_name>
+        <reverted_from/>
+        <source>76f656a493f54210ef267c5efaba102f</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-05-07 06:40:13</sys_created_on>
+        <sys_id>f11a368d930a4210ef267c5efaba109c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18f51c803af0000001</sys_recorded_at>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-05-07 06:40:13</sys_updated_on>
+        <type>Client Script</type>
+        <update_guid>b91a368dbf0a42104c091b1ef63a2b9b</update_guid>
+        <update_guid_history>b91a368dbf0a42104c091b1ef63a2b9b:1036359742,ec48b6c9590a4210c4b0a54ec0fe1eba:1866775186,a7b67e49e60a4210c71578884a9426ff:-498077701,e9d5fec5f70a421023817f853635e57d:701287512,f38a963e80758210ee160b6da08aac00:1333141997,16d716ba0175821078e636b869a1751a:-819016277,d6fba3aae9794210b3a0826cb6f0e9d1:-1917686911,f1e823ea3079421095b41442de4d5a1a:-1851496607,0fec74c1ef75c210ae09d827d5756cfc:1168943990,906c7801c675c2107c3067e5c600239c:-459736685,30e0fc053435c21012a9af54207baf55:-1275290827,22b0f3383efd82107cd9cce1efe2cddb:-366767870,29bf63b453fd82103d28704c20b2a4ff:-1508859646,4edecf2800f942109462c39edf52e340:-1680987540,c2bd32a493b94210b4b8c3353c7744a5:2131505086,988dbea0bcb9421049aa158d280b9364:-1356423926,13bafe604eb942109112c97e40fdf11f:-2139001997</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-05-07 07:49:12</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_client">sys_script_client</sys_db_object>
+        <sys_id>0a8f5bdfe6af4ea68f980f63a6a33aa1</sys_id>
+        <sys_metadata>31e83a2093b94210ef267c5efaba108c</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Auto populate title</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_parent display_value="Borrow">5a71615093b10210ef267c5efaba107d</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_scope_delete display_value="">18e926194902432895b35f3c99259089</sys_scope_delete>
+        <sys_update_name>sys_script_client_31e83a2093b94210ef267c5efaba108c</sys_update_name>
+        <sys_update_version display_value="sys_script_client_31e83a2093b94210ef267c5efaba108c">f11a368d930a4210ef267c5efaba109c</sys_update_version>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-05-07 07:49:12</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
