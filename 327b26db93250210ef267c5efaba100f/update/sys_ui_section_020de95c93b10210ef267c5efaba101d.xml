@@ -4,69 +4,83 @@
             <element>number</element>
             <position>0</position>
             <sys_created_by>harini.srija</sys_created_by>
-            <sys_created_on>2024-04-30 07:09:27</sys_created_on>
-            <sys_id>29ad767a93398210ef267c5efaba103d</sys_id>
+            <sys_created_on>2024-05-08 08:36:38</sys_created_on>
+            <sys_id>385e90a19382c210ef267c5efaba10bd</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_1383151_bkquest_borrow" sys_domain="global" view="Default view">020de95c93b10210ef267c5efaba101d</sys_ui_section>
             <sys_updated_by>harini.srija</sys_updated_by>
-            <sys_updated_on>2024-04-30 07:09:27</sys_updated_on>
-            <sys_user/>
-            <type/>
-        </sys_ui_element>
-        <sys_ui_element action="INSERT_OR_UPDATE">
-            <element>book_id</element>
-            <position>1</position>
-            <sys_created_by>harini.srija</sys_created_by>
-            <sys_created_on>2024-04-30 07:09:27</sys_created_on>
-            <sys_id>a9ad767a93398210ef267c5efaba103d</sys_id>
-            <sys_mod_count>0</sys_mod_count>
-            <sys_ui_formatter/>
-            <sys_ui_section caption="NULL" display_value="" name="x_1383151_bkquest_borrow" sys_domain="global" view="Default view">020de95c93b10210ef267c5efaba101d</sys_ui_section>
-            <sys_updated_by>harini.srija</sys_updated_by>
-            <sys_updated_on>2024-04-30 07:09:27</sys_updated_on>
+            <sys_updated_on>2024-05-08 08:36:38</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>user_id</element>
-            <position>2</position>
+            <position>1</position>
             <sys_created_by>harini.srija</sys_created_by>
-            <sys_created_on>2024-04-30 07:09:27</sys_created_on>
-            <sys_id>2dad767a93398210ef267c5efaba103d</sys_id>
+            <sys_created_on>2024-05-08 08:36:38</sys_created_on>
+            <sys_id>bc5e90a19382c210ef267c5efaba10bd</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_1383151_bkquest_borrow" sys_domain="global" view="Default view">020de95c93b10210ef267c5efaba101d</sys_ui_section>
             <sys_updated_by>harini.srija</sys_updated_by>
-            <sys_updated_on>2024-04-30 07:09:27</sys_updated_on>
+            <sys_updated_on>2024-05-08 08:36:38</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
-            <element>title</element>
-            <position>3</position>
+            <element>book_id</element>
+            <position>2</position>
             <sys_created_by>harini.srija</sys_created_by>
-            <sys_created_on>2024-04-30 07:09:27</sys_created_on>
-            <sys_id>adad767a93398210ef267c5efaba103d</sys_id>
+            <sys_created_on>2024-05-08 08:36:38</sys_created_on>
+            <sys_id>305e90a19382c210ef267c5efaba10be</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_1383151_bkquest_borrow" sys_domain="global" view="Default view">020de95c93b10210ef267c5efaba101d</sys_ui_section>
             <sys_updated_by>harini.srija</sys_updated_by>
-            <sys_updated_on>2024-04-30 07:09:27</sys_updated_on>
+            <sys_updated_on>2024-05-08 08:36:38</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>book_id.title.title</element>
+            <position>3</position>
+            <sys_created_by>harini.srija</sys_created_by>
+            <sys_created_on>2024-05-08 08:36:38</sys_created_on>
+            <sys_id>b05e90a19382c210ef267c5efaba10be</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_1383151_bkquest_borrow" sys_domain="global" view="Default view">020de95c93b10210ef267c5efaba101d</sys_ui_section>
+            <sys_updated_by>harini.srija</sys_updated_by>
+            <sys_updated_on>2024-05-08 08:36:38</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>book_id.title.author.full_name</element>
+            <position>4</position>
+            <sys_created_by>harini.srija</sys_created_by>
+            <sys_created_on>2024-05-08 08:36:38</sys_created_on>
+            <sys_id>345e90a19382c210ef267c5efaba10be</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_1383151_bkquest_borrow" sys_domain="global" view="Default view">020de95c93b10210ef267c5efaba101d</sys_ui_section>
+            <sys_updated_by>harini.srija</sys_updated_by>
+            <sys_updated_on>2024-05-08 08:36:38</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>.split</element>
-            <position>4</position>
+            <position>5</position>
             <sys_created_by>harini.srija</sys_created_by>
-            <sys_created_on>2024-04-30 07:09:27</sys_created_on>
-            <sys_id>21ad767a93398210ef267c5efaba103e</sys_id>
+            <sys_created_on>2024-05-08 08:36:38</sys_created_on>
+            <sys_id>b45e90a19382c210ef267c5efaba10be</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_1383151_bkquest_borrow" sys_domain="global" view="Default view">020de95c93b10210ef267c5efaba101d</sys_ui_section>
             <sys_updated_by>harini.srija</sys_updated_by>
-            <sys_updated_on>2024-04-30 07:09:27</sys_updated_on>
+            <sys_updated_on>2024-05-08 08:36:38</sys_updated_on>
             <sys_user/>
             <type>.split</type>
         </sys_ui_element>

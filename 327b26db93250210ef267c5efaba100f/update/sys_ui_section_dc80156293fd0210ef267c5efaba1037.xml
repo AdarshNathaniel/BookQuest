@@ -4,13 +4,13 @@
             <element>days_late</element>
             <position>0</position>
             <sys_created_by>harini.srija</sys_created_by>
-            <sys_created_on>2024-04-30 07:09:27</sys_created_on>
-            <sys_id>61ad767a93398210ef267c5efaba108c</sys_id>
+            <sys_created_on>2024-05-08 08:36:38</sys_created_on>
+            <sys_id>705e90a19382c210ef267c5efaba10c9</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="Fine" display_value="Fine" name="x_1383151_bkquest_borrow" sys_domain="global" view="Default view">dc80156293fd0210ef267c5efaba1037</sys_ui_section>
             <sys_updated_by>harini.srija</sys_updated_by>
-            <sys_updated_on>2024-04-30 07:09:27</sys_updated_on>
+            <sys_updated_on>2024-05-08 08:36:38</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -18,13 +18,13 @@
             <element>fine_amount</element>
             <position>1</position>
             <sys_created_by>harini.srija</sys_created_by>
-            <sys_created_on>2024-04-30 07:09:27</sys_created_on>
-            <sys_id>e1ad767a93398210ef267c5efaba108c</sys_id>
+            <sys_created_on>2024-05-08 08:36:38</sys_created_on>
+            <sys_id>f05e90a19382c210ef267c5efaba10c9</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="Fine" display_value="Fine" name="x_1383151_bkquest_borrow" sys_domain="global" view="Default view">dc80156293fd0210ef267c5efaba1037</sys_ui_section>
             <sys_updated_by>harini.srija</sys_updated_by>
-            <sys_updated_on>2024-04-30 07:09:27</sys_updated_on>
+            <sys_updated_on>2024-05-08 08:36:38</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -32,13 +32,13 @@
             <element>fine_paid_date</element>
             <position>2</position>
             <sys_created_by>harini.srija</sys_created_by>
-            <sys_created_on>2024-04-30 07:09:27</sys_created_on>
-            <sys_id>65ad767a93398210ef267c5efaba108c</sys_id>
+            <sys_created_on>2024-05-08 08:36:38</sys_created_on>
+            <sys_id>745e90a19382c210ef267c5efaba10c9</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="Fine" display_value="Fine" name="x_1383151_bkquest_borrow" sys_domain="global" view="Default view">dc80156293fd0210ef267c5efaba1037</sys_ui_section>
             <sys_updated_by>harini.srija</sys_updated_by>
-            <sys_updated_on>2024-04-30 07:09:27</sys_updated_on>
+            <sys_updated_on>2024-05-08 08:36:38</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -46,13 +46,13 @@
             <element>.split</element>
             <position>3</position>
             <sys_created_by>harini.srija</sys_created_by>
-            <sys_created_on>2024-04-30 07:09:27</sys_created_on>
-            <sys_id>e5ad767a93398210ef267c5efaba108c</sys_id>
+            <sys_created_on>2024-05-08 08:36:38</sys_created_on>
+            <sys_id>f45e90a19382c210ef267c5efaba10c9</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="Fine" display_value="Fine" name="x_1383151_bkquest_borrow" sys_domain="global" view="Default view">dc80156293fd0210ef267c5efaba1037</sys_ui_section>
             <sys_updated_by>harini.srija</sys_updated_by>
-            <sys_updated_on>2024-04-30 07:09:27</sys_updated_on>
+            <sys_updated_on>2024-05-08 08:36:38</sys_updated_on>
             <sys_user/>
             <type>.split</type>
         </sys_ui_element>
@@ -60,13 +60,27 @@
             <element>fine_status</element>
             <position>4</position>
             <sys_created_by>harini.srija</sys_created_by>
-            <sys_created_on>2024-04-30 07:09:27</sys_created_on>
-            <sys_id>69ad767a93398210ef267c5efaba108c</sys_id>
+            <sys_created_on>2024-05-08 08:36:38</sys_created_on>
+            <sys_id>785e90a19382c210ef267c5efaba10c9</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="Fine" display_value="Fine" name="x_1383151_bkquest_borrow" sys_domain="global" view="Default view">dc80156293fd0210ef267c5efaba1037</sys_ui_section>
             <sys_updated_by>harini.srija</sys_updated_by>
-            <sys_updated_on>2024-04-30 07:09:27</sys_updated_on>
+            <sys_updated_on>2024-05-08 08:36:38</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>email_sent</element>
+            <position>5</position>
+            <sys_created_by>harini.srija</sys_created_by>
+            <sys_created_on>2024-05-08 08:36:38</sys_created_on>
+            <sys_id>f85e90a19382c210ef267c5efaba10c9</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Fine" display_value="Fine" name="x_1383151_bkquest_borrow" sys_domain="global" view="Default view">dc80156293fd0210ef267c5efaba1037</sys_ui_section>
+            <sys_updated_by>harini.srija</sys_updated_by>
+            <sys_updated_on>2024-05-08 08:36:38</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>

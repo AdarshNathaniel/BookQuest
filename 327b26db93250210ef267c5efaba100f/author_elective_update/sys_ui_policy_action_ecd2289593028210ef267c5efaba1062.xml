@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_policy_action">
+    <sys_ui_policy_action action="DELETE">
+        <cleared>false</cleared>
+        <disabled>true</disabled>
+        <field>book_id.title.author.full_name</field>
+        <mandatory>ignore</mandatory>
+        <sys_class_name>sys_ui_policy_action</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-05-07 14:23:12</sys_created_on>
+        <sys_id>ecd2289593028210ef267c5efaba1062</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>book_id.title.author.full_name</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>sys_ui_policy_action_ecd2289593028210ef267c5efaba1062</sys_update_name>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-05-07 14:23:12</sys_updated_on>
+        <table>x_1383151_bkquest_borrow</table>
+        <ui_policy display_value="Make reference field read only">1062209593028210ef267c5efaba1024</ui_policy>
+        <visible>ignore</visible>
+    </sys_ui_policy_action>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="BookQuest">327b26db93250210ef267c5efaba100f</application>
+        <file_path/>
+        <instance_id>0535015fdb717d1002d9172913961922</instance_id>
+        <instance_name>dev186731</instance_name>
+        <name>sys_ui_policy_action_ecd2289593028210ef267c5efaba1062</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_policy_action"><sys_ui_policy_action action="INSERT_OR_UPDATE"><cleared>false</cleared><disabled>true</disabled><field>book_id.title.author.full_name</field><mandatory>ignore</mandatory><sys_class_name>sys_ui_policy_action</sys_class_name><sys_created_by>harini.srija</sys_created_by><sys_created_on>2024-05-07 14:23:12</sys_created_on><sys_id>ecd2289593028210ef267c5efaba1062</sys_id><sys_mod_count>0</sys_mod_count><sys_name>book_id.title.author.full_name</sys_name><sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package><sys_policy/><sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope><sys_update_name>sys_ui_policy_action_ecd2289593028210ef267c5efaba1062</sys_update_name><sys_updated_by>harini.srija</sys_updated_by><sys_updated_on>2024-05-07 14:23:12</sys_updated_on><table>x_1383151_bkquest_borrow</table><ui_policy display_value="Make reference field read only">1062209593028210ef267c5efaba1024</ui_policy><visible>ignore</visible></sys_ui_policy_action></record_update>]]></payload>
+        <payload_hash>-1641291795</payload_hash>
+        <record_name>book_id.title.author.full_name</record_name>
+        <reverted_from/>
+        <source>76f656a493f54210ef267c5efaba102f</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-05-07 14:23:12</sys_created_on>
+        <sys_id>37046cd593028210ef267c5efaba10ec</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18f536fe3800000001</sys_recorded_at>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-05-07 14:23:12</sys_updated_on>
+        <type>UI Policy Action</type>
+        <update_guid>7b046cd592028210f007678c17b741eb</update_guid>
+        <update_guid_history>7b046cd592028210f007678c17b741eb:-1641291795</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-05-07 14:28:03</sys_created_on>
+        <sys_db_object display_value="" name="sys_ui_policy_action">sys_ui_policy_action</sys_db_object>
+        <sys_id>46103172f36e4c07999c2ce4fd590b39</sys_id>
+        <sys_metadata>ecd2289593028210ef267c5efaba1062</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>book_id.title.author.full_name</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_parent display_value="Make reference field read only in borrow table ">1062209593028210ef267c5efaba1024</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_scope_delete display_value="">18e926194902432895b35f3c99259089</sys_scope_delete>
+        <sys_update_name>sys_ui_policy_action_ecd2289593028210ef267c5efaba1062</sys_update_name>
+        <sys_update_version display_value="sys_ui_policy_action_ecd2289593028210ef267c5efaba1062">37046cd593028210ef267c5efaba10ec</sys_update_version>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-05-07 14:28:03</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

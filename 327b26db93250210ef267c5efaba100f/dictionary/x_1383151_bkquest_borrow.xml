@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element db_object_id="5a71615093b10210ef267c5efaba107d" label="Borrow" max_length="40" name="x_1383151_bkquest_borrow" type="collection">
+        <element label="Amount" max_length="20" name="amount" type="currency"/>
         <element label="Book id" mandatory="true" max_length="32" name="book_id" reference="x_1383151_bkquest_book_copy" type="reference"/>
         <element label="Borrow date" max_length="40" name="borrow_date" read_only="true" type="glide_date_time"/>
-        <element label="Borrow Duration" mandatory="true" max_length="40" name="days" type="integer"/>
+        <element label="Borrow Days" mandatory="true" max_length="40" name="days" type="integer"/>
         <element label="Days late" max_length="40" name="days_late" read_only="true" type="integer"/>
         <element label="Due date" max_length="40" name="due_date" read_only="true" type="glide_date_time"/>
-        <element label="Fine amount" max_length="32" name="fine_amount" type="currency"/>
+        <element label="Email Sent" max_length="30" name="email_sent" type="string"/>
+        <element label="Fine amount in $" max_length="15" name="fine_amount" read_only="true" type="decimal"/>
         <element label="Fine paid date" max_length="40" name="fine_paid_date" type="glide_date_time"/>
         <element choice="1" label="Fine status" max_length="40" name="fine_status" type="choice">
             <choice>
@@ -22,12 +24,9 @@
             <element name="book_id"/>
         </index>
         <index name="index2">
-            <element name="fine_amount"/>
-        </index>
-        <index name="index3">
             <element name="title"/>
         </index>
-        <index name="index4">
+        <index name="index3">
             <element name="user_id"/>
         </index>
     </element>
