@@ -37,8 +37,7 @@
         <mandatory>false</mandatory>
         <message/>
         <message_html><![CDATA[<p>Hi, ${user_id}</p>
-<p>Borrow id: ${number}</p>
-<p>The book id: ${book_id.number} titled "${book_id.title.title}" is due on ${due_date}.</p>
+<p>The book titled "${book_id.title.title} (${book_id.number})" is due on ${due_date}.</p>
 <p>&nbsp;</p>
 <p>${mail_script:addingImage}</p>]]></message_html>
         <message_list/>
@@ -62,7 +61,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>2ba7ef5d934e8210ef267c5efaba105a</sys_id>
-        <sys_mod_count>8</sys_mod_count>
+        <sys_mod_count>9</sys_mod_count>
         <sys_name>Book due date reminder</sys_name>
         <sys_overrides/>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
@@ -70,7 +69,7 @@
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sysevent_email_action_2ba7ef5d934e8210ef267c5efaba105a</sys_update_name>
         <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-05-08 06:48:09</sys_updated_on>
+        <sys_updated_on>2024-05-08 14:24:10</sys_updated_on>
         <sys_version>2</sys_version>
         <template display_value="Unsubscribe and Preferences">7ed0481f3b0b2200c869c2c703efc487</template>
         <type>email</type>
