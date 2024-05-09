@@ -14,8 +14,8 @@
             </choice>
         </element>
         <element label="No of Books Available" max_length="40" name="no_of_books_available" read_only="true" type="integer"/>
-        <element label="No of pages" max_length="40" name="no_of_pages" type="integer"/>
-        <element attributes="edge_encryption_enabled=true" label="Publisher" max_length="50" name="publisher" type="string"/>
+        <element label="Number of pages" max_length="40" name="no_of_pages" type="integer"/>
+        <element label="Publisher" max_length="32" name="publisher" reference="x_1383151_bkquest_publisher_lookup" type="reference"/>
         <element label="Quantity" mandatory="true" max_length="40" name="quantity" type="integer"/>
         <element attributes="edge_encryption_enabled=true" label="Title" mandatory="true" max_length="128" name="title" type="string"/>
         <element attributes="edge_encryption_enabled=true" choice="3" default="physical" label="Type" mandatory="true" max_length="40" name="type" type="choice">
@@ -33,6 +33,9 @@
         </index>
         <index name="index3" unique="true">
             <element name="isbn"/>
+        </index>
+        <index name="index4">
+            <element name="publisher"/>
         </index>
     </element>
 </database>

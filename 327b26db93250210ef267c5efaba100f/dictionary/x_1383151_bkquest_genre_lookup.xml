@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element attributes="update_synch=true" db_object_id="ad2577bc93fd8210ef267c5efaba10a5" extends="dl_matcher" label="Genre Lookup" max_length="40" name="x_1383151_bkquest_genre_lookup" type="collection">
-        <element display="true" label="Genre name" max_length="40" name="genre_name" type="string"/>
-        <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Genre number" max_length="40" name="number" type="string"/>
+        <element display="true" label="Genre" max_length="40" name="genre_name" type="string"/>
     </element>
 </database>

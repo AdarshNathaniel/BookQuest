@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element db_object_id="4404b2ba93f58210ef267c5efaba105b" label="Author" max_length="40" name="x_1383151_bkquest_author" type="collection">
         <element label="Date of birth" max_length="40" name="date_of_birth" type="glide_date"/>
-        <element display="true" label="Author name" max_length="70" name="full_name" type="string"/>
+        <element label="First name" max_length="40" name="first_name" type="string"/>
+        <element display="true" label="Author full name" max_length="70" name="full_name" read_only="true" type="string"/>
         <element choice="1" label="Gender" mandatory="true" max_length="20" name="gender" type="string">
             <choice>
                 <element inactive_on_update="false" label="Male" sequence="100" value="male"/>
@@ -9,6 +10,7 @@
                 <element inactive_on_update="false" label="Other" sequence="300" value="other"/>
             </choice>
         </element>
+        <element label="Last name" max_length="40" name="last_name" type="string"/>
         <element label="Nationality" max_length="32" name="nationality" reference="core_country" type="reference"/>
         <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Author ID" max_length="40" name="number" type="string"/>
         <index name="index">

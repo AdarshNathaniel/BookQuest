@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element attributes="update_synch=true" db_object_id="7cd8dd7d93c60610ef267c5efaba1069" extends="dl_matcher" label="Publisher Lookup" max_length="40" name="x_1383151_bkquest_publisher_lookup" type="collection">
+        <element display="true" label="Publisher" max_length="40" name="publisher" type="string"/>
+    </element>
+</database>

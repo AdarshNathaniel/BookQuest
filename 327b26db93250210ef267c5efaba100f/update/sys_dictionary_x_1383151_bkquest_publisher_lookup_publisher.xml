@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update>
-    <sys_dictionary action="INSERT_OR_UPDATE" element="number" table="x_1383151_bkquest_genre_lookup">
+    <sys_dictionary action="INSERT_OR_UPDATE" element="publisher" table="x_1383151_bkquest_publisher_lookup">
         <active>true</active>
         <array>false</array>
-        <attributes>ignore_filter_on_new=true</attributes>
+        <attributes/>
         <audit>false</audit>
         <calculation><![CDATA[(function calculatedFieldValue(current) {
 
@@ -13,20 +13,20 @@
         <choice/>
         <choice_field/>
         <choice_table/>
-        <column_label>Genre number</column_label>
+        <column_label>Publisher</column_label>
         <comments/>
         <create_roles/>
-        <default_value>javascript:global.getNextObjNumberPadded();</default_value>
+        <default_value/>
         <defaultsort/>
         <delete_roles/>
         <dependent/>
         <dependent_on_field/>
-        <display>false</display>
+        <display>true</display>
         <dynamic_creation>false</dynamic_creation>
         <dynamic_creation_script/>
         <dynamic_default_value/>
         <dynamic_ref_qual/>
-        <element>number</element>
+        <element>publisher</element>
         <element_reference>false</element_reference>
         <foreign_database/>
         <formula/>
@@ -35,7 +35,7 @@
         <internal_type display_value="String">string</internal_type>
         <mandatory>false</mandatory>
         <max_length>40</max_length>
-        <name>x_1383151_bkquest_genre_lookup</name>
+        <name>x_1383151_bkquest_publisher_lookup</name>
         <next_element/>
         <primary>false</primary>
         <read_only>false</read_only>
@@ -51,14 +51,14 @@
         <staged>false</staged>
         <sys_class_name>sys_dictionary</sys_class_name>
         <sys_created_by>adarsh.nathaniel</sys_created_by>
-        <sys_created_on>2024-04-24 06:18:36</sys_created_on>
-        <sys_name>Genre number</sys_name>
+        <sys_created_on>2024-05-09 07:36:34</sys_created_on>
+        <sys_name>Publisher</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
-        <sys_update_name>sys_dictionary_x_1383151_bkquest_genre_lookup_number</sys_update_name>
+        <sys_update_name>sys_dictionary_x_1383151_bkquest_publisher_lookup_publisher</sys_update_name>
         <sys_updated_by>adarsh.nathaniel</sys_updated_by>
-        <sys_updated_on>2024-04-24 06:19:55</sys_updated_on>
+        <sys_updated_on>2024-05-09 08:39:44</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>

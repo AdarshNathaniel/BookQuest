@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_policy_action">
+    <sys_ui_policy_action action="INSERT_OR_UPDATE">
+        <cleared>false</cleared>
+        <disabled>true</disabled>
+        <field>title.title</field>
+        <mandatory>ignore</mandatory>
+        <sys_class_name>sys_ui_policy_action</sys_class_name>
+        <sys_created_by>adarsh.nathaniel</sys_created_by>
+        <sys_created_on>2024-05-09 09:01:37</sys_created_on>
+        <sys_id>826dadb5934a0610ef267c5efaba10ec</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>title.title</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>sys_ui_policy_action_826dadb5934a0610ef267c5efaba10ec</sys_update_name>
+        <sys_updated_by>adarsh.nathaniel</sys_updated_by>
+        <sys_updated_on>2024-05-09 09:01:37</sys_updated_on>
+        <table>x_1383151_bkquest_book_copy</table>
+        <ui_policy display_value="Title auto-population for ISBN">44fc25b5934a0610ef267c5efaba1040</ui_policy>
+        <visible>true</visible>
+    </sys_ui_policy_action>
+</record_update>

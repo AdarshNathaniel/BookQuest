@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_ui_policy">
     <sys_ui_policy action="INSERT_OR_UPDATE">
         <active>true</active>
-        <conditions table="x_1383151_bkquest_book">date_of_publicationISNOTEMPTY^EQ<item endquery="false" field="date_of_publication" goto="false" newquery="false" operator="ISNOTEMPTY" or="false" value=""/>
+        <conditions table="x_1383151_bkquest_book_copy">titleISNOTEMPTY^EQ<item endquery="false" field="title" goto="false" newquery="false" operator="ISNOTEMPTY" or="false" value=""/>
             <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
         </conditions>
         <description/>
@@ -21,23 +21,23 @@
 
 }]]></script_true>
         <set_values/>
-        <short_description>Publisher Details</short_description>
+        <short_description>Title auto-population for ISBN</short_description>
         <sys_class_name>sys_ui_policy</sys_class_name>
         <sys_created_by>adarsh.nathaniel</sys_created_by>
-        <sys_created_on>2024-04-23 06:36:42</sys_created_on>
+        <sys_created_on>2024-05-09 09:00:33</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
-        <sys_id>0a3172a493794210ef267c5efaba102f</sys_id>
-        <sys_mod_count>2</sys_mod_count>
-        <sys_name>Publisher Details</sys_name>
+        <sys_id>44fc25b5934a0610ef267c5efaba1040</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Title auto-population for ISBN</sys_name>
         <sys_overrides/>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
-        <sys_update_name>sys_ui_policy_0a3172a493794210ef267c5efaba102f</sys_update_name>
+        <sys_update_name>sys_ui_policy_44fc25b5934a0610ef267c5efaba1040</sys_update_name>
         <sys_updated_by>adarsh.nathaniel</sys_updated_by>
-        <sys_updated_on>2024-05-09 06:56:10</sys_updated_on>
-        <table>x_1383151_bkquest_book</table>
+        <sys_updated_on>2024-05-09 09:00:33</sys_updated_on>
+        <table>x_1383151_bkquest_book_copy</table>
         <ui_type>0</ui_type>
         <view/>
     </sys_ui_policy>

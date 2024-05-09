@@ -13,7 +13,7 @@
         <choice/>
         <choice_field/>
         <choice_table/>
-        <column_label>No of pages</column_label>
+        <column_label>Number of pages</column_label>
         <comments/>
         <create_roles/>
         <default_value/>
@@ -52,13 +52,13 @@
         <sys_class_name>sys_dictionary</sys_class_name>
         <sys_created_by>adarsh.nathaniel</sys_created_by>
         <sys_created_on>2024-04-24 04:49:20</sys_created_on>
-        <sys_name>No of pages</sys_name>
+        <sys_name>Number of pages</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sys_dictionary_x_1383151_bkquest_book_no_of_pages</sys_update_name>
         <sys_updated_by>adarsh.nathaniel</sys_updated_by>
-        <sys_updated_on>2024-04-24 04:49:20</sys_updated_on>
+        <sys_updated_on>2024-05-09 06:51:32</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>
