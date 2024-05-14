@@ -10,13 +10,13 @@
 	return '';  // return the calculated value
 
 })(current);]]></calculation>
-        <choice>1</choice>
+        <choice>3</choice>
         <choice_field/>
         <choice_table/>
         <column_label>Fine status</column_label>
         <comments/>
         <create_roles/>
-        <default_value/>
+        <default_value>not paid</default_value>
         <defaultsort/>
         <delete_roles/>
         <dependent/>
@@ -57,8 +57,8 @@
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sys_dictionary_x_1383151_bkquest_borrow_fine_status</sys_update_name>
-        <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-04-22 06:52:07</sys_updated_on>
+        <sys_updated_by>adarsh.nathaniel</sys_updated_by>
+        <sys_updated_on>2024-05-10 04:25:17</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>

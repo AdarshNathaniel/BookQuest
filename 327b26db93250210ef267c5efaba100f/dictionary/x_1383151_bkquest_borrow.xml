@@ -3,13 +3,13 @@
         <element label="Amount" max_length="20" name="amount" type="currency"/>
         <element label="Book id" mandatory="true" max_length="32" name="book_id" reference="x_1383151_bkquest_book_copy" type="reference"/>
         <element label="Borrow date" max_length="40" name="borrow_date" read_only="true" type="glide_date_time"/>
-        <element label="Borrow Days" mandatory="true" max_length="40" name="days" type="integer"/>
+        <element label="Borrow period" mandatory="true" max_length="40" name="days" type="integer"/>
         <element label="Days late" max_length="40" name="days_late" read_only="true" type="integer"/>
         <element label="Due date" max_length="40" name="due_date" read_only="true" type="glide_date_time"/>
-        <element label="Email Sent" max_length="30" name="email_sent" type="string"/>
+        <element label="Email sent" max_length="30" name="email_sent" type="string"/>
         <element label="Fine amount in $" max_length="15" name="fine_amount" read_only="true" type="decimal"/>
         <element label="Fine paid date" max_length="40" name="fine_paid_date" type="glide_date_time"/>
-        <element choice="1" label="Fine status" max_length="40" name="fine_status" type="choice">
+        <element choice="3" default="not paid" label="Fine status" max_length="40" name="fine_status" type="choice">
             <choice>
                 <element inactive="true" inactive_on_update="true" label="Choice 3" sequence="0" value="Choice 3"/>
                 <element inactive_on_update="false" label="Paid" sequence="0" value="paid"/>
