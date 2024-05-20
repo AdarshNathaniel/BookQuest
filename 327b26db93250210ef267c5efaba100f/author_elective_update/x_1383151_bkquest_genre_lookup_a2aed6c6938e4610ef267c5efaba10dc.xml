@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="x_1383151_bkquest_genre_lookup">
+    <x_1383151_bkquest_genre_lookup action="DELETE">
+        <active>true</active>
+        <genre_name>Houghton Mifflin Harcourt</genre_name>
+        <order>100</order>
+        <sys_class_name>x_1383151_bkquest_genre_lookup</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-05-10 07:14:30</sys_created_on>
+        <sys_id>a2aed6c6938e4610ef267c5efaba10dc</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Houghton Mifflin Harcourt</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>x_1383151_bkquest_genre_lookup_a2aed6c6938e4610ef267c5efaba10dc</sys_update_name>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-05-10 07:14:30</sys_updated_on>
+    </x_1383151_bkquest_genre_lookup>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="BookQuest">327b26db93250210ef267c5efaba100f</application>
+        <file_path/>
+        <instance_id>0535015fdb717d1002d9172913961922</instance_id>
+        <instance_name>dev186731</instance_name>
+        <name>x_1383151_bkquest_genre_lookup_a2aed6c6938e4610ef267c5efaba10dc</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="x_1383151_bkquest_genre_lookup"><x_1383151_bkquest_genre_lookup action="INSERT_OR_UPDATE"><active>true</active><genre_name>Houghton Mifflin Harcourt</genre_name><order>100</order><sys_class_name>x_1383151_bkquest_genre_lookup</sys_class_name><sys_created_by>harini.srija</sys_created_by><sys_created_on>2024-05-10 07:14:30</sys_created_on><sys_id>a2aed6c6938e4610ef267c5efaba10dc</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Houghton Mifflin Harcourt</sys_name><sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package><sys_policy/><sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope><sys_update_name>x_1383151_bkquest_genre_lookup_a2aed6c6938e4610ef267c5efaba10dc</sys_update_name><sys_updated_by>harini.srija</sys_updated_by><sys_updated_on>2024-05-10 07:14:30</sys_updated_on></x_1383151_bkquest_genre_lookup></record_update>]]></payload>
+        <payload_hash>360178736</payload_hash>
+        <record_name>Houghton Mifflin Harcourt</record_name>
+        <reverted_from/>
+        <source>76f656a493f54210ef267c5efaba102f</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-05-10 07:14:30</sys_created_on>
+        <sys_id>c1be5686938e4610ef267c5efaba1082</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18f615a78c20000001</sys_recorded_at>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-05-10 07:14:30</sys_updated_on>
+        <type>Genre Lookup</type>
+        <update_guid>c5be5686e78e46102d62696b439cec81</update_guid>
+        <update_guid_history>c5be5686e78e46102d62696b439cec81:360178736</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Houghton Mifflin Harcourt">00ce5ac6938e4610ef267c5efaba106a</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-05-10 07:14:42</sys_created_on>
+        <sys_db_object display_value="" name="x_1383151_bkquest_genre_lookup">x_1383151_bkquest_genre_lookup</sys_db_object>
+        <sys_id>cd0f8052bbc841caa8f4cdfd767fcf84</sys_id>
+        <sys_metadata>a2aed6c6938e4610ef267c5efaba10dc</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Houghton Mifflin Harcourt</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_scope_delete display_value="">18e926194902432895b35f3c99259089</sys_scope_delete>
+        <sys_update_name>x_1383151_bkquest_genre_lookup_a2aed6c6938e4610ef267c5efaba10dc</sys_update_name>
+        <sys_update_version display_value="x_1383151_bkquest_genre_lookup_a2aed6c6938e4610ef267c5efaba10dc">c1be5686938e4610ef267c5efaba1082</sys_update_version>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-05-10 07:14:42</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
