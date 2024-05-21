@@ -30,9 +30,9 @@
         <script><![CDATA[(function executeRule(current, previous /*null when async*/ ) {
 
     if (!isNaN(current.days)) {
-        current.borrow_date = new GlideDateTime();
+        current.borrow_date = GlideDate();
         var daysToadd = parseInt(current.days, 10);
-        var dueDate = new GlideDateTime();
+        var dueDate = new GlideDate();
         dueDate.addDaysUTC(daysToadd);
         current.due_date = dueDate;
     } else {
@@ -46,7 +46,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>a93b0baa93f54210ef267c5efaba10ea</sys_id>
-        <sys_mod_count>10</sys_mod_count>
+        <sys_mod_count>3</sys_mod_count>
         <sys_name>Auto populate due date</sys_name>
         <sys_overrides/>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
@@ -54,7 +54,7 @@
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sys_script_a93b0baa93f54210ef267c5efaba10ea</sys_update_name>
         <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-05-09 07:42:52</sys_updated_on>
+        <sys_updated_on>2024-05-20 06:20:20</sys_updated_on>
         <template/>
         <when>before</when>
     </sys_script>

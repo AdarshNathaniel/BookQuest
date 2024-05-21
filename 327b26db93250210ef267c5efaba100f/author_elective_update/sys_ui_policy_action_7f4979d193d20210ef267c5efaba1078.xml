@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_policy_action">
+    <sys_ui_policy_action action="DELETE">
+        <cleared>false</cleared>
+        <disabled>ignore</disabled>
+        <field>fine_status</field>
+        <mandatory>ignore</mandatory>
+        <sys_class_name>sys_ui_policy_action</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-05-20 06:51:34</sys_created_on>
+        <sys_id>7f4979d193d20210ef267c5efaba1078</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>fine_status</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>sys_ui_policy_action_7f4979d193d20210ef267c5efaba1078</sys_update_name>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-05-20 06:51:34</sys_updated_on>
+        <table>x_1383151_bkquest_borrow</table>
+        <ui_policy display_value="Show Fine Tab for Overdue Books">4398759193d20210ef267c5efaba102b</ui_policy>
+        <visible>true</visible>
+    </sys_ui_policy_action>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="BookQuest">327b26db93250210ef267c5efaba100f</application>
+        <file_path/>
+        <instance_id>0535015fdb717d1002d9172913961922</instance_id>
+        <instance_name>dev186731</instance_name>
+        <name>sys_ui_policy_action_7f4979d193d20210ef267c5efaba1078</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_policy_action"><sys_ui_policy_action action="INSERT_OR_UPDATE"><cleared>false</cleared><disabled>ignore</disabled><field>fine_status</field><mandatory>ignore</mandatory><sys_class_name>sys_ui_policy_action</sys_class_name><sys_created_by>harini.srija</sys_created_by><sys_created_on>2024-05-20 06:51:34</sys_created_on><sys_id>7f4979d193d20210ef267c5efaba1078</sys_id><sys_mod_count>0</sys_mod_count><sys_name>fine_status</sys_name><sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package><sys_policy/><sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope><sys_update_name>sys_ui_policy_action_7f4979d193d20210ef267c5efaba1078</sys_update_name><sys_updated_by>harini.srija</sys_updated_by><sys_updated_on>2024-05-20 06:51:34</sys_updated_on><table>x_1383151_bkquest_borrow</table><ui_policy display_value="Show Fine Tab for Overdue Books">4398759193d20210ef267c5efaba102b</ui_policy><visible>true</visible></sys_ui_policy_action></record_update>]]></payload>
+        <payload_hash>-1398278488</payload_hash>
+        <record_name>fine_status</record_name>
+        <reverted_from/>
+        <source>76f656a493f54210ef267c5efaba102f</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-05-20 06:51:34</sys_created_on>
+        <sys_id>b659799193d20210ef267c5efaba101b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18f94c511960000001</sys_recorded_at>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-05-20 06:51:34</sys_updated_on>
+        <type>UI Policy Action</type>
+        <update_guid>fa59799145d202109b9db2b1e73f401a</update_guid>
+        <update_guid_history>fa59799145d202109b9db2b1e73f401a:-1398278488</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-05-20 07:11:02</sys_created_on>
+        <sys_db_object display_value="" name="sys_ui_policy_action">sys_ui_policy_action</sys_db_object>
+        <sys_id>41ea9db49f1c446f98240517f78dc469</sys_id>
+        <sys_metadata>7f4979d193d20210ef267c5efaba1078</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>fine_status</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_scope_delete display_value="">18e926194902432895b35f3c99259089</sys_scope_delete>
+        <sys_update_name>sys_ui_policy_action_7f4979d193d20210ef267c5efaba1078</sys_update_name>
+        <sys_update_version display_value="sys_ui_policy_action_7f4979d193d20210ef267c5efaba1078">b659799193d20210ef267c5efaba101b</sys_update_version>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-05-20 07:11:02</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
