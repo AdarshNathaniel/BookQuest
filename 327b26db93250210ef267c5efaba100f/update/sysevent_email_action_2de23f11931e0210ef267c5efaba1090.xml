@@ -44,9 +44,11 @@
 <div>
 <p>Dear ${user_id},</p>
 <p>&nbsp;</p>
-<p>Your reservation for "${book_isbn.title}" has been confirmed. We will notify you once the book is available.&nbsp;</p>
+<p>Your reservation for "<strong>${book_isbn.title}</strong>" has been confirmed. We will notify you once the book is available.&nbsp;</p>
 <p>&nbsp;</p>
 <p>Thank you,<br />BookQuest</p>
+<p>&nbsp;</p>
+<p><img src="1280px-Computacenter_logo.svg.pngx" alt="" width="130" height="56" data-library="true" /></p>
 </div>
 </div>
 </div>
@@ -72,7 +74,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>2de23f11931e0210ef267c5efaba1090</sys_id>
-        <sys_mod_count>5</sys_mod_count>
+        <sys_mod_count>7</sys_mod_count>
         <sys_name>Send reservation notification</sys_name>
         <sys_overrides/>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
@@ -80,7 +82,7 @@
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sysevent_email_action_2de23f11931e0210ef267c5efaba1090</sys_update_name>
         <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-05-20 16:40:05</sys_updated_on>
+        <sys_updated_on>2024-05-21 05:36:44</sys_updated_on>
         <sys_version>2</sys_version>
         <template display_value="Employee notification template">1462e7ca918a3010f877b1d70a4d6a3d</template>
         <type>email</type>
