@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description/>
+        <field>fine_paid_date</field>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>Validate Fine Paid Date</name>
+        <order/>
+        <script><![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+    if (isLoading || newValue === '') {
+        return;
+    }
+
+    var isNewRecord = g_form.isNewRecord();
+
+    var currentDate = new Date();
+    var finePaidDate = g_form.getValue('fine_paid_date');
+
+    // Convert field value to Date object
+    var finePaidDateObj = new Date(finePaidDate);
+
+    if (finePaidDateObj.toDateString() !== currentDate.toDateString()) {
+        // Clear the field and display info message if it's not today's date
+        g_form.clearValue('fine_paid_date');
+        g_form.showFieldMsg('fine_paid_date', 'Fine paid date must be today', 'info');
+        return;
+    }
+
+    // Clear any existing error message
+    g_form.clearMessages('fine_paid_date');
+
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-05-22 07:28:25</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>ab53944a9352c210ef267c5efaba106b</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Validate Fine Paid Date</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>sys_script_client_ab53944a9352c210ef267c5efaba106b</sys_update_name>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-05-22 07:29:52</sys_updated_on>
+        <table>x_1383151_bkquest_borrow</table>
+        <type>onChange</type>
+        <ui_type>0</ui_type>
+        <view/>
+    </sys_script_client>
+</record_update>

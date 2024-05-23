@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="DELETE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description/>
+        <field>returned_date</field>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>Validate Returned Date</name>
+        <order/>
+        <script><![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+    if (isLoading || newValue === '') {
+        return;
+    }
+
+    var isNewRecord = g_form.isNewRecord();
+
+    var currentDate = new Date();
+    var returnedDate = g_form.getValue('returned_date');
+
+    // Convert returned date to Date object
+    var returnedDateObj = new Date(returnedDate);
+
+    if (returnedDateObj.toDateString() !== currentDate.toDateString()) {
+        // Clear the returned_date field and display error message if it's not today's date
+        g_form.clearValue('returned_date');
+        g_form.showFieldMsg('returned_date', 'Returned date must be today', 'info');
+        return;
+    }
+
+    // Clear any existing error message
+    g_form.clearMessages('returned_date');
+
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-05-22 06:31:08</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>9f37048a9312c210ef267c5efaba10ff</sys_id>
+        <sys_mod_count>9</sys_mod_count>
+        <sys_name>Validate Returned Date</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>sys_script_client_9f37048a9312c210ef267c5efaba10ff</sys_update_name>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-05-22 07:15:36</sys_updated_on>
+        <table>x_1383151_bkquest_borrow</table>
+        <type>onChange</type>
+        <ui_type>0</ui_type>
+        <view/>
+    </sys_script_client>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="BookQuest">327b26db93250210ef267c5efaba100f</application>
+        <file_path/>
+        <instance_id>0535015fdb717d1002d9172913961922</instance_id>
+        <instance_name>dev186731</instance_name>
+        <name>sys_script_client_9f37048a9312c210ef267c5efaba10ff</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script_client"&gt;&lt;sys_script_client action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;applies_extended&gt;false&lt;/applies_extended&gt;&lt;condition/&gt;&lt;description/&gt;&lt;field&gt;returned_date&lt;/field&gt;&lt;global&gt;true&lt;/global&gt;&lt;isolate_script&gt;true&lt;/isolate_script&gt;&lt;messages/&gt;&lt;name&gt;Validate Returned Date&lt;/name&gt;&lt;order/&gt;&lt;script&gt;&lt;![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+    if (isLoading || newValue === '') {
+        return;
+    }
+
+    var isNewRecord = g_form.isNewRecord();
+
+    var currentDate = new Date();
+    var returnedDate = g_form.getValue('returned_date');
+
+    // Convert returned date to Date object
+    var returnedDateObj = new Date(returnedDate);
+
+    if (returnedDateObj.toDateString() !== currentDate.toDateString()) {
+        // Clear the returned_date field and display error message if it's not today's date
+        g_form.clearValue('returned_date');
+        g_form.showFieldMsg('returned_date', 'Returned date must be today', 'info');
+        return;
+    }
+
+    // Clear any existing error message
+    g_form.clearMessages('returned_date');
+
+}]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_client&lt;/sys_class_name&gt;&lt;sys_created_by&gt;harini.srija&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-22 06:31:08&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;9f37048a9312c210ef267c5efaba10ff&lt;/sys_id&gt;&lt;sys_mod_count&gt;9&lt;/sys_mod_count&gt;&lt;sys_name&gt;Validate Returned Date&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="BookQuest" source="x_1383151_bkquest"&gt;327b26db93250210ef267c5efaba100f&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="BookQuest"&gt;327b26db93250210ef267c5efaba100f&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_client_9f37048a9312c210ef267c5efaba10ff&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;harini.srija&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-22 07:15:36&lt;/sys_updated_on&gt;&lt;table&gt;x_1383151_bkquest_borrow&lt;/table&gt;&lt;type&gt;onChange&lt;/type&gt;&lt;ui_type&gt;0&lt;/ui_type&gt;&lt;view/&gt;&lt;/sys_script_client&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>1050657716</payload_hash>
+        <record_name>Validate Returned Date</record_name>
+        <reverted_from/>
+        <source>76f656a493f54210ef267c5efaba102f</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-05-22 07:15:36</sys_created_on>
+        <sys_id>9202500a9352c210ef267c5efaba10af</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18f9f27cbf70000001</sys_recorded_at>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-05-22 07:15:36</sys_updated_on>
+        <type>Client Script</type>
+        <update_guid>5a02500a0652c210d0023d6588c9f3ae</update_guid>
+        <update_guid_history>5a02500a0652c210d0023d6588c9f3ae:1050657716,baf1d8c65452c210e1fcc201b7e1d5e6:-825211184,e9a19846d752c210af2224e54888736f:423088624,2641d846ed52c21093e1fda1d5c30bd1:-1743508561,96d0d486ae52c210c93b1940e1919ea5:1050657716,d59054463452c210c60dbb4c473fa1ee:-825211184,573a8c4eb212c2108145b6812b74093d:776485701,9f3984ca6e12c21090859b49da16a99c:-1725196349,499848ca1112c210be8ba13ce5428909:429921076,07d740caea12c210db5ad96a74f06840:-139272165</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-05-22 07:16:28</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_client">sys_script_client</sys_db_object>
+        <sys_id>01f52871ff1a46cb82041dce9a75bf29</sys_id>
+        <sys_metadata>9f37048a9312c210ef267c5efaba10ff</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Validate Returned Date</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_parent display_value="Borrow">5a71615093b10210ef267c5efaba107d</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_scope_delete display_value="">18e926194902432895b35f3c99259089</sys_scope_delete>
+        <sys_update_name>sys_script_client_9f37048a9312c210ef267c5efaba10ff</sys_update_name>
+        <sys_update_version display_value="sys_script_client_9f37048a9312c210ef267c5efaba10ff">9202500a9352c210ef267c5efaba10af</sys_update_version>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-05-22 07:16:28</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

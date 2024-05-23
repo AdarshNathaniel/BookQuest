@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_ui_policy">
+    <sys_ui_policy action="DELETE">
+        <active>true</active>
+        <conditions table="x_1383151_bkquest_borrow">due_date&lt;javascript:gs.beginningOfToday()^due_date&gt;javascript:gs.endOfToday()^EQ<item endquery="false" field="due_date" goto="false" newquery="false" operator="&lt;" or="false" value="javascript:gs.beginningOfToday()"/>
+            <item endquery="false" field="due_date" goto="false" newquery="false" operator="&gt;" or="false" value="javascript:gs.endOfToday()"/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </conditions>
+        <description/>
+        <global>true</global>
+        <inherit>false</inherit>
+        <isolate_script>true</isolate_script>
+        <model_id/>
+        <model_table/>
+        <on_load>true</on_load>
+        <order>100</order>
+        <reverse_if_false>true</reverse_if_false>
+        <run_scripts>true</run_scripts>
+        <script_false><![CDATA[function onCondition() {
+    g_form.showFieldMsg('returned_date', 'Returned Date must be today\'s date.', 'info');
+    g_form.setValue('returned_date', '');
+}]]></script_false>
+        <script_true><![CDATA[function onCondition() {
+    g_form.showFieldMsg('returned_date', 'Returned Date must be today\'s date.', 'info');
+}]]></script_true>
+        <set_values/>
+        <short_description>Restrict Due Date field to only allow today's date</short_description>
+        <sys_class_name>sys_ui_policy</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-05-22 06:05:54</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>c72144c29312c210ef267c5efaba10b9</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>Restrict Due Date field to only allow today's date</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>sys_ui_policy_c72144c29312c210ef267c5efaba10b9</sys_update_name>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-05-22 06:23:37</sys_updated_on>
+        <table>x_1383151_bkquest_borrow</table>
+        <ui_type>0</ui_type>
+        <view/>
+    </sys_ui_policy>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="BookQuest">327b26db93250210ef267c5efaba100f</application>
+        <file_path/>
+        <instance_id>0535015fdb717d1002d9172913961922</instance_id>
+        <instance_name>dev186731</instance_name>
+        <name>sys_ui_policy_c72144c29312c210ef267c5efaba10b9</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_ui_policy"&gt;&lt;sys_ui_policy action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;conditions table="x_1383151_bkquest_borrow"&gt;due_date&amp;lt;javascript:gs.beginningOfToday()^due_date&amp;gt;javascript:gs.endOfToday()^EQ&lt;item endquery="false" field="due_date" goto="false" newquery="false" operator="&amp;lt;" or="false" value="javascript:gs.beginningOfToday()"/&gt;&lt;item endquery="false" field="due_date" goto="false" newquery="false" operator="&amp;gt;" or="false" value="javascript:gs.endOfToday()"/&gt;&lt;item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/&gt;&lt;/conditions&gt;&lt;description/&gt;&lt;global&gt;true&lt;/global&gt;&lt;inherit&gt;false&lt;/inherit&gt;&lt;isolate_script&gt;true&lt;/isolate_script&gt;&lt;model_id/&gt;&lt;model_table/&gt;&lt;on_load&gt;true&lt;/on_load&gt;&lt;order&gt;100&lt;/order&gt;&lt;reverse_if_false&gt;true&lt;/reverse_if_false&gt;&lt;run_scripts&gt;true&lt;/run_scripts&gt;&lt;script_false&gt;&lt;![CDATA[function onCondition() {
+    g_form.showFieldMsg('returned_date', 'Returned Date must be today\'s date.', 'info');
+    g_form.setValue('returned_date', '');
+}]]&gt;&lt;/script_false&gt;&lt;script_true&gt;&lt;![CDATA[function onCondition() {
+    g_form.showFieldMsg('returned_date', 'Returned Date must be today\'s date.', 'info');
+}]]&gt;&lt;/script_true&gt;&lt;set_values/&gt;&lt;short_description&gt;Restrict Due Date field to only allow today's date&lt;/short_description&gt;&lt;sys_class_name&gt;sys_ui_policy&lt;/sys_class_name&gt;&lt;sys_created_by&gt;harini.srija&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-22 06:05:54&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;c72144c29312c210ef267c5efaba10b9&lt;/sys_id&gt;&lt;sys_mod_count&gt;4&lt;/sys_mod_count&gt;&lt;sys_name&gt;Restrict Due Date field to only allow today's date&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="BookQuest" source="x_1383151_bkquest"&gt;327b26db93250210ef267c5efaba100f&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="BookQuest"&gt;327b26db93250210ef267c5efaba100f&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_ui_policy_c72144c29312c210ef267c5efaba10b9&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;harini.srija&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-22 06:23:37&lt;/sys_updated_on&gt;&lt;table&gt;x_1383151_bkquest_borrow&lt;/table&gt;&lt;ui_type&gt;0&lt;/ui_type&gt;&lt;view/&gt;&lt;/sys_ui_policy&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>1703849743</payload_hash>
+        <record_name>Restrict Due Date field to only allow today's date</record_name>
+        <reverted_from/>
+        <source>76f656a493f54210ef267c5efaba102f</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-05-22 06:23:37</sys_created_on>
+        <sys_id>fc26004a9312c210ef267c5efaba1040</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18f9ef834d50000001</sys_recorded_at>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-05-22 06:23:37</sys_updated_on>
+        <type>UI Policy</type>
+        <update_guid>f026440a3912c2104806433a954f7720</update_guid>
+        <update_guid_history>f026440a3912c2104806433a954f7720:1703849743,a7d58c06d112c210509d86677f356969:-1375376167,e2a5840ae612c210b293dba26af005bb:381661525,ad724c06ff12c2108dbedf55e139a02b:-692089087,991248c2e012c21030435502676ed582:1586478934</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-05-22 06:27:53</sys_created_on>
+        <sys_db_object display_value="" name="sys_ui_policy">sys_ui_policy</sys_db_object>
+        <sys_id>2d1b64cf3ae044c7b72962482b606cc1</sys_id>
+        <sys_metadata>c72144c29312c210ef267c5efaba10b9</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Restrict Due Date field to only allow today's date</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_parent display_value="Borrow">5a71615093b10210ef267c5efaba107d</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_scope_delete display_value="">18e926194902432895b35f3c99259089</sys_scope_delete>
+        <sys_update_name>sys_ui_policy_c72144c29312c210ef267c5efaba10b9</sys_update_name>
+        <sys_update_version display_value="sys_ui_policy_c72144c29312c210ef267c5efaba10b9">fc26004a9312c210ef267c5efaba1040</sys_update_version>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-05-22 06:27:53</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
