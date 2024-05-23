@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_hub_flow">
+    <sys_hub_flow action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <acls/>
+        <active>false</active>
+        <annotation/>
+        <attributes>labelCacheCleanUpExecuted=true</attributes>
+        <callable_by_client_api>false</callable_by_client_api>
+        <category/>
+        <compiler_build/>
+        <copied_from/>
+        <copied_from_name/>
+        <description>Auto-populate Book Instances when the quantity is updated.</description>
+        <internal_name>autopopulate_book_instances_flow2</internal_name>
+        <label_cache>[]</label_cache>
+        <latest_snapshot/>
+        <master_snapshot/>
+        <name>Auto-populate Book Instances (Flow2)</name>
+        <natlang/>
+        <outputs/>
+        <pre_compiled>false</pre_compiled>
+        <remote_trigger_id/>
+        <run_as>user</run_as>
+        <run_with_roles/>
+        <sc_callable>false</sc_callable>
+        <show_draft_actions>false</show_draft_actions>
+        <show_triggered_flows>false</show_triggered_flows>
+        <status>draft</status>
+        <sys_class_name>sys_hub_flow</sys_class_name>
+        <sys_created_by>adarsh.nathaniel</sys_created_by>
+        <sys_created_on>2024-05-22 07:05:57</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>b4dfc4c29352c210ef267c5efaba108d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Auto-populate Book Instances (Flow2)</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>sys_hub_flow_b4dfc4c29352c210ef267c5efaba108d</sys_update_name>
+        <sys_updated_by>adarsh.nathaniel</sys_updated_by>
+        <sys_updated_on>2024-05-22 07:05:57</sys_updated_on>
+        <type>flow</type>
+    </sys_hub_flow>
+    <sys_translated_text action="delete_multiple" query="documentkey=b4dfc4c29352c210ef267c5efaba108d"/>
+    <sys_variable_value action="delete_multiple" query="document_key=b4dfc4c29352c210ef267c5efaba108d"/>
+    <sys_hub_trigger_instance action="delete_multiple" query="flow=b4dfc4c29352c210ef267c5efaba108d"/>
+    <sys_hub_flow_stage action="delete_multiple" query="flow=b4dfc4c29352c210ef267c5efaba108d"/>
+    <sys_flow_cat_variable_model action="delete_multiple" query="id=b4dfc4c29352c210ef267c5efaba108d^sys_idNOT INb0dfc4c29352c210ef267c5efaba108e"/>
+    <sys_flow_cat_variable_model action="INSERT_OR_UPDATE">
+        <id>b4dfc4c29352c210ef267c5efaba108d</id>
+        <name>Auto-populate Book Instances (Flow2)</name>
+        <sys_created_by>adarsh.nathaniel</sys_created_by>
+        <sys_created_on>2024-05-22 07:05:57</sys_created_on>
+        <sys_id>b0dfc4c29352c210ef267c5efaba108e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope/>
+        <sys_updated_by>adarsh.nathaniel</sys_updated_by>
+        <sys_updated_on>2024-05-22 07:05:57</sys_updated_on>
+    </sys_flow_cat_variable_model>
+    <sys_flow_cat_variable action="delete_multiple" query="flow_catalog_model=b0dfc4c29352c210ef267c5efaba108e"/>
+    <sys_hub_flow_input action="delete_multiple" query="model=b4dfc4c29352c210ef267c5efaba108d"/>
+    <sys_hub_flow_output action="delete_multiple" query="model=b4dfc4c29352c210ef267c5efaba108d"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=b4dfc4c29352c210ef267c5efaba108d"/>
+    <sys_hub_action_instance action="delete_multiple" query="flow=b4dfc4c29352c210ef267c5efaba108d"/>
+    <sys_hub_sub_flow_instance action="delete_multiple" query="flow=b4dfc4c29352c210ef267c5efaba108d"/>
+    <sys_hub_flow_logic action="delete_multiple" query="flow=b4dfc4c29352c210ef267c5efaba108d"/>
+    <sys_hub_pill_compound action="delete_multiple" query="attached_to=b4dfc4c29352c210ef267c5efaba108d"/>
+    <sys_hub_flow_variable action="delete_multiple" query="model=b4dfc4c29352c210ef267c5efaba108d"/>
+    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_flow_input_b4dfc4c29352c210ef267c5efaba108d"/>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_input_b4dfc4c29352c210ef267c5efaba108d"/>
+    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_flow_output_b4dfc4c29352c210ef267c5efaba108d"/>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_output_b4dfc4c29352c210ef267c5efaba108d"/>
+    <sys_flow_trigger_plan action="delete_multiple" query="plan_id=b4dfc4c29352c210ef267c5efaba108d"/>
+    <sys_flow_subflow_plan action="delete_multiple" query="plan_id=b4dfc4c29352c210ef267c5efaba108d"/>
+</record_update>
