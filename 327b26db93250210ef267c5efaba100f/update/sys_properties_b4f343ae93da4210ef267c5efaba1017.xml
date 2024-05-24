@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_properties">
     <sys_properties action="INSERT_OR_UPDATE">
         <choices/>
-        <description>Maximum number of days a book can be borrowed</description>
+        <description>Specifies the maximum number of days a book can be borrowed</description>
         <ignore_cache>true</ignore_cache>
         <is_private>false</is_private>
-        <name>x_1383151_bkquest.borrow.max_days</name>
+        <name>x_1383151_bkquest.max_borrow_days</name>
         <read_roles/>
-        <suffix>borrow.max_days</suffix>
+        <suffix>max_borrow_days</suffix>
         <sys_class_name>sys_properties</sys_class_name>
         <sys_created_by>harini.srija</sys_created_by>
-        <sys_created_on>2024-05-20 14:05:18</sys_created_on>
-        <sys_id>b536db51939a0210ef267c5efaba10cb</sys_id>
+        <sys_created_on>2024-05-24 09:31:53</sys_created_on>
+        <sys_id>b4f343ae93da4210ef267c5efaba1017</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name>x_1383151_bkquest.borrow.max_days</sys_name>
+        <sys_name>x_1383151_bkquest.max_borrow_days</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
-        <sys_update_name>sys_properties_b536db51939a0210ef267c5efaba10cb</sys_update_name>
+        <sys_update_name>sys_properties_b4f343ae93da4210ef267c5efaba1017</sys_update_name>
         <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-05-20 14:05:18</sys_updated_on>
-        <type>string</type>
+        <sys_updated_on>2024-05-24 09:31:53</sys_updated_on>
+        <type>integer</type>
         <value>14</value>
         <write_roles/>
     </sys_properties>
-    <sys_translated_text action="delete_multiple" query="documentkey=b536db51939a0210ef267c5efaba10cb"/>
+    <sys_translated_text action="delete_multiple" query="documentkey=b4f343ae93da4210ef267c5efaba1017"/>
 </record_update>

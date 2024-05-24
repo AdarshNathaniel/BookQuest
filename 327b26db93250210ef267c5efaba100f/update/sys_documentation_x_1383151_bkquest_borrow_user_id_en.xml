@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update>
-    <sys_documentation element="user_id" label="User id" language="en" table="x_1383151_bkquest_borrow">
+    <sys_documentation element="user_id" label="User ID" language="en" table="x_1383151_bkquest_borrow">
         <sys_documentation action="INSERT_OR_UPDATE">
             <element>user_id</element>
             <help/>
             <hint/>
-            <label>User id</label>
+            <label>User ID</label>
             <language>en</language>
             <name>x_1383151_bkquest_borrow</name>
-            <plural>User ids</plural>
+            <plural>User IDs</plural>
             <sys_class_name>sys_documentation</sys_class_name>
             <sys_created_by>harini.srija</sys_created_by>
             <sys_created_on>2024-04-22 06:59:39</sys_created_on>
-            <sys_mod_count>0</sys_mod_count>
-            <sys_name>User id</sys_name>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_name>User ID</sys_name>
             <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
             <sys_policy/>
             <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
             <sys_update_name>sys_documentation_x_1383151_bkquest_borrow_user_id_en</sys_update_name>
             <sys_updated_by>harini.srija</sys_updated_by>
-            <sys_updated_on>2024-04-22 06:59:39</sys_updated_on>
+            <sys_updated_on>2024-05-24 04:30:08</sys_updated_on>
             <url/>
             <url_target/>
         </sys_documentation>

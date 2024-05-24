@@ -16,7 +16,7 @@
         <column_label>Borrow period</column_label>
         <comments/>
         <create_roles/>
-        <default_value/>
+        <default_value>14</default_value>
         <defaultsort/>
         <delete_roles/>
         <dependent/>
@@ -57,8 +57,8 @@
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sys_dictionary_x_1383151_bkquest_borrow_days</sys_update_name>
-        <sys_updated_by>adarsh.nathaniel</sys_updated_by>
-        <sys_updated_on>2024-05-10 04:20:46</sys_updated_on>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-05-24 09:26:09</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>

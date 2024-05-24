@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="DELETE">
+        <active>false</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description/>
+        <field>fine_paid_date</field>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>Update Fine Status to Paid</name>
+        <order/>
+        <script><![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+    // Check if the field is changed and is not empty
+    if (!isLoading && newValue !== oldValue) {
+        // Check if the changed field is 'fine_paid_date'
+        if (control == 'fine_paid_date') {
+            var finePaidDate = g_form.getValue('fine_paid_date');
+
+            if (finePaidDate) {
+                // If the fine paid date is entered, set the Fine status to "fine paid"
+                g_form.setValue('fine_status', 'fine paid');
+            } else {
+                // If the fine paid date is removed, set the Fine status to "not paid"
+                g_form.setValue('fine_status', 'not paid');
+            }
+        }
+    }
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-05-20 05:31:16</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>c69669d993520210ef267c5efaba107e</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>Update Fine Status to Paid</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>sys_script_client_c69669d993520210ef267c5efaba107e</sys_update_name>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-05-24 05:44:01</sys_updated_on>
+        <table>x_1383151_bkquest_borrow</table>
+        <type>onChange</type>
+        <ui_type>0</ui_type>
+        <view/>
+    </sys_script_client>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="BookQuest">327b26db93250210ef267c5efaba100f</application>
+        <file_path/>
+        <instance_id>0535015fdb717d1002d9172913961922</instance_id>
+        <instance_name>dev186731</instance_name>
+        <name>sys_script_client_c69669d993520210ef267c5efaba107e</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script_client"&gt;&lt;sys_script_client action="INSERT_OR_UPDATE"&gt;&lt;active&gt;false&lt;/active&gt;&lt;applies_extended&gt;false&lt;/applies_extended&gt;&lt;condition/&gt;&lt;description/&gt;&lt;field&gt;fine_paid_date&lt;/field&gt;&lt;global&gt;true&lt;/global&gt;&lt;isolate_script&gt;true&lt;/isolate_script&gt;&lt;messages/&gt;&lt;name&gt;Update Fine Status to Paid&lt;/name&gt;&lt;order/&gt;&lt;script&gt;&lt;![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+    // Check if the field is changed and is not empty
+    if (!isLoading &amp;&amp; newValue !== oldValue) {
+        // Check if the changed field is 'fine_paid_date'
+        if (control == 'fine_paid_date') {
+            var finePaidDate = g_form.getValue('fine_paid_date');
+
+            if (finePaidDate) {
+                // If the fine paid date is entered, set the Fine status to "fine paid"
+                g_form.setValue('fine_status', 'fine paid');
+            } else {
+                // If the fine paid date is removed, set the Fine status to "not paid"
+                g_form.setValue('fine_status', 'not paid');
+            }
+        }
+    }
+}]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_client&lt;/sys_class_name&gt;&lt;sys_created_by&gt;harini.srija&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-20 05:31:16&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;c69669d993520210ef267c5efaba107e&lt;/sys_id&gt;&lt;sys_mod_count&gt;6&lt;/sys_mod_count&gt;&lt;sys_name&gt;Update Fine Status to Paid&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="BookQuest" source="x_1383151_bkquest"&gt;327b26db93250210ef267c5efaba100f&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="BookQuest"&gt;327b26db93250210ef267c5efaba100f&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_client_c69669d993520210ef267c5efaba107e&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;harini.srija&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-24 05:44:01&lt;/sys_updated_on&gt;&lt;table&gt;x_1383151_bkquest_borrow&lt;/table&gt;&lt;type&gt;onChange&lt;/type&gt;&lt;ui_type&gt;0&lt;/ui_type&gt;&lt;view/&gt;&lt;/sys_script_client&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>818637835</payload_hash>
+        <record_name>Update Fine Status to Paid</record_name>
+        <reverted_from/>
+        <source>af6a7c1693120210ef267c5efaba109d</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-05-24 05:44:01</sys_created_on>
+        <sys_id>904016ee93d64210ef267c5efaba1080</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18fa920ab880000001</sys_recorded_at>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-05-24 05:44:01</sys_updated_on>
+        <type>Client Script</type>
+        <update_guid>584016eed9d64210e076bca1a1d3fe7f</update_guid>
+        <update_guid_history>584016eed9d64210e076bca1a1d3fe7f:818637835,80af46aef5d6421055542112b3f7606b:1193871230,cfde4a6eb9d642103c6b34c8bbb4c70b:1648634750,863e026e1ad642107725bb06ab70da0a:-1102182949,6f7d02eaf5d64210ff4a4648a9e8c5eb:-1512042623,6edb0eaaa9d642101cc902cb6155f914:-876235932,6ef629d9c0520210a70329b3969fdbfe:1370565123</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-05-24 05:48:46</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_client">sys_script_client</sys_db_object>
+        <sys_id>5f3a7536ed9348c6b21a169550549f84</sys_id>
+        <sys_metadata>c69669d993520210ef267c5efaba107e</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Update Fine Status to Paid</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_parent display_value="Borrow">5a71615093b10210ef267c5efaba107d</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_scope_delete display_value="">18e926194902432895b35f3c99259089</sys_scope_delete>
+        <sys_update_name>sys_script_client_c69669d993520210ef267c5efaba107e</sys_update_name>
+        <sys_update_version display_value="sys_script_client_c69669d993520210ef267c5efaba107e">904016ee93d64210ef267c5efaba1080</sys_update_version>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-05-24 05:48:46</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

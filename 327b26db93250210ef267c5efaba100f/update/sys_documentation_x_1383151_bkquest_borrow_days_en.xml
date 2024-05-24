@@ -3,7 +3,7 @@
         <sys_documentation action="INSERT_OR_UPDATE">
             <element>days</element>
             <help/>
-            <hint/>
+            <hint>The borrowing period can only be between 2 and 3 weeks</hint>
             <label>Borrow period</label>
             <language>en</language>
             <name>x_1383151_bkquest_borrow</name>
@@ -11,14 +11,14 @@
             <sys_class_name>sys_documentation</sys_class_name>
             <sys_created_by>harini.srija</sys_created_by>
             <sys_created_on>2024-04-29 13:40:39</sys_created_on>
-            <sys_mod_count>5</sys_mod_count>
+            <sys_mod_count>6</sys_mod_count>
             <sys_name>Borrow period</sys_name>
             <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
             <sys_policy/>
             <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
             <sys_update_name>sys_documentation_x_1383151_bkquest_borrow_days_en</sys_update_name>
-            <sys_updated_by>adarsh.nathaniel</sys_updated_by>
-            <sys_updated_on>2024-05-10 04:20:46</sys_updated_on>
+            <sys_updated_by>harini.srija</sys_updated_by>
+            <sys_updated_on>2024-05-24 09:26:31</sys_updated_on>
             <url/>
             <url_target/>
         </sys_documentation>

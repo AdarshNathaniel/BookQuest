@@ -13,7 +13,7 @@
         <choice/>
         <choice_field/>
         <choice_table/>
-        <column_label>Book id</column_label>
+        <column_label>Book ID</column_label>
         <comments/>
         <create_roles/>
         <default_value/>
@@ -54,13 +54,13 @@
         <sys_class_name>sys_dictionary</sys_class_name>
         <sys_created_by>harini.srija</sys_created_by>
         <sys_created_on>2024-04-22 07:22:16</sys_created_on>
-        <sys_name>Book id</sys_name>
+        <sys_name>Book ID</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sys_dictionary_x_1383151_bkquest_borrow_book_id</sys_update_name>
         <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-05-20 07:27:32</sys_updated_on>
+        <sys_updated_on>2024-05-24 04:29:25</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>

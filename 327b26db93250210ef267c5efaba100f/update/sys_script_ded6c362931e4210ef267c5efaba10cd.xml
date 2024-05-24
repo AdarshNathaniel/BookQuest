@@ -5,7 +5,7 @@
         <action_delete>false</action_delete>
         <action_insert>true</action_insert>
         <action_query>false</action_query>
-        <action_update>false</action_update>
+        <action_update>true</action_update>
         <active>true</active>
         <add_message>false</add_message>
         <advanced>true</advanced>
@@ -18,7 +18,7 @@
         <filter_condition/>
         <is_rest>false</is_rest>
         <message/>
-        <name>Auto populate due date</name>
+        <name>Validate Borrow Period</name>
         <order>100</order>
         <priority>100</priority>
         <rest_method/>
@@ -27,42 +27,41 @@
         <rest_service_text/>
         <rest_variables/>
         <role_conditions/>
-        <script><![CDATA[(function executeRule(current, previous /*null when async*/ ) {
-    // Check if the input in the 'days' field is a valid number
-    if (!isNaN(current.days)) {
-        // If 'days' is a valid number, proceed with calculations
-        // Set the borrow date to the current date
-        current.borrow_date = GlideDate();
-        // Convert the input from the 'days' field to an integer
-        var daysToAdd = parseInt(current.days, 10);
-        // Calculate the due date by adding the number of borrow period to the borrow date
-        var dueDate = new GlideDate();
-        dueDate.addDaysUTC(daysToAdd);
-        current.due_date = dueDate;
-    } else {
-        // If 'days' is not a valid number, display an error message
-        var errorMessage = gs.getMessage("Please enter a valid number in the 'days' field");
-        gs.addErrorMessage(errorMessage);
+        <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
+    // Retrieve the maximum borrow days from system properties, defaulting to 14 if the property does not exist
+    var maxBorrowDays = parseInt(gs.getProperty('x_1383151_bkquest.max_borrow_days', '14'));
+	
+
+    // Validate the borrow period
+    if (days > maxBorrowDays) {
+        // Get a localized message for the error
+        var errorMessage = gs.getMessage('The borrow period cannot exceed {0} days.', maxBorrowDays);
+
+        // Abort the current action
         current.setAbortAction(true);
+        
+        // Display the error message near the borrow period field
+        current.addErrorMessage('days', errorMessage);
     }
-})(current, previous);]]></script>
+})(current, previous);
+]]></script>
         <sys_class_name>sys_script</sys_class_name>
         <sys_created_by>harini.srija</sys_created_by>
-        <sys_created_on>2024-04-29 13:55:07</sys_created_on>
+        <sys_created_on>2024-05-24 09:46:20</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
-        <sys_id>a93b0baa93f54210ef267c5efaba10ea</sys_id>
-        <sys_mod_count>8</sys_mod_count>
-        <sys_name>Auto populate due date</sys_name>
+        <sys_id>ded6c362931e4210ef267c5efaba10cd</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>Validate Borrow Period</sys_name>
         <sys_overrides/>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
-        <sys_update_name>sys_script_a93b0baa93f54210ef267c5efaba10ea</sys_update_name>
+        <sys_update_name>sys_script_ded6c362931e4210ef267c5efaba10cd</sys_update_name>
         <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-05-24 08:51:55</sys_updated_on>
+        <sys_updated_on>2024-05-24 11:02:13</sys_updated_on>
         <template/>
         <when>before</when>
     </sys_script>
-    <sys_translated_text action="delete_multiple" query="documentkey=a93b0baa93f54210ef267c5efaba10ea"/>
+    <sys_translated_text action="delete_multiple" query="documentkey=ded6c362931e4210ef267c5efaba10cd"/>
 </record_update>

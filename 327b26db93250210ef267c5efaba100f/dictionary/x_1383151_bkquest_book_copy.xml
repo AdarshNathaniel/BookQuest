@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element db_object_id="a2d5259493b10210ef267c5efaba106c" label="Book Instance" max_length="40" name="x_1383151_bkquest_book_copy" type="collection">
-        <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Book id" max_length="40" name="number" read_only="true" type="string"/>
+        <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Book ID" max_length="40" name="number" read_only="true" type="string"/>
         <element choice="3" default="available" label="Status" max_length="40" name="status" type="choice">
             <choice>
                 <element inactive_on_update="false" label="Available" sequence="100" value="available"/>

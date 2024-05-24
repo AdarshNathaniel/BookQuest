@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element db_object_id="5a71615093b10210ef267c5efaba107d" label="Borrow" max_length="40" name="x_1383151_bkquest_borrow" type="collection">
-        <element label="Amount" max_length="20" name="amount" type="currency"/>
-        <element label="Book id" mandatory="true" max_length="32" name="book_id" reference="x_1383151_bkquest_book_copy" reference_qual="status=available^EQ" reference_qual_condition="status=available^EQ" type="reference"/>
+        <element label="Book ID" mandatory="true" max_length="32" name="book_id" reference="x_1383151_bkquest_book_copy" reference_qual="status=available^EQ" reference_qual_condition="status=available^EQ" type="reference"/>
         <element label="Borrow date" max_length="40" name="borrow_date" read_only="true" type="glide_date"/>
-        <element label="Borrow period" mandatory="true" max_length="40" name="days" type="integer"/>
+        <element default="14" hint="The borrowing period can only be between 2 and 3 weeks" label="Borrow period" mandatory="true" max_length="40" name="days" type="integer"/>
         <element label="Days late" max_length="40" name="days_late" read_only="true" type="integer"/>
         <element label="Due date" max_length="40" name="due_date" read_only="true" type="glide_date"/>
         <element label="Email sent" max_length="30" name="email_sent" type="string"/>
-        <element label="Fine amount in $" max_length="15" name="fine_amount" read_only="true" type="decimal"/>
+        <element label="Fine amount in $" max_length="15" name="fine_amount" type="decimal"/>
         <element label="Fine paid date" max_length="40" name="fine_paid_date" type="glide_date"/>
         <element choice="3" default="not paid" label="Fine status" max_length="40" name="fine_status" read_only="true" type="choice">
             <choice>
@@ -16,11 +15,11 @@
                 <element inactive_on_update="false" label="Not paid" sequence="1" value="not paid"/>
             </choice>
         </element>
-        <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Borrow id" max_length="40" name="number" read_only="true" type="string"/>
+        <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Borrow ID" max_length="40" name="number" read_only="true" type="string"/>
         <element label="Returned date" max_length="40" name="returned_date" type="glide_date"/>
         <element label="Submitted" max_length="40" name="submitted" type="boolean"/>
         <element label="Title" max_length="32" name="title" type="string"/>
-        <element label="User id" max_length="32" name="user_id" read_only="true" reference="sys_user" type="reference"/>
+        <element label="User ID" max_length="32" name="user_id" read_only="true" reference="sys_user" type="reference"/>
         <index name="index">
             <element name="book_id"/>
         </index>
@@ -30,5 +29,6 @@
         <index name="index3">
             <element name="user_id"/>
         </index>
+        <element label="Amount" max_length="20" name="amount" type="currency"/>
     </element>
 </database>

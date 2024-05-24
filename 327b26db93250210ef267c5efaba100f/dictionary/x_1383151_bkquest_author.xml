@@ -12,7 +12,7 @@
         </element>
         <element label="Last name" max_length="40" name="last_name" type="string"/>
         <element label="Nationality" max_length="32" name="nationality" reference="core_country" type="reference"/>
-        <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Author ID" max_length="40" name="number" type="string"/>
+        <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Author ID" max_length="40" name="number" read_only="true" type="string"/>
         <index name="index">
             <element name="nationality"/>
         </index>
