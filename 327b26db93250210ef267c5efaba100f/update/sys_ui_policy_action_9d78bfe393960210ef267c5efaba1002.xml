@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_policy_action">
+    <sys_ui_policy_action action="INSERT_OR_UPDATE">
+        <cleared>false</cleared>
+        <disabled>true</disabled>
+        <field>borrow_date</field>
+        <mandatory>ignore</mandatory>
+        <sys_class_name>sys_ui_policy_action</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-05-27 15:53:42</sys_created_on>
+        <sys_id>9d78bfe393960210ef267c5efaba1002</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>borrow_date</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>sys_ui_policy_action_9d78bfe393960210ef267c5efaba1002</sys_update_name>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-05-27 15:53:42</sys_updated_on>
+        <table>x_1383151_bkquest_borrow</table>
+        <ui_policy display_value="Make fields read only in borrow table ">1062209593028210ef267c5efaba1024</ui_policy>
+        <visible>ignore</visible>
+    </sys_ui_policy_action>
+</record_update>
