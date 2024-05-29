@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance">
+    <sp_instance action="DELETE">
+        <active>true</active>
+        <class_name/>
+        <color>default</color>
+        <css/>
+        <glyph/>
+        <id/>
+        <order>1</order>
+        <roles/>
+        <short_description/>
+        <size>md</size>
+        <sp_column display_value="1">ca67f09c936e8210ef267c5efaba1036</sp_column>
+        <sp_widget display_value="Quick Links">dae53627530030101865ddeeff7b12be</sp_widget>
+        <sys_class_name>sp_instance</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-05-29 09:46:21</sys_created_on>
+        <sys_id>76a7f89c936e8210ef267c5efaba1034</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>sp_instance_76a7f89c936e8210ef267c5efaba1034</sys_update_name>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-05-29 09:50:15</sys_updated_on>
+        <title/>
+        <url/>
+        <widget_parameters><![CDATA[{
+	"title": {
+		"value": "",
+		"displayValue": ""
+	},
+	"card_type": {
+		"value": "Thumbnail",
+		"displayValue": "Thumbnail"
+	},
+	"card_size": {
+		"value": "Medium",
+		"displayValue": "Medium"
+	},
+	"text_alignment": {
+		"value": "Left",
+		"displayValue": "Left"
+	},
+	"show_icon": {
+		"value": "true",
+		"displayValue": "true"
+	},
+	"show_background": {
+		"value": "true",
+		"displayValue": "true"
+	},
+	"show_description": {
+		"value": "true",
+		"displayValue": "true"
+	},
+	"background_color": {
+		"value": "",
+		"displayValue": ""
+	},
+	"background_hexcode": {
+		"value": "#3D52A0",
+		"displayValue": "#3D52A0"
+	},
+	"icon_background_color": {
+		"value": "true",
+		"displayValue": "true"
+	},
+	"icon_background_hexcode": {
+		"value": "#7091E6",
+		"displayValue": "#7091E6"
+	},
+	"show_text_overlay": {
+		"value": "true",
+		"displayValue": "true"
+	},
+	"text_overlay_hexcode": {
+		"value": "",
+		"displayValue": ""
+	},
+	"text_color": {
+		"value": "true",
+		"displayValue": "true"
+	},
+	"text_color_hexcode": {
+		"value": "",
+		"displayValue": ""
+	},
+	"quick_links": {
+		"value": "9b729365e71130104cda66ef11e8a9a7,4e116048e76530104cda66ef11e8a9bc,aff317a5e71130104cda66ef11e8a939",
+		"displayValue": "Password Reset, Request Standing Desk, System Status"
+	},
+	"load_config": {
+		"value": "async",
+		"displayValue": "async"
+	},
+	"show_empty_state": {
+		"value": "false",
+		"displayValue": "false"
+	}
+}]]></widget_parameters>
+    </sp_instance>
+    <sys_translated_text action="DELETE" query="documentkey=76a7f89c936e8210ef267c5efaba1034"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="BookQuest">327b26db93250210ef267c5efaba100f</application>
+        <file_path/>
+        <instance_id>0535015fdb717d1002d9172913961922</instance_id>
+        <instance_name>dev186731</instance_name>
+        <name>sp_instance_76a7f89c936e8210ef267c5efaba1034</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sp_instance"&gt;&lt;sp_instance action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;class_name/&gt;&lt;color&gt;default&lt;/color&gt;&lt;css/&gt;&lt;glyph/&gt;&lt;id/&gt;&lt;order&gt;1&lt;/order&gt;&lt;roles/&gt;&lt;short_description/&gt;&lt;size&gt;md&lt;/size&gt;&lt;sp_column display_value="1"&gt;ca67f09c936e8210ef267c5efaba1036&lt;/sp_column&gt;&lt;sp_widget display_value="Quick Links"&gt;dae53627530030101865ddeeff7b12be&lt;/sp_widget&gt;&lt;sys_class_name&gt;sp_instance&lt;/sys_class_name&gt;&lt;sys_created_by&gt;harini.srija&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-29 09:46:21&lt;/sys_created_on&gt;&lt;sys_id&gt;76a7f89c936e8210ef267c5efaba1034&lt;/sys_id&gt;&lt;sys_mod_count&gt;1&lt;/sys_mod_count&gt;&lt;sys_name/&gt;&lt;sys_package display_value="BookQuest" source="x_1383151_bkquest"&gt;327b26db93250210ef267c5efaba100f&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="BookQuest"&gt;327b26db93250210ef267c5efaba100f&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_instance_76a7f89c936e8210ef267c5efaba1034&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;harini.srija&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-29 09:50:15&lt;/sys_updated_on&gt;&lt;title/&gt;&lt;url/&gt;&lt;widget_parameters&gt;&lt;![CDATA[{
+	"title": {
+		"value": "",
+		"displayValue": ""
+	},
+	"card_type": {
+		"value": "Thumbnail",
+		"displayValue": "Thumbnail"
+	},
+	"card_size": {
+		"value": "Medium",
+		"displayValue": "Medium"
+	},
+	"text_alignment": {
+		"value": "Left",
+		"displayValue": "Left"
+	},
+	"show_icon": {
+		"value": "true",
+		"displayValue": "true"
+	},
+	"show_background": {
+		"value": "true",
+		"displayValue": "true"
+	},
+	"show_description": {
+		"value": "true",
+		"displayValue": "true"
+	},
+	"background_color": {
+		"value": "",
+		"displayValue": ""
+	},
+	"background_hexcode": {
+		"value": "#3D52A0",
+		"displayValue": "#3D52A0"
+	},
+	"icon_background_color": {
+		"value": "true",
+		"displayValue": "true"
+	},
+	"icon_background_hexcode": {
+		"value": "#7091E6",
+		"displayValue": "#7091E6"
+	},
+	"show_text_overlay": {
+		"value": "true",
+		"displayValue": "true"
+	},
+	"text_overlay_hexcode": {
+		"value": "",
+		"displayValue": ""
+	},
+	"text_color": {
+		"value": "true",
+		"displayValue": "true"
+	},
+	"text_color_hexcode": {
+		"value": "",
+		"displayValue": ""
+	},
+	"quick_links": {
+		"value": "9b729365e71130104cda66ef11e8a9a7,4e116048e76530104cda66ef11e8a9bc,aff317a5e71130104cda66ef11e8a939",
+		"displayValue": "Password Reset, Request Standing Desk, System Status"
+	},
+	"load_config": {
+		"value": "async",
+		"displayValue": "async"
+	},
+	"show_empty_state": {
+		"value": "false",
+		"displayValue": "false"
+	}
+}]]&gt;&lt;/widget_parameters&gt;&lt;/sp_instance&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=76a7f89c936e8210ef267c5efaba1034"/&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-145958906</payload_hash>
+        <record_name/>
+        <reverted_from/>
+        <source>af6a7c1693120210ef267c5efaba109d</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-05-29 09:50:16</sys_created_on>
+        <sys_id>0898b0dc936e8210ef267c5efaba1037</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18fc3c1e7cd0000001</sys_recorded_at>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-05-29 09:50:16</sys_updated_on>
+        <type>Instance</type>
+        <update_guid>cc98b0dcc26e821070c5525d951f5436</update_guid>
+        <update_guid_history>cc98b0dcc26e821070c5525d951f5436:-145958906,3ea7f89c926e82103fe9b2b944c69035:731502404</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="">8ab8bcdc936e8210ef267c5efaba109f</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-05-29 09:50:56</sys_created_on>
+        <sys_db_object display_value="" name="sp_instance">sp_instance</sys_db_object>
+        <sys_id>37b84950c63a440f8c806a0781bdba11</sys_id>
+        <sys_metadata>76a7f89c936e8210ef267c5efaba1034</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_scope_delete display_value="">18e926194902432895b35f3c99259089</sys_scope_delete>
+        <sys_update_name>sp_instance_76a7f89c936e8210ef267c5efaba1034</sys_update_name>
+        <sys_update_version display_value="sp_instance_76a7f89c936e8210ef267c5efaba1034">0898b0dc936e8210ef267c5efaba1037</sys_update_version>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-05-29 09:50:56</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
