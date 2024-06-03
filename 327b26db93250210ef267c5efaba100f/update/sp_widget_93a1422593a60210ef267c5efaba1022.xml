@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function() {  /* widget controller */  var c = this;};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>// general
+
+body {
+	font-family: 'PT Sans Caption',"Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	font-size: 3vh;
+}
+
+// header
+
+#header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#logo {
+  text-decoration: none;
+  color: white;
+  font-size: 5vh;
+  font-weight: bold;
+}
+	
+#menu-icon {
+  font-family: Geneva, sans-serif;
+  font-size: 6vh;
+}
+	
+// hero
+
+.hero {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 100vh;
+	padding: 1em;
+	box-sizing: border-box;
+	color: white;
+	background: url(https://images.unsplash.com/photo-1500417148159-68083bd7333a) center center no-repeat;
+	background-size: cover;
+}
+
+.hero-title {
+	max-width: 16em;
+	margin: 0;
+	font-size: 12vh;
+	font-weight: bold;
+	line-height: .9;
+}
+	
+	@media only screen and (min-width: 32em) { .hero-title { font-size: 16vh; } }	
+
+.hero-footer {
+	display: flex;
+	margin-bottom: 1em;
+}
+
+.button {
+	padding: .5em .67em;
+	color: white;
+	text-decoration: none;
+	border: .1em solid white;
+
+}
+	
+	.button-primary {
+		color: black;
+		background-color: white;
+	}
+	
+// article
+
+article {
+	max-width: 36em;
+	margin: 0 auto;
+	padding: 1em;
+}	</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>bkq_image</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Image</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {  /* populate the 'data' object */  /* e.g., data.table = $sp.getValue('table'); */})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-06-02 12:22:06</sys_created_on>
+        <sys_id>93a1422593a60210ef267c5efaba1022</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>Image</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>sp_widget_93a1422593a60210ef267c5efaba1022</sys_update_name>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-06-02 12:41:03</sys_updated_on>
+        <template><![CDATA[<section class="hero">
+  
+  <header class="hero-header">
+    <h1 class="hero-title">The title of this hero module</h1>
+  </header>
+  <footer class="hero-footer">
+    <a class="button button-primary" href="#">button one</a>
+    <a class="button" href="#">button two</a>
+  </footer>
+</section>
+]]></template>
+    </sp_widget>
+</record_update>

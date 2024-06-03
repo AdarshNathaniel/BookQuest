@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance_ais">
+    <sp_instance_ais action="DELETE">
+        <active>true</active>
+        <ai_search_source_filter/>
+        <class_name/>
+        <color>default</color>
+        <css/>
+        <disable_all_suggestions>false</disable_all_suggestions>
+        <glyph/>
+        <id/>
+        <order>1</order>
+        <placeholder/>
+        <roles/>
+        <search_application/>
+        <search_results_configuration/>
+        <short_description/>
+        <size>md</size>
+        <sp_column display_value="1">016fcdac932a0210ef267c5efaba1063</sp_column>
+        <sp_widget display_value="Homepage Search">200fbd96cb20020000f8d856634c9ca1</sp_widget>
+        <spell_check_font_size>xl</spell_check_font_size>
+        <sys_class_name>sp_instance_ais</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-05-29 07:09:38</sys_created_on>
+        <sys_id>cfc3101493ea8210ef267c5efaba1072</sys_id>
+        <sys_mod_count>16</sys_mod_count>
+        <sys_name>"Discover worlds within pages – your journey begins here."</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>sp_instance_ais_cfc3101493ea8210ef267c5efaba1072</sys_update_name>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-05-30 06:08:32</sys_updated_on>
+        <title>"Discover worlds within pages – your journey begins here."</title>
+        <url/>
+        <widget_parameters><![CDATA[{
+	"typeahead_search": {
+		"value": "{title: I want to read..., color: '#3D52A0'}",
+		"displayValue": "{title: I want to read..., color: '#3D52A0'}"
+	}
+}]]></widget_parameters>
+    </sp_instance_ais>
+    <sys_translated_text action="DELETE" query="documentkey=cfc3101493ea8210ef267c5efaba1072"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="BookQuest">327b26db93250210ef267c5efaba100f</application>
+        <file_path/>
+        <instance_id>0535015fdb717d1002d9172913961922</instance_id>
+        <instance_name>dev186731</instance_name>
+        <name>sp_instance_ais_cfc3101493ea8210ef267c5efaba1072</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sp_instance_ais"&gt;&lt;sp_instance_ais action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;ai_search_source_filter/&gt;&lt;class_name/&gt;&lt;color&gt;default&lt;/color&gt;&lt;css/&gt;&lt;disable_all_suggestions&gt;false&lt;/disable_all_suggestions&gt;&lt;glyph/&gt;&lt;id/&gt;&lt;order&gt;1&lt;/order&gt;&lt;placeholder/&gt;&lt;roles/&gt;&lt;search_application/&gt;&lt;search_results_configuration/&gt;&lt;short_description/&gt;&lt;size&gt;md&lt;/size&gt;&lt;sp_column display_value="1"&gt;016fcdac932a0210ef267c5efaba1063&lt;/sp_column&gt;&lt;sp_widget display_value="Homepage Search"&gt;200fbd96cb20020000f8d856634c9ca1&lt;/sp_widget&gt;&lt;spell_check_font_size&gt;xl&lt;/spell_check_font_size&gt;&lt;sys_class_name&gt;sp_instance_ais&lt;/sys_class_name&gt;&lt;sys_created_by&gt;harini.srija&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-05-29 07:09:38&lt;/sys_created_on&gt;&lt;sys_id&gt;cfc3101493ea8210ef267c5efaba1072&lt;/sys_id&gt;&lt;sys_mod_count&gt;16&lt;/sys_mod_count&gt;&lt;sys_name&gt;"Discover worlds within pages – your journey begins here."&lt;/sys_name&gt;&lt;sys_package display_value="BookQuest" source="x_1383151_bkquest"&gt;327b26db93250210ef267c5efaba100f&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="BookQuest"&gt;327b26db93250210ef267c5efaba100f&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_instance_ais_cfc3101493ea8210ef267c5efaba1072&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;harini.srija&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-05-30 06:08:32&lt;/sys_updated_on&gt;&lt;title&gt;"Discover worlds within pages – your journey begins here."&lt;/title&gt;&lt;url/&gt;&lt;widget_parameters&gt;&lt;![CDATA[{
+	"typeahead_search": {
+		"value": "{title: I want to read..., color: '#3D52A0'}",
+		"displayValue": "{title: I want to read..., color: '#3D52A0'}"
+	}
+}]]&gt;&lt;/widget_parameters&gt;&lt;/sp_instance_ais&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=cfc3101493ea8210ef267c5efaba1072"/&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-1338425761</payload_hash>
+        <record_name>"Discover worlds within pages – your journey begins here."</record_name>
+        <reverted_from/>
+        <source>af6a7c1693120210ef267c5efaba109d</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-05-30 06:08:32</sys_created_on>
+        <sys_id>ca6f8dac932a0210ef267c5efaba104e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18fc81d44de0000001</sys_recorded_at>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-05-30 06:08:32</sys_updated_on>
+        <type>Instance with Search</type>
+        <update_guid>826f8dac252a02100c3b4fb0bd5f604e</update_guid>
+        <update_guid_history>826f8dac252a02100c3b4fb0bd5f604e:-1338425761,5e4fc9ac212a02103179f5bfeb038f26:-643287972,243f49acb22a0210b5646bc03bb0c3de:1587147903,d71f49ac072a0210be42976d69755252:-1663615861,110fc5acb92a021066a672972178f79d:1587147903,38eec1ac4d2a021079e87a43d3d4d7d4:-643287972,87cecd6cc62a0210c923cbddc547c1d3:-1620077865,e7ae096ca42a0210f843d7d31ba694e2:-643287972,b39e0d6ca02a02108a996921e2ed8e97:1407922048,0ea85c58b9ea8210e6041c00fda11032:557120231,5c481098fdea8210638f43bf6bb40abb:-1479464885,c61854d4d7ea82104d9194febe3e307c:-1046467565,17b79c9486ea82109f26b30dfbad7453:1988854386,67c554d4cdea8210ad477d81c2221801:-1046467565,19655c9431ea8210ab0143485d2f99a0:504986421,c6151894f8ea8210df552f66e3f3ac17:1948178554,43c3101482ea821085c1366f510e6175:1088617085</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="&quot;Discover worlds within pages – your journey begins here.&quot;">848259a0936a0210ef267c5efaba1033</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-05-30 06:22:04</sys_created_on>
+        <sys_db_object display_value="" name="sp_instance_ais">sp_instance_ais</sys_db_object>
+        <sys_id>00a349947ff741868011f8fab17321c4</sys_id>
+        <sys_metadata>cfc3101493ea8210ef267c5efaba1072</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>"Discover worlds within pages – your journey begins here."</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_scope_delete display_value="">18e926194902432895b35f3c99259089</sys_scope_delete>
+        <sys_update_name>sp_instance_ais_cfc3101493ea8210ef267c5efaba1072</sys_update_name>
+        <sys_update_version display_value="sp_instance_ais_cfc3101493ea8210ef267c5efaba1072">ca6f8dac932a0210ef267c5efaba104e</sys_update_version>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-05-30 06:22:04</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
