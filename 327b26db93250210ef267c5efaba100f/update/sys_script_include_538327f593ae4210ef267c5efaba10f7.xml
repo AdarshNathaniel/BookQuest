@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_1383151_bkquest.BookService</api_name>
+        <caller_access/>
+        <client_callable>true</client_callable>
+        <description/>
+        <name>BookService</name>
+        <script><![CDATA[var BookService = Class.create();
+BookService.prototype = {
+    initialize: function() {},
+
+    getBooks: function() {
+        var books = [];
+        var gr = new GlideRecord('x_1383151_bkquest_book');
+        gr.query();
+
+        while (gr.next()) {
+            var coverImageSysId = gr.getValue('cover_image');
+            var coverImageUrl = '';
+
+            if (coverImageSysId) {
+                var coverImageGR = new GlideRecord('sys_attachment');
+                if (coverImageGR.get(coverImageSysId)) {
+                    coverImageUrl = '/sys_attachment.do?sys_id=' + coverImageSysId;
+                }
+            }
+
+            var authorSysId = gr.getValue('author');
+            var authorName = '';
+            if (authorSysId) {
+                var authorGR = new GlideRecord('x_1383151_bkquest_author');
+                if (authorGR.get(authorSysId)) {
+                    authorName = authorGR.getDisplayValue();
+                }
+            }
+
+            books.push({
+                cover_image: coverImageUrl,
+                title: gr.getValue('title'),
+                author: authorName
+            });
+        }
+        return books;
+    },
+
+    type: 'BookService'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-06-03 14:13:55</sys_created_on>
+        <sys_id>538327f593ae4210ef267c5efaba10f7</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>BookService</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>sys_script_include_538327f593ae4210ef267c5efaba10f7</sys_update_name>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-06-03 14:13:55</sys_updated_on>
+    </sys_script_include>
+</record_update>

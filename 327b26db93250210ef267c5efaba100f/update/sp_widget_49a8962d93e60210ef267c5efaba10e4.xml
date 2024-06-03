@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
     <sp_widget action="INSERT_OR_UPDATE">
         <category>custom</category>
-        <client_script><![CDATA[api.controller=function($scope, spUtil, $http) {
-  // Call the Script Include to fetch book data
-  $http.get(spUtil.getWidgetURL('book_service')).then(function(response) {
-    // Update the scope with the retrieved book data
-    $scope.books = response.data;
-  });
-}
-]]></client_script>
+        <client_script><![CDATA[api.controller=function() {
+  /* widget controller */
+  var c = this;
+};]]></client_script>
         <controller_as>c</controller_as>
         <css>/* Box sizing rules */
 *,
@@ -33,8 +29,10 @@ dd {
 
 h2 {
   font-family: sans-serif;
+  font-weight: bold;
   margin: 2rem 1rem;
-  text-align: center;
+  text-align: left;
+  color: #3D52A0; /* Updated color */
 }
 
 .bookCarousel {
@@ -48,41 +46,63 @@ h2 {
   height: fit-content;
 }
 
+.bookCarousel::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for Chrome, Safari, and Opera */
+}
+
 .book {
   padding: 1rem;
   margin: 0 1rem;
-  border: 1px dashed lightgrey;
+  border: 1px dashed black; /* Updated border color */
+  background-color: #3D52A0; /* Updated background color */
   max-width: 240px;
+  min-width: 240px; /* Ensure that each book has a minimum width */
+  height: auto; /* Adjust height to auto */
   display: flex;
   flex-direction: column;
-  height: 100%;
-  text-align: center;
+  justify-content: space-between;
+  border-radius: 8px; /* Rounded corners */
 }
 
 .book &gt; * {
-  padding-bottom: 8px;
+  color: white; /* Make book text white */
+}
+
+.bookCover {
+  width: 100%;
+  height: auto;
+  flex-shrink: 0;
+  flex-grow: 0;
+  flex-basis: auto;
 }
 
 h4 {
   font-family: sans-serif;
+  text-align: center;
+  font-weight: bold;
+  color: white; /* Make h4 text white */
+  flex-shrink: 1;
+  flex-grow: 0;
+  flex-basis: auto;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Ensure text stays within bounds */
+  text-overflow: ellipsis; /* Add ellipsis for overflow text */
+  word-wrap: break-word; /* Ensure words wrap properly */
 }
 
 .bookAuthor {
   font-family: sans-serif;
-}
-
-.fakebookCover {
-  min-width: 200px;
-  height: 320px;
-  background-color: lightblue;
-  border: 1px dashed darkblue;
-  border-radius: 5px;
   text-align: center;
-  font-size: 8rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 8px;  
+  color: white; /* Make author text white */
+  flex-shrink: 1;
+  flex-grow: 0;
+  flex-basis: auto;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Ensure text stays within bounds */
+  text-overflow: ellipsis; /* Add ellipsis for overflow text */
+  word-wrap: break-word; /* Ensure words wrap properly */
 }
 </css>
         <data_table>sp_instance</data_table>
@@ -98,52 +118,72 @@ h4 {
         <option_schema/>
         <public>false</public>
         <roles/>
-        <script><![CDATA[var BookService = Class.create();
-BookService.prototype = Object.extendsObject(AbstractAjaxProcessor, {
-    getBooks: function() {
-        var books = [];
-        var grBooks = new GlideRecord('x_1383151_bkquest_book');
-        grBooks.query();
+        <script><![CDATA[(function() {
+    // Create a GlideRecord object for the 'x_1383151_bkquest_book' table
+    var gr = new GlideRecord('x_1383151_bkquest_book');
+    gr.query();
+
+    // Create an array to hold the book records
+    var books = [];
+
+    // Loop through the records and push them to the array
+    while (gr.next()) {
+        var coverImageSysId = gr.getValue('cover_image');
+        var coverImageUrl = '';
         
-        while (grBooks.next()) {
-            var book = {
-                title: grBooks.getValue('title'),
-                author: grBooks.author.getDisplayValue(),
-                coverImage: this.getBase64Image(grBooks.getValue('cover_image'))  // Assuming 'cover_image' is the field storing the image sys_id
-            };
-            books.push(book);
+        // Fetch the cover image URL if it exists
+        if (coverImageSysId) {
+            var coverImageGR = new GlideRecord('sys_attachment');
+            if (coverImageGR.get(coverImageSysId)) {
+                coverImageUrl = '/sys_attachment.do?sys_id=' + coverImageSysId;
+            }
         }
-        
-        return books;
-    },
-    
-    getBase64Image: function(imageSysId) {
-        var grImage = new GlideRecord('image');
-        if (grImage.get(imageSysId)) {
-            return 'data:' + grImage.getValue('content_type') + ';base64,' + grImage.getValue('image');
+
+        // Fetch the author's name from the reference table
+        var authorSysId = gr.getValue('author');
+        var authorName = '';
+        if (authorSysId) {
+            var authorGR = new GlideRecord('x_1383151_bkquest_author');
+            if (authorGR.get(authorSysId)) {
+                authorName = authorGR.getDisplayValue(); // This gets the display value of the referenced record
+            }
         }
-        return '';
+
+        // Push the book details to the array
+        books.push({
+            cover_image: coverImageUrl,
+            title: gr.getValue('title'),
+            author: authorName
+        });
     }
-});
+
+    // Make the data available to the client script
+    data.books = books;
+})();
+
 ]]></script>
         <servicenow>false</servicenow>
         <sys_class_name>sp_widget</sys_class_name>
         <sys_created_by>harini.srija</sys_created_by>
         <sys_created_on>2024-06-02 14:02:26</sys_created_on>
         <sys_id>49a8962d93e60210ef267c5efaba10e4</sys_id>
-        <sys_mod_count>12</sys_mod_count>
+        <sys_mod_count>42</sys_mod_count>
         <sys_name>Popular books</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sp_widget_49a8962d93e60210ef267c5efaba10e4</sys_update_name>
         <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-06-03 05:32:38</sys_updated_on>
-        <template><![CDATA[<div ng-repeat="book in books">
-  <div class="book">
-    <img class="bookCover" ng-src="{{book.coverImage}}" alt="{{book.title}}">
-    <h4>{{book.title}}</h4>
-    <p>{{book.author}}</p>
+        <sys_updated_on>2024-06-03 15:37:01</sys_updated_on>
+        <template><![CDATA[<div class="container">
+  <h2>Popular Books</h2>
+  <div class="bookCarousel">
+    <!-- Replace this ng-repeat loop with your existing book item code -->
+    <div class="book" ng-repeat="book in c.data.books">
+      <img ng-src="{{book.cover_image}}" alt="{{book.title}} cover" class="bookCover img-responsive"/>
+      <h4>{{book.title}}</h4>
+      <span class="bookAuthor">{{book.author}}</span>
+    </div>
   </div>
 </div>
 ]]></template>

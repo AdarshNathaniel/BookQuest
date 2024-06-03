@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="DELETE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function() {  /* widget controller */  var c = this;};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+h2 {
+  font-family: sans-serif;
+  margin: 2rem 1rem;
+}
+
+.bookCarousel {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  margin-top: 1rem;
+  
+  overflow-x: auto;
+  -ms-overflow-style: none; 
+  scrollbar-width: none; 
+  height: fit-content;
+}
+
+.book {
+  padding: 1rem;
+  margin: 0 1rem;
+  border: 1px dashed lightgrey;
+  max-width: 240px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.book &gt; * {
+ padding-bottom: 8px;
+}
+
+.bookCover {
+
+}
+
+h4 {
+  font-family: sans-serif;
+  font-size: 
+}
+.bookAuhor {
+  font-family: sans-serif;
+}
+
+.fakebookCover {
+  min-width: 200px;
+  height: 320px;
+  background-color: lightblue;
+  border: 1px dashed darkblue;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 8px;  
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>popular_books_copy</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Popular books copy</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {  /* populate the 'data' object */  /* e.g., data.table = $sp.getValue('table'); */})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-06-03 09:46:26</sys_created_on>
+        <sys_id>3ca76e7593aa4210ef267c5efaba103b</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Popular books copy</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>sp_widget_3ca76e7593aa4210ef267c5efaba103b</sys_update_name>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-06-03 09:46:55</sys_updated_on>
+        <template><![CDATA[<h2>Ultime Letture</h2>
+<div class="bookCarousel"> 
+  <div class="book">
+   <img class="bookCover" src="https://m.media-amazon.com/images/I/41eNi6K+6mL._SX323_BO1,204,203,200_.jpg" alt="libro 1">
+   <h4>Il maestro e Margherita per autostoppisti</h4>
+   <span class="bookAuhor">M. Bulgakov</span>
+  </div>
+  <div class="book">
+   <img class="bookCover" src="https://m.media-amazon.com/images/I/41ySCLBnROS._SX296_BO1,204,203,200_.jpg" alt="libro 2">
+   <h4>Due Vite</h4>
+   <span class="bookAuhor">E. Trevi</span>
+  </div>
+  <div class="book">
+   <img class="bookCover" src="https://m.media-amazon.com/images/I/51B5A2I89AL._SX320_BO1,204,203,200_.jpg" alt="libro 3">
+   <h4>Considera l'Aragosta</h4>
+   <span class="bookAuhor">D. F. Wallace</span>
+  </div>
+  <div class="book">
+   <img class="bookCover" src="https://m.media-amazon.com/images/I/31Ul1uGaIRL._SX323_BO1,204,203,200_.jpg" alt="libro 3">
+   <h4>Mattatoio n.5</h4>
+   <span class="bookAuhor">K. Vonnegut</span>
+  </div>
+  <div class="book">
+   <img class="bookCover" src="https://m.media-amazon.com/images/I/41-dq2jTKUL._SX329_BO1,204,203,200_.jpg" alt="libro 3">
+   <h4>Ocuri Talenti</h4>
+   <span class="bookAuhor">J.M. Miro</span>
+  </div>
+    <div class="book">
+   <img class="bookCover" src="https://m.media-amazon.com/images/I/61ocRO+6xrL._AC_UY436_FMwebp_QL65_.jpg" alt="libro 3">
+   <h4>Buchi Bianchi</h4>
+   <span class="bookAuhor">C. Rovelli</span>
+  </div>
+  <a><div class="book">
+     <div class="fakebookCover">?</div>
+     <h4>Vai alla libreria</h4>
+  </div>
+</div>]]></template>
+    </sp_widget>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="BookQuest">327b26db93250210ef267c5efaba100f</application>
+        <file_path/>
+        <instance_id>0535015fdb717d1002d9172913961922</instance_id>
+        <instance_name>dev186731</instance_name>
+        <name>sp_widget_3ca76e7593aa4210ef267c5efaba103b</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sp_widget"&gt;&lt;sp_widget action="INSERT_OR_UPDATE"&gt;&lt;category&gt;custom&lt;/category&gt;&lt;client_script&gt;&lt;![CDATA[api.controller=function() {  /* widget controller */  var c = this;};]]&gt;&lt;/client_script&gt;&lt;controller_as&gt;c&lt;/controller_as&gt;&lt;css&gt;
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+h2 {
+  font-family: sans-serif;
+  margin: 2rem 1rem;
+}
+
+.bookCarousel {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  margin-top: 1rem;
+  
+  overflow-x: auto;
+  -ms-overflow-style: none; 
+  scrollbar-width: none; 
+  height: fit-content;
+}
+
+.book {
+  padding: 1rem;
+  margin: 0 1rem;
+  border: 1px dashed lightgrey;
+  max-width: 240px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.book &amp;gt; * {
+ padding-bottom: 8px;
+}
+
+.bookCover {
+
+}
+
+h4 {
+  font-family: sans-serif;
+  font-size: 
+}
+.bookAuhor {
+  font-family: sans-serif;
+}
+
+.fakebookCover {
+  min-width: 200px;
+  height: 320px;
+  background-color: lightblue;
+  border: 1px dashed darkblue;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 8px;  
+}&lt;/css&gt;&lt;data_table&gt;sp_instance&lt;/data_table&gt;&lt;demo_data/&gt;&lt;description/&gt;&lt;docs/&gt;&lt;field_list/&gt;&lt;has_preview&gt;false&lt;/has_preview&gt;&lt;id&gt;popular_books_copy&lt;/id&gt;&lt;internal&gt;false&lt;/internal&gt;&lt;link&gt;&lt;![CDATA[function link(scope, element, attrs, controller) {  }]]&gt;&lt;/link&gt;&lt;name&gt;Popular books copy&lt;/name&gt;&lt;option_schema/&gt;&lt;public&gt;false&lt;/public&gt;&lt;roles/&gt;&lt;script&gt;&lt;![CDATA[(function() {  /* populate the 'data' object */  /* e.g., data.table = $sp.getValue('table'); */})();]]&gt;&lt;/script&gt;&lt;servicenow&gt;false&lt;/servicenow&gt;&lt;sys_class_name&gt;sp_widget&lt;/sys_class_name&gt;&lt;sys_created_by&gt;harini.srija&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-06-03 09:46:26&lt;/sys_created_on&gt;&lt;sys_id&gt;3ca76e7593aa4210ef267c5efaba103b&lt;/sys_id&gt;&lt;sys_mod_count&gt;1&lt;/sys_mod_count&gt;&lt;sys_name&gt;Popular books copy&lt;/sys_name&gt;&lt;sys_package display_value="BookQuest" source="x_1383151_bkquest"&gt;327b26db93250210ef267c5efaba100f&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="BookQuest"&gt;327b26db93250210ef267c5efaba100f&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_widget_3ca76e7593aa4210ef267c5efaba103b&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;harini.srija&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-06-03 09:46:55&lt;/sys_updated_on&gt;&lt;template&gt;&lt;![CDATA[&lt;h2&gt;Ultime Letture&lt;/h2&gt;
+&lt;div class="bookCarousel"&gt; 
+  &lt;div class="book"&gt;
+   &lt;img class="bookCover" src="https://m.media-amazon.com/images/I/41eNi6K+6mL._SX323_BO1,204,203,200_.jpg" alt="libro 1"&gt;
+   &lt;h4&gt;Il maestro e Margherita per autostoppisti&lt;/h4&gt;
+   &lt;span class="bookAuhor"&gt;M. Bulgakov&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="book"&gt;
+   &lt;img class="bookCover" src="https://m.media-amazon.com/images/I/41ySCLBnROS._SX296_BO1,204,203,200_.jpg" alt="libro 2"&gt;
+   &lt;h4&gt;Due Vite&lt;/h4&gt;
+   &lt;span class="bookAuhor"&gt;E. Trevi&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="book"&gt;
+   &lt;img class="bookCover" src="https://m.media-amazon.com/images/I/51B5A2I89AL._SX320_BO1,204,203,200_.jpg" alt="libro 3"&gt;
+   &lt;h4&gt;Considera l'Aragosta&lt;/h4&gt;
+   &lt;span class="bookAuhor"&gt;D. F. Wallace&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="book"&gt;
+   &lt;img class="bookCover" src="https://m.media-amazon.com/images/I/31Ul1uGaIRL._SX323_BO1,204,203,200_.jpg" alt="libro 3"&gt;
+   &lt;h4&gt;Mattatoio n.5&lt;/h4&gt;
+   &lt;span class="bookAuhor"&gt;K. Vonnegut&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="book"&gt;
+   &lt;img class="bookCover" src="https://m.media-amazon.com/images/I/41-dq2jTKUL._SX329_BO1,204,203,200_.jpg" alt="libro 3"&gt;
+   &lt;h4&gt;Ocuri Talenti&lt;/h4&gt;
+   &lt;span class="bookAuhor"&gt;J.M. Miro&lt;/span&gt;
+  &lt;/div&gt;
+    &lt;div class="book"&gt;
+   &lt;img class="bookCover" src="https://m.media-amazon.com/images/I/61ocRO+6xrL._AC_UY436_FMwebp_QL65_.jpg" alt="libro 3"&gt;
+   &lt;h4&gt;Buchi Bianchi&lt;/h4&gt;
+   &lt;span class="bookAuhor"&gt;C. Rovelli&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;a&gt;&lt;div class="book"&gt;
+     &lt;div class="fakebookCover"&gt;?&lt;/div&gt;
+     &lt;h4&gt;Vai alla libreria&lt;/h4&gt;
+  &lt;/div&gt;
+&lt;/div&gt;]]&gt;&lt;/template&gt;&lt;/sp_widget&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>626740421</payload_hash>
+        <record_name>Popular books copy</record_name>
+        <reverted_from/>
+        <source>af6a7c1693120210ef267c5efaba109d</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-06-03 09:46:55</sys_created_on>
+        <sys_id>80c766b593aa4210ef267c5efaba1059</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18fdd7ea61b0000001</sys_recorded_at>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-06-03 09:46:55</sys_updated_on>
+        <type>Widget</type>
+        <update_guid>48c766b5b6aa4210590165669be71e58</update_guid>
+        <update_guid_history>48c766b5b6aa4210590165669be71e58:626740421,f8a72eb511aa42101b084f3dc017757e:1504954788</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Popular books copy">3f89227993aa4210ef267c5efaba1086</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-06-03 09:54:50</sys_created_on>
+        <sys_db_object display_value="" name="sp_widget">sp_widget</sys_db_object>
+        <sys_id>1498a83e19f64bfa8325f504db8a13a4</sys_id>
+        <sys_metadata>3ca76e7593aa4210ef267c5efaba103b</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Popular books copy</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_scope_delete display_value="">18e926194902432895b35f3c99259089</sys_scope_delete>
+        <sys_update_name>sp_widget_3ca76e7593aa4210ef267c5efaba103b</sys_update_name>
+        <sys_update_version display_value="sp_widget_3ca76e7593aa4210ef267c5efaba103b">80c766b593aa4210ef267c5efaba1059</sys_update_version>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-06-03 09:54:50</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
