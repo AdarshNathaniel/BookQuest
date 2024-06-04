@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_1383151_bkquest.BorrowedBooksService</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>BorrowedBooksService</name>
+        <script><![CDATA[var BorrowedBooksService = Class.create();
+BorrowedBooksService.prototype = {
+    initialize: function() {},
+
+    getBorrowedBooksForCurrentUser: function() {
+        var userId = gs.getUserID(); // Get the current user's ID
+        var borrowedBooks = [];
+        var borrowGR = new GlideRecord('x_1383151_bkquest_borrow');
+        borrowGR.addQuery('user_id', userId); // Filter by the current user's ID
+        borrowGR.query();
+
+        gs.info('Fetching borrowed books for user with ID: ' + userId);
+
+        while (borrowGR.next()) {
+            var bookId = borrowGR.getValue('book_id');
+            var bookTitle = '';
+            var bookAuthor = '';
+            var bookCover = '';
+
+            gs.info('Processing borrow record with book ID: ' + bookId);
+
+            if (bookId) {
+                var bookGR = new GlideRecord('x_1383151_bkquest_book');
+                if (bookGR.get(bookId)) {
+                    bookTitle = bookGR.getValue('title');
+                    bookAuthor = bookGR.getDisplayValue('author');
+                    var coverImageSysId = bookGR.getValue('cover_image');
+                    if (coverImageSysId) {
+                        bookCover = '/sys_attachment.do?sys_id=' + coverImageSysId;
+                    }
+                    gs.info('Found book record for book ID: ' + bookId + ', Title: ' + bookTitle);
+                } else {
+                    gs.error('Book record not found for book ID: ' + bookId);
+                }
+            } else {
+                gs.error('No book ID found in borrow record');
+            }
+
+            borrowedBooks.push({
+                title: bookTitle,
+                author: bookAuthor,
+                cover: bookCover,
+                dueDate: borrowGR.getValue('due_date'),
+                borrowDate: borrowGR.getValue('borrow_date')
+            });
+        }
+
+        gs.info('Borrowed books for user with ID ' + userId + ': ' + JSON.stringify(borrowedBooks));
+        return borrowedBooks;
+    },
+
+    type: 'BorrowedBooksService'
+};
+
+BorrowedBooksService.prototype.type = 'BorrowedBooksService';
+]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-06-04 09:13:39</sys_created_on>
+        <sys_id>b499af829322c210ef267c5efaba10ca</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>BorrowedBooksService</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>sys_script_include_b499af829322c210ef267c5efaba10ca</sys_update_name>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-06-04 10:36:29</sys_updated_on>
+    </sys_script_include>
+</record_update>

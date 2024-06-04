@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance">
+    <sp_instance action="DELETE">
+        <active>true</active>
+        <class_name/>
+        <color>default</color>
+        <css/>
+        <glyph/>
+        <id/>
+        <order>2</order>
+        <roles/>
+        <short_description/>
+        <size>md</size>
+        <sp_column display_value="1">39afbec2936e8210ef267c5efaba10ac</sp_column>
+        <sp_widget display_value="HTML">8679ef89cb21120000f8d856634c9c4f</sp_widget>
+        <sys_class_name>sp_instance</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-06-04 05:38:40</sys_created_on>
+        <sys_id>c18836ca932e8210ef267c5efaba10b8</sys_id>
+        <sys_mod_count>20</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>sp_instance_c18836ca932e8210ef267c5efaba10b8</sys_update_name>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-06-04 06:16:12</sys_updated_on>
+        <title/>
+        <url/>
+        <widget_parameters><![CDATA[{
+	"html": {
+		"value": "<div style=\"text-align: center; color: black;\">\r\n<h1>\"The only thing that you absolutely have to know, is the location of the library.\"</h1>\r\n<h1>&mdash; Albert Einstein</h1>\r\n</div>",
+		"displayValue": "<div style=\"text-align: center; color: black;\">\n<h1>\"The only thing that you absolutely have to know, is the location of the library.\"</h1>\n<h1>&mdash; Albert Einstein</h1>\n</div>"
+	}
+}]]></widget_parameters>
+    </sp_instance>
+    <sys_translated_text action="DELETE" query="documentkey=c18836ca932e8210ef267c5efaba10b8"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="BookQuest">327b26db93250210ef267c5efaba100f</application>
+        <file_path/>
+        <instance_id>0535015fdb717d1002d9172913961922</instance_id>
+        <instance_name>dev186731</instance_name>
+        <name>sp_instance_c18836ca932e8210ef267c5efaba10b8</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sp_instance"&gt;&lt;sp_instance action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;class_name/&gt;&lt;color&gt;default&lt;/color&gt;&lt;css/&gt;&lt;glyph/&gt;&lt;id/&gt;&lt;order&gt;2&lt;/order&gt;&lt;roles/&gt;&lt;short_description/&gt;&lt;size&gt;md&lt;/size&gt;&lt;sp_column display_value="1"&gt;39afbec2936e8210ef267c5efaba10ac&lt;/sp_column&gt;&lt;sp_widget display_value="HTML"&gt;8679ef89cb21120000f8d856634c9c4f&lt;/sp_widget&gt;&lt;sys_class_name&gt;sp_instance&lt;/sys_class_name&gt;&lt;sys_created_by&gt;harini.srija&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-06-04 05:38:40&lt;/sys_created_on&gt;&lt;sys_id&gt;c18836ca932e8210ef267c5efaba10b8&lt;/sys_id&gt;&lt;sys_mod_count&gt;20&lt;/sys_mod_count&gt;&lt;sys_name/&gt;&lt;sys_package display_value="BookQuest" source="x_1383151_bkquest"&gt;327b26db93250210ef267c5efaba100f&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="BookQuest"&gt;327b26db93250210ef267c5efaba100f&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_instance_c18836ca932e8210ef267c5efaba10b8&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;harini.srija&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-06-04 06:16:12&lt;/sys_updated_on&gt;&lt;title/&gt;&lt;url/&gt;&lt;widget_parameters&gt;&lt;![CDATA[{
+	"html": {
+		"value": "&lt;div style=\"text-align: center; color: black;\"&gt;\r\n&lt;h1&gt;\"The only thing that you absolutely have to know, is the location of the library.\"&lt;/h1&gt;\r\n&lt;h1&gt;&amp;mdash; Albert Einstein&lt;/h1&gt;\r\n&lt;/div&gt;",
+		"displayValue": "&lt;div style=\"text-align: center; color: black;\"&gt;\n&lt;h1&gt;\"The only thing that you absolutely have to know, is the location of the library.\"&lt;/h1&gt;\n&lt;h1&gt;&amp;mdash; Albert Einstein&lt;/h1&gt;\n&lt;/div&gt;"
+	}
+}]]&gt;&lt;/widget_parameters&gt;&lt;/sp_instance&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=c18836ca932e8210ef267c5efaba10b8"/&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>203198721</payload_hash>
+        <record_name/>
+        <reverted_from/>
+        <source>af6a7c1693120210ef267c5efaba109d</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-06-04 06:16:12</sys_created_on>
+        <sys_id>4f110f46936e8210ef267c5efaba1076</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18fe1e4161a0000001</sys_recorded_at>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-06-04 06:16:12</sys_updated_on>
+        <type>Instance</type>
+        <update_guid>07110f46226e8210e920192d31e15176</update_guid>
+        <update_guid_history>07110f46226e8210e920192d31e15176:203198721,8b110f46b26e82100c1c2de566f9ab72:1596473250,ff01cb46f06e82105c6e7b208021d05e:2027920297,7701cb46fe6e82101eaae0ea7ee8fc54:1596473250,21f04b46106e8210c23736da7a93342c:1567850080,6df04b46a56e82107fb650c1f96cc818:1596473250,cfe00b46866e82105af5694e2116be60:1567850080,87e00b46b06e82105ae970fe83862053:203198721,d0d04746966e8210e63c7c3e0662e887:1567850080,50d04746db6e821026530ee93ff01274:1596473250,aec007467f6e8210bb9e539725d994c4:1567850080,e6c04706876e821012039397722838fc:1596473250,01c00746ed6e821059d896bb007ff04d:1567850080,34c007468a6e82104824d29eeb9cc03f:1596473250,4fb0c346976e82104417cb8321cf5d50:2027920297,03b00b06ca6e82106049319142fae3ff:1596473250,deb08346a46e82106e6c7b78a7e9f5fc:2027920297,f17eb682166e8210aa1d431a6218ddc5:634645768,869c32022e6e82106517989b1ea9d61a:2027920297,57a8b6cac42e82104cfbffe4255eab51:1132902061,cd8836ca922e821064ab0eb0aa5ec5b9:684454893</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="">aa21cb46936e8210ef267c5efaba10b5</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-06-04 06:16:27</sys_created_on>
+        <sys_db_object display_value="" name="sp_instance">sp_instance</sys_db_object>
+        <sys_id>b52c83ed7e554fb9a2ce91dbdb590b99</sys_id>
+        <sys_metadata>c18836ca932e8210ef267c5efaba10b8</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_scope_delete display_value="">18e926194902432895b35f3c99259089</sys_scope_delete>
+        <sys_update_name>sp_instance_c18836ca932e8210ef267c5efaba10b8</sys_update_name>
+        <sys_update_version display_value="sp_instance_c18836ca932e8210ef267c5efaba10b8">4f110f46936e8210ef267c5efaba1076</sys_update_version>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-06-04 06:16:27</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

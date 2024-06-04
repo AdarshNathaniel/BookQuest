@@ -2,7 +2,7 @@
     <sp_instance_link action="INSERT_OR_UPDATE">
         <active>true</active>
         <class_name/>
-        <color>info</color>
+        <color>default</color>
         <css/>
         <glyph>book</glyph>
         <id/>
@@ -13,23 +13,23 @@
         <roles/>
         <sc_cat_item/>
         <sc_category/>
-        <short_description>physical books</short_description>
+        <short_description>Explore the classics, discover the new</short_description>
         <size>md</size>
         <sp_column display_value="1">3e3d4ae193e60210ef267c5efaba10ed</sp_column>
-        <sp_page/>
+        <sp_page display_value="bkq_explore_v1">20e5d05493ea8210ef267c5efaba1059</sp_page>
         <sp_widget display_value="Icon Link">3caa67afcb13020000f8d856634c9c2e</sp_widget>
         <sys_class_name>sp_instance_link</sys_class_name>
         <sys_created_by>harini.srija</sys_created_by>
         <sys_created_on>2024-06-02 13:12:35</sys_created_on>
         <sys_id>f23d4ae193e60210ef267c5efaba10f0</sys_id>
-        <sys_mod_count>6</sys_mod_count>
+        <sys_mod_count>12</sys_mod_count>
         <sys_name>Physical Book</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sp_instance_link_f23d4ae193e60210ef267c5efaba10f0</sys_update_name>
         <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-06-02 14:21:36</sys_updated_on>
+        <sys_updated_on>2024-06-04 07:21:17</sys_updated_on>
         <title>Physical Book</title>
         <type>page</type>
         <url/>
@@ -39,8 +39,8 @@
 		"displayValue": "Color Box"
 	},
 	"link_template": {
-		"value": "",
-		"displayValue": "-- None --"
+		"value": "Color Box",
+		"displayValue": "Color Box"
 	}
 }]]></widget_parameters>
     </sp_instance_link>

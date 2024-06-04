@@ -119,62 +119,24 @@ h4 {
         <public>false</public>
         <roles/>
         <script><![CDATA[(function() {
-    // Create a GlideRecord object for the 'x_1383151_bkquest_book' table
-    var gr = new GlideRecord('x_1383151_bkquest_book');
-    gr.query();
-
-    // Create an array to hold the book records
-    var books = [];
-
-    // Loop through the records and push them to the array
-    while (gr.next()) {
-        var coverImageSysId = gr.getValue('cover_image');
-        var coverImageUrl = '';
-        
-        // Fetch the cover image URL if it exists
-        if (coverImageSysId) {
-            var coverImageGR = new GlideRecord('sys_attachment');
-            if (coverImageGR.get(coverImageSysId)) {
-                coverImageUrl = '/sys_attachment.do?sys_id=' + coverImageSysId;
-            }
-        }
-
-        // Fetch the author's name from the reference table
-        var authorSysId = gr.getValue('author');
-        var authorName = '';
-        if (authorSysId) {
-            var authorGR = new GlideRecord('x_1383151_bkquest_author');
-            if (authorGR.get(authorSysId)) {
-                authorName = authorGR.getDisplayValue(); // This gets the display value of the referenced record
-            }
-        }
-
-        // Push the book details to the array
-        books.push({
-            cover_image: coverImageUrl,
-            title: gr.getValue('title'),
-            author: authorName
-        });
-    }
-
-    // Make the data available to the client script
-    data.books = books;
+    // Call the Script Include
+    var bookService = new BookService();
+    data.books = bookService.getBooks();
 })();
-
 ]]></script>
         <servicenow>false</servicenow>
         <sys_class_name>sp_widget</sys_class_name>
         <sys_created_by>harini.srija</sys_created_by>
         <sys_created_on>2024-06-02 14:02:26</sys_created_on>
         <sys_id>49a8962d93e60210ef267c5efaba10e4</sys_id>
-        <sys_mod_count>42</sys_mod_count>
+        <sys_mod_count>43</sys_mod_count>
         <sys_name>Popular books</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sp_widget_49a8962d93e60210ef267c5efaba10e4</sys_update_name>
         <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-06-03 15:37:01</sys_updated_on>
+        <sys_updated_on>2024-06-04 04:12:48</sys_updated_on>
         <template><![CDATA[<div class="container">
   <h2>Popular Books</h2>
   <div class="bookCarousel">

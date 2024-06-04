@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance_ais">
+    <sp_instance_ais action="DELETE">
+        <active>true</active>
+        <ai_search_source_filter/>
+        <class_name/>
+        <color>default</color>
+        <css/>
+        <disable_all_suggestions>false</disable_all_suggestions>
+        <glyph/>
+        <id/>
+        <order>1</order>
+        <placeholder/>
+        <roles/>
+        <search_application/>
+        <search_results_configuration/>
+        <short_description/>
+        <size>md</size>
+        <sp_column display_value="2">0bfc517d93264210ef267c5efaba1006</sp_column>
+        <sp_widget display_value="Homepage Search">200fbd96cb20020000f8d856634c9ca1</sp_widget>
+        <spell_check_font_size>xl</spell_check_font_size>
+        <sys_class_name>sp_instance_ais</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-06-02 13:36:35</sys_created_on>
+        <sys_id>5eb21ee593e60210ef267c5efaba1017</sys_id>
+        <sys_mod_count>21</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>sp_instance_ais_5eb21ee593e60210ef267c5efaba1017</sys_update_name>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-06-04 06:16:12</sys_updated_on>
+        <title/>
+        <url/>
+        <widget_parameters/>
+    </sp_instance_ais>
+    <sys_translated_text action="DELETE" query="documentkey=5eb21ee593e60210ef267c5efaba1017"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="BookQuest">327b26db93250210ef267c5efaba100f</application>
+        <file_path/>
+        <instance_id>0535015fdb717d1002d9172913961922</instance_id>
+        <instance_name>dev186731</instance_name>
+        <name>sp_instance_ais_5eb21ee593e60210ef267c5efaba1017</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance_ais"><sp_instance_ais action="INSERT_OR_UPDATE"><active>true</active><ai_search_source_filter/><class_name/><color>default</color><css/><disable_all_suggestions>false</disable_all_suggestions><glyph/><id/><order>1</order><placeholder/><roles/><search_application/><search_results_configuration/><short_description/><size>md</size><sp_column display_value="2">0bfc517d93264210ef267c5efaba1006</sp_column><sp_widget display_value="Homepage Search">200fbd96cb20020000f8d856634c9ca1</sp_widget><spell_check_font_size>xl</spell_check_font_size><sys_class_name>sp_instance_ais</sys_class_name><sys_created_by>harini.srija</sys_created_by><sys_created_on>2024-06-02 13:36:35</sys_created_on><sys_id>5eb21ee593e60210ef267c5efaba1017</sys_id><sys_mod_count>21</sys_mod_count><sys_name/><sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package><sys_policy/><sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope><sys_update_name>sp_instance_ais_5eb21ee593e60210ef267c5efaba1017</sys_update_name><sys_updated_by>harini.srija</sys_updated_by><sys_updated_on>2024-06-04 06:16:12</sys_updated_on><title/><url/><widget_parameters/></sp_instance_ais><sys_translated_text action="delete_multiple" query="documentkey=5eb21ee593e60210ef267c5efaba1017"/></record_update>]]></payload>
+        <payload_hash>867681510</payload_hash>
+        <record_name/>
+        <reverted_from/>
+        <source>af6a7c1693120210ef267c5efaba109d</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-06-04 06:16:12</sys_created_on>
+        <sys_id>c7110f46936e8210ef267c5efaba1081</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18fe1e416bf0000001</sys_recorded_at>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-06-04 06:16:12</sys_updated_on>
+        <type>Instance with Search</type>
+        <update_guid>8f110f46a06e8210017b20a82b659380</update_guid>
+        <update_guid_history>8f110f46a06e8210017b20a82b659380:867681510,03110f46456e82103f0a328c88a5c47a:1208089821,7b01cb46086e821018b2053bd1473062:-2090648251,b301cb46b16e821051a8e3865de22e58:-128547714,29f04b46766e8210ebc938db68612423:867681510,a9f04b46786e8210b9e3b6893010001c:-128547714,c7e00b460d6e82106403668abf001b58:867681510,8be00f06546e821055b06e43590725d6:-1465185249,d8d04746726e82109d54016ef225637e:867681510,5cd04746996e82104c1e579d19e32677:-128547714,a6c00746b36e82104c81bfce534395bc:-2090648251,b4c00746396e82109c1bef72489ba444:867681510,9ab0c346ea6e821040c5ce780f0fb200:-2090648251,f17eb682c96e8210de6b5e6b336754c9:-754010716,8d88b6cac72e8210d5653f529d0f6ef9:-2090648251,b73872cae92e8210c303bacceb1cf557:867681510,610ddd71b46642108b2dd904966291aa:-2090648251,8c0d9d355ae24210b6588c0674598015:1813477335,b4ec5d71be6642109fa3e03beb016d06:-1144852426,7fdc1d7108664210870b166376dc7396:-844351832,e7bc5971bf6642104e5553f8ed3b667b:492285703,2ab21ee53be60210baaf44ce5b998819:-1968162758</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="">35c3c7c6936e8210ef267c5efaba10b3</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-06-04 06:27:52</sys_created_on>
+        <sys_db_object display_value="" name="sp_instance_ais">sp_instance_ais</sys_db_object>
+        <sys_id>1af58179078a4be0842ed15340c94400</sys_id>
+        <sys_metadata>5eb21ee593e60210ef267c5efaba1017</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_scope_delete display_value="">18e926194902432895b35f3c99259089</sys_scope_delete>
+        <sys_update_name>sp_instance_ais_5eb21ee593e60210ef267c5efaba1017</sys_update_name>
+        <sys_update_version display_value="sp_instance_ais_5eb21ee593e60210ef267c5efaba1017">c7110f46936e8210ef267c5efaba1081</sys_update_version>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-06-04 06:27:52</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
