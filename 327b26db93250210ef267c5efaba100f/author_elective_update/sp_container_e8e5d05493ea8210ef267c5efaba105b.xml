@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_container">
+    <sp_container action="DELETE">
+        <background_color/>
+        <background_image/>
+        <background_style>default</background_style>
+        <bootstrap_alt>false</bootstrap_alt>
+        <class_name/>
+        <container_class_name/>
+        <name>bkq_Explorev1 - Container 1</name>
+        <order>1</order>
+        <semantic_tag/>
+        <sp_page display_value="bkq_explore_v1">20e5d05493ea8210ef267c5efaba1059</sp_page>
+        <subheader>false</subheader>
+        <sys_class_name>sp_container</sys_class_name>
+        <sys_created_by>adarsh.nathaniel</sys_created_by>
+        <sys_created_on>2024-05-29 07:18:45</sys_created_on>
+        <sys_id>e8e5d05493ea8210ef267c5efaba105b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>bkq_Explorev1 - Container 1</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>sp_container_e8e5d05493ea8210ef267c5efaba105b</sys_update_name>
+        <sys_updated_by>adarsh.nathaniel</sys_updated_by>
+        <sys_updated_on>2024-05-29 07:18:45</sys_updated_on>
+        <title/>
+        <width>container</width>
+    </sp_container>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="BookQuest">327b26db93250210ef267c5efaba100f</application>
+        <file_path/>
+        <instance_id>0535015fdb717d1002d9172913961922</instance_id>
+        <instance_name>dev186731</instance_name>
+        <name>sp_container_e8e5d05493ea8210ef267c5efaba105b</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_container"><sp_container action="INSERT_OR_UPDATE"><background_color/><background_image/><background_style>default</background_style><bootstrap_alt>false</bootstrap_alt><class_name/><container_class_name/><name>bkq_Explorev1 - Container 1</name><order>1</order><semantic_tag/><sp_page display_value="bkq_explore_v1">20e5d05493ea8210ef267c5efaba1059</sp_page><subheader>false</subheader><sys_class_name>sp_container</sys_class_name><sys_created_by>adarsh.nathaniel</sys_created_by><sys_created_on>2024-05-29 07:18:45</sys_created_on><sys_id>e8e5d05493ea8210ef267c5efaba105b</sys_id><sys_mod_count>0</sys_mod_count><sys_name>bkq_Explorev1 - Container 1</sys_name><sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package><sys_policy/><sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope><sys_update_name>sp_container_e8e5d05493ea8210ef267c5efaba105b</sys_update_name><sys_updated_by>adarsh.nathaniel</sys_updated_by><sys_updated_on>2024-05-29 07:18:45</sys_updated_on><title/><width>container</width></sp_container></record_update>]]></payload>
+        <payload_hash>761180144</payload_hash>
+        <record_name>bkq_Explorev1 - Container 1</record_name>
+        <reverted_from/>
+        <source>0932ea2493394210ef267c5efaba10c6</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>adarsh.nathaniel</sys_created_by>
+        <sys_created_on>2024-05-29 07:18:45</sys_created_on>
+        <sys_id>e8e5d05493ea8210ef267c5efaba105d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18fc33730d00000001</sys_recorded_at>
+        <sys_updated_by>adarsh.nathaniel</sys_updated_by>
+        <sys_updated_on>2024-05-29 07:18:45</sys_updated_on>
+        <type>Container</type>
+        <update_guid>20e5d054d7ea82105f2a2bfbf0d3265d</update_guid>
+        <update_guid_history>20e5d054d7ea82105f2a2bfbf0d3265d:761180144</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="bkq_Explorev1 - Container 1">7529b57193e64210ef267c5efaba1014</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>adarsh.nathaniel</sys_created_by>
+        <sys_created_on>2024-06-03 06:23:20</sys_created_on>
+        <sys_db_object display_value="" name="sp_container">sp_container</sys_db_object>
+        <sys_id>1aa6d4917c524b8684aa762a0b35b849</sys_id>
+        <sys_metadata>e8e5d05493ea8210ef267c5efaba105b</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>bkq_Explorev1 - Container 1</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_scope_delete display_value="">18e926194902432895b35f3c99259089</sys_scope_delete>
+        <sys_update_name>sp_container_e8e5d05493ea8210ef267c5efaba105b</sys_update_name>
+        <sys_update_version display_value="sp_container_e8e5d05493ea8210ef267c5efaba105b">e8e5d05493ea8210ef267c5efaba105d</sys_update_version>
+        <sys_updated_by>adarsh.nathaniel</sys_updated_by>
+        <sys_updated_on>2024-06-03 06:23:20</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

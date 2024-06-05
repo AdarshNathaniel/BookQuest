@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ws_operation">
+    <sys_ws_operation action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <consumes>application/json,application/xml,text/xml</consumes>
+        <consumes_customized>false</consumes_customized>
+        <default_operation_uri/>
+        <enforce_acl>cf9d01d3e73003009d6247e603f6a990</enforce_acl>
+        <http_method>GET</http_method>
+        <name>/books</name>
+        <operation_script><![CDATA[(function process( /*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
+
+    var gr = new GlideRecord('x_1383151_bkquest_book');
+    gr.query();
+
+    var books = [];
+    while (gr.next()) {
+        var coverImageSysId = gr.getValue('cover_image');
+        var coverImageUrl = '';
+        if (coverImageSysId) {
+            coverImageUrl = '/sys_attachment.do?sys_id=' + coverImageSysId;
+        }
+
+        var authorSysId = gr.getValue('author');
+        var authorName = '';
+        if (authorSysId) {
+            var authorGR = new GlideRecord('x_1383151_bkquest_author');
+            if (authorGR.get(authorSysId)) {
+                authorName = authorGR.getDisplayValue();
+            }
+        }
+
+        books.push({
+            cover_image: coverImageUrl,
+            title: gr.getValue('title'),
+            author: authorName
+        });
+    }
+
+    response.setBody(JSON.stringify({
+        result: books
+    }));
+
+})(request, response);]]></operation_script>
+        <operation_uri>/api/x_1383151_bkquest/book_api</operation_uri>
+        <produces>application/json,application/xml,text/xml</produces>
+        <produces_customized>false</produces_customized>
+        <relative_path>/</relative_path>
+        <request_example/>
+        <requires_acl_authorization>true</requires_acl_authorization>
+        <requires_authentication>true</requires_authentication>
+        <requires_snc_internal_role>true</requires_snc_internal_role>
+        <short_description/>
+        <sys_class_name>sys_ws_operation</sys_class_name>
+        <sys_created_by>adarsh.nathaniel</sys_created_by>
+        <sys_created_on>2024-06-04 06:03:55</sys_created_on>
+        <sys_id>1a7cbece932e8210ef267c5efaba1007</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>/books</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>sys_ws_operation_1a7cbece932e8210ef267c5efaba1007</sys_update_name>
+        <sys_updated_by>adarsh.nathaniel</sys_updated_by>
+        <sys_updated_on>2024-06-04 06:03:55</sys_updated_on>
+        <web_service_definition display_value="Book API">c32c3ace932e8210ef267c5efaba1020</web_service_definition>
+        <web_service_version/>
+    </sys_ws_operation>
+</record_update>

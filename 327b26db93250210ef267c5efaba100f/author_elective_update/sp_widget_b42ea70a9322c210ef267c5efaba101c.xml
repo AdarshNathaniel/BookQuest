@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="DELETE">
+        <category>custom</category>
+        <client_script><![CDATA[(function() {
+  // Inject $rootScope into the widget controller
+  function BookListController($rootScope) {
+    var c = this;
+
+    // Ensure c.data is defined and initialize books array
+    c.data = c.data || {};
+    c.data.books = [];
+
+    // Listen for search results broadcast and update the book list
+    $rootScope.$on('books.searchResults', function(event, books) {
+      c.data.books = books;
+    });
+  }
+
+  // Register the controller
+  angular.module('sn.$sp').controller('bookList', ['$rootScope', BookListController]);
+})();
+]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.book-item {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  height: 350px; /* Fixed height for uniformity */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%; /* Ensures cards take up full width of column */
+}
+
+.book-cover {
+  max-height: 200px; /* Adjust based on desired cover size */
+  width: auto;
+  margin: 0 auto 10px; /* Center the image and add bottom margin */
+}
+
+.book-title {
+  font-size: 1.2em;
+  margin-top: 10px;
+}
+
+.book-author {
+  color: #555;
+  margin-bottom: 10px; /* Ensure spacing at the bottom */
+}
+</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>book_list_temp</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Book List Temp</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {  /* populate the 'data' object */  /* e.g., data.table = $sp.getValue('table'); */})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>adarsh.nathaniel</sys_created_by>
+        <sys_created_on>2024-06-04 09:32:56</sys_created_on>
+        <sys_id>b42ea70a9322c210ef267c5efaba101c</sys_id>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_name>Book List Temp</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>sp_widget_b42ea70a9322c210ef267c5efaba101c</sys_update_name>
+        <sys_updated_by>adarsh.nathaniel</sys_updated_by>
+        <sys_updated_on>2024-06-04 19:07:21</sys_updated_on>
+        <template><![CDATA[<div class="container">
+  <div class="row">
+    <div class="book-item col-xs-12 col-sm-6 col-md-3 col-lg-3" ng-repeat="book in c.data.books">
+      <div class="card">
+        <img ng-src="{{book.cover_image}}" alt="{{book.title}} cover" class="book-cover img-responsive"/>
+        <h3 class="book-title">{{book.title}}</h3>
+        <p class="book-author">{{book.author}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--
+<pre>{{data.books | json}}</pre>
+-->
+]]></template>
+    </sp_widget>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="BookQuest">327b26db93250210ef267c5efaba100f</application>
+        <file_path/>
+        <instance_id>0535015fdb717d1002d9172913961922</instance_id>
+        <instance_name>dev186731</instance_name>
+        <name>sp_widget_b42ea70a9322c210ef267c5efaba101c</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sp_widget"&gt;&lt;sp_widget action="INSERT_OR_UPDATE"&gt;&lt;category&gt;custom&lt;/category&gt;&lt;client_script&gt;&lt;![CDATA[(function() {
+  // Inject $rootScope into the widget controller
+  function BookListController($rootScope) {
+    var c = this;
+
+    // Ensure c.data is defined and initialize books array
+    c.data = c.data || {};
+    c.data.books = [];
+
+    // Listen for search results broadcast and update the book list
+    $rootScope.$on('books.searchResults', function(event, books) {
+      c.data.books = books;
+    });
+  }
+
+  // Register the controller
+  angular.module('sn.$sp').controller('bookList', ['$rootScope', BookListController]);
+})();
+]]&gt;&lt;/client_script&gt;&lt;controller_as&gt;c&lt;/controller_as&gt;&lt;css&gt;.book-item {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  height: 350px; /* Fixed height for uniformity */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%; /* Ensures cards take up full width of column */
+}
+
+.book-cover {
+  max-height: 200px; /* Adjust based on desired cover size */
+  width: auto;
+  margin: 0 auto 10px; /* Center the image and add bottom margin */
+}
+
+.book-title {
+  font-size: 1.2em;
+  margin-top: 10px;
+}
+
+.book-author {
+  color: #555;
+  margin-bottom: 10px; /* Ensure spacing at the bottom */
+}
+&lt;/css&gt;&lt;data_table&gt;sp_instance&lt;/data_table&gt;&lt;demo_data/&gt;&lt;description/&gt;&lt;docs/&gt;&lt;field_list/&gt;&lt;has_preview&gt;true&lt;/has_preview&gt;&lt;id&gt;book_list_temp&lt;/id&gt;&lt;internal&gt;false&lt;/internal&gt;&lt;link&gt;&lt;![CDATA[function link(scope, element, attrs, controller) {  }]]&gt;&lt;/link&gt;&lt;name&gt;Book List Temp&lt;/name&gt;&lt;option_schema/&gt;&lt;public&gt;false&lt;/public&gt;&lt;roles/&gt;&lt;script&gt;&lt;![CDATA[(function() {  /* populate the 'data' object */  /* e.g., data.table = $sp.getValue('table'); */})();]]&gt;&lt;/script&gt;&lt;servicenow&gt;false&lt;/servicenow&gt;&lt;sys_class_name&gt;sp_widget&lt;/sys_class_name&gt;&lt;sys_created_by&gt;adarsh.nathaniel&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-06-04 09:32:56&lt;/sys_created_on&gt;&lt;sys_id&gt;b42ea70a9322c210ef267c5efaba101c&lt;/sys_id&gt;&lt;sys_mod_count&gt;7&lt;/sys_mod_count&gt;&lt;sys_name&gt;Book List Temp&lt;/sys_name&gt;&lt;sys_package display_value="BookQuest" source="x_1383151_bkquest"&gt;327b26db93250210ef267c5efaba100f&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="BookQuest"&gt;327b26db93250210ef267c5efaba100f&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_widget_b42ea70a9322c210ef267c5efaba101c&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;adarsh.nathaniel&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-06-04 19:07:21&lt;/sys_updated_on&gt;&lt;template&gt;&lt;![CDATA[&lt;div class="container"&gt;
+  &lt;div class="row"&gt;
+    &lt;div class="book-item col-xs-12 col-sm-6 col-md-3 col-lg-3" ng-repeat="book in c.data.books"&gt;
+      &lt;div class="card"&gt;
+        &lt;img ng-src="{{book.cover_image}}" alt="{{book.title}} cover" class="book-cover img-responsive"/&gt;
+        &lt;h3 class="book-title"&gt;{{book.title}}&lt;/h3&gt;
+        &lt;p class="book-author"&gt;{{book.author}}&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!--
+&lt;pre&gt;{{data.books | json}}&lt;/pre&gt;
+--&gt;
+]]&gt;&lt;/template&gt;&lt;/sp_widget&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-590437898</payload_hash>
+        <record_name>Book List Temp</record_name>
+        <reverted_from/>
+        <source>0932ea2493394210ef267c5efaba10c6</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>adarsh.nathaniel</sys_created_by>
+        <sys_created_on>2024-06-04 19:07:21</sys_created_on>
+        <sys_id>0b91f9d6936ac210ef267c5efaba10f3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18fe4a618a50000001</sys_recorded_at>
+        <sys_updated_by>adarsh.nathaniel</sys_updated_by>
+        <sys_updated_on>2024-06-04 19:07:21</sys_updated_on>
+        <type>Widget</type>
+        <update_guid>cf91f9d60a6ac2105594f488b1d838f2</update_guid>
+        <update_guid_history>cf91f9d60a6ac2105594f488b1d838f2:-590437898,595e6d5aa32ac2102cbb4a0adb6da7b3:-100484436,1b0d7f8ae362c21084d0a7f0172fc321:1471316108,d3bc3f8af462c2107b32ae9a2b6ff7d0:1312022905,439cbb8a6c62c2101df62b293b5dca3c:-918977483,c0303f0a4e22c210bb60049ca670cbbe:-93423367,c97e238a3d22c2102cadaa65f5a7a018:-1076197378,3c2ea70a9f22c21086a30d841161ab1d:-1999174221</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Book List Temp">a5490caa93e20610ef267c5efaba10ea</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>adarsh.nathaniel</sys_created_by>
+        <sys_created_on>2024-06-05 06:09:59</sys_created_on>
+        <sys_db_object display_value="" name="sp_widget">sp_widget</sys_db_object>
+        <sys_id>1fb2a77163564db18c877c6e432cc159</sys_id>
+        <sys_metadata>b42ea70a9322c210ef267c5efaba101c</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Book List Temp</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_scope_delete display_value="">18e926194902432895b35f3c99259089</sys_scope_delete>
+        <sys_update_name>sp_widget_b42ea70a9322c210ef267c5efaba101c</sys_update_name>
+        <sys_update_version display_value="sp_widget_b42ea70a9322c210ef267c5efaba101c">0b91f9d6936ac210ef267c5efaba10f3</sys_update_version>
+        <sys_updated_by>adarsh.nathaniel</sys_updated_by>
+        <sys_updated_on>2024-06-05 06:09:59</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

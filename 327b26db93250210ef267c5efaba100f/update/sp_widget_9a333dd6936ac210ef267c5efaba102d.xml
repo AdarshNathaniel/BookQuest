@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[(function() {
+  var c = this;
+
+  // Ensure c.data is defined and initialize properties
+  c.data = c.data || {};
+  c.data.searchQuery = '';
+  c.data.books = [];
+
+  c.searchBooks = function() {
+    c.server.update().then(function(response) {
+      c.data.books = response.data.books;
+    });
+  };
+})();
+]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.search-widget {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  padding: 10px;
+  font-size: 1em;
+  width: 300px;
+  margin-right: 10px;
+}
+
+.search-button {
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.book-item {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  height: 350px; /* Fixed height for uniformity */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%; /* Ensures cards take up full width of column */
+}
+
+.book-cover {
+  max-height: 200px; /* Adjust based on desired cover size */
+  width: auto;
+  margin: 0 auto 10px; /* Center the image and add bottom margin */
+}
+
+.book-title {
+  font-size: 1.2em;
+  margin-top: 10px;
+}
+
+.book-author {
+  color: #555;
+  margin-bottom: 10px; /* Ensure spacing at the bottom */
+}
+</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>combined_search_temp</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Combined Search Temp</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+  // Log the incoming search query
+  gs.info('Search query: ' + data.searchQuery);
+  
+  var searchQuery = data.searchQuery || '';
+  var books = [];
+
+  if (searchQuery) {
+    var gr = new GlideRecord('x_1383151_bkquest_book');
+    gr.addQuery('title', 'CONTAINS', searchQuery);
+    gr.query();
+
+    // Log the number of records found
+    gs.info('Number of books found: ' + gr.getRowCount());
+
+    while (gr.next()) {
+      var coverImageSysId = gr.getValue('cover_image');
+      var coverImageUrl = '';
+
+      if (coverImageSysId) {
+        var coverImageGR = new GlideRecord('sys_attachment');
+        if (coverImageGR.get(coverImageSysId)) {
+          coverImageUrl = '/sys_attachment.do?sys_id=' + coverImageSysId;
+        }
+      }
+
+      var authorSysId = gr.getValue('author');
+      var authorName = '';
+      if (authorSysId) {
+        var authorGR = new GlideRecord('x_1383151_bkquest_author');
+        if (authorGR.get(authorSysId)) {
+          authorName = authorGR.getDisplayValue();
+        }
+      }
+
+      books.push({
+        cover_image: coverImageUrl,
+        title: gr.getValue('title'),
+        author: authorName
+      });
+
+      // Log the details of each book
+      gs.info('Book found: ' + JSON.stringify({
+        cover_image: coverImageUrl,
+        title: gr.getValue('title'),
+        author: authorName
+      }));
+    }
+  } else {
+    // Log when no search query is provided
+    gs.info('No search query provided.');
+  }
+
+  // Log the final list of books
+  gs.info('Books returned: ' + JSON.stringify(books));
+  
+  data.books = books;
+})();
+]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>adarsh.nathaniel</sys_created_by>
+        <sys_created_on>2024-06-04 19:14:23</sys_created_on>
+        <sys_id>9a333dd6936ac210ef267c5efaba102d</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>Combined Search Temp</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>sp_widget_9a333dd6936ac210ef267c5efaba102d</sys_update_name>
+        <sys_updated_by>adarsh.nathaniel</sys_updated_by>
+        <sys_updated_on>2024-06-04 19:39:16</sys_updated_on>
+        <template><![CDATA[
+<div class="search-widget">
+  <input type="text" ng-model="c.data.searchQuery" placeholder="Search for a book title" class="search-input"/>
+  <button ng-click="c.searchBooks()" class="search-button">Search</button>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="book-item col-xs-12 col-sm-6 col-md-3 col-lg-3" ng-repeat="book in c.data.books">
+      <div class="card">
+        <img ng-src="{{book.cover_image}}" alt="{{book.title}} cover" class="book-cover img-responsive"/>
+        <h3 class="book-title">{{book.title}}</h3>
+        <p class="book-author">{{book.author}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--
+<pre>{{data.books | json}}</pre>
+-->
+]]></template>
+    </sp_widget>
+</record_update>

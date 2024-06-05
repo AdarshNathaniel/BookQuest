@@ -29,6 +29,5 @@
         <index name="index3">
             <element name="user_id"/>
         </index>
-        <element label="Amount" max_length="20" name="amount" type="currency"/>
     </element>
 </database>

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller = function($location, $scope) {
+  var c = this;
+
+  c.searchKeyword = '';
+
+  c.filteredBooks = [];
+
+  c.addNewBook = function() {
+    $location.search({id: "fn_create_book"});
+  };
+
+  c.openBook = function(sysID) {
+    $location.url($location.path()).search({id: "fn_create_book", sys_id: sysID});
+  };
+
+  c.onLoadSearchAll = function() {
+    c.filteredBooks = c.data.books;
+  };
+
+  c.search = function() {
+    if(c.searchKeyword.trim() === '') {
+      c.filteredBooks = c.data.books;
+    } else {
+      c.filteredBooks = c.data.books.filter(function(book) {
+        return book.title.toLowerCase().includes(c.searchKeyword.toLowerCase());
+      });
+    }
+  };
+};
+]]></client_script>
+        <controller_as>c</controller_as>
+        <css/>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>r_search_temp</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>R Search Temp</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+  if (!input) {
+    data.books = [];
+    var bookGR = new GlideRecordSecure('x_1383151_bkquest_book');
+    bookGR.orderBy('title');
+    bookGR.query();
+
+    while (bookGR.next()) {
+      var coverImageSysId = bookGR.getValue('cover_image');
+      var coverImageUrl = '';
+
+      if (coverImageSysId) {
+        var coverImageGR = new GlideRecord('sys_attachment');
+        if (coverImageGR.get(coverImageSysId)) {
+          coverImageUrl = '/sys_attachment.do?sys_id=' + coverImageSysId;
+        }
+      }
+
+      var authorSysId = bookGR.getValue('author');
+      var authorName = '';
+      if (authorSysId) {
+        var authorGR = new GlideRecord('x_1383151_bkquest_author');
+        if (authorGR.get(authorSysId)) {
+          authorName = authorGR.getDisplayValue();
+        }
+      }
+
+      data.books.push({
+        'sys_id': bookGR.getUniqueValue(),
+        'title': bookGR.getDisplayValue('title'),
+        'author': authorName,
+        'cover_image': coverImageUrl,
+      });
+    }
+  }
+
+  if (input) {
+    // Add server-side functionality here if needed
+  }
+})();
+]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>adarsh.nathaniel</sys_created_by>
+        <sys_created_on>2024-06-05 05:40:20</sys_created_on>
+        <sys_id>d37248ee93a20610ef267c5efaba10ff</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>R Search Temp</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>sp_widget_d37248ee93a20610ef267c5efaba10ff</sys_update_name>
+        <sys_updated_by>adarsh.nathaniel</sys_updated_by>
+        <sys_updated_on>2024-06-05 05:51:22</sys_updated_on>
+        <template><![CDATA[<form class="navbar-form navbar-left" role="search" ng-submit="c.search()" onload="c.onLoadSearchAll()">
+  <div class="form-group">
+    <input type="text" class="form-control" ng-model="c.searchKeyword" placeholder="Search books" value="">
+  </div>
+  <button type="submit" class="btn btn-default lg">
+    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+  </button>
+</form>
+
+<div class="cards">
+  <div ng-repeat="book in c.filteredBooks">
+    <article class="card card--1" ng-click="c.openBook(book.sys_id)">
+      <div class="card__info-hover"></div>
+      <div class="card__img">
+        <img ng-src="{{ book.cover_image }}" style="height: 100%; width: 100%;">  
+      </div>
+
+      <a href="#" class="card_link">
+        <div class="card__img--hover"></div>
+      </a>
+      <div class="card__info">
+        <h4 class="card__title">{{ book.title }}</h4>
+        <p class="card__author">{{ book.author }}</p>
+      </div>
+    </article>
+  </div>
+
+  <article class="card card--1">
+    <div class="card__info-hover"></div>
+    <div class="card__addnew column-center" ng-click="c.addNewBook()">
+      <div class="text-center">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+        <h5 style="font-weight: bold;">Add new Book</h5>
+      </div>
+    </div>
+  </article>
+</div>
+]]></template>
+    </sp_widget>
+</record_update>

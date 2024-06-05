@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="DELETE">
+        <category>custom</category>
+        <client_script><![CDATA[(function() {
+  // Inject $rootScope into the widget controller
+  function BookSearchController($rootScope) {
+    var c = this;
+
+    // Ensure c.data is defined and initialize searchQuery
+    c.data = c.data || {};
+    c.data.searchQuery = '';
+
+    c.searchBooks = function() {
+      // Trigger the server script to fetch the books based on the search query
+      c.server.update().then(function(response) {
+        // Broadcast the search results to other widgets
+        $rootScope.$broadcast('books.searchResults', response.data.books);
+      });
+    };
+  }
+
+  // Register the controller
+  angular.module('sn.$sp').controller('bookSearch', ['$rootScope', BookSearchController]);
+})();
+]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.search-widget {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  padding: 10px;
+  font-size: 1em;
+  width: 300px;
+  margin-right: 10px;
+}
+
+.search-button {
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>book_search_temp</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Book Search Temp</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+	var searchQuery = data.searchQuery || '';
+	var books = [];
+
+	if (searchQuery) {
+		// Create a GlideRecord object for the 'x_1383151_bkquest_book' table
+		var gr = new GlideRecord('x_1383151_bkquest_book');
+		gr.addQuery('title', 'CONTAINS', searchQuery);
+		gr.query();
+
+		// Loop through the records and push them to the array
+		while (gr.next()) {
+			var coverImageSysId = gr.getValue('cover_image');
+			var coverImageUrl = '';
+
+			// Fetch the cover image URL if it exists
+			if (coverImageSysId) {
+				var coverImageGR = new GlideRecord('sys_attachment');
+				if (coverImageGR.get(coverImageSysId)) {
+					coverImageUrl = '/sys_attachment.do?sys_id=' + coverImageSysId;
+				}
+			}
+
+			// Fetch the author's name from the reference table
+			var authorSysId = gr.getValue('author');
+			var authorName = '';
+			if (authorSysId) {
+				var authorGR = new GlideRecord('x_1383151_bkquest_author');
+				if (authorGR.get(authorSysId)) {
+					authorName = authorGR.getDisplayValue();
+				}
+			}
+
+			// Push the book details to the array
+			books.push({
+				cover_image: coverImageUrl,
+				title: gr.getValue('title'),
+				author: authorName
+			});
+		}
+	}
+
+	// Make the data available to the client script
+	data.books = books;
+})();
+]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>adarsh.nathaniel</sys_created_by>
+        <sys_created_on>2024-06-04 09:12:30</sys_created_on>
+        <sys_id>65796b069322c210ef267c5efaba1078</sys_id>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_name>Book Search Temp</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>sp_widget_65796b069322c210ef267c5efaba1078</sys_update_name>
+        <sys_updated_by>adarsh.nathaniel</sys_updated_by>
+        <sys_updated_on>2024-06-04 19:05:38</sys_updated_on>
+        <template><![CDATA[<div class="search-widget">
+  <input type="text" ng-model="c.data.searchQuery" placeholder="Search for a book title" class="search-input"/>
+  <button ng-click="c.searchBooks()" class="search-button">Search</button>
+</div>
+]]></template>
+    </sp_widget>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="BookQuest">327b26db93250210ef267c5efaba100f</application>
+        <file_path/>
+        <instance_id>0535015fdb717d1002d9172913961922</instance_id>
+        <instance_name>dev186731</instance_name>
+        <name>sp_widget_65796b069322c210ef267c5efaba1078</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sp_widget"&gt;&lt;sp_widget action="INSERT_OR_UPDATE"&gt;&lt;category&gt;custom&lt;/category&gt;&lt;client_script&gt;&lt;![CDATA[(function() {
+  // Inject $rootScope into the widget controller
+  function BookSearchController($rootScope) {
+    var c = this;
+
+    // Ensure c.data is defined and initialize searchQuery
+    c.data = c.data || {};
+    c.data.searchQuery = '';
+
+    c.searchBooks = function() {
+      // Trigger the server script to fetch the books based on the search query
+      c.server.update().then(function(response) {
+        // Broadcast the search results to other widgets
+        $rootScope.$broadcast('books.searchResults', response.data.books);
+      });
+    };
+  }
+
+  // Register the controller
+  angular.module('sn.$sp').controller('bookSearch', ['$rootScope', BookSearchController]);
+})();
+]]&gt;&lt;/client_script&gt;&lt;controller_as&gt;c&lt;/controller_as&gt;&lt;css&gt;.search-widget {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  padding: 10px;
+  font-size: 1em;
+  width: 300px;
+  margin-right: 10px;
+}
+
+.search-button {
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+&lt;/css&gt;&lt;data_table&gt;sp_instance&lt;/data_table&gt;&lt;demo_data/&gt;&lt;description/&gt;&lt;docs/&gt;&lt;field_list/&gt;&lt;has_preview&gt;false&lt;/has_preview&gt;&lt;id&gt;book_search_temp&lt;/id&gt;&lt;internal&gt;false&lt;/internal&gt;&lt;link&gt;&lt;![CDATA[function link(scope, element, attrs, controller) {  }]]&gt;&lt;/link&gt;&lt;name&gt;Book Search Temp&lt;/name&gt;&lt;option_schema/&gt;&lt;public&gt;false&lt;/public&gt;&lt;roles/&gt;&lt;script&gt;&lt;![CDATA[(function() {
+	var searchQuery = data.searchQuery || '';
+	var books = [];
+
+	if (searchQuery) {
+		// Create a GlideRecord object for the 'x_1383151_bkquest_book' table
+		var gr = new GlideRecord('x_1383151_bkquest_book');
+		gr.addQuery('title', 'CONTAINS', searchQuery);
+		gr.query();
+
+		// Loop through the records and push them to the array
+		while (gr.next()) {
+			var coverImageSysId = gr.getValue('cover_image');
+			var coverImageUrl = '';
+
+			// Fetch the cover image URL if it exists
+			if (coverImageSysId) {
+				var coverImageGR = new GlideRecord('sys_attachment');
+				if (coverImageGR.get(coverImageSysId)) {
+					coverImageUrl = '/sys_attachment.do?sys_id=' + coverImageSysId;
+				}
+			}
+
+			// Fetch the author's name from the reference table
+			var authorSysId = gr.getValue('author');
+			var authorName = '';
+			if (authorSysId) {
+				var authorGR = new GlideRecord('x_1383151_bkquest_author');
+				if (authorGR.get(authorSysId)) {
+					authorName = authorGR.getDisplayValue();
+				}
+			}
+
+			// Push the book details to the array
+			books.push({
+				cover_image: coverImageUrl,
+				title: gr.getValue('title'),
+				author: authorName
+			});
+		}
+	}
+
+	// Make the data available to the client script
+	data.books = books;
+})();
+]]&gt;&lt;/script&gt;&lt;servicenow&gt;false&lt;/servicenow&gt;&lt;sys_class_name&gt;sp_widget&lt;/sys_class_name&gt;&lt;sys_created_by&gt;adarsh.nathaniel&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-06-04 09:12:30&lt;/sys_created_on&gt;&lt;sys_id&gt;65796b069322c210ef267c5efaba1078&lt;/sys_id&gt;&lt;sys_mod_count&gt;7&lt;/sys_mod_count&gt;&lt;sys_name&gt;Book Search Temp&lt;/sys_name&gt;&lt;sys_package display_value="BookQuest" source="x_1383151_bkquest"&gt;327b26db93250210ef267c5efaba100f&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="BookQuest"&gt;327b26db93250210ef267c5efaba100f&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_widget_65796b069322c210ef267c5efaba1078&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;adarsh.nathaniel&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-06-04 19:05:38&lt;/sys_updated_on&gt;&lt;template&gt;&lt;![CDATA[&lt;div class="search-widget"&gt;
+  &lt;input type="text" ng-model="c.data.searchQuery" placeholder="Search for a book title" class="search-input"/&gt;
+  &lt;button ng-click="c.searchBooks()" class="search-button"&gt;Search&lt;/button&gt;
+&lt;/div&gt;
+]]&gt;&lt;/template&gt;&lt;/sp_widget&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>1230294296</payload_hash>
+        <record_name>Book Search Temp</record_name>
+        <reverted_from/>
+        <source>0932ea2493394210ef267c5efaba10c6</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>adarsh.nathaniel</sys_created_by>
+        <sys_created_on>2024-06-04 19:05:38</sys_created_on>
+        <sys_id>3d31f95a932ac210ef267c5efaba100a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18fe4a4843d0000001</sys_recorded_at>
+        <sys_updated_by>adarsh.nathaniel</sys_updated_by>
+        <sys_updated_on>2024-06-04 19:05:38</sys_updated_on>
+        <type>Widget</type>
+        <update_guid>f131f95ac42ac2104f797edc015e630a</update_guid>
+        <update_guid_history>f131f95ac42ac2104f797edc015e630a:1230294296,effd6dd6992ac210ab0c28638dd6cdd7:1468934080,e25cff062262c21065d04e8a59062dc5:-628580608,0bab3f0ab162c2103c28c87db15fc6a0:-1227479145,e18937c6e062c210ba891f6a3c801e4f:-896836721,b700b70a9522c210b219232d3a909125:1193134923,270ea386e622c21000452d67e1eac515:298224058,ad796b061222c21016cfff52840c9679:-926321559</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Book Search Temp">65490caa93e20610ef267c5efaba10e0</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>adarsh.nathaniel</sys_created_by>
+        <sys_created_on>2024-06-05 06:09:58</sys_created_on>
+        <sys_db_object display_value="" name="sp_widget">sp_widget</sys_db_object>
+        <sys_id>263d5c436ebc4ae6adafa81c3d41adc9</sys_id>
+        <sys_metadata>65796b069322c210ef267c5efaba1078</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Book Search Temp</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_scope_delete display_value="">18e926194902432895b35f3c99259089</sys_scope_delete>
+        <sys_update_name>sp_widget_65796b069322c210ef267c5efaba1078</sys_update_name>
+        <sys_update_version display_value="sp_widget_65796b069322c210ef267c5efaba1078">3d31f95a932ac210ef267c5efaba100a</sys_update_version>
+        <sys_updated_by>adarsh.nathaniel</sys_updated_by>
+        <sys_updated_on>2024-06-05 06:09:58</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
