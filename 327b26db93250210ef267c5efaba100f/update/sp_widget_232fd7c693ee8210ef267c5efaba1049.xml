@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
     <sp_widget action="INSERT_OR_UPDATE">
         <category>custom</category>
-        <client_script><![CDATA[(function() {
-    var c = this;
-    c.data.borrowedBooks = [];
-
-    c.server.get({
-        action: 'getBorrowedBooks'
-    }).then(function(response) {
-        c.data.borrowedBooks = response.data.borrowedBooks || [];
-    });
-})();
-]]></client_script>
+        <client_script/>
         <controller_as>c</controller_as>
         <css/>
         <data_table>sp_instance</data_table>
@@ -27,45 +17,48 @@
         <option_schema/>
         <public>false</public>
         <roles/>
-        <script><![CDATA[(function() {
-    data.borrowedBooks = [];
+        <script><![CDATA[var BorrowedBooksUtil = Class.create();
+BorrowedBooksUtil.prototype = {
+    initialize: function() {},
 
-    if (input && input.action === 'getBorrowedBooks') {
-        var borrowedBooksService = new BorrowedBooksService();
-        data.borrowedBooks = borrowedBooksService.getBorrowedBooksForCurrentUser();
-    }
-})();
+    getUserBorrowedBooks: function() {
+        var userId = gs.getUserID(); // Get the current user's ID
+
+        // Query the Borrow table for books borrowed by the current user
+        var borrowedBooks = [];
+        var gr = new GlideRecord('x_1383151_bkquest_borrow'); // Replace with your actual table name
+        gr.addQuery('user_id', userId);
+        gr.query();
+        while (gr.next()) {
+            var book = {
+                bookId: gr.getValue('book_id'),
+                title: gr.getValue('title'),
+                borrowDate: gr.getValue('borrow_date'),
+                dueDate: gr.getValue('due_date'),
+                // Add more fields as needed
+            };
+            borrowedBooks.push(book);
+        }
+
+        return JSON.stringify(borrowedBooks); // Return as JSON string
+    },
+
+    type: 'BorrowedBooksUtil'
+};
 ]]></script>
         <servicenow>false</servicenow>
         <sys_class_name>sp_widget</sys_class_name>
         <sys_created_by>harini.srija</sys_created_by>
         <sys_created_on>2024-06-04 08:27:35</sys_created_on>
         <sys_id>232fd7c693ee8210ef267c5efaba1049</sys_id>
-        <sys_mod_count>15</sys_mod_count>
+        <sys_mod_count>20</sys_mod_count>
         <sys_name>Borrowed Books</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sp_widget_232fd7c693ee8210ef267c5efaba1049</sys_update_name>
         <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-06-04 10:34:28</sys_updated_on>
-        <template><![CDATA[<div class="container">
-    <h2>Borrowed Books</h2>
-    <div ng-if="!c.data.borrowedBooks.length">No borrowed books found.</div>
-    <div class="row" ng-if="c.data.borrowedBooks.length">
-        <div class="col-md-4" ng-repeat="book in c.data.borrowedBooks">
-            <div class="card">
-                <img class="card-img-top" ng-src="{{ book.cover }}" alt="{{ book.title }}">
-                <div class="card-body">
-                    <h5 class="card-title">{{ book.title }}</h5>
-                    <p class="card-text">Author: {{ book.author }}</p>
-                    <p class="card-text">Borrow Date: {{ book.borrowDate }}</p>
-                    <p class="card-text">Due Date: {{ book.dueDate }}</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-]]></template>
+        <sys_updated_on>2024-06-05 04:58:41</sys_updated_on>
+        <template/>
     </sp_widget>
 </record_update>

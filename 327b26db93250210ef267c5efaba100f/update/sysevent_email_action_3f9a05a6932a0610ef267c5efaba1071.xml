@@ -2,12 +2,12 @@
     <sysevent_email_action action="INSERT_OR_UPDATE">
         <action_insert>true</action_insert>
         <action_update>true</action_update>
-        <active>true</active>
+        <active>false</active>
         <advanced_condition/>
         <affected_field_on_event/>
         <category display_value="Demo Notifications" name="Demo Notifications">0576fb0b3b183300c869c2c703efc47b</category>
         <collection>x_1383151_bkquest_borrow</collection>
-        <condition table="x_1383151_bkquest_borrow">due_date&lt;javascript:gs.beginningOfToday()^EQ<item endquery="false" field="due_date" goto="false" newquery="false" operator="&lt;" or="false" value="javascript:gs.beginningOfToday()"/>
+        <condition table="x_1383151_bkquest_borrow">due_dateONTomorrow@javascript:gs.beginningOfTomorrow()@javascript:gs.endOfTomorrow()^EQ<item endquery="false" field="due_date" goto="false" newquery="false" operator="ON" or="false" value="Tomorrow@javascript:gs.beginningOfTomorrow()@javascript:gs.endOfTomorrow()"/>
             <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
         </condition>
         <content_type>text/html</content_type>
@@ -33,22 +33,20 @@
         <from/>
         <generation_type>engine</generation_type>
         <importance/>
-        <include_attachments>true</include_attachments>
+        <include_attachments>false</include_attachments>
         <item>event.parm1</item>
         <item_table/>
         <mandatory>false</mandatory>
         <message/>
         <message_html><![CDATA[<p>Dear ${user_id},</p>
-<p>&nbsp;</p>
-<p>This is a reminder that the book titled <strong>"${book_id.title.title} (${book_id.number})"</strong> was due on <strong>${due_date}</strong> and has not yet been returned.&nbsp;Please return the book as soon as possible to avoid further penalties.</p>
+<p><br />This is a friendly reminder that your borrowed book titled "<strong>${book_id.title.title} (${book_id.number})</strong>" is due tomorrow (<strong>${due_date}</strong>).</p>
+<p>Please return the book before the due date to avoid paying a fine.</p>
 <p style="text-align: left;">&nbsp;</p>
-<p>Thank you,<br />The BookQuest Team</p>
-<p>&nbsp;</p>
-<p><img src="/sys_attachment.do?sys_id=b17d0e2e932e0610ef267c5efaba10fd" alt="" width="100" height="51" data-library="false" /></p>
-<p>&nbsp;</p>]]></message_html>
+<p>Thank you,<br />BookQuest</p>
+<p><img src="1280px-Computacenter_logo.svg.pngx" alt="" width="131" height="62" data-library="true" /></p>]]></message_html>
         <message_list/>
         <message_text/>
-        <name>Overdue Book </name>
+        <name>DueDate Notification</name>
         <omit_watermark>false</omit_watermark>
         <order>100</order>
         <push_message_only>false</push_message_only>
@@ -59,23 +57,23 @@
         <send_self>true</send_self>
         <sms_alternate/>
         <style/>
-        <subject>Overdue Book </subject>
+        <subject>Due Date Reminder </subject>
         <subscribable>false</subscribable>
         <sys_class_name>sysevent_email_action</sys_class_name>
         <sys_created_by>harini.srija</sys_created_by>
-        <sys_created_on>2024-05-21 04:44:53</sys_created_on>
+        <sys_created_on>2024-06-05 11:04:15</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
-        <sys_id>27a2662d93d64210ef267c5efaba10d0</sys_id>
-        <sys_mod_count>18</sys_mod_count>
-        <sys_name>Overdue Book </sys_name>
+        <sys_id>3f9a05a6932a0610ef267c5efaba1071</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>DueDate Notification</sys_name>
         <sys_overrides/>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
-        <sys_update_name>sysevent_email_action_27a2662d93d64210ef267c5efaba10d0</sys_update_name>
+        <sys_update_name>sysevent_email_action_3f9a05a6932a0610ef267c5efaba1071</sys_update_name>
         <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-06-05 15:56:31</sys_updated_on>
+        <sys_updated_on>2024-06-05 11:12:36</sys_updated_on>
         <sys_version>2</sys_version>
         <template display_value="Employee notification template">1462e7ca918a3010f877b1d70a4d6a3d</template>
         <type>email</type>

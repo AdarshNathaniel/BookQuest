@@ -44,9 +44,10 @@
 <p>This is a reminder that a fine of <strong>$ ${fine_amount}</strong> has been assessed to your account for the book titled <strong>"${book_id.title.title} (${book_id.number})"</strong>.</p>
 <p>Please address this fine at your earliest convenience to avoid further penalties.</p>
 <p>&nbsp;</p>
-<p>Thank you,<br />BookQuest</p>
+<p>Thank you,<br />The BookQuest Team</p>
 <p>&nbsp;</p>
-<p><img src="1280px-Computacenter_logo.svg.pngx" alt="" width="106" height="55" data-library="true" /></p>
+<p><img src="/sys_attachment.do?sys_id=b17d0e2e932e0610ef267c5efaba10fd" alt="" width="100" height="51" data-library="false" /></p>
+<p>&nbsp;</p>
 <p>&nbsp;</p>]]></message_html>
         <message_list/>
         <message_text/>
@@ -69,7 +70,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>864a3ae9935a4210ef267c5efaba10d3</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>4</sys_mod_count>
         <sys_name>Fine Notification for Overdue Book</sys_name>
         <sys_overrides/>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
@@ -77,7 +78,7 @@
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sysevent_email_action_864a3ae9935a4210ef267c5efaba10d3</sys_update_name>
         <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-05-21 06:40:23</sys_updated_on>
+        <sys_updated_on>2024-06-05 15:56:15</sys_updated_on>
         <sys_version>2</sys_version>
         <template display_value="Employee notification template">1462e7ca918a3010f877b1d70a4d6a3d</template>
         <type>email</type>
