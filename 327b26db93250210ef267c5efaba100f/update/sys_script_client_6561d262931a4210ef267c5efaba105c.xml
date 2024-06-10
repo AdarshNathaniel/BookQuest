@@ -11,10 +11,15 @@
         <name>Update Fine Status</name>
         <order/>
         <script><![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
-    // Check if the field is changed and is not empty
-    if (!isLoading && newValue !== oldValue && newValue) {
-        // Set the Fine status field to "paid"
-        g_form.setValue('fine_status', 'paid');
+    // Check if the field is changed and is not loading or a template
+    if (!isLoading && newValue !== oldValue) {
+        if (!newValue) {
+            // If the new value is empty, set the Fine status field to "not paid"
+            g_form.setValue('fine_status', 'not_paid');
+        } else {
+            // Otherwise, set the Fine status field to "paid"
+            g_form.setValue('fine_status', 'paid');
+        }
     }
 }]]></script>
         <sys_class_name>sys_script_client</sys_class_name>
@@ -23,7 +28,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>6561d262931a4210ef267c5efaba105c</sys_id>
-        <sys_mod_count>4</sys_mod_count>
+        <sys_mod_count>5</sys_mod_count>
         <sys_name>Update Fine Status</sys_name>
         <sys_overrides/>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
@@ -31,7 +36,7 @@
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sys_script_client_6561d262931a4210ef267c5efaba105c</sys_update_name>
         <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-05-24 08:39:52</sys_updated_on>
+        <sys_updated_on>2024-06-10 05:18:22</sys_updated_on>
         <table>x_1383151_bkquest_borrow</table>
         <type>onChange</type>
         <ui_type>0</ui_type>

@@ -16,20 +16,20 @@
         <sys_created_by>harini.srija</sys_created_by>
         <sys_created_on>2024-06-05 09:00:00</sys_created_on>
         <sys_id>5c30b8e693a60610ef267c5efaba10b3</sys_id>
-        <sys_mod_count>4</sys_mod_count>
+        <sys_mod_count>6</sys_mod_count>
         <sys_name/>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sp_instance_5c30b8e693a60610ef267c5efaba10b3</sys_update_name>
         <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-06-05 09:17:37</sys_updated_on>
+        <sys_updated_on>2024-06-05 17:06:43</sys_updated_on>
         <title/>
         <url/>
         <widget_parameters><![CDATA[{
 	"html": {
-		"value": "<h1 style=\"text-align: center;\">&nbsp;</h1>\r\n<h1 style=\"text-align: center; color: #3d52a0;\">ABOUT US</h1>\r\n<p style=\"text-align: center; color: #3d52a0;\">Welcome to BookQuest Library System, your ultimate destination for accessing and managing a vast collection of books. We're dedicated to providing you with an efficient and user-friendly platform for discovering, borrowing, and enjoying a wide range of literary works.</p>\r\n<p style=\"text-align: center; color: #3d52a0;\">BookQuest Library System has been committed to revolutionizing the way people interact with books and libraries. Our innovative approach to library management and digital lending has empowered countless readers to explore new worlds and ideas at their fingertips.</p>",
-		"displayValue": "<h1 style=\"text-align: center;\">&nbsp;</h1>\n<h1 style=\"text-align: center; color: #3d52a0;\">ABOUT US</h1>\n<p style=\"text-align: center; color: #3d52a0;\">Welcome to BookQuest Library System, your ultimate destination for accessing and managing a vast collection of books. We're dedicated to providing you with an efficient and user-friendly platform for discovering, borrowing, and enjoying a wide range of literary works.</p>\n<p style=\"text-align: center; color: #3d52a0;\">BookQuest Library System has been committed to revolutionizing the way people interact with books and libraries. Our innovative approach to library management and digital lending has empowered countless readers to explore new worlds and ideas at their fingertips.</p>"
+		"value": "<h1 style=\"text-align: center; color: #3d52a0;\">&nbsp;</h1>\r\n<h1 style=\"text-align: center; color: #3d52a0;\">&nbsp;</h1>\r\n<h1 style=\"text-align: center; color: #3d52a0;\">ABOUT US</h1>\r\n<p style=\"text-align: center; color: #3d52a0;\">Welcome to BookQuest Library System, your ultimate destination for accessing and managing a vast collection of books. We're dedicated to providing you with an efficient and user-friendly platform for discovering, borrowing, and enjoying a wide range of literary works.</p>\r\n<p style=\"text-align: center; color: #3d52a0;\">BookQuest Library System has been committed to revolutionizing the way people interact with books and libraries. Our innovative approach to library management and digital lending has empowered countless readers to explore new worlds and ideas at their fingertips.</p>",
+		"displayValue": "<h1 style=\"text-align: center; color: #3d52a0;\">&nbsp;</h1>\n<h1 style=\"text-align: center; color: #3d52a0;\">&nbsp;</h1>\n<h1 style=\"text-align: center; color: #3d52a0;\">ABOUT US</h1>\n<p style=\"text-align: center; color: #3d52a0;\">Welcome to BookQuest Library System, your ultimate destination for accessing and managing a vast collection of books. We're dedicated to providing you with an efficient and user-friendly platform for discovering, borrowing, and enjoying a wide range of literary works.</p>\n<p style=\"text-align: center; color: #3d52a0;\">BookQuest Library System has been committed to revolutionizing the way people interact with books and libraries. Our innovative approach to library management and digital lending has empowered countless readers to explore new worlds and ideas at their fingertips.</p>"
 	}
 }]]></widget_parameters>
     </sp_instance>
