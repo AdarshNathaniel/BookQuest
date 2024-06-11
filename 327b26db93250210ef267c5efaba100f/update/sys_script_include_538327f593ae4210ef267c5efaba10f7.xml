@@ -12,36 +12,20 @@ BookService.prototype = {
     initialize: function() {},
 
     getBooks: function() {
-        var books = [];
-        var gr = new GlideRecord('x_1383151_bkquest_book');
-        gr.query();
+        var books = new global.GlideQuery('x_1383151_bkquest_book')
+            .select(['cover_image', 'author$DISPLAY', 'title'])
+            .map(function(book) {
+                return {
+                    cover_image: book.cover_image ? '/sys_attachment.do?sys_id=' + book.cover_image : '',
+                    author: book.author$DISPLAY,
+                    title: book.title
+                };
+            })
+            .reduce(function(arr, book) {
+                arr.push(book);
+                return arr;
+            }, []);
 
-        while (gr.next()) {
-            var coverImageSysId = gr.getValue('cover_image');
-            var coverImageUrl = '';
-
-            if (coverImageSysId) {
-                var coverImageGR = new GlideRecord('sys_attachment');
-                if (coverImageGR.get(coverImageSysId)) {
-                    coverImageUrl = '/sys_attachment.do?sys_id=' + coverImageSysId;
-                }
-            }
-
-            var authorSysId = gr.getValue('author');
-            var authorName = '';
-            if (authorSysId) {
-                var authorGR = new GlideRecord('x_1383151_bkquest_author');
-                if (authorGR.get(authorSysId)) {
-                    authorName = authorGR.getDisplayValue();
-                }
-            }
-
-            books.push({
-                cover_image: coverImageUrl,
-                title: gr.getValue('title'),
-                author: authorName
-            });
-        }
         return books;
     },
 
@@ -52,13 +36,13 @@ BookService.prototype = {
         <sys_created_by>harini.srija</sys_created_by>
         <sys_created_on>2024-06-03 14:13:55</sys_created_on>
         <sys_id>538327f593ae4210ef267c5efaba10f7</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>4</sys_mod_count>
         <sys_name>BookService</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sys_script_include_538327f593ae4210ef267c5efaba10f7</sys_update_name>
         <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-06-04 05:10:43</sys_updated_on>
+        <sys_updated_on>2024-06-11 04:34:12</sys_updated_on>
     </sys_script_include>
 </record_update>

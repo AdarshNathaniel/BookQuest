@@ -3,12 +3,12 @@
         <element label="Book ID" mandatory="true" max_length="32" name="book_id" reference="x_1383151_bkquest_book_copy" reference_qual="status=available^EQ" reference_qual_condition="status=available^EQ" type="reference"/>
         <element label="Borrow date" max_length="40" name="borrow_date" type="glide_date"/>
         <element default="14" hint="The borrowing period can only be 2 weeks" label="Borrow period" max_length="40" name="days" type="integer"/>
-        <element label="Days late" max_length="40" name="days_late" read_only="true" type="integer"/>
+        <element label="Days late" max_length="40" name="days_late" type="integer"/>
         <element label="Due date" max_length="40" name="due_date" type="glide_date"/>
         <element label="Email sent" max_length="30" name="email_sent" type="string"/>
         <element label="Fine amount in $" max_length="15" name="fine_amount" type="decimal"/>
         <element default="gs.nowDate()" label="Fine paid date" max_length="40" name="fine_paid_date" type="glide_date"/>
-        <element choice="3" default="not paid" label="Fine status" max_length="40" name="fine_status" read_only="true" type="choice">
+        <element choice="3" default="not paid" label="Fine status" max_length="40" name="fine_status" type="choice">
             <choice>
                 <element inactive="true" inactive_on_update="true" label="Choice 3" sequence="0" value="Choice 3"/>
                 <element inactive_on_update="false" label="Paid" sequence="0" value="paid"/>

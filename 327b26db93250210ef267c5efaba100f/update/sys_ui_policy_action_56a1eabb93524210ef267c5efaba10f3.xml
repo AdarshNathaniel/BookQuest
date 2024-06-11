@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_policy_action">
     <sys_ui_policy_action action="INSERT_OR_UPDATE">
         <cleared>false</cleared>
-        <disabled>ignore</disabled>
+        <disabled>true</disabled>
         <field>days_late</field>
         <mandatory>ignore</mandatory>
         <sys_class_name>sys_ui_policy_action</sys_class_name>
         <sys_created_by>harini.srija</sys_created_by>
         <sys_created_on>2024-05-28 04:13:00</sys_created_on>
         <sys_id>56a1eabb93524210ef267c5efaba10f3</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_name>days_late</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sys_ui_policy_action_56a1eabb93524210ef267c5efaba10f3</sys_update_name>
         <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-05-28 04:13:00</sys_updated_on>
+        <sys_updated_on>2024-06-11 06:43:18</sys_updated_on>
         <table>x_1383151_bkquest_borrow</table>
         <ui_policy display_value="Hide fine tab">6924bb3593de8210ef267c5efaba10b4</ui_policy>
         <visible>true</visible>
