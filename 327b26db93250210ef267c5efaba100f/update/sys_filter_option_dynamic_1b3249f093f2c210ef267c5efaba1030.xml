@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_filter_option_dynamic">
+    <sys_filter_option_dynamic action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <available_for_default>true</available_for_default>
+        <available_for_filter>true</available_for_filter>
+        <available_for_ref_qual>true</available_for_ref_qual>
+        <field_type display_value="Reference">52a227c1bf3320001875647fcf07396a</field_type>
+        <label>Reservable Books</label>
+        <order/>
+        <roles/>
+        <script>new BookReservationUtils().getReservableBooksSysIds();  </script>
+        <script_reference_id/>
+        <script_reference_table/>
+        <sys_class_name>sys_filter_option_dynamic</sys_class_name>
+        <sys_created_by>adarsh.nathaniel</sys_created_by>
+        <sys_created_on>2024-06-12 10:08:43</sys_created_on>
+        <sys_id>1b3249f093f2c210ef267c5efaba1030</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>Reservable Books</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>sys_filter_option_dynamic_1b3249f093f2c210ef267c5efaba1030</sys_update_name>
+        <sys_updated_by>adarsh.nathaniel</sys_updated_by>
+        <sys_updated_on>2024-06-13 10:29:26</sys_updated_on>
+        <table>x_1383151_bkquest_book</table>
+        <table_containing_filter/>
+    </sys_filter_option_dynamic>
+</record_update>

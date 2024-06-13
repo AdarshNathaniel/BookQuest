@@ -4,7 +4,7 @@
         <acls/>
         <active>true</active>
         <annotation/>
-        <attributes>browserActivatedIn=chrome,integrationActivatedIn=standalone,labelCacheCleanUpExecuted=true,timeFromCreateToActivate=6738000,viewActivatedIn=naturalLanguage</attributes>
+        <attributes>browserActivatedIn=edge,integrationActivatedIn=standalone,labelCacheCleanUpExecuted=true,timeFromCreateToActivate=1896071000,viewActivatedIn=naturalLanguage</attributes>
         <callable_by_client_api>false</callable_by_client_api>
         <category/>
         <copied_from/>
@@ -23,14 +23,14 @@
         <sc_callable>false</sc_callable>
         <show_draft_actions>false</show_draft_actions>
         <show_triggered_flows>false</show_triggered_flows>
-        <status>draft</status>
+        <status>published</status>
         <sys_class_name>sys_hub_flow</sys_class_name>
         <sys_created_by>adarsh.nathaniel</sys_created_by>
         <sys_created_on>2024-05-21 06:59:26</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>f3b44be5939a4210ef267c5efaba102a</sys_id>
-        <sys_mod_count>6</sys_mod_count>
+        <sys_mod_count>8</sys_mod_count>
         <sys_name>Book Instance Status (v2)</sys_name>
         <sys_overrides/>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
@@ -38,7 +38,7 @@
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sys_hub_flow_f3b44be5939a4210ef267c5efaba102a</sys_update_name>
         <sys_updated_by>adarsh.nathaniel</sys_updated_by>
-        <sys_updated_on>2024-05-22 05:41:35</sys_updated_on>
+        <sys_updated_on>2024-06-12 05:40:40</sys_updated_on>
         <type>flow</type>
     </sys_hub_flow>
     <sys_translated_text action="delete_multiple" query="documentkey=f3b44be5939a4210ef267c5efaba102a"/>
@@ -75,14 +75,14 @@
         <identifier>f3b44be5939a4210ef267c5efaba102a</identifier>
         <runner>FDTriggerRunner</runner>
         <sys_created_by>adarsh.nathaniel</sys_created_by>
-        <sys_created_on>2024-05-21 08:51:46</sys_created_on>
-        <sys_id>d17e5fa5931e4210ef267c5efaba10e6</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_created_on>2024-06-12 05:40:39</sys_created_on>
+        <sys_id>c0b50c3c93be8210ef267c5efaba1040</sys_id>
+        <sys_mod_count>2</sys_mod_count>
         <sys_updated_by>adarsh.nathaniel</sys_updated_by>
-        <sys_updated_on>2024-05-21 09:56:16</sys_updated_on>
+        <sys_updated_on>2024-06-12 05:40:39</sys_updated_on>
         <trigger display_value="">597e5fa5931e4210ef267c5efaba10e5</trigger>
     </sys_trigger_runner_mapping>
-    <sys_trigger_runner_mapping action="delete_multiple" query="identifier=f3b44be5939a4210ef267c5efaba102a^sys_idNOT INd17e5fa5931e4210ef267c5efaba10e6"/>
+    <sys_trigger_runner_mapping action="delete_multiple" query="identifier=f3b44be5939a4210ef267c5efaba102a^sys_idNOT INc0b50c3c93be8210ef267c5efaba1040"/>
     <sys_hub_trigger_instance action="delete_multiple" query="flow=f3b44be5939a4210ef267c5efaba102a^sys_idNOT IN4e0d9f25931e4210ef267c5efaba10d0"/>
     <sys_hub_trigger_instance action="INSERT_OR_UPDATE">
         <comment>When a Book is returned</comment>
@@ -93,10 +93,10 @@
         <sys_created_by>adarsh.nathaniel</sys_created_by>
         <sys_created_on>2024-05-21 08:45:33</sys_created_on>
         <sys_id>4e0d9f25931e4210ef267c5efaba10d0</sys_id>
-        <sys_mod_count>4</sys_mod_count>
+        <sys_mod_count>6</sys_mod_count>
         <sys_scope/>
         <sys_updated_by>adarsh.nathaniel</sys_updated_by>
-        <sys_updated_on>2024-05-22 05:41:35</sys_updated_on>
+        <sys_updated_on>2024-06-12 05:40:40</sys_updated_on>
         <trigger_definition display_value="Updated">bb695e60c31322002841b63b12d3aea5</trigger_definition>
         <trigger_inputs/>
         <trigger_outputs/>
@@ -147,6 +147,29 @@
     </sys_flow_cat_variable_model>
     <sys_flow_cat_variable action="delete_multiple" query="flow_catalog_model=ffb44be5939a4210ef267c5efaba102a"/>
     <sys_hub_flow_input action="delete_multiple" query="model=f3b44be5939a4210ef267c5efaba102a^sys_idNOT IN020d9f25931e4210ef267c5efaba10bc,460d9f25931e4210ef267c5efaba10b5,8e0d9f25931e4210ef267c5efaba10cb"/>
+    <sys_complex_object action="INSERT_OR_UPDATE">
+        <label/>
+        <name>FDCollection</name>
+        <namespace>FlowDesigner</namespace>
+        <scope_name>global</scope_name>
+        <serialized_content>{"FlowDesigner:FDCollection":{"$COCollectionField":[{"FDChangeDetails":{"previous_display_value":"String","previous_display_value.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"Previous Display Value\",\"mandatory\":\"false\",\"order\":\"4\",\"max_length\":\"0\"}"},"previous_value":"String","previous_value.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"Previous Value\",\"mandatory\":\"false\",\"order\":\"2\",\"max_length\":\"0\"}"},"current_display_value":"String","current_display_value.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"Current Display Value\",\"mandatory\":\"false\",\"order\":\"5\",\"max_length\":\"0\"}"},"current_value":"String","current_value.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"Current Value\",\"mandatory\":\"false\",\"order\":\"3\",\"max_length\":\"0\"}"},"field_name":"String","field_name.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"Field Name\",\"mandatory\":\"false\",\"order\":\"1\",\"max_length\":\"0\"}"}}}],"$COCollectionField.$type_facets":{"SimpleMapFacet":"{\"pwd2droppable\":\"true\",\"default_value\":\"\",\"label\":\"Changed Fields\",\"mandatory\":\"false\",\"child_name\":\"FDChangeDetails\",\"uiTypeLabel\":\"Array.Object\",\"co_type_name\":\"FDCollection\",\"child_label\":\"FDChangeDetails\",\"child_type_label\":\"Object\",\"element_mapping_provider\":\"com.glide.flow_design.action.data.FlowDesignVariableMapper\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"array.object\",\"child_type\":\"object\",\"order\":\"100\",\"max_length\":\"4000\"}"},"$COCollectionField.$field_facets":{"SimpleMapFacet":"{\"up-shift-collection-level\":\"true\"}"}},"FlowDesigner:FDCollection.$type_facets":{"SimpleMapFacet":"{\"pwd2droppable\":\"true\",\"default_value\":\"\",\"label\":\"Changed Fields\",\"mandatory\":\"false\",\"child_name\":\"FDChangeDetails\",\"uiTypeLabel\":\"Array.Object\",\"co_type_name\":\"FDCollection\",\"child_label\":\"FDChangeDetails\",\"child_type_label\":\"Object\",\"element_mapping_provider\":\"com.glide.flow_design.action.data.FlowDesignVariableMapper\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"array.object\",\"child_type\":\"object\",\"order\":\"100\",\"max_length\":\"4000\"}"}}</serialized_content>
+        <sys_class_name>sys_complex_object</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-06-13 23:19:20</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path/>
+        <sys_id>f4f014150f023300ecf0cc52ff767eed</sys_id>
+        <sys_mod_count>101</sys_mod_count>
+        <sys_name>FDCollection</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Flow Designer Designer Model" source="com.glide.hub.designer_backend.model">e661186cd9f13110cedf7dffddb48f71</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Global">global</sys_scope>
+        <sys_update_name>sys_complex_object_f4f014150f023300ecf0cc52ff767eed</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-09-28 05:06:11</sys_updated_on>
+        <type>complex_object_collection</type>
+    </sys_complex_object>
     <sys_hub_flow_input action="INSERT_OR_UPDATE">
         <active>true</active>
         <array>false</array>
@@ -235,7 +258,7 @@
         <active>true</active>
         <array>false</array>
         <array_denormalized>false</array_denormalized>
-        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=document_id,uiTypeLabel=Document ID</attributes>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=document_id</attributes>
         <audit>false</audit>
         <calculation><![CDATA[(function calculatedFieldValue(current) {
 
@@ -294,14 +317,14 @@
         <sys_created_by>adarsh.nathaniel</sys_created_by>
         <sys_created_on>2024-05-21 08:45:32</sys_created_on>
         <sys_id>460d9f25931e4210ef267c5efaba10b5</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>3</sys_mod_count>
         <sys_name/>
         <sys_package/>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name/>
         <sys_updated_by>adarsh.nathaniel</sys_updated_by>
-        <sys_updated_on>2024-05-22 05:41:34</sys_updated_on>
+        <sys_updated_on>2024-06-12 05:40:40</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>
@@ -319,7 +342,7 @@
         <active>true</active>
         <array>false</array>
         <array_denormalized>false</array_denormalized>
-        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,test_input_hidden=true,uiType=table_name,uiTypeLabel=Table Name</attributes>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,test_input_hidden=true,uiType=table_name</attributes>
         <audit>false</audit>
         <calculation><![CDATA[(function calculatedFieldValue(current) {
 
@@ -378,14 +401,14 @@
         <sys_created_by>adarsh.nathaniel</sys_created_by>
         <sys_created_on>2024-05-21 08:45:32</sys_created_on>
         <sys_id>8e0d9f25931e4210ef267c5efaba10cb</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>3</sys_mod_count>
         <sys_name/>
         <sys_package/>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name/>
         <sys_updated_by>adarsh.nathaniel</sys_updated_by>
-        <sys_updated_on>2024-05-22 05:41:35</sys_updated_on>
+        <sys_updated_on>2024-06-12 05:40:39</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>
@@ -417,10 +440,10 @@
         <sys_created_by>adarsh.nathaniel</sys_created_by>
         <sys_created_on>2024-05-21 08:45:33</sys_created_on>
         <sys_id>4a0d9f25931e4210ef267c5efaba10f0</sys_id>
-        <sys_mod_count>10</sys_mod_count>
+        <sys_mod_count>18</sys_mod_count>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_updated_by>adarsh.nathaniel</sys_updated_by>
-        <sys_updated_on>2024-05-22 05:41:35</sys_updated_on>
+        <sys_updated_on>2024-06-12 05:41:32</sys_updated_on>
         <ui_id>d09e7d4d-7c21-4e52-94eb-8feb34a45852</ui_id>
     </sys_hub_action_instance>
     <sys_variable_value action="delete_multiple" query="document_key=4a0d9f25931e4210ef267c5efaba10f0"/>
@@ -597,7 +620,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>097e5fa5931e4210ef267c5efaba109e</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_name/>
         <sys_overrides/>
         <sys_package/>
@@ -605,7 +628,7 @@
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name/>
         <sys_updated_by>adarsh.nathaniel</sys_updated_by>
-        <sys_updated_on>2024-05-21 08:51:45</sys_updated_on>
+        <sys_updated_on>2024-06-12 05:40:39</sys_updated_on>
         <type>flow</type>
     </sys_hub_flow_snapshot>
     <sys_translated_text action="delete_multiple" query="documentkey=097e5fa5931e4210ef267c5efaba109e"/>
@@ -620,10 +643,10 @@
         <sys_created_by>adarsh.nathaniel</sys_created_by>
         <sys_created_on>2024-05-21 08:51:46</sys_created_on>
         <sys_id>cd7e5fa5931e4210ef267c5efaba10d7</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>5</sys_mod_count>
         <sys_scope/>
         <sys_updated_by>adarsh.nathaniel</sys_updated_by>
-        <sys_updated_on>2024-05-21 08:51:46</sys_updated_on>
+        <sys_updated_on>2024-06-12 05:40:39</sys_updated_on>
         <trigger_definition display_value="Updated">bb695e60c31322002841b63b12d3aea5</trigger_definition>
         <trigger_inputs/>
         <trigger_outputs/>
@@ -678,7 +701,7 @@
         <active>true</active>
         <array>false</array>
         <array_denormalized>false</array_denormalized>
-        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=document_id,uiTypeLabel=Document ID</attributes>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=document_id</attributes>
         <audit>false</audit>
         <calculation><![CDATA[(function calculatedFieldValue(current) {
 
@@ -737,14 +760,14 @@
         <sys_created_by>adarsh.nathaniel</sys_created_by>
         <sys_created_on>2024-05-21 08:51:45</sys_created_on>
         <sys_id>097e5fa5931e4210ef267c5efaba10a0</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_name/>
         <sys_package/>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name/>
         <sys_updated_by>adarsh.nathaniel</sys_updated_by>
-        <sys_updated_on>2024-05-21 08:51:45</sys_updated_on>
+        <sys_updated_on>2024-06-12 05:40:39</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>
@@ -758,11 +781,34 @@
         <xml_view>false</xml_view>
     </sys_hub_flow_input>
     <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=097e5fa5931e4210ef267c5efaba10a0"/>
+    <sys_complex_object action="INSERT_OR_UPDATE">
+        <label/>
+        <name>FDCollection</name>
+        <namespace>FlowDesigner</namespace>
+        <scope_name>global</scope_name>
+        <serialized_content>{"FlowDesigner:FDCollection":{"$COCollectionField":[{"FDChangeDetails":{"previous_display_value":"String","previous_display_value.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"Previous Display Value\",\"mandatory\":\"false\",\"order\":\"4\",\"max_length\":\"0\"}"},"previous_value":"String","previous_value.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"Previous Value\",\"mandatory\":\"false\",\"order\":\"2\",\"max_length\":\"0\"}"},"current_display_value":"String","current_display_value.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"Current Display Value\",\"mandatory\":\"false\",\"order\":\"5\",\"max_length\":\"0\"}"},"current_value":"String","current_value.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"Current Value\",\"mandatory\":\"false\",\"order\":\"3\",\"max_length\":\"0\"}"},"field_name":"String","field_name.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"Field Name\",\"mandatory\":\"false\",\"order\":\"1\",\"max_length\":\"0\"}"}}}],"$COCollectionField.$type_facets":{"SimpleMapFacet":"{\"pwd2droppable\":\"true\",\"default_value\":\"\",\"label\":\"Changed Fields\",\"mandatory\":\"false\",\"child_name\":\"FDChangeDetails\",\"uiTypeLabel\":\"Array.Object\",\"co_type_name\":\"FDCollection\",\"child_label\":\"FDChangeDetails\",\"child_type_label\":\"Object\",\"element_mapping_provider\":\"com.glide.flow_design.action.data.FlowDesignVariableMapper\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"array.object\",\"child_type\":\"object\",\"order\":\"100\",\"max_length\":\"4000\"}"},"$COCollectionField.$field_facets":{"SimpleMapFacet":"{\"up-shift-collection-level\":\"true\"}"}},"FlowDesigner:FDCollection.$type_facets":{"SimpleMapFacet":"{\"pwd2droppable\":\"true\",\"default_value\":\"\",\"label\":\"Changed Fields\",\"mandatory\":\"false\",\"child_name\":\"FDChangeDetails\",\"uiTypeLabel\":\"Array.Object\",\"co_type_name\":\"FDCollection\",\"child_label\":\"FDChangeDetails\",\"child_type_label\":\"Object\",\"element_mapping_provider\":\"com.glide.flow_design.action.data.FlowDesignVariableMapper\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"array.object\",\"child_type\":\"object\",\"order\":\"100\",\"max_length\":\"4000\"}"}}</serialized_content>
+        <sys_class_name>sys_complex_object</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-06-13 23:19:20</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path/>
+        <sys_id>f4f014150f023300ecf0cc52ff767eed</sys_id>
+        <sys_mod_count>101</sys_mod_count>
+        <sys_name>FDCollection</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Flow Designer Designer Model" source="com.glide.hub.designer_backend.model">e661186cd9f13110cedf7dffddb48f71</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Global">global</sys_scope>
+        <sys_update_name>sys_complex_object_f4f014150f023300ecf0cc52ff767eed</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-09-28 05:06:11</sys_updated_on>
+        <type>complex_object_collection</type>
+    </sys_complex_object>
     <sys_hub_flow_input action="INSERT_OR_UPDATE">
         <active>true</active>
         <array>false</array>
         <array_denormalized>false</array_denormalized>
-        <attributes>child_label=FDChangeDetails,child_name=FDChangeDetails,child_type=object,child_type_label=Object,element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,pwd2droppable=true,uiType=array.object,uiTypeLabel=Array.Object</attributes>
+        <attributes>child_label=FDChangeDetails,child_name=FDChangeDetails,child_type=object,child_type_label=Object,co_type_name=FDCollection,element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,pwd2droppable=true,uiType=array.object,uiTypeLabel=Array.Object</attributes>
         <audit>false</audit>
         <calculation><![CDATA[(function calculatedFieldValue(current) {
 
@@ -821,14 +867,14 @@
         <sys_created_by>adarsh.nathaniel</sys_created_by>
         <sys_created_on>2024-05-21 08:51:45</sys_created_on>
         <sys_id>8d7e5fa5931e4210ef267c5efaba10bb</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_name/>
         <sys_package/>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name/>
         <sys_updated_by>adarsh.nathaniel</sys_updated_by>
-        <sys_updated_on>2024-05-21 08:51:45</sys_updated_on>
+        <sys_updated_on>2024-06-12 05:40:39</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>
@@ -846,7 +892,7 @@
         <active>true</active>
         <array>false</array>
         <array_denormalized>false</array_denormalized>
-        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,test_input_hidden=true,uiType=table_name,uiTypeLabel=Table Name</attributes>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,test_input_hidden=true,uiType=table_name</attributes>
         <audit>false</audit>
         <calculation><![CDATA[(function calculatedFieldValue(current) {
 
@@ -905,14 +951,14 @@
         <sys_created_by>adarsh.nathaniel</sys_created_by>
         <sys_created_on>2024-05-21 08:51:45</sys_created_on>
         <sys_id>cd7e5fa5931e4210ef267c5efaba10c3</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_name/>
         <sys_package/>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name/>
         <sys_updated_by>adarsh.nathaniel</sys_updated_by>
-        <sys_updated_on>2024-05-21 08:51:45</sys_updated_on>
+        <sys_updated_on>2024-06-12 05:40:39</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>
@@ -935,7 +981,7 @@
         <action_type display_value="Update Record">f9d01dd2c31332002841b63b12d3aea1</action_type>
         <action_type_parent display_value="Update Record">baf174c8c3c232002841b63b12d3aee4</action_type_parent>
         <attributes/>
-        <comment>Status = Available</comment>
+        <comment>Status = Under review</comment>
         <display_text/>
         <flow display_value="Book Instance Status (v2)">097e5fa5931e4210ef267c5efaba109e</flow>
         <order>1</order>
@@ -944,10 +990,10 @@
         <sys_created_by>adarsh.nathaniel</sys_created_by>
         <sys_created_on>2024-05-21 08:51:46</sys_created_on>
         <sys_id>4d7e5fa5931e4210ef267c5efaba10d4</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>6</sys_mod_count>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_updated_by>adarsh.nathaniel</sys_updated_by>
-        <sys_updated_on>2024-05-21 08:51:46</sys_updated_on>
+        <sys_updated_on>2024-06-12 05:40:39</sys_updated_on>
         <ui_id>d09e7d4d-7c21-4e52-94eb-8feb34a45852</ui_id>
     </sys_hub_action_instance>
     <sys_variable_value action="delete_multiple" query="document_key=4d7e5fa5931e4210ef267c5efaba10d4"/>
@@ -973,10 +1019,10 @@
         <sys_created_by>adarsh.nathaniel</sys_created_by>
         <sys_created_on>2024-05-21 08:51:46</sys_created_on>
         <sys_id>817e5fa5931e4210ef267c5efaba10d7</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_updated_by>adarsh.nathaniel</sys_updated_by>
-        <sys_updated_on>2024-05-21 08:51:46</sys_updated_on>
-        <value>status=available</value>
+        <sys_updated_on>2024-06-12 05:40:39</sys_updated_on>
+        <value>status=review</value>
         <variable display_value="Fields">02d01916c31332002841b63b12d3aeee</variable>
     </sys_variable_value>
     <sys_element_mapping action="delete_multiple" query="id=4d7e5fa5931e4210ef267c5efaba10d4"/>
@@ -1098,24 +1144,24 @@
     <sys_hub_flow action="UPDATE">
         <sys_id>f3b44be5939a4210ef267c5efaba102a</sys_id>
         <latest_snapshot>097e5fa5931e4210ef267c5efaba109e</latest_snapshot>
-        <compiler_build>glide-vancouver-07-06-2023__patch2-hotfix1-10-04-2023_10-06-2023_1235.zip</compiler_build>
+        <compiler_build>glide-vancouver-07-06-2023__patch9-05-02-2024_05-14-2024_2249.zip</compiler_build>
     </sys_hub_flow>
     <sys_flow_trigger_plan action="delete_multiple" query="plan_id=f3b44be5939a4210ef267c5efaba102a^sys_idNOT IN197e5fa5931e4210ef267c5efaba10e7"/>
     <sys_flow_trigger_plan action="INSERT_OR_UPDATE">
         <binding_strategy>com.snc.process_flow.engine.binding.OncePerRecord</binding_strategy>
         <plan>{"persistor":{"@class":".ChunkingPlanPersistor","table":"sys_flow_trigger_plan","id":"197e5fa5931e4210ef267c5efaba10e7","name":"plan","plan_signature":null}}</plan>
         <plan_id>f3b44be5939a4210ef267c5efaba102a</plan_id>
-        <snapshot>bf9e53e5931e4210ef267c5efaba1075</snapshot>
+        <snapshot>41e5407c93be8210ef267c5efaba103d</snapshot>
         <sys_created_by>adarsh.nathaniel</sys_created_by>
         <sys_created_on>2024-05-21 08:51:46</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>197e5fa5931e4210ef267c5efaba10e7</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_overrides/>
         <sys_scope/>
         <sys_updated_by>adarsh.nathaniel</sys_updated_by>
-        <sys_updated_on>2024-05-21 08:51:46</sys_updated_on>
+        <sys_updated_on>2024-06-12 05:40:39</sys_updated_on>
         <trigger display_value="">597e5fa5931e4210ef267c5efaba10e5</trigger>
     </sys_flow_trigger_plan>
     <sys_flow_subflow_plan action="delete_multiple" query="plan_id=f3b44be5939a4210ef267c5efaba102a"/>

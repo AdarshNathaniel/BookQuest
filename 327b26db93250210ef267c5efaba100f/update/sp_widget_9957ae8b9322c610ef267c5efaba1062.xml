@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[/*
+api.controller=function() {
+  // widget controller 
+  var c = this;
+};
+*/
+
+(function() {
+  angular.module('myApp').controller('BookDetailController', function($scope, $routeParams, $http) {
+    var c = this;
+    var bookId = $routeParams.sys_id; // Get the sys_id parameter from the URL
+
+    // Function to fetch the book details based on bookId
+    c.getBookDetails = function(bookId) {
+      $http.get('/api/now/table/book/' + bookId).then(function(response) {
+        c.book = response.data.result;
+      }, function(error) {
+        console.error('Error fetching book details:', error);
+      });
+    };
+
+    // Call the function to fetch book details on page load
+    c.getBookDetails(bookId);
+  });
+})();
+]]></client_script>
+        <controller_as>c</controller_as>
+        <css/>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>book_details_widget</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Book Details Widget</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+	if (!input) {
+		data.books = [];
+		var bookGR = new GlideRecordSecure('x_1383151_bkquest_book');
+		bookGR.orderBy('title');
+		bookGR.query();
+
+		while (bookGR.next()) {
+			var coverImageSysId = bookGR.getValue('cover_image');
+			var coverImageUrl = '';
+
+			if (coverImageSysId) {
+				var coverImageGR = new GlideRecord('sys_attachment');
+				if (coverImageGR.get(coverImageSysId)) {
+					coverImageUrl = '/sys_attachment.do?sys_id=' + coverImageSysId;
+				}
+			}
+
+			var authorSysId = bookGR.getValue('author');
+			var authorName = '';
+			if (authorSysId) {
+				var authorGR = new GlideRecord('x_1383151_bkquest_author');
+				if (authorGR.get(authorSysId)) {
+					authorName = authorGR.getDisplayValue();
+				}
+			}
+
+			// Fetch the plot summary from the book record
+			var plotSummary = bookGR.getValue('plot_summary');
+
+			data.books.push({
+				'sys_id': bookGR.getUniqueValue(),
+				'title': bookGR.getDisplayValue('title'),
+				'author': authorName,
+				'cover_image': coverImageUrl,
+				'plot_summary': plotSummary
+			});
+		}
+	}
+
+	if (input) {
+		// Add server-side functionality here if needed
+	}
+})();
+]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>adarsh.nathaniel</sys_created_by>
+        <sys_created_on>2024-06-07 06:57:30</sys_created_on>
+        <sys_id>9957ae8b9322c610ef267c5efaba1062</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Book Details Widget</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>sp_widget_9957ae8b9322c610ef267c5efaba1062</sys_update_name>
+        <sys_updated_by>adarsh.nathaniel</sys_updated_by>
+        <sys_updated_on>2024-06-07 07:24:51</sys_updated_on>
+        <template><![CDATA[<div class="book-detail">
+  <div class="book-detail__img">
+    <img ng-src="{{ c.book.cover_image }}" alt="{{ c.book.title }} cover">
+  </div>
+  <div class="book-detail__info">
+    <h1>{{ c.book.title }}</h1>
+    <h2>{{ c.book.author }}</h2>
+    <p>{{ c.book.plot_summary }}</p>
+    <!-- Add more book details as needed -->
+  </div>
+</div>
+]]></template>
+    </sp_widget>
+</record_update>

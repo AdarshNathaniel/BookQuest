@@ -4,13 +4,13 @@
             <element>number</element>
             <position>0</position>
             <sys_created_by>adarsh.nathaniel</sys_created_by>
-            <sys_created_on>2024-05-09 09:05:45</sys_created_on>
-            <sys_id>c19e6539934a0610ef267c5efaba1019</sys_id>
+            <sys_created_on>2024-06-11 10:21:13</sys_created_on>
+            <sys_id>945c3f9c933e4210ef267c5efaba10c0</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_1383151_bkquest_book_copy" sys_domain="global" view="Default view">734639d893f10210ef267c5efaba1035</sys_ui_section>
             <sys_updated_by>adarsh.nathaniel</sys_updated_by>
-            <sys_updated_on>2024-05-09 09:05:45</sys_updated_on>
+            <sys_updated_on>2024-06-11 10:21:13</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -18,13 +18,13 @@
             <element>title</element>
             <position>1</position>
             <sys_created_by>adarsh.nathaniel</sys_created_by>
-            <sys_created_on>2024-05-09 09:05:45</sys_created_on>
-            <sys_id>499e6539934a0610ef267c5efaba1019</sys_id>
+            <sys_created_on>2024-06-11 10:21:13</sys_created_on>
+            <sys_id>9c5c3f9c933e4210ef267c5efaba10c0</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_1383151_bkquest_book_copy" sys_domain="global" view="Default view">734639d893f10210ef267c5efaba1035</sys_ui_section>
             <sys_updated_by>adarsh.nathaniel</sys_updated_by>
-            <sys_updated_on>2024-05-09 09:05:45</sys_updated_on>
+            <sys_updated_on>2024-06-11 10:21:13</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -32,13 +32,13 @@
             <element>.split</element>
             <position>2</position>
             <sys_created_by>adarsh.nathaniel</sys_created_by>
-            <sys_created_on>2024-05-09 09:05:45</sys_created_on>
-            <sys_id>c99e6539934a0610ef267c5efaba1019</sys_id>
+            <sys_created_on>2024-06-11 10:21:13</sys_created_on>
+            <sys_id>905c3f9c933e4210ef267c5efaba10c1</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_1383151_bkquest_book_copy" sys_domain="global" view="Default view">734639d893f10210ef267c5efaba1035</sys_ui_section>
             <sys_updated_by>adarsh.nathaniel</sys_updated_by>
-            <sys_updated_on>2024-05-09 09:05:45</sys_updated_on>
+            <sys_updated_on>2024-06-11 10:21:13</sys_updated_on>
             <sys_user/>
             <type>.split</type>
         </sys_ui_element>
@@ -46,13 +46,13 @@
             <element>status</element>
             <position>3</position>
             <sys_created_by>adarsh.nathaniel</sys_created_by>
-            <sys_created_on>2024-05-09 09:05:45</sys_created_on>
-            <sys_id>4d9e6539934a0610ef267c5efaba1019</sys_id>
+            <sys_created_on>2024-06-11 10:21:13</sys_created_on>
+            <sys_id>945c3f9c933e4210ef267c5efaba10c1</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_1383151_bkquest_book_copy" sys_domain="global" view="Default view">734639d893f10210ef267c5efaba1035</sys_ui_section>
             <sys_updated_by>adarsh.nathaniel</sys_updated_by>
-            <sys_updated_on>2024-05-09 09:05:45</sys_updated_on>
+            <sys_updated_on>2024-06-11 10:21:13</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -60,13 +60,13 @@
             <element>.end_split</element>
             <position>4</position>
             <sys_created_by>adarsh.nathaniel</sys_created_by>
-            <sys_created_on>2024-05-09 09:05:45</sys_created_on>
-            <sys_id>cd9e6539934a0610ef267c5efaba1019</sys_id>
+            <sys_created_on>2024-06-11 10:21:13</sys_created_on>
+            <sys_id>985c3f9c933e4210ef267c5efaba10c1</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_1383151_bkquest_book_copy" sys_domain="global" view="Default view">734639d893f10210ef267c5efaba1035</sys_ui_section>
             <sys_updated_by>adarsh.nathaniel</sys_updated_by>
-            <sys_updated_on>2024-05-09 09:05:45</sys_updated_on>
+            <sys_updated_on>2024-06-11 10:21:13</sys_updated_on>
             <sys_user/>
             <type>.end_split</type>
         </sys_ui_element>
@@ -74,13 +74,27 @@
             <element>title.title</element>
             <position>5</position>
             <sys_created_by>adarsh.nathaniel</sys_created_by>
-            <sys_created_on>2024-05-09 09:05:45</sys_created_on>
-            <sys_id>419e6539934a0610ef267c5efaba101a</sys_id>
+            <sys_created_on>2024-06-11 10:21:13</sys_created_on>
+            <sys_id>9c5c3f9c933e4210ef267c5efaba10c1</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_1383151_bkquest_book_copy" sys_domain="global" view="Default view">734639d893f10210ef267c5efaba1035</sys_ui_section>
             <sys_updated_by>adarsh.nathaniel</sys_updated_by>
-            <sys_updated_on>2024-05-09 09:05:45</sys_updated_on>
+            <sys_updated_on>2024-06-11 10:21:13</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>title.author.full_name</element>
+            <position>6</position>
+            <sys_created_by>adarsh.nathaniel</sys_created_by>
+            <sys_created_on>2024-06-11 10:21:13</sys_created_on>
+            <sys_id>905c3f9c933e4210ef267c5efaba10c2</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_1383151_bkquest_book_copy" sys_domain="global" view="Default view">734639d893f10210ef267c5efaba1035</sys_ui_section>
+            <sys_updated_by>adarsh.nathaniel</sys_updated_by>
+            <sys_updated_on>2024-06-11 10:21:13</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>

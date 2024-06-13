@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element db_object_id="c6a2a5dc93710210ef267c5efaba10f7" label="Reservation" max_length="40" name="x_1383151_bkquest_reservation" type="collection">
-        <element attributes="ref_auto_completer=AJAXTableCompleter,ref_ac_columns=title" display="true" label="ISBN" max_length="32" name="book_isbn" reference="x_1383151_bkquest_book" type="reference"/>
+        <element attributes="ref_auto_completer=AJAXTableCompleter,ref_ac_columns=title,ref_ac_order_by=title" display="true" dynamic_ref_qual="1b3249f093f2c210ef267c5efaba1030" label="ISBN" max_length="32" name="book_isbn" reference="x_1383151_bkquest_book" reference_qual="javascript:new BookReservationUtils().getReservableBooksSysIds();  " type="reference" use_reference_qualifier="dynamic"/>
         <element default="javascript:gs.nowDateTime()" dynamic_default_value="79cb83a85f220100a9ad2572f2b4773c" label="Reservation date" max_length="40" name="reservation_date" read_only="true" type="glide_date_time" use_dynamic_default="true"/>
         <element default="javascript:global.getNextObjNumberPadded();" label="Reservation ID" max_length="40" name="reservation_id" read_only="true" type="string"/>
         <element default="javascript:gs.getUserID();" dynamic_default_value="2fd8e97bef3221002841f7f775c0fbc1" label="User ID" max_length="32" name="user_id" read_only="true" reference="sys_user" type="reference" use_dynamic_default="true"/>
