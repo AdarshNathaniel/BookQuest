@@ -1,0 +1,527 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="DELETE">
+        <category>custom</category>
+        <client_script><![CDATA[angular.module('authorApp', [])
+.controller('authorController', ['$scope', function($scope) {
+    var c = this;
+
+    c.data = {
+        authors: []
+    };
+
+    var authorService = new AuthorService();
+    c.data.authors = authorService.getAuthors();
+
+    c.showAuthorDetails = function(author) {
+        c.selectedAuthor = author;
+        $('#authorDetailsModal').modal('show');
+    };
+}]);
+]]></client_script>
+        <controller_as>c</controller_as>
+        <css>/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+h2 {
+  font-family: sans-serif;
+  font-weight: bold;
+  margin: 2rem 1rem;
+  text-align: left;
+  color: #3D52A0;
+}
+
+.authorList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 20px;
+  margin-top: 1rem;
+}
+
+.author {
+  padding: 1rem;
+  border: 1px dashed black;
+  background-color: #3D52A0;
+  width: 240px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.author:hover {
+  transform: translateY(-5px);
+}
+
+.author &gt; * {
+  color: white;
+}
+
+.authorImageContainer {
+  width: 100%;
+  height: 150px;
+  overflow: hidden;
+  border-radius: 8px 8px 0 0;
+}
+
+.authorImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+h4 {
+  font-family: sans-serif;
+  text-align: center;
+  font-weight: bold;
+  color: white;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.authorDetails {
+  font-family: sans-serif;
+  text-align: center;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+/* Modal */
+.modal-content {
+  background-color: #3D52A0;
+  color: white;
+}
+
+.modal-title {
+  font-weight: bold;
+  color: white;
+}
+
+.BannerImg,
+.BookImg {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>author_page</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Author Page</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[var AuthorService = Class.create();
+AuthorService.prototype = {
+    initialize: function() {},
+
+    getAuthorsWithBooks: function() {
+        var authors = [];
+        
+        // Query authors
+        var grAuthors = new GlideRecord('x_1383151_bkquest_author');
+        grAuthors.query();
+        
+        while (grAuthors.next()) {
+            var author = {
+                full_name: grAuthors.full_name.getDisplayValue(),
+                date_of_birth: grAuthors.date_of_birth.getDisplayValue(),
+                gender: grAuthors.gender.getDisplayValue(),
+                nationality: grAuthors.nationality.getDisplayValue(),
+                author_image: grAuthors.author_image.toString(),
+                books: []
+            };
+            
+            // Query books written by this author
+            var grBooks = new GlideRecord('x_1383151_bkquest_book');
+            grBooks.addQuery('author', grAuthors.sys_id.toString());
+            grBooks.query();
+            
+            while (grBooks.next()) {
+                var book = {
+                    title: grBooks.title.getDisplayValue(),
+                    cover_image: grBooks.cover_image.toString()
+                };
+                author.books.push(book);
+            }
+            
+            authors.push(author);
+        }
+        
+        return authors;
+    },
+
+    type: 'AuthorService'
+};
+]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-06-17 06:27:36</sys_created_on>
+        <sys_id>20600a1a93b20210ef267c5efaba101f</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>Author Page</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>sp_widget_20600a1a93b20210ef267c5efaba101f</sys_update_name>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-06-17 06:46:58</sys_updated_on>
+        <template><![CDATA[<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Popular Authors</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body ng-app="authorApp" ng-controller="authorController as c">
+  <div class="container">
+    <h2>Featured Authors</h2>
+    <div class="authorList">
+      <div class="author" ng-repeat="author in c.data.authors" ng-click="c.showAuthorDetails(author)">
+        <div class="authorImageContainer">
+          <img ng-src="{{author.author_image}}" alt="{{author.full_name}} image" class="authorImage img-responsive"/>
+        </div>
+        <h4>{{author.full_name}}</h4>  
+        <span class="authorDetails">Books: {{author.books.length}}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- The Modal -->
+  <div id="authorDetailsModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">{{c.selectedAuthor.full_name}}</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="banner-2">
+            <img ng-src="{{c.selectedAuthor.author_image}}" alt="{{c.selectedAuthor.full_name}} cover" class="BannerImg">                
+          </div>
+          <div class="info">
+            <p><strong>Full Name: </strong>{{c.selectedAuthor.full_name}}</p>
+            <p><strong>Date of Birth: </strong>{{c.selectedAuthor.date_of_birth}}</p>
+            <p><strong>Gender: </strong>{{c.selectedAuthor.gender}}</p>
+            <p><strong>Nationality: </strong>{{c.selectedAuthor.nationality}}</p>
+            <p><strong>Books Written: </strong>{{c.selectedAuthor.books.length}}</p>
+            <h3>Books</h3>
+            <ul>
+              <li ng-repeat="book in c.selectedAuthor.books">
+                <img ng-src="{{book.cover_image}}" alt="{{book.title}} cover" class="BookImg">
+                <span>{{book.title}}</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Include AngularJS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <!-- Include Bootstrap JS for modal support -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <!-- Include client-side script -->
+  <script src="clientScript.js"></script>
+</body>
+</html>
+]]></template>
+    </sp_widget>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="BookQuest">327b26db93250210ef267c5efaba100f</application>
+        <file_path/>
+        <instance_id>0535015fdb717d1002d9172913961922</instance_id>
+        <instance_name>dev186731</instance_name>
+        <name>sp_widget_20600a1a93b20210ef267c5efaba101f</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sp_widget"&gt;&lt;sp_widget action="INSERT_OR_UPDATE"&gt;&lt;category&gt;custom&lt;/category&gt;&lt;client_script&gt;&lt;![CDATA[angular.module('authorApp', [])
+.controller('authorController', ['$scope', function($scope) {
+    var c = this;
+
+    c.data = {
+        authors: []
+    };
+
+    var authorService = new AuthorService();
+    c.data.authors = authorService.getAuthors();
+
+    c.showAuthorDetails = function(author) {
+        c.selectedAuthor = author;
+        $('#authorDetailsModal').modal('show');
+    };
+}]);
+]]&gt;&lt;/client_script&gt;&lt;controller_as&gt;c&lt;/controller_as&gt;&lt;css&gt;/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+h2 {
+  font-family: sans-serif;
+  font-weight: bold;
+  margin: 2rem 1rem;
+  text-align: left;
+  color: #3D52A0;
+}
+
+.authorList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 20px;
+  margin-top: 1rem;
+}
+
+.author {
+  padding: 1rem;
+  border: 1px dashed black;
+  background-color: #3D52A0;
+  width: 240px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.author:hover {
+  transform: translateY(-5px);
+}
+
+.author &amp;gt; * {
+  color: white;
+}
+
+.authorImageContainer {
+  width: 100%;
+  height: 150px;
+  overflow: hidden;
+  border-radius: 8px 8px 0 0;
+}
+
+.authorImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+h4 {
+  font-family: sans-serif;
+  text-align: center;
+  font-weight: bold;
+  color: white;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.authorDetails {
+  font-family: sans-serif;
+  text-align: center;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+/* Modal */
+.modal-content {
+  background-color: #3D52A0;
+  color: white;
+}
+
+.modal-title {
+  font-weight: bold;
+  color: white;
+}
+
+.BannerImg,
+.BookImg {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+&lt;/css&gt;&lt;data_table&gt;sp_instance&lt;/data_table&gt;&lt;demo_data/&gt;&lt;description/&gt;&lt;docs/&gt;&lt;field_list/&gt;&lt;has_preview&gt;true&lt;/has_preview&gt;&lt;id&gt;author_page&lt;/id&gt;&lt;internal&gt;false&lt;/internal&gt;&lt;link&gt;&lt;![CDATA[function link(scope, element, attrs, controller) {  }]]&gt;&lt;/link&gt;&lt;name&gt;Author Page&lt;/name&gt;&lt;option_schema/&gt;&lt;public&gt;false&lt;/public&gt;&lt;roles/&gt;&lt;script&gt;&lt;![CDATA[var AuthorService = Class.create();
+AuthorService.prototype = {
+    initialize: function() {},
+
+    getAuthorsWithBooks: function() {
+        var authors = [];
+        
+        // Query authors
+        var grAuthors = new GlideRecord('x_1383151_bkquest_author');
+        grAuthors.query();
+        
+        while (grAuthors.next()) {
+            var author = {
+                full_name: grAuthors.full_name.getDisplayValue(),
+                date_of_birth: grAuthors.date_of_birth.getDisplayValue(),
+                gender: grAuthors.gender.getDisplayValue(),
+                nationality: grAuthors.nationality.getDisplayValue(),
+                author_image: grAuthors.author_image.toString(),
+                books: []
+            };
+            
+            // Query books written by this author
+            var grBooks = new GlideRecord('x_1383151_bkquest_book');
+            grBooks.addQuery('author', grAuthors.sys_id.toString());
+            grBooks.query();
+            
+            while (grBooks.next()) {
+                var book = {
+                    title: grBooks.title.getDisplayValue(),
+                    cover_image: grBooks.cover_image.toString()
+                };
+                author.books.push(book);
+            }
+            
+            authors.push(author);
+        }
+        
+        return authors;
+    },
+
+    type: 'AuthorService'
+};
+]]&gt;&lt;/script&gt;&lt;servicenow&gt;false&lt;/servicenow&gt;&lt;sys_class_name&gt;sp_widget&lt;/sys_class_name&gt;&lt;sys_created_by&gt;harini.srija&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-06-17 06:27:36&lt;/sys_created_on&gt;&lt;sys_id&gt;20600a1a93b20210ef267c5efaba101f&lt;/sys_id&gt;&lt;sys_mod_count&gt;3&lt;/sys_mod_count&gt;&lt;sys_name&gt;Author Page&lt;/sys_name&gt;&lt;sys_package display_value="BookQuest" source="x_1383151_bkquest"&gt;327b26db93250210ef267c5efaba100f&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="BookQuest"&gt;327b26db93250210ef267c5efaba100f&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_widget_20600a1a93b20210ef267c5efaba101f&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;harini.srija&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-06-17 06:46:58&lt;/sys_updated_on&gt;&lt;template&gt;&lt;![CDATA[&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Popular Authors&lt;/title&gt;
+  &lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;/head&gt;
+&lt;body ng-app="authorApp" ng-controller="authorController as c"&gt;
+  &lt;div class="container"&gt;
+    &lt;h2&gt;Featured Authors&lt;/h2&gt;
+    &lt;div class="authorList"&gt;
+      &lt;div class="author" ng-repeat="author in c.data.authors" ng-click="c.showAuthorDetails(author)"&gt;
+        &lt;div class="authorImageContainer"&gt;
+          &lt;img ng-src="{{author.author_image}}" alt="{{author.full_name}} image" class="authorImage img-responsive"/&gt;
+        &lt;/div&gt;
+        &lt;h4&gt;{{author.full_name}}&lt;/h4&gt;  
+        &lt;span class="authorDetails"&gt;Books: {{author.books.length}}&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- The Modal --&gt;
+  &lt;div id="authorDetailsModal" class="modal fade" role="dialog"&gt;
+    &lt;div class="modal-dialog"&gt;
+      &lt;!-- Modal content--&gt;
+      &lt;div class="modal-content"&gt;
+        &lt;div class="modal-header"&gt;
+          &lt;h4 class="modal-title"&gt;{{c.selectedAuthor.full_name}}&lt;/h4&gt;
+          &lt;button type="button" class="close" data-dismiss="modal"&gt;&amp;times;&lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div class="modal-body"&gt;
+          &lt;div class="banner-2"&gt;
+            &lt;img ng-src="{{c.selectedAuthor.author_image}}" alt="{{c.selectedAuthor.full_name}} cover" class="BannerImg"&gt;                
+          &lt;/div&gt;
+          &lt;div class="info"&gt;
+            &lt;p&gt;&lt;strong&gt;Full Name: &lt;/strong&gt;{{c.selectedAuthor.full_name}}&lt;/p&gt;
+            &lt;p&gt;&lt;strong&gt;Date of Birth: &lt;/strong&gt;{{c.selectedAuthor.date_of_birth}}&lt;/p&gt;
+            &lt;p&gt;&lt;strong&gt;Gender: &lt;/strong&gt;{{c.selectedAuthor.gender}}&lt;/p&gt;
+            &lt;p&gt;&lt;strong&gt;Nationality: &lt;/strong&gt;{{c.selectedAuthor.nationality}}&lt;/p&gt;
+            &lt;p&gt;&lt;strong&gt;Books Written: &lt;/strong&gt;{{c.selectedAuthor.books.length}}&lt;/p&gt;
+            &lt;h3&gt;Books&lt;/h3&gt;
+            &lt;ul&gt;
+              &lt;li ng-repeat="book in c.selectedAuthor.books"&gt;
+                &lt;img ng-src="{{book.cover_image}}" alt="{{book.title}} cover" class="BookImg"&gt;
+                &lt;span&gt;{{book.title}}&lt;/span&gt;
+              &lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Include AngularJS --&gt;
+  &lt;script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"&gt;&lt;/script&gt;
+  &lt;!-- Include Bootstrap JS for modal support --&gt;
+  &lt;script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"&gt;&lt;/script&gt;
+  &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"&gt;&lt;/script&gt;
+  &lt;script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"&gt;&lt;/script&gt;
+  &lt;!-- Include client-side script --&gt;
+  &lt;script src="clientScript.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+]]&gt;&lt;/template&gt;&lt;/sp_widget&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-2009069868</payload_hash>
+        <record_name>Author Page</record_name>
+        <reverted_from/>
+        <source>3d9e5eee936e0610ef267c5efaba1086</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-06-17 06:46:58</sys_created_on>
+        <sys_id>ecd4c65e93b20210ef267c5efaba10fa</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19024f2ee4e0000001</sys_recorded_at>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-06-17 06:46:58</sys_updated_on>
+        <type>Widget</type>
+        <update_guid>a4d4c65e44b20210d898900b60f1ebfa</update_guid>
+        <update_guid_history>a4d4c65e44b20210d898900b60f1ebfa:-2009069868,cba48a5e4eb202108f8d96e7e395999c:-419260321,9ac30ada94b20210398b598f67a3e5d1:-1011559442,68600a1ac0b2021048f790d903cbbe20:1197683327</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Author Page">51e502de93b20210ef267c5efaba1040</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-06-17 06:51:40</sys_created_on>
+        <sys_db_object display_value="" name="sp_widget">sp_widget</sys_db_object>
+        <sys_id>286280241749460080e5fcb00764fe04</sys_id>
+        <sys_metadata>20600a1a93b20210ef267c5efaba101f</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Author Page</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_scope_delete display_value="">18e926194902432895b35f3c99259089</sys_scope_delete>
+        <sys_update_name>sp_widget_20600a1a93b20210ef267c5efaba101f</sys_update_name>
+        <sys_update_version display_value="sp_widget_20600a1a93b20210ef267c5efaba101f">ecd4c65e93b20210ef267c5efaba10fa</sys_update_version>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-06-17 06:51:40</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

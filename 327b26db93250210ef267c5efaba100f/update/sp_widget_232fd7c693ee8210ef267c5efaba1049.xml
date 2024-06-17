@@ -1,9 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
     <sp_widget action="INSERT_OR_UPDATE">
         <category>custom</category>
-        <client_script/>
+        <client_script><![CDATA[api.controller = function() {
+    var c = this;
+   
+};
+
+]]></client_script>
         <controller_as>c</controller_as>
-        <css/>
+        <css>.container {
+  padding-top: 20px;
+}
+
+.book-item {
+  margin-bottom: 20px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card .row {
+  flex: 1;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.book-cover {
+  width: 100%;
+  height: auto;
+}
+
+.card-title {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.card-text {
+  margin-bottom: 5px;
+}
+
+.custom-button {
+  background-color: #007bff;
+  color: white;
+  margin-top: 10px;
+  text-decoration: none;
+}
+
+.custom-button:hover {
+  background-color: #0056b3;
+  color: white;
+  text-decoration: none;
+}
+</css>
         <data_table>sp_instance</data_table>
         <demo_data/>
         <description/>
@@ -17,48 +72,99 @@
         <option_schema/>
         <public>false</public>
         <roles/>
-        <script><![CDATA[var BorrowedBooksUtil = Class.create();
-BorrowedBooksUtil.prototype = {
-    initialize: function() {},
+        <script><![CDATA[(function() {
+    // Get the current user's user ID
+    var currentUserId = gs.getUserID();
+    var borrowedBooks = [];
 
-    getUserBorrowedBooks: function() {
-        var userId = gs.getUserID(); // Get the current user's ID
+    // Create a GlideRecord object for the Borrow table
+    var borrowGR = new GlideRecord('x_1383151_bkquest_borrow');
 
-        // Query the Borrow table for books borrowed by the current user
-        var borrowedBooks = [];
-        var gr = new GlideRecord('x_1383151_bkquest_borrow'); // Replace with your actual table name
-        gr.addQuery('user_id', userId);
-        gr.query();
-        while (gr.next()) {
-            var book = {
-                bookId: gr.getValue('book_id'),
-                title: gr.getValue('title'),
-                borrowDate: gr.getValue('borrow_date'),
-                dueDate: gr.getValue('due_date'),
-                // Add more fields as needed
-            };
-            borrowedBooks.push(book);
-        }
+    // Add a query to filter records by the current user ID
+    borrowGR.addQuery('user_id', currentUserId);
+    borrowGR.query();
 
-        return JSON.stringify(borrowedBooks); // Return as JSON string
-    },
+    // Iterate through the Borrow records for the current user
+    while (borrowGR.next()) {
+        // Get the Book Instance ID from the Borrow record
+        var bookInstanceId = borrowGR.book_id;
 
-    type: 'BorrowedBooksUtil'
-};
+        // Create a GlideRecord object for the Book Instance table
+        var bookInstanceGR = new GlideRecord('x_1383151_bkquest_book_copy');
+        
+        // Add a query to filter by the Book Instance ID
+        bookInstanceGR.get(bookInstanceId);
+
+        // Get the Book ID from the Book Instance record
+        var bookId = bookInstanceGR.title;
+
+        // Create a GlideRecord object for the Book Definition table
+        var bookDefinitionGR = new GlideRecord('x_1383151_bkquest_book');
+        
+        // Add a query to filter by the Book ID
+        bookDefinitionGR.get(bookId);
+
+        // Create a GlideRecord object for the Author table
+        var authorGR = new GlideRecord('x_1383151_bkquest_author');
+        
+        // Add a query to filter by the Author ID
+        authorGR.get(bookDefinitionGR.author);
+
+        // Get the cover image URL
+        var coverImageURL = bookDefinitionGR.cover_image ? '/sys_attachment.do?sys_id=' + bookDefinitionGR.cover_image : '';
+
+        // Add the book details to the result array
+        borrowedBooks.push({
+            borrowId: borrowGR.number.toString(),
+            borrowDate: borrowGR.borrow_date.toString(),
+            dueDate: borrowGR.due_date.toString(),
+            title: bookDefinitionGR.title.toString(),
+            author: authorGR.full_name.toString(),
+            publisher: bookDefinitionGR.publisher.toString(),
+            dateOfPublication: bookDefinitionGR.date_of_publication.toString(),
+            coverImage: coverImageURL
+        });
+    }
+
+    // Return the result to the client
+    data.borrowedBooks = borrowedBooks;
+})();
 ]]></script>
         <servicenow>false</servicenow>
         <sys_class_name>sp_widget</sys_class_name>
         <sys_created_by>harini.srija</sys_created_by>
         <sys_created_on>2024-06-04 08:27:35</sys_created_on>
         <sys_id>232fd7c693ee8210ef267c5efaba1049</sys_id>
-        <sys_mod_count>20</sys_mod_count>
+        <sys_mod_count>47</sys_mod_count>
         <sys_name>Borrowed Books</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sp_widget_232fd7c693ee8210ef267c5efaba1049</sys_update_name>
         <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-06-05 04:58:41</sys_updated_on>
-        <template/>
+        <sys_updated_on>2024-06-17 10:46:47</sys_updated_on>
+        <template><![CDATA[<div class="container">
+  <div class="row">
+    <div class="col-12 book-item" ng-repeat="book in c.data.borrowedBooks">
+      <div class="card mb-4">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <img ng-src="{{book.coverImage}}" alt="{{book.title}} cover" class="book-cover img-fluid"/>
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h3 class="card-title">{{book.title}}</h3>
+              <p class="card-text"><strong>Author:</strong> {{book.author}}</p>
+              <p class="card-text"><strong>Borrow ID:</strong> {{book.borrowId}}</p>
+              <p class="card-text"><strong>Borrow Date:</strong> {{book.borrowDate}}</p>
+              <p class="card-text"><strong>Due Date:</strong> {{book.dueDate}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+]]></template>
     </sp_widget>
 </record_update>

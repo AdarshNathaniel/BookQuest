@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script">
+    <sys_script action="INSERT_OR_UPDATE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>true</action_delete>
+        <action_insert>true</action_insert>
+        <action_query>false</action_query>
+        <action_update>true</action_update>
+        <active>true</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>x_1383151_bkquest_book</collection>
+        <condition/>
+        <description/>
+        <execute_function>false</execute_function>
+        <filter_condition/>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>Update Author Book Count</name>
+        <order>100</order>
+        <priority>100</priority>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[(function executeRule(current, previous /*null when async*/ ) {
+    // Function to count books per author
+    function countBooksPerAuthor() {
+        // Object to hold the count of books per author
+        var authorBookCount = {};
+
+        // GlideRecord to query the Book Definition table
+        var bookGR = new GlideRecord('x_1383151_bkquest_book');
+        bookGR.addQuery('author', '!=', ''); // Ensure author is not empty
+        bookGR.query();
+
+        // Count the number of books for each author
+        while (bookGR.next()) {
+            var author = bookGR.author.toString();
+            if (authorBookCount[author]) {
+                authorBookCount[author]++;
+            } else {
+                authorBookCount[author] = 1;
+            }
+        }
+
+        // GlideRecord to update the Author table
+        var authorGR = new GlideRecord('x_1383151_bkquest_author');
+
+        // Loop through the counted authors and update their book count
+        for (var authorId in authorBookCount) {
+            if (authorGR.get(authorId)) {
+                authorGR.books_written = authorBookCount[authorId];
+                authorGR.update();
+            }
+        }
+    }
+
+    // Call the function to count books per author
+    countBooksPerAuthor();
+})(current, previous);]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-06-12 05:20:58</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>196048b493be8210ef267c5efaba104d</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>Update Author Book Count</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>sys_script_196048b493be8210ef267c5efaba104d</sys_update_name>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-06-17 04:31:18</sys_updated_on>
+        <template/>
+        <when>after</when>
+    </sys_script>
+    <sys_translated_text action="delete_multiple" query="documentkey=196048b493be8210ef267c5efaba104d"/>
+</record_update>

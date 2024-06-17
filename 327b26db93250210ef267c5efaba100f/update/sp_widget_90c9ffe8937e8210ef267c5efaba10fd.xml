@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller = function() {
+    var c = this;
+    
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>/* Box sizing rules */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+    margin: 0;
+}
+
+h2 {
+    font-family: sans-serif;
+    font-weight: bold;
+    margin: 2rem 1rem;
+    text-align: left;
+    color: #3D52A0;
+}
+
+.authorCarousel {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin-top: 1rem;
+    overflow-x: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    height: fit-content;
+}
+
+.authorCarousel::-webkit-scrollbar {
+    display: none;
+}
+
+.author {
+    padding: 1rem;
+    margin: 0 1rem;
+    border: 1px dashed black;
+    background-color: #3D52A0;
+    max-width: 240px;
+    min-width: 240px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, opacity 0.3s ease-in-out; /* Adding transitions for multiple effects */
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+.author:hover {
+    transform: scale(1.05); /* Scale up the card on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+    opacity: 0.9; /* Reduce opacity slightly */
+}
+
+.author &gt; * {
+    color: white;
+}
+
+.authorImageContainer {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto; /* Center the image container */
+    overflow: hidden;
+    border-radius: 50%; /* Circular image container */
+}
+
+.authorImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+h4 {
+    font-family: sans-serif;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    flex-shrink: 1;
+    flex-grow: 0;
+    flex-basis: auto;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+}
+
+.authorDetails {
+    font-family: sans-serif;
+    text-align: center;
+    color: white;
+    flex-shrink: 1;
+    flex-grow: 0;
+    flex-basis: auto;
+    margin: 0.5rem 0;
+    padding: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+}
+</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>author_details</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Author Details</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+    var authorService = new AuthorService();
+    data.authors = authorService.getAuthors();
+})();
+]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-06-12 04:48:30</sys_created_on>
+        <sys_id>90c9ffe8937e8210ef267c5efaba10fd</sys_id>
+        <sys_mod_count>49</sys_mod_count>
+        <sys_name>Author Details</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>sp_widget_90c9ffe8937e8210ef267c5efaba10fd</sys_update_name>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-06-17 06:21:20</sys_updated_on>
+        <template><![CDATA[<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Popular Authors</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Featured Authors</h2>
+    <div class="authorCarousel">
+      <div class="author" ng-repeat="author in c.data.authors">
+        <div class="authorImageContainer">
+          <img ng-src="{{author.author_image}}" alt="{{author.full_name}} image" class="authorImage img-responsive"/>
+        </div>
+        <h4>{{author.full_name}}</h4>  
+        <span class="authorDetails">Books: {{author.books_written}}</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>]]></template>
+    </sp_widget>
+</record_update>
