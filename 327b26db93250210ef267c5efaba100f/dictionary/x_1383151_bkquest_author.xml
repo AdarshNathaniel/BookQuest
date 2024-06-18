@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element db_object_id="4404b2ba93f58210ef267c5efaba105b" label="Author" max_length="40" name="x_1383151_bkquest_author" type="collection">
+        <element label="About the author" max_length="1000" name="about_the_author" type="string"/>
         <element label="Author image" max_length="40" name="author_image" type="user_image"/>
         <element label="Books written" max_length="40" name="books_written" type="integer"/>
         <element label="Date of birth" max_length="40" name="date_of_birth" type="glide_date"/>

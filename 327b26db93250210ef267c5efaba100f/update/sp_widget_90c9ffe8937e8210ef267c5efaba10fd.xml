@@ -3,7 +3,10 @@
         <category>custom</category>
         <client_script><![CDATA[api.controller = function() {
     var c = this;
-    
+    c.viewDetails = function(meal) {
+        c.selectedMeal = meal;
+    };
+
 };]]></client_script>
         <controller_as>c</controller_as>
         <css>/* Box sizing rules */
@@ -142,14 +145,14 @@ h4 {
         <sys_created_by>harini.srija</sys_created_by>
         <sys_created_on>2024-06-12 04:48:30</sys_created_on>
         <sys_id>90c9ffe8937e8210ef267c5efaba10fd</sys_id>
-        <sys_mod_count>49</sys_mod_count>
+        <sys_mod_count>71</sys_mod_count>
         <sys_name>Author Details</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sp_widget_90c9ffe8937e8210ef267c5efaba10fd</sys_update_name>
         <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-06-17 06:21:20</sys_updated_on>
+        <sys_updated_on>2024-06-18 09:41:45</sys_updated_on>
         <template><![CDATA[<!DOCTYPE html>
 
 <html lang="en">
@@ -165,7 +168,9 @@ h4 {
     <div class="authorCarousel">
       <div class="author" ng-repeat="author in c.data.authors">
         <div class="authorImageContainer">
+          <a href="?id=author_page">
           <img ng-src="{{author.author_image}}" alt="{{author.full_name}} image" class="authorImage img-responsive"/>
+          </a>
         </div>
         <h4>{{author.full_name}}</h4>  
         <span class="authorDetails">Books: {{author.books_written}}</span>
@@ -173,6 +178,8 @@ h4 {
     </div>
   </div>
 </body>
-</html>]]></template>
+</html>
+
+]]></template>
     </sp_widget>
 </record_update>

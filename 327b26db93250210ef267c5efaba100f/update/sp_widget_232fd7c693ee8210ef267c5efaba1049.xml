@@ -35,10 +35,10 @@ body {
 .card {
   display: flex;
   flex-direction: row;
-  border: 1px solid #ddd;
+  border: 1px solid #3d52a0;
   border-radius: 5px;
   overflow: hidden;
-  background-color: #7091e6;
+  background-color: #adbbda;
   margin-bottom: 20px;
   margin-left: 30px; /* Adjusted left margin */
   margin-right: 30px; /* Adjusted right margin */
@@ -106,61 +106,12 @@ body {
         <public>false</public>
         <roles/>
         <script><![CDATA[(function() {
-    // Get the current user's user ID
-    var currentUserId = gs.getUserID();
-    var borrowedBooks = [];
+    // Create an instance of the Script Include
+    var borrowedBooksUtils = new BorrowedBooksUtils();
 
-    // Create a GlideRecord object for the Borrow table
-    var borrowGR = new GlideRecord('x_1383151_bkquest_borrow');
-
-    // Add a query to filter records by the current user ID
-    borrowGR.addQuery('user_id', currentUserId);
-    borrowGR.query();
-
-    // Iterate through the Borrow records for the current user
-    while (borrowGR.next()) {
-        // Get the Book Instance ID from the Borrow record
-        var bookInstanceId = borrowGR.book_id;
-
-        // Create a GlideRecord object for the Book Instance table
-        var bookInstanceGR = new GlideRecord('x_1383151_bkquest_book_copy');
-        
-        // Add a query to filter by the Book Instance ID
-        bookInstanceGR.get(bookInstanceId);
-
-        // Get the Book ID from the Book Instance record
-        var bookId = bookInstanceGR.title;
-
-        // Create a GlideRecord object for the Book Definition table
-        var bookDefinitionGR = new GlideRecord('x_1383151_bkquest_book');
-        
-        // Add a query to filter by the Book ID
-        bookDefinitionGR.get(bookId);
-
-        // Create a GlideRecord object for the Author table
-        var authorGR = new GlideRecord('x_1383151_bkquest_author');
-        
-        // Add a query to filter by the Author ID
-        authorGR.get(bookDefinitionGR.author);
-
-        // Get the cover image URL
-        var coverImageURL = bookDefinitionGR.cover_image ? '/sys_attachment.do?sys_id=' + bookDefinitionGR.cover_image : '';
-
-        // Add the book details to the result array
-        borrowedBooks.push({
-            borrowId: borrowGR.number.toString(),
-            borrowDate: borrowGR.borrow_date.toString(),
-            dueDate: borrowGR.due_date.toString(),
-					  returnedDate: borrowGR.returned_date.toString(),
-            title: bookDefinitionGR.title.toString(),
-            author: authorGR.full_name.toString(),
-            publisher: bookDefinitionGR.publisher.toString(),
-            dateOfPublication: bookDefinitionGR.date_of_publication.toString(),
-            coverImage: coverImageURL
-        });
-    }
-
-    // Return the result to the client
+    // Call the getBorrowedBooks method
+    var borrowedBooks = borrowedBooksUtils.getBorrowedBooks();
+	
     data.borrowedBooks = borrowedBooks;
 })();
 ]]></script>
@@ -169,14 +120,14 @@ body {
         <sys_created_by>harini.srija</sys_created_by>
         <sys_created_on>2024-06-04 08:27:35</sys_created_on>
         <sys_id>232fd7c693ee8210ef267c5efaba1049</sys_id>
-        <sys_mod_count>93</sys_mod_count>
+        <sys_mod_count>98</sys_mod_count>
         <sys_name>Borrowed Books</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sp_widget_232fd7c693ee8210ef267c5efaba1049</sys_update_name>
         <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-06-17 15:03:10</sys_updated_on>
+        <sys_updated_on>2024-06-18 10:26:41</sys_updated_on>
         <template><![CDATA[<!DOCTYPE html>
 <html lang="en">
 <head>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function($scope) {
+    // Assign the authors data from the server to the scope
+    $scope.authorsWithBooks = $scope.data.authorsWithBooks;
+}
+]]></client_script>
+        <controller_as>c</controller_as>
+        <css/>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>author_page_details</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Author Page Details</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+    // Create an array to store all authors with their details and books
+    var authorsWithBooks = [];
+
+    // Create a GlideRecord object for the Author table
+    var authorGR = new GlideRecord('x_1383151_bkquest_author');
+    authorGR.query();
+
+    // Iterate through the Author records
+    while (authorGR.next()) {
+        var author = {
+            fullName: authorGR.full_name.toString(),
+            authorImage: authorGR.author_image ? '/sys_attachment.do?sys_id=' + authorGR.author_image : '',
+            aboutTheAuthor: authorGR.about_the_author.toString(),
+            booksWritten: authorGR.books_written.toString(),
+            books: []
+        };
+
+        // Create a GlideRecord object for the Book Definition table
+        var bookGR = new GlideRecord('x_1383151_bkquest_book');
+        bookGR.addQuery('author', authorGR.sys_id);
+        bookGR.query();
+
+        // Iterate through the Book records for the current author
+        while (bookGR.next()) {
+            var book = {
+                title: bookGR.title.toString(),
+                coverImage: bookGR.cover_image ? '/sys_attachment.do?sys_id=' + bookGR.cover_image : ''
+            };
+            author.books.push(book);
+        }
+
+        // Add the author with their books to the result array
+        authorsWithBooks.push(author);
+    }
+
+    // Attach the result to the data object to pass it to the client-side script
+    data.authorsWithBooks = authorsWithBooks;
+})();
+]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-06-18 04:48:06</sys_created_on>
+        <sys_id>f833b22a93f64210ef267c5efaba10ef</sys_id>
+        <sys_mod_count>26</sys_mod_count>
+        <sys_name>Author Page Details</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>sp_widget_f833b22a93f64210ef267c5efaba10ef</sys_update_name>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-06-18 09:42:35</sys_updated_on>
+        <template><![CDATA[<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1>Authors and Their Books</h1>
+        </div>
+    </div>
+    <div class="row" ng-if="authorsWithBooks.length">
+        <!-- AngularJS ng-repeat loop to display authors -->
+        <div class="col-12" ng-repeat="author in authorsWithBooks">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img ng-src="{{author.authorImage}}" alt="{{author.fullName}} Image" class="img-fluid">
+                        </div>
+                        <div class="col-md-8">
+                            <h2 class="card-title">{{author.fullName}}</h2>
+                            <p>{{author.aboutTheAuthor}}</p>
+                            <p><strong>Books:</strong> {{author.booksWritten}}</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="books">
+                        <h3>Books</h3>
+                        <div class="row">
+                            <!-- AngularJS ng-repeat loop to display books for each author -->
+                            <div class="col-md-4" ng-repeat="book in author.books">
+                                <div class="book-item">
+                                  <a href="?id=book_details_page_v1">
+                                    <img ng-src="{{book.coverImage}}" alt="{{book.title}} cover" class="img-fluid"></a>
+                                    <p>{{book.title}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" ng-if="!authorsWithBooks.length">
+        <div class="col-12">
+            <p>No authors found.</p>
+        </div>
+    </div>
+</div>
+<pre>{{c.data.authorsWithBooks || json}}</pre>
+]]></template>
+    </sp_widget>
+</record_update>
