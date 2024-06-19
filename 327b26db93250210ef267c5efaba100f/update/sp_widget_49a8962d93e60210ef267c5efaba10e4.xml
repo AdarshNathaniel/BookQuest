@@ -1,10 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
     <sp_widget action="INSERT_OR_UPDATE">
         <category>custom</category>
-        <client_script><![CDATA[api.controller=function() {
-  /* widget controller */
+        <client_script><![CDATA[api.controller = function($location, $scope) {
   var c = this;
-};]]></client_script>
+
+  // Function to navigate to the detailed book page
+  c.openBook = function(sysID) {
+    var portalURL = $location.absUrl().split('?')[0];
+    var pageID = 'book_details_page_v1'; 
+    var url = portalURL + '?id=' + pageID + '&sys_id=' + sysID;
+    window.location.href = url;
+  };
+
+  // Function to load all books on page load
+  c.onLoadLoadAllBooks = function() {
+    // Assuming c.data.books is already populated with all books
+    // This could be fetched from server or set directly in the UI page
+  };
+};
+]]></client_script>
         <controller_as>c</controller_as>
         <css>/* Box sizing rules */
 *,
@@ -104,6 +118,11 @@ h4 {
   text-overflow: ellipsis; /* Add ellipsis for overflow text */
   word-wrap: break-word; /* Ensure words wrap properly */
 }
+
+.book:hover {
+    transform: scale(1.05); /* Scale up the card on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+    opacity: 0.9;
 </css>
         <data_table>sp_instance</data_table>
         <demo_data/>
@@ -119,9 +138,51 @@ h4 {
         <public>false</public>
         <roles/>
         <script><![CDATA[(function() {
-    // Call the Script Include
-    var bookService = new BookService();
-    data.books = bookService.getBooks();
+	if (!input) {
+		data.books = [];
+		var bookGR = new GlideRecordSecure('x_1383151_bkquest_book');
+		bookGR.orderBy('title');
+		bookGR.query();
+
+		while (bookGR.next()) {
+			var coverImageSysId = bookGR.getValue('cover_image');
+			var coverImageUrl = '';
+
+			if (coverImageSysId) {
+          var coverImageGR = new GlideRecord('sys_attachment');
+          if (coverImageGR.get(coverImageSysId)) {
+            coverImageUrl = '/sys_attachment.do?sys_id=' + coverImageSysId;
+          }
+        } else {
+          // Default cover image URL
+          coverImageUrl = '/NoBookImage.jpg';
+        }
+
+			var authorSysId = bookGR.getValue('author');
+			var authorName = '';
+			if (authorSysId) {
+				var authorGR = new GlideRecord('x_1383151_bkquest_author');
+				if (authorGR.get(authorSysId)) {
+					authorName = authorGR.getDisplayValue();
+				}
+			}
+			// Assign default value if author name is empty
+        if (!authorName) {
+          authorName = 'Unknown';
+        }
+
+			// Fetch the plot summary from the book record
+			var plotSummary = bookGR.getValue('plot_summary') || 'No plot summary available';
+
+			data.books.push({
+				'sys_id': bookGR.getUniqueValue(),
+				'title': bookGR.getDisplayValue('title'),
+				'author': authorName,
+				'cover_image': coverImageUrl,
+				'plot_summary': plotSummary
+			});
+		}
+	}
 })();
 ]]></script>
         <servicenow>false</servicenow>
@@ -129,20 +190,21 @@ h4 {
         <sys_created_by>harini.srija</sys_created_by>
         <sys_created_on>2024-06-02 14:02:26</sys_created_on>
         <sys_id>49a8962d93e60210ef267c5efaba10e4</sys_id>
-        <sys_mod_count>45</sys_mod_count>
+        <sys_mod_count>66</sys_mod_count>
         <sys_name>Popular books</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sp_widget_49a8962d93e60210ef267c5efaba10e4</sys_update_name>
         <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-06-11 05:10:43</sys_updated_on>
+        <sys_updated_on>2024-06-19 10:20:27</sys_updated_on>
         <template><![CDATA[<div class="container">
   <h2>Popular Books</h2>
   <div class="bookCarousel">
-    <!-- Replace this ng-repeat loop with your existing book item code -->
     <div class="book" ng-repeat="book in c.data.books">
-      <img ng-src="{{book.cover_image}}" alt="{{book.title}} cover" class="bookCover img-responsive"/>
+      <a ng-click="c.openBook(book.sys_id)">
+        <img ng-src="{{book.cover_image}}" alt="{{book.title}} cover" class="bookCover img-responsive"/>
+      </a>
       <h4>{{book.title}}</h4>
       <span class="bookAuthor">{{book.author}}</span>
     </div>

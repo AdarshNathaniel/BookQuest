@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="DELETE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_1383151_bkquest.AuthorService</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>AuthorService</name>
+        <script><![CDATA[var AuthorService = Class.create();
+AuthorService.prototype = {
+    initialize: function() {},
+
+    getAuthorDetails: function(authorId) {
+        var response = {};
+
+        // Fetch author details
+        var authorGR = new GlideRecord('x_1383151_bkquest_author');
+        if (authorGR.get(authorId)) {
+            response.author = {
+                full_name: authorGR.getValue('full_name'),
+                date_of_birth: authorGR.getValue('date_of_birth'),
+                gender: authorGR.getValue('gender'),
+                nationality: authorGR.getValue('nationality'),
+                books_written: authorGR.getValue('books_written'),
+                about_the_author: authorGR.getValue('about_the_author'),
+                author_image: authorGR.getValue('author_image') ? '/sys_attachment.do?sys_id=' + authorGR.getValue('author_image') : ''
+            };
+
+            // Fetch books written by the author
+            var books = [];
+            var bookGR = new GlideRecord('x_1383151_bkquest_book');
+            bookGR.addQuery('author', authorId);
+            bookGR.query();
+            while (bookGR.next()) {
+                books.push({
+                    title: bookGR.getValue('title'),
+                    cover_image: bookGR.getValue('cover_image') ? '/sys_attachment.do?sys_id=' + bookGR.getValue('cover_image') : ''
+                });
+            }
+            response.books = books;
+        }
+
+        return response;
+    },
+
+    type: 'AuthorService'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-06-19 04:32:32</sys_created_on>
+        <sys_id>2f1973fa937e8210ef267c5efaba10ba</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>AuthorService</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>sys_script_include_2f1973fa937e8210ef267c5efaba10ba</sys_update_name>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-06-19 04:38:34</sys_updated_on>
+    </sys_script_include>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="BookQuest">327b26db93250210ef267c5efaba100f</application>
+        <file_path/>
+        <instance_id>0535015fdb717d1002d9172913961922</instance_id>
+        <instance_name>dev186731</instance_name>
+        <name>sys_script_include_2f1973fa937e8210ef267c5efaba10ba</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_script_include"&gt;&lt;sys_script_include action="INSERT_OR_UPDATE"&gt;&lt;access&gt;public&lt;/access&gt;&lt;active&gt;true&lt;/active&gt;&lt;api_name&gt;x_1383151_bkquest.AuthorService&lt;/api_name&gt;&lt;caller_access/&gt;&lt;client_callable&gt;false&lt;/client_callable&gt;&lt;description/&gt;&lt;name&gt;AuthorService&lt;/name&gt;&lt;script&gt;&lt;![CDATA[var AuthorService = Class.create();
+AuthorService.prototype = {
+    initialize: function() {},
+
+    getAuthorDetails: function(authorId) {
+        var response = {};
+
+        // Fetch author details
+        var authorGR = new GlideRecord('x_1383151_bkquest_author');
+        if (authorGR.get(authorId)) {
+            response.author = {
+                full_name: authorGR.getValue('full_name'),
+                date_of_birth: authorGR.getValue('date_of_birth'),
+                gender: authorGR.getValue('gender'),
+                nationality: authorGR.getValue('nationality'),
+                books_written: authorGR.getValue('books_written'),
+                about_the_author: authorGR.getValue('about_the_author'),
+                author_image: authorGR.getValue('author_image') ? '/sys_attachment.do?sys_id=' + authorGR.getValue('author_image') : ''
+            };
+
+            // Fetch books written by the author
+            var books = [];
+            var bookGR = new GlideRecord('x_1383151_bkquest_book');
+            bookGR.addQuery('author', authorId);
+            bookGR.query();
+            while (bookGR.next()) {
+                books.push({
+                    title: bookGR.getValue('title'),
+                    cover_image: bookGR.getValue('cover_image') ? '/sys_attachment.do?sys_id=' + bookGR.getValue('cover_image') : ''
+                });
+            }
+            response.books = books;
+        }
+
+        return response;
+    },
+
+    type: 'AuthorService'
+};]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_include&lt;/sys_class_name&gt;&lt;sys_created_by&gt;harini.srija&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-06-19 04:32:32&lt;/sys_created_on&gt;&lt;sys_id&gt;2f1973fa937e8210ef267c5efaba10ba&lt;/sys_id&gt;&lt;sys_mod_count&gt;2&lt;/sys_mod_count&gt;&lt;sys_name&gt;AuthorService&lt;/sys_name&gt;&lt;sys_package display_value="BookQuest" source="x_1383151_bkquest"&gt;327b26db93250210ef267c5efaba100f&lt;/sys_package&gt;&lt;sys_policy&gt;read&lt;/sys_policy&gt;&lt;sys_scope display_value="BookQuest"&gt;327b26db93250210ef267c5efaba100f&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_include_2f1973fa937e8210ef267c5efaba10ba&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;harini.srija&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-06-19 04:38:34&lt;/sys_updated_on&gt;&lt;/sys_script_include&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-917815530</payload_hash>
+        <record_name>AuthorService</record_name>
+        <reverted_from/>
+        <source>3d9e5eee936e0610ef267c5efaba1086</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-06-19 04:38:34</sys_created_on>
+        <sys_id>439afb7e937e8210ef267c5efaba100b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1902eca17d80000001</sys_recorded_at>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-06-19 04:38:34</sys_updated_on>
+        <type>Script Include</type>
+        <update_guid>0b9afb7e4e7e8210463400245c7ee50a</update_guid>
+        <update_guid_history>0b9afb7e4e7e8210463400245c7ee50a:-917815530,cbe97f7e2a7e8210b3ca54c81564dee2:1638100582,a639337e077e8210c383b2d9210f0b91:1313424341</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-06-19 04:56:04</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_include">sys_script_include</sys_db_object>
+        <sys_id>0b2cb1681408447cb4b875d061afeb90</sys_id>
+        <sys_metadata>2f1973fa937e8210ef267c5efaba10ba</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>AuthorService</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_parent/>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_scope_delete display_value="">18e926194902432895b35f3c99259089</sys_scope_delete>
+        <sys_update_name>sys_script_include_2f1973fa937e8210ef267c5efaba10ba</sys_update_name>
+        <sys_update_version display_value="sys_script_include_2f1973fa937e8210ef267c5efaba10ba">439afb7e937e8210ef267c5efaba100b</sys_update_version>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-06-19 04:56:04</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

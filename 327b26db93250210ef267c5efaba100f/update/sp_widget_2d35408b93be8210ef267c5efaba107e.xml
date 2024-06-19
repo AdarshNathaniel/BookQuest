@@ -1,24 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
     <sp_widget action="INSERT_OR_UPDATE">
         <category>custom</category>
-        <client_script><![CDATA[api.controller = function($location, $scope) {
-    var c = this;
-
-    // Function to navigate to the detailed author page
-    c.openAuthor = function(sysID) {
-        var portalURL = $location.absUrl().split('?')[0];
-        var pageID = 'author_page'; 
-        var url = portalURL + '?id=' + pageID + '&sys_id=' + sysID;
-        window.location.href = url;
-    };
-
-    // Function to load all authors on page load
-    c.onLoadLoadAllAuthors = function() {
-        // Assuming c.data.authors is already populated with all authors
-        // This could be fetched from server or set directly in the UI page
-    };
+        <client_script><![CDATA[api.controller=function() {
+  /* widget controller */
+  var c = this;
 };
-]]></client_script>
+
+ ]]></client_script>
         <controller_as>c</controller_as>
         <css>/* Box sizing rules */
 *,
@@ -131,72 +119,39 @@ h4 {
     overflow: hidden;
     text-overflow: ellipsis;
     word-wrap: break-word;
-}</css>
+}
+</css>
         <data_table>sp_instance</data_table>
         <demo_data/>
         <description/>
         <docs/>
         <field_list/>
         <has_preview>true</has_preview>
-        <id>author_details</id>
+        <id>author_test</id>
         <internal>false</internal>
         <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
-        <name>Author Details</name>
+        <name>author test</name>
         <option_schema/>
         <public>false</public>
         <roles/>
         <script><![CDATA[(function() {
-    if (!input) {
-        data.authors = [];
-        var authorGR = new GlideRecord('x_1383151_bkquest_author');
-        authorGR.query();
-
-        while (authorGR.next()) {
-            // Fetch the author image URL
-            var authorImageSysId = authorGR.getValue('author_image');
-            var authorImageUrl = '';
-
-            if (authorImageSysId) {
-                var authorImageGR = new GlideRecord('sys_attachment');
-                if (authorImageGR.get(authorImageSysId)) {
-                    authorImageUrl = '/sys_attachment.do?sys_id=' + authorImageSysId;
-                }
-            } else {
-                // Default author image URL
-                authorImageUrl = '/NoAuthorImage.jpg';
-            }
-
-            // Fetch the author's full name
-            var authorFullName = authorGR.getValue('full_name') || 'Unknown';
-
-            // Fetch the number of books written by the author
-            var booksWritten = authorGR.getValue('books_written') || 0;
-
-            // Fetch the author's Sys ID
-            var authorSysId = authorGR.getValue('sys_id');
-
-            data.authors.push({
-								'sys_id': authorGR.getUniqueValue(),
-                'author_image': authorImageUrl,
-                'full_name': authorFullName,
-                'books_written': booksWritten
-            });
-        }
-    }
-})();]]></script>
+    var authorService = new AuthorService();
+    data.authors = authorService.getAuthors();
+})();
+]]></script>
         <servicenow>false</servicenow>
         <sys_class_name>sp_widget</sys_class_name>
         <sys_created_by>harini.srija</sys_created_by>
-        <sys_created_on>2024-06-12 04:48:30</sys_created_on>
-        <sys_id>90c9ffe8937e8210ef267c5efaba10fd</sys_id>
-        <sys_mod_count>96</sys_mod_count>
-        <sys_name>Author Details</sys_name>
+        <sys_created_on>2024-06-19 05:24:53</sys_created_on>
+        <sys_id>2d35408b93be8210ef267c5efaba107e</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>author test</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
-        <sys_update_name>sp_widget_90c9ffe8937e8210ef267c5efaba10fd</sys_update_name>
+        <sys_update_name>sp_widget_2d35408b93be8210ef267c5efaba107e</sys_update_name>
         <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-06-19 17:15:57</sys_updated_on>
+        <sys_updated_on>2024-06-19 05:45:06</sys_updated_on>
         <template><![CDATA[<!DOCTYPE html>
 
 <html lang="en">
@@ -212,14 +167,34 @@ h4 {
     <div class="authorCarousel">
       <div class="author" ng-repeat="author in c.data.authors">
         <div class="authorImageContainer">
-          <a ng-click="c.openAuthor(author.sys_id)">
+          <a href="?id=author_page">
           <img ng-src="{{author.author_image}}" alt="{{author.full_name}} image" class="authorImage img-responsive"/>
-        <h4> {{author.full_name}}</h4>  
+          </a>
+        </div>
+        <h4>{{author.full_name}}</h4>  
         <span class="authorDetails">Books: {{author.books_written}}</span>
       </div>
     </div>
   </div>
-</body>
-</html>]]></template>
+  <div class="cards">
+  <div ng-repeat="book in c.filteredBooks" class="card">
+    <article class="card__content" ng-click="c.openBook(book.sys_id)">
+      <div class="card__info-hover"></div>
+      <div class="card__img">
+        <img ng-src="{{ book.cover_image }}" alt="{{ book.title }} cover" class="card__img">
+      </div>
+
+      <a href="#" class="card__link">
+        <div class="card__img--hover"></div>
+      </a>
+      <div class="card__info">
+        <h4 class="card__title">{{ book.title }}</h4>
+        <p class="card__author">{{ book.author }}</p>
+        <p class="card__summary">{{ book.plot_summary }}</p>
+      </div>
+    </article>
+
+
+]]></template>
     </sp_widget>
 </record_update>

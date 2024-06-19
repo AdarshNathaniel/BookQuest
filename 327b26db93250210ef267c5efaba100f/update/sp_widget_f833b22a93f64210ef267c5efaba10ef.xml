@@ -5,6 +5,19 @@
     // Assign the authors data from the server to the scope
     $scope.authorsWithBooks = $scope.data.authorsWithBooks;
 }
+ //Function to navigate to the detailed book page
+  c.openBook = function(sysID) {
+    var portalURL = $location.absUrl().split('?')[0];
+    var pageID = 'book_details_page_v1'; 
+    var url = portalURL + '?id=' + pageID + '&sys_id=' + sysID;
+    window.location.href = url;
+  };
+
+  // Function to load all books on page load
+  c.onLoadLoadAllBooks = function() {
+    // Assuming c.data.books is already populated with all books
+    // This could be fetched from server or set directly in the UI page
+  };
 ]]></client_script>
         <controller_as>c</controller_as>
         <css/>
@@ -22,6 +35,7 @@
         <public>false</public>
         <roles/>
         <script><![CDATA[(function() {
+	
     // Create an array to store all authors with their details and books
     var authorsWithBooks = [];
 
@@ -66,14 +80,14 @@
         <sys_created_by>harini.srija</sys_created_by>
         <sys_created_on>2024-06-18 04:48:06</sys_created_on>
         <sys_id>f833b22a93f64210ef267c5efaba10ef</sys_id>
-        <sys_mod_count>26</sys_mod_count>
+        <sys_mod_count>45</sys_mod_count>
         <sys_name>Author Page Details</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sp_widget_f833b22a93f64210ef267c5efaba10ef</sys_update_name>
         <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-06-18 09:42:35</sys_updated_on>
+        <sys_updated_on>2024-06-19 16:11:05</sys_updated_on>
         <template><![CDATA[<div class="container">
     <div class="row">
         <div class="col-12">

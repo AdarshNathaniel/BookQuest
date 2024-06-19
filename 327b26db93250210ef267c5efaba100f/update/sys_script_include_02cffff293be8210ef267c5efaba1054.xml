@@ -17,9 +17,6 @@ AuthorService.prototype = {
             .map(function(author) {
                 return {
                     full_name: author.full_name,
-                    date_of_birth: author.date_of_birth,
-                    gender: author.gender,
-                    nationality: author.nationality,
                     books_written: author.books_written,
                     author_image: author.author_image ? '/sys_attachment.do?sys_id=' + author.author_image : ''
                 };
@@ -36,15 +33,15 @@ AuthorService.prototype = {
 };]]></script>
         <sys_class_name>sys_script_include</sys_class_name>
         <sys_created_by>harini.srija</sys_created_by>
-        <sys_created_on>2024-06-12 04:59:24</sys_created_on>
-        <sys_id>abfbf76093be8210ef267c5efaba10fb</sys_id>
-        <sys_mod_count>24</sys_mod_count>
+        <sys_created_on>2024-06-19 05:01:42</sys_created_on>
+        <sys_id>02cffff293be8210ef267c5efaba1054</sys_id>
+        <sys_mod_count>3</sys_mod_count>
         <sys_name>AuthorService</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
-        <sys_update_name>sys_script_include_abfbf76093be8210ef267c5efaba10fb</sys_update_name>
+        <sys_update_name>sys_script_include_02cffff293be8210ef267c5efaba1054</sys_update_name>
         <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-06-18 06:56:11</sys_updated_on>
+        <sys_updated_on>2024-06-19 10:23:43</sys_updated_on>
     </sys_script_include>
 </record_update>

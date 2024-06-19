@@ -18,38 +18,47 @@
 h1 {
   text-align: center;
   font-weight: bold;
-  padding-bottom: 20px;
+  padding-bottom: 10px; /* Adjusted padding */
+  margin-top: 10px; /* Moved title up */
+  color: #3d52a0; /* Text color */
 }
 
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f5f5f5;
+  font-family: "Montserrat", "Arial", sans-serif;
+  background-color: #eee;
   padding: 20px;
+  color: white; /* Text color */
 }
 
-.container {
-  max-width: 1100px; /* Reduced max-width */
-  margin: 0 auto;
-}
-
-.card {
-  display: flex;
-  flex-direction: row;
-  border: 1px solid #3d52a0;
-  border-radius: 5px;
-  overflow: hidden;
-  background-color: #adbbda;
+.row-nav {
   margin-bottom: 20px;
-  margin-left: 30px; /* Adjusted left margin */
-  margin-right: 30px; /* Adjusted right margin */
 }
 
-.card .row {
-  flex: 1;
+.row-book {
+  border-radius: 10px;
+  padding: 40px 30px;
+  background-color: #8697c4;
+  margin-bottom: 20px;
+  text-align: left; /* Align text to the left */
 }
 
-.card-body {
-  padding: 20px;
+.img-responsive {
+  margin: 0 auto;
+  max-height: 300px;
+  width: 100%;
+  height: auto;
+}
+
+.bg-danger {
+  color: red;
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 10px;
+}
+
+.bg-success {
+  color: green;
+  text-align: center;
 }
 
 .card-title {
@@ -63,33 +72,70 @@ body {
 }
 
 .book-cover {
-  width: 100%; /* Ensure the image fills its container */
-  height: auto; /* Allow the height to adjust based on content */
-  max-width: 50%; /* Limit image size */
-  border-radius: 5px 0 0 5px; /* Rounded corners on the left side */
-  flex: 1 0 auto; /* Ensure image can grow but not shrink */
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
 }
 
 @media (max-width: 768px) {
   .card {
     flex-direction: column;
-    margin-left: 0; /* Adjust margin for small screens */
-    margin-right: 0; /* Adjust margin for small screens */
+    margin-left: 0;
+    margin-right: 0;
   }
 
-  .col-md-4 {
-    flex: 1 0 auto;
-    width: 100%;
-  }
-
-  .col-md-8 {
-    flex: 1 0 auto;
+  .col-md-4, .col-md-8 {
     width: 100%;
   }
 
   .book-cover {
-    border-radius: 5px 5px 0 0; /* Rounded corners on top for small screens */
+    border-radius: 10px 10px 0 0;
   }
+}
+
+.container-fluid {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.row-body {
+  display: flex;
+  justify-content: flex-start; /* Align cards to the left */
+  margin-top: 20px;
+}
+
+.row-book {
+  display: flex;
+  justify-content: flex-start; /* Align cards to the left */
+  align-items: center; /* Center aligning vertically */
+}
+
+.book-info {
+  margin-left: 30px; /* Adjusted left margin */
+}
+
+.book-info h2{
+  text-align: center;
+   margin-bottom: 30px;
+  color: white;
+}
+
+.book-info h3, .book-info h4, .book-info p {
+  margin-left: 10px;
+  color: white; /* Text color */
+}
+
+.book-info p{
+  color: red;
+}  
+
+.book-info .bg-danger {
+  font-size: 2rem;
+}
+
+.book-info button {
+  margin-top: 10px;
+  font-size: 2rem; /* Same size as days late */
 }
 </css>
         <data_table>sp_instance</data_table>
@@ -120,49 +166,57 @@ body {
         <sys_created_by>harini.srija</sys_created_by>
         <sys_created_on>2024-06-04 08:27:35</sys_created_on>
         <sys_id>232fd7c693ee8210ef267c5efaba1049</sys_id>
-        <sys_mod_count>98</sys_mod_count>
+        <sys_mod_count>135</sys_mod_count>
         <sys_name>Borrowed Books</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sp_widget_232fd7c693ee8210ef267c5efaba1049</sys_update_name>
         <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-06-18 10:26:41</sys_updated_on>
+        <sys_updated_on>2024-06-19 16:32:43</sys_updated_on>
         <template><![CDATA[<!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="myApp">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Borrowed Books</title>
-  <h1> My Books</h1>
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-  <div class="container">
-    <div class="row">
-      <!-- AngularJS ng-repeat loop to display borrowed books -->
-      <div class="col-12 book-item" ng-repeat="book in c.data.borrowedBooks">
-        <div class="card mb-4">
-          <div class="row no-gutters">
-            <div class="col-md-4">
-              <img ng-src="{{book.coverImage}}" alt="{{book.title}} cover" class="book-cover img-fluid">
-            </div>
-            <div class="col-md-8 d-flex flex-column">
-              <div class="card-body">
-                <h2 class="card-title"><strong>{{book.title}}</strong></h2>
-                <p class="card-text"><strong>Author:</strong> {{book.author}}</p>
-                <p class="card-text"><strong>Borrow ID:</strong> {{book.borrowId}}</p>
-                <p class="card-text"><strong>Borrow Date:</strong> {{book.borrowDate}}</p>
-                <p class="card-text"><strong>Due Date:</strong> {{book.dueDate}}</p>
-              </div>
-            </div>
+<body ng-controller="myController">
+  <div class="container-fluid">
+    <div class="row row-body">
+      <div class="col-md-2 col-sm-2 col-xs-2"></div>
+      <div class="col-md-8 col-sm-8 col-xs-8">
+        <div class="row row-nav">
+          <h1>List of Books Borrowed</h1>
+        </div>
+        <!-- AngularJS ng-repeat loop to display borrowed books -->
+        <div class="row row-book" ng-repeat="book in c.data.borrowedBooks">
+          <div class="col-md-4 col-sm-5 col-xs-12 book-image">
+            <img ng-src="{{book.coverImage}}" alt="{{book.title}} cover" class="img-responsive">
+          </div>
+          <div class="col-md-8 col-sm-7 col-xs-12 book-info">
+            <h2><strong>{{book.title}}</strong></h2>
+            <h3>Author: {{book.author}}</h3>
+            <h4>Borrow ID: {{book.borrowId}}</h4>
+            <h4>Date Borrowed: {{book.borrowDate}}</h4>
+            <h4>Date Returned: {{book.returnedDate || 'Not returned'}}</h4>
+            <!-- Conditional display based on returned status -->
+            <p class="bg-danger" ng-if="book.returnedDate && isLate(book.returnedDate, book.dueDate)">
+              <strong>Days Late: {{calculateDaysLate(book.returnedDate, book.dueDate)}}</strong>
+            </p>
+            <p class="bg-success" ng-if="book.returnedDate && isLate(book.returnedDate, book.dueDate)">
+              <strong>Returned on time</strong>
+            </p>
+            <!-- Conditional button based on returned status -->
+            <p class="bg-danger" ng-if="book.daysLate > 0"><strong>Days Late: {{book.daysLate}}</strong></p>
+            <button type="submit" class="btn btn-danger col-md-12 col-sm-12 col-xs-12" ng-if="!book.returnedDate && isLate(book.returnedDate, book.dueDate)">Overdue Book</button>
+            <button type="submit" class="btn btn-success col-md-12 col-sm-12 col-xs-12" ng-if="book.returnedDate && !isLate(book.returnedDate, book.dueDate)">Returned</button>
+            <button type="submit" class="btn btn-danger col-md-12 col-sm-12 col-xs-12" ng-if="!book.returnedDate">Overdue Book</button>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</body>
-</html>
-]]></template>
+  </div>]]></template>
     </sp_widget>
 </record_update>
