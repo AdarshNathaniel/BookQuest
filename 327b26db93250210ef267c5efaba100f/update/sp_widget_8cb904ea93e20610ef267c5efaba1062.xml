@@ -13,7 +13,12 @@
   };
 
   c.openBook = function(sysID) {
-    $location.url($location.path()).search({id: "fn_create_book", sys_id: sysID});
+    //$location.url('/book_details_page_v1').search({sys_id: sysID});
+		
+		var portalURL = $location.absUrl().split('?')[0];
+    var pageID = 'book_details_page_v1';
+    var url = portalURL + '?id=' + pageID + '&sys_id=' + sysID;
+    window.location.href = url;
   };
 
   c.onLoadSearchAll = function() {
@@ -71,9 +76,9 @@
   padding: 15px 30px; /* Increased padding for larger button */
   font-size: 1.5em; /* Increased font size */
   border-radius: 0 5px 5px 0; /* Matching border-radius with input field */
-  background-color: #007bff; /* Primary color for button */
+  background-color: #3D5280; /* Primary color for button */
   color: white; /* White text color */
-  border: 1px solid #007bff; /* Matching border color */
+  border: 1px solid #3D5280; /* Matching border color */
   height: 18px; /* Adjust the height to match the input field */
   display: flex;
   align-items: center;
@@ -81,7 +86,7 @@
 }
 
 .search-button:hover {
-  background-color: #0056b3; /* Darker shade on hover */
+  background-color: #24334C /* Darker shade on hover */
 }
 
 .cards {
@@ -98,6 +103,10 @@
   margin-bottom: 20px;
   padding: 20px; /* Add padding to the card */
   background-color: #fff;
+}
+
+.card:hover {
+	transform: scale(1.02);
 }
 
 .card__content {
@@ -164,11 +173,14 @@
 			var coverImageUrl = '';
 
 			if (coverImageSysId) {
-				var coverImageGR = new GlideRecord('sys_attachment');
-				if (coverImageGR.get(coverImageSysId)) {
-					coverImageUrl = '/sys_attachment.do?sys_id=' + coverImageSysId;
-				}
-			}
+          var coverImageGR = new GlideRecord('sys_attachment');
+          if (coverImageGR.get(coverImageSysId)) {
+            coverImageUrl = '/sys_attachment.do?sys_id=' + coverImageSysId;
+          }
+        } else {
+          // Default cover image URL
+          coverImageUrl = '/NoBookImage.jpg';
+        }
 
 			var authorSysId = bookGR.getValue('author');
 			var authorName = '';
@@ -178,9 +190,13 @@
 					authorName = authorGR.getDisplayValue();
 				}
 			}
+			// Assign default value if author name is empty
+        if (!authorName) {
+          authorName = 'Unknown';
+        }
 
 			// Fetch the plot summary from the book record
-			var plotSummary = bookGR.getValue('plot_summary');
+			var plotSummary = bookGR.getValue('plot_summary') || 'No plot summary available';
 
 			data.books.push({
 				'sys_id': bookGR.getUniqueValue(),
@@ -202,14 +218,14 @@
         <sys_created_by>adarsh.nathaniel</sys_created_by>
         <sys_created_on>2024-06-05 06:11:47</sys_created_on>
         <sys_id>8cb904ea93e20610ef267c5efaba1062</sys_id>
-        <sys_mod_count>35</sys_mod_count>
+        <sys_mod_count>56</sys_mod_count>
         <sys_name>Book Search WIdget v2</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sp_widget_8cb904ea93e20610ef267c5efaba1062</sys_update_name>
         <sys_updated_by>adarsh.nathaniel</sys_updated_by>
-        <sys_updated_on>2024-06-06 04:04:05</sys_updated_on>
+        <sys_updated_on>2024-06-19 07:33:54</sys_updated_on>
         <template><![CDATA[<div class="search-container">
   <h1 class="search-title">Ready to start your Quest?</h1>
   <form class="search-form" role="search" ng-submit="c.search()" onload="c.onLoadSearchAll()">

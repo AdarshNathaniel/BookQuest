@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller = function($location, $scope, spUtil) {
+	var c = this;
+
+	c.borrowBook = function() {
+		c.server.get({
+			action: 'borrowBook',
+			bookSysId: c.data.book.sys_id
+		}).then(function(response) {
+			if (response.success) {
+				spUtil.addInfoMessage('Book borrowed successfully!');
+			} else {
+				spUtil.addErrorMessage(response.message || 'No available books to borrow.');
+			}
+		});
+	};
+
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.book-details-card {
+  margin-top: 20px;
+}
+
+.card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  background-color: #FFFFFF;
+}
+
+.card-img-top {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto; /* Center the image horizontally */
+  padding: 20px; /* Add padding around the image */
+}
+
+.card-body {
+  padding: 20px;
+  height: 100%; /* Set a fixed height for the card body */
+}
+
+.card-title {
+  font-size: 2em; /* Increased size for Plot Summary */
+  margin-bottom: 10px;
+}
+
+.card-subtitle 
+  font-size: 1.5em; /* Adjusted size for author */
+  margin-bottom: 15px;
+  color: #555;
+}
+
+.card-text {
+  font-size: 1.2em;
+}
+
+.dl-horizontal dt {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.dl-horizontal dd {
+  font-size: 1.2em;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+/* CSS for the Borrow button */
+.btn-primary {
+  background-color: #3D52A0;
+  border-color: #3D52A0;
+  color: white;
+  font-size: 1.2em; /* Larger font size */
+  padding: 15px 30px; /* Larger padding */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for 3D effect */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for hover */
+}
+
+.btn-primary:hover {
+  background-color: #7091E6;
+  border-color: #7091E6;
+  transform: translateY(-2px); /* Slight lift on hover */
+}
+
+/* CSS for the Reserve button */
+.btn-secondary {
+  background-color: #8697C4;
+  border-color: #8697C4;
+  color: white;
+  font-size: 1.2em; /* Larger font size */
+  padding: 15px 30px; /* Larger padding */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for 3D effect */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for hover */
+}
+
+.btn-secondary:hover {
+  background-color: #ADBBDA;
+  border-color: #ADBBDA;
+  transform: translateY(-2px); /* Slight lift on hover */
+}
+</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>book_details_widget_v1</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Book Details Widget v1</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+	var bookSysId = $sp.getParameter('sys_id');
+	var bookDetails = new BookDetailsScript(); // Initialize the BookDetailsScript script include
+	var bookAvailability = new BookAvailability(); // Initialize BookAvailability script include
+
+	if (input && input.action) {
+		if (input.action === 'borrowBook') {
+			var result = {};
+			var availableBookIds = bookAvailability.getAvailableBookIds(input.bookSysId);
+
+			if (availableBookIds.length > 0) {
+				var borrowGR = new GlideRecord('x_1383151_bkquest_borrow');
+				borrowGR.initialize();
+				borrowGR.setValue('user_id', gs.getUserID()); // Set the user ID here
+				borrowGR.setValue('book_id', availableBookIds[0]); // Set the available book ID here
+				borrowGR.insert();
+
+				result.success = true;
+			} else {
+				result.success = false;
+				result.message = 'Nope, No available books to borrow.';
+			}
+
+			data.response = result;
+		}
+	} else {
+		// Get book details
+		data.book = bookDetails.getBookDetails(bookSysId);
+
+		// Check if book is available
+		data.isBookAvailable = bookAvailability.isBookAvailable(bookSysId);
+		// Check if no book instance is available
+		data.isBookNotAvailable = !data.isBookAvailable; // Invert the availability flag
+	}
+})();
+]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>adarsh.nathaniel</sys_created_by>
+        <sys_created_on>2024-06-14 05:39:58</sys_created_on>
+        <sys_id>39b8525d93720210ef267c5efaba1001</sys_id>
+        <sys_mod_count>114</sys_mod_count>
+        <sys_name>Book Details Widget v1</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>sp_widget_39b8525d93720210ef267c5efaba1001</sys_update_name>
+        <sys_updated_by>adarsh.nathaniel</sys_updated_by>
+        <sys_updated_on>2024-06-20 11:09:10</sys_updated_on>
+        <template><![CDATA[<div class="container book-details-card">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="card text-center">
+        <div class="card-body">
+          <img class="card-img-top img-responsive" ng-src="{{c.data.book.cover_image}}" alt="{{c.data.book.title}} cover">
+          <h4 class="card-title">{{c.data.book.title}}</h4>
+          <h5 class="card-subtitle text-muted">{{c.data.book.author}}</h5>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title">Plot Summary</h3>
+          <p class="card-text">{{c.data.book.plot_summary}}</p>
+          <!-- Borrow button with ng-if based on availability -->
+            <button ng-if="c.data.isBookAvailable" class="btn btn-primary btn-lg" title="Book Available! Click to Borrow" ng-click="c.borrowBook()">Borrow</button>
+          <!-- Reserve button with ng-if based on non-availability -->
+            <button ng-if="c.data.isBookNotAvailable" class="btn btn-secondary btn-lg" title="Book Unavailable! Click to Reserve">Reserve</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="card h-100">
+            <div class="card-body d-flex flex-column">
+              <h3>Details</h3>
+              <dl class="dl-horizontal flex-grow-1">
+                <dt>ISBN:</dt>
+                <dd>{{c.data.book.isbn}}</dd>
+                <dt>Date of Publication:</dt>
+                <dd>{{c.data.book.date_of_publication}}</dd>
+                <dt>Language:</dt>
+                <dd>{{c.data.book.language}}</dd>
+                <dt>Type:</dt>
+                <dd>{{c.data.book.type}}</dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="card h-100">
+            <div class="card-body d-flex flex-column">
+              <h3>Classification</h3>
+              <dl class="dl-horizontal flex-grow-1">
+                <dt>Genre:</dt>
+                <dd>{{c.data.book.genre}}</dd>
+                <dt>Publisher:</dt>
+                <dd>{{c.data.book.publisher}}</dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+]]></template>
+    </sp_widget>
+</record_update>

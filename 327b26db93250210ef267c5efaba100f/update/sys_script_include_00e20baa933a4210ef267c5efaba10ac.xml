@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_1383151_bkquest.BookAvailability</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>This Script Include will query the Book Instance table to determine if there are any available instances for a given book.</description>
+        <name>BookAvailability</name>
+        <script><![CDATA[var BookAvailability = Class.create();
+BookAvailability.prototype = {
+    initialize: function() {
+    },
+
+    isBookAvailable: function(bookDefSysId) {
+        var bookInstanceGR = new GlideRecord('x_1383151_bkquest_book_copy');
+        bookInstanceGR.addQuery('title', bookDefSysId);
+        bookInstanceGR.addQuery('status', 'available');
+        bookInstanceGR.query();
+        return bookInstanceGR.hasNext();
+    },
+
+	//R: Function to get all bookinstances which are available using bookdef
+
+	getAvailableBookIds: function(bookDefSysId) {
+        var bookInstanceGR = new GlideRecord('x_1383151_bkquest_book_copy');
+        bookInstanceGR.addQuery('title', bookDefSysId);
+        bookInstanceGR.addQuery('status', 'available');
+        bookInstanceGR.query();
+        
+        var bookIds = [];
+        while (bookInstanceGR.next()) {
+            bookIds.push(bookInstanceGR.getValue('sys_id'));
+        }
+        return bookIds;
+    },
+
+    type: 'BookAvailability'
+};
+]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>adarsh.nathaniel</sys_created_by>
+        <sys_created_on>2024-06-18 06:12:13</sys_created_on>
+        <sys_id>00e20baa933a4210ef267c5efaba10ac</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>BookAvailability</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>sys_script_include_00e20baa933a4210ef267c5efaba10ac</sys_update_name>
+        <sys_updated_by>adarsh.nathaniel</sys_updated_by>
+        <sys_updated_on>2024-06-19 06:05:16</sys_updated_on>
+    </sys_script_include>
+</record_update>

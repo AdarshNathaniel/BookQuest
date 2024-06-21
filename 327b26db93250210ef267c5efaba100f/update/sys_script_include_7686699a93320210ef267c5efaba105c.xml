@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_1383151_bkquest.BookDetailsScript</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>Book Details Server Script</description>
+        <name>BookDetailsScript</name>
+        <script><![CDATA[var BookDetailsScript = Class.create();
+BookDetailsScript.prototype = {
+  initialize: function() {},
+
+  getBookDetails: function(bookSysId) {
+    var bookDetails = {};
+
+    if (bookSysId) {
+      var bookGR = new GlideRecord('x_1383151_bkquest_book');
+      if (bookGR.get(bookSysId)) {
+        var coverImageSysId = bookGR.getValue('cover_image');
+        var coverImageUrl = '';
+
+        if (coverImageSysId) {
+          var coverImageGR = new GlideRecord('sys_attachment');
+          if (coverImageGR.get(coverImageSysId)) {
+            coverImageUrl = '/sys_attachment.do?sys_id=' + coverImageSysId;
+          }
+        } else {
+          // Default cover image URL
+          coverImageUrl = '/NoBookImage.jpg';
+        }
+
+        var authorSysId = bookGR.getValue('author');
+        var authorName = '';
+        if (authorSysId) {
+          var authorGR = new GlideRecord('x_1383151_bkquest_author');
+          if (authorGR.get(authorSysId)) {
+            authorName = authorGR.getDisplayValue();
+          }
+        }
+        // Assign default value if author name is empty
+        if (!authorName) {
+          authorName = 'Unknown';
+        }
+
+        // Fetch additional fields
+        var isbn = bookGR.getValue('isbn') || 'Unknown';
+        var dateOfPublication = bookGR.getValue('date_of_publication') || 'Unknown';
+
+        // Fetch publisher details
+        var publisherSysId = bookGR.getValue('publisher');
+        var publisherName = '';
+        if (publisherSysId) {
+          var publisherGR = new GlideRecord('x_1383151_bkquest_publisher_lookup');
+          if (publisherGR.get(publisherSysId)) {
+            publisherName = publisherGR.getDisplayValue();
+          }
+        }
+        // Assign default value if publisher name is empty
+        if (!publisherName) {
+          publisherName = 'Unknown';
+        }
+
+        // Fetch genre details
+        var genreSysId = bookGR.getValue('genre');
+        var genreName = '';
+        if (genreSysId) {
+          var genreGR = new GlideRecord('x_1383151_bkquest_genre_lookup');
+          if (genreGR.get(genreSysId)) {
+            genreName = genreGR.getDisplayValue();
+          }
+        }
+        // Assign default value if genre name is empty
+        if (!genreName) {
+          genreName = 'Unknown';
+        }
+
+        var language = bookGR.getValue('language') || 'Unknown';
+        var type = bookGR.getValue('type') || 'Unknown';
+
+        bookDetails = {
+          'sys_id': bookGR.getUniqueValue(),
+          'title': bookGR.getDisplayValue('title'),
+          'author': authorName,
+          'cover_image': coverImageUrl,
+          'plot_summary': bookGR.getValue('plot_summary') || 'No plot summary available',
+          'isbn': isbn,
+          'date_of_publication': dateOfPublication,
+          'publisher': publisherName,
+          'genre': genreName,
+          'language': language,
+          'type': type
+        };
+      }
+    }
+
+    return bookDetails;
+  },
+
+  type: 'BookDetailsScript'
+};
+]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>adarsh.nathaniel</sys_created_by>
+        <sys_created_on>2024-06-17 04:38:47</sys_created_on>
+        <sys_id>7686699a93320210ef267c5efaba105c</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>BookDetailsScript</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>sys_script_include_7686699a93320210ef267c5efaba105c</sys_update_name>
+        <sys_updated_by>adarsh.nathaniel</sys_updated_by>
+        <sys_updated_on>2024-06-17 09:35:37</sys_updated_on>
+    </sys_script_include>
+</record_update>
