@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="DELETE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller = function($location, $timeout) {
+  /* widget controller */
+  var c = this;
+  $timeout(function() {
+    if (c.data.userExists == 1) {
+      $location.search({id: 'bookquest_index'});
+    }
+    if (c.data.userExists == 0) {
+      $location.search({id: 'bkq_my_books'});
+    }
+  }, 500);  // 500ms delay
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.splash-header {
+	height: 2000px;
+  width: 200px;
+  color: #ede8f5;
+}
+ 
+img {
+    width: 50rem;
+    margin-top: 107px;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>splash_screen</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Splash Screen</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script/>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-06-21 06:41:39</sys_created_on>
+        <sys_id>a1f922eb93b20210ef267c5efaba1081</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>Splash Screen</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>sp_widget_a1f922eb93b20210ef267c5efaba1081</sys_update_name>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-06-21 06:58:16</sys_updated_on>
+        <template><![CDATA[<div class="splash-header">
+<p>
+<img src="x_1383151_bkquest.BookQuest logo.png">
+</p>
+</div>]]></template>
+    </sp_widget>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="BookQuest">327b26db93250210ef267c5efaba100f</application>
+        <file_path/>
+        <instance_id>0535015fdb717d1002d9172913961922</instance_id>
+        <instance_name>dev186731</instance_name>
+        <name>sp_widget_a1f922eb93b20210ef267c5efaba1081</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sp_widget"&gt;&lt;sp_widget action="INSERT_OR_UPDATE"&gt;&lt;category&gt;custom&lt;/category&gt;&lt;client_script&gt;&lt;![CDATA[api.controller = function($location, $timeout) {
+  /* widget controller */
+  var c = this;
+  $timeout(function() {
+    if (c.data.userExists == 1) {
+      $location.search({id: 'bookquest_index'});
+    }
+    if (c.data.userExists == 0) {
+      $location.search({id: 'bkq_my_books'});
+    }
+  }, 500);  // 500ms delay
+};]]&gt;&lt;/client_script&gt;&lt;controller_as&gt;c&lt;/controller_as&gt;&lt;css&gt;.splash-header {
+	height: 2000px;
+  width: 200px;
+  color: #ede8f5;
+}
+ 
+img {
+    width: 50rem;
+    margin-top: 107px;
+}&lt;/css&gt;&lt;data_table&gt;sp_instance&lt;/data_table&gt;&lt;demo_data/&gt;&lt;description/&gt;&lt;docs/&gt;&lt;field_list/&gt;&lt;has_preview&gt;true&lt;/has_preview&gt;&lt;id&gt;splash_screen&lt;/id&gt;&lt;internal&gt;false&lt;/internal&gt;&lt;link&gt;&lt;![CDATA[function link(scope, element, attrs, controller) {  }]]&gt;&lt;/link&gt;&lt;name&gt;Splash Screen&lt;/name&gt;&lt;option_schema/&gt;&lt;public&gt;false&lt;/public&gt;&lt;roles/&gt;&lt;script/&gt;&lt;servicenow&gt;false&lt;/servicenow&gt;&lt;sys_class_name&gt;sp_widget&lt;/sys_class_name&gt;&lt;sys_created_by&gt;harini.srija&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-06-21 06:41:39&lt;/sys_created_on&gt;&lt;sys_id&gt;a1f922eb93b20210ef267c5efaba1081&lt;/sys_id&gt;&lt;sys_mod_count&gt;4&lt;/sys_mod_count&gt;&lt;sys_name&gt;Splash Screen&lt;/sys_name&gt;&lt;sys_package display_value="BookQuest" source="x_1383151_bkquest"&gt;327b26db93250210ef267c5efaba100f&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="BookQuest"&gt;327b26db93250210ef267c5efaba100f&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_widget_a1f922eb93b20210ef267c5efaba1081&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;harini.srija&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-06-21 06:58:16&lt;/sys_updated_on&gt;&lt;template&gt;&lt;![CDATA[&lt;div class="splash-header"&gt;
+&lt;p&gt;
+&lt;img src="x_1383151_bkquest.BookQuest logo.png"&gt;
+&lt;/p&gt;
+&lt;/div&gt;]]&gt;&lt;/template&gt;&lt;/sp_widget&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>1530978810</payload_hash>
+        <record_name>Splash Screen</record_name>
+        <reverted_from/>
+        <source>3d9e5eee936e0610ef267c5efaba1086</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-06-21 06:58:16</sys_created_on>
+        <sys_id>34cda22393f20210ef267c5efaba1016</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1903996b36e0000001</sys_recorded_at>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-06-21 06:58:16</sys_updated_on>
+        <type>Widget</type>
+        <update_guid>f8cda22389f20210dd743a3a57050e15</update_guid>
+        <update_guid_history>f8cda22389f20210dd743a3a57050e15:1530978810,fb5deaef5ab20210064add50245cbba5:1472104589,1e5ce2af22b202101fca0a6dcf899763:1530978810,7f3c6e6f6db202108ee78b9b80ef19a8:-1316590035,e9f922eb58b202101007a130b6ef9e82:-1628635454</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Splash Screen">8f5f4b2b93760210ef267c5efaba10d8</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-06-21 09:25:03</sys_created_on>
+        <sys_db_object display_value="" name="sp_widget">sp_widget</sys_db_object>
+        <sys_id>2db80bcef9b144e6b6ef69de06425ba4</sys_id>
+        <sys_metadata>a1f922eb93b20210ef267c5efaba1081</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Splash Screen</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_scope_delete display_value="">18e926194902432895b35f3c99259089</sys_scope_delete>
+        <sys_update_name>sp_widget_a1f922eb93b20210ef267c5efaba1081</sys_update_name>
+        <sys_update_version display_value="sp_widget_a1f922eb93b20210ef267c5efaba1081">34cda22393f20210ef267c5efaba1016</sys_update_version>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-06-21 09:25:03</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

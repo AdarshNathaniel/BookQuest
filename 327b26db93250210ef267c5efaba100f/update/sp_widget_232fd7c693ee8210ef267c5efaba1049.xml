@@ -172,14 +172,14 @@ body {
         <sys_created_by>harini.srija</sys_created_by>
         <sys_created_on>2024-06-04 08:27:35</sys_created_on>
         <sys_id>232fd7c693ee8210ef267c5efaba1049</sys_id>
-        <sys_mod_count>158</sys_mod_count>
+        <sys_mod_count>159</sys_mod_count>
         <sys_name>Borrowed Books</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sp_widget_232fd7c693ee8210ef267c5efaba1049</sys_update_name>
         <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-06-21 04:38:13</sys_updated_on>
+        <sys_updated_on>2024-06-21 07:18:19</sys_updated_on>
         <template><![CDATA[<!DOCTYPE html>
 <html lang="en" ng-app="myApp">
 <head>
@@ -203,7 +203,7 @@ body {
           </div>
           <div class="col-md-8 col-sm-7 col-xs-12 book-info">
             <h2><strong>{{book.title}}</strong></h2>
-            <h3>~Author: {{book.author}}</h3>
+            <h3>Author: {{book.author}}</h3>
             <h4>Borrow ID: {{book.borrowId}}</h4>
             <h4>Date Borrowed: {{book.borrowDate}}</h4>
             <h4>Date Returned: {{book.returnedDate || 'Not returned'}}</h4>

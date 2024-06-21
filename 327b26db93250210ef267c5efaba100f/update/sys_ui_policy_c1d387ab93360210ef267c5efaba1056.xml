@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_ui_policy">
     <sys_ui_policy action="INSERT_OR_UPDATE">
         <active>true</active>
-        <conditions table="x_1383151_bkquest_borrow">returned_dateISNOTEMPTY^due_dateONToday@javascript:gs.beginningOfToday()@javascript:gs.endOfToday()^EQ<item endquery="false" field="returned_date" goto="false" newquery="false" operator="ISNOTEMPTY" or="false" value=""/>
-            <item endquery="false" field="due_date" goto="false" newquery="false" operator="ON" or="false" value="Today@javascript:gs.beginningOfToday()@javascript:gs.endOfToday()"/>
+        <conditions table="x_1383151_bkquest_borrow">borrow_status=return^EQ<item display_value="Return" endquery="false" field="borrow_status" goto="false" newquery="false" operator="=" or="false" value="return"/>
             <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
         </conditions>
         <description/>
@@ -22,22 +21,22 @@
 
 }]]></script_true>
         <set_values/>
-        <short_description>Show fine paid date when returned date is entered </short_description>
+        <short_description>Make borrow status read only</short_description>
         <sys_class_name>sys_ui_policy</sys_class_name>
         <sys_created_by>harini.srija</sys_created_by>
-        <sys_created_on>2024-05-24 07:12:02</sys_created_on>
+        <sys_created_on>2024-06-21 08:35:16</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
-        <sys_id>5104ea2a935a4210ef267c5efaba1088</sys_id>
-        <sys_mod_count>8</sys_mod_count>
-        <sys_name>Show fine paid date when returned date is entered </sys_name>
+        <sys_id>c1d387ab93360210ef267c5efaba1056</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Make borrow status read only</sys_name>
         <sys_overrides/>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
-        <sys_update_name>sys_ui_policy_5104ea2a935a4210ef267c5efaba1088</sys_update_name>
+        <sys_update_name>sys_ui_policy_c1d387ab93360210ef267c5efaba1056</sys_update_name>
         <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-06-21 09:09:44</sys_updated_on>
+        <sys_updated_on>2024-06-21 08:35:16</sys_updated_on>
         <table>x_1383151_bkquest_borrow</table>
         <ui_type>0</ui_type>
         <view/>
