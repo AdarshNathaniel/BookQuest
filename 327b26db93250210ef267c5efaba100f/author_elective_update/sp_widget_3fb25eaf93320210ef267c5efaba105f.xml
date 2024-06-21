@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="DELETE">
+        <category>custom</category>
+        <client_script><![CDATA[function fetchBorrowedBooks() {
+    // Define a GlideRecord for the Borrow table
+    var gr = new GlideRecord('x_1383151_bkquest_borrow'); // Replace with your actual table name
+
+    // Add a filter to include books that are not returned (returned_date is empty) or returned late (returned_date > due_date)
+    gr.addEncodedQuery('returned_dateISEMPTY=true^ORreturned_date>due_date');
+
+    // Add an order to sort by returned_date in ascending order (books not returned will naturally come last due to the sorting)
+    gr.orderBy('returned_date');
+
+    // Execute the query
+    gr.query(function (response) {
+        if (response) {
+            var booksList = [];
+            while (gr.next()) {
+                // Access fields of interest, e.g., title, borrow_date, due_date, returned_date, etc.
+                var title = gr.getValue('title');
+                var borrowDate = gr.getValue('borrow_date');
+                var dueDate = gr.getValue('due_date');
+                var returnedDate = gr.getValue('returned_date');
+                
+                // Push book details to the list
+                booksList.push({
+                    title: title,
+                    borrowDate: borrowDate,
+                    dueDate: dueDate,
+                    returnedDate: returnedDate
+                });
+            }
+            
+            // Call function to render books list on HTML page
+            renderBooksList(booksList);
+        } else {
+            alert('Error fetching books data.');
+        }
+        
+        // Since close() is not allowed, we do not need to explicitly close the GlideRecord.
+        // GlideRecord automatically releases resources after the query completes.
+    });
+}
+
+function renderBooksList(booksList) {
+    // Clear existing content
+    var booksContainer = document.getElementById('books-container');
+    booksContainer.innerHTML = '';
+
+    // Create HTML elements to display each book
+    booksList.forEach(function(book) {
+        var bookElement = document.createElement('div');
+        bookElement.classList.add('book-item');
+
+        var titleElement = document.createElement('h3');
+        titleElement.textContent = book.title;
+        bookElement.appendChild(titleElement);
+
+        var borrowDateElement = document.createElement('p');
+        borrowDateElement.textContent = 'Borrow Date: ' + book.borrowDate;
+        bookElement.appendChild(borrowDateElement);
+
+        var dueDateElement = document.createElement('p');
+        dueDateElement.textContent = 'Due Date: ' + book.dueDate;
+        bookElement.appendChild(dueDateElement);
+
+        var returnedDateElement = document.createElement('p');
+        returnedDateElement.textContent = 'Returned Date: ' + (book.returnedDate ? book.returnedDate : 'Not returned yet');
+        bookElement.appendChild(returnedDateElement);
+
+        booksContainer.appendChild(bookElement);
+    });
+}
+
+// Run the function when the page loads
+document.addEventListener('DOMContentLoaded', function() {
+    fetchBorrowedBooks();
+});
+]]></client_script>
+        <controller_as>c</controller_as>
+        <css/>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>my_book_filter</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>My Book Filter</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[// Define a new GlideRecord for the Borrow table
+var gr = new GlideRecord('x_1383151_bkquest_borrow'); // Replace with your actual table name
+
+// Add a filter to include books that are not returned (returned_date is empty) or returned late (returned_date > due_date)
+gr.addEncodedQuery('returned_dateISEMPTY=true^ORreturned_date>due_date');
+
+// Add an order to sort by returned_date in ascending order (books not returned will naturally come last due to the sorting)
+gr.orderBy('returned_date');
+
+// Execute the query
+gr.query();
+
+// Loop through the results
+while (gr.next()) {
+    // Access fields of interest, e.g., title, borrow_date, due_date, returned_date, etc.
+    var title = gr.getValue('title');
+    var borrowDate = gr.getValue('borrow_date');
+    var dueDate = gr.getValue('due_date');
+    var returnedDate = gr.getValue('returned_date');
+    
+    // Print or process each record as needed
+    gs.info('Title: ' + title + ', Borrow Date: ' + borrowDate + ', Due Date: ' + dueDate + ', Returned Date: ' + returnedDate);
+}
+
+// Don't forget to close the GlideRecord query
+gr.close();
+]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-06-21 05:00:14</sys_created_on>
+        <sys_id>3fb25eaf93320210ef267c5efaba105f</sys_id>
+        <sys_mod_count>10</sys_mod_count>
+        <sys_name>My Book Filter</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>sp_widget_3fb25eaf93320210ef267c5efaba105f</sys_update_name>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-06-21 05:54:01</sys_updated_on>
+        <template><![CDATA[<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Borrowed Books</title>
+    <style>
+        .book-item {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Borrowed Books</h1>
+
+    <div id="books-container">
+        <!-- Books will be dynamically added here -->
+    </div>
+
+    <!-- Include the ServiceNow client script -->
+    <script src="/scripts/FetchBorrowedBooks_ClientScript.js" type="text/javascript"></script>
+</body>
+</html>
+]]></template>
+    </sp_widget>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="BookQuest">327b26db93250210ef267c5efaba100f</application>
+        <file_path/>
+        <instance_id>0535015fdb717d1002d9172913961922</instance_id>
+        <instance_name>dev186731</instance_name>
+        <name>sp_widget_3fb25eaf93320210ef267c5efaba105f</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sp_widget"&gt;&lt;sp_widget action="INSERT_OR_UPDATE"&gt;&lt;category&gt;custom&lt;/category&gt;&lt;client_script&gt;&lt;![CDATA[function fetchBorrowedBooks() {
+    // Define a GlideRecord for the Borrow table
+    var gr = new GlideRecord('x_1383151_bkquest_borrow'); // Replace with your actual table name
+
+    // Add a filter to include books that are not returned (returned_date is empty) or returned late (returned_date &gt; due_date)
+    gr.addEncodedQuery('returned_dateISEMPTY=true^ORreturned_date&gt;due_date');
+
+    // Add an order to sort by returned_date in ascending order (books not returned will naturally come last due to the sorting)
+    gr.orderBy('returned_date');
+
+    // Execute the query
+    gr.query(function (response) {
+        if (response) {
+            var booksList = [];
+            while (gr.next()) {
+                // Access fields of interest, e.g., title, borrow_date, due_date, returned_date, etc.
+                var title = gr.getValue('title');
+                var borrowDate = gr.getValue('borrow_date');
+                var dueDate = gr.getValue('due_date');
+                var returnedDate = gr.getValue('returned_date');
+                
+                // Push book details to the list
+                booksList.push({
+                    title: title,
+                    borrowDate: borrowDate,
+                    dueDate: dueDate,
+                    returnedDate: returnedDate
+                });
+            }
+            
+            // Call function to render books list on HTML page
+            renderBooksList(booksList);
+        } else {
+            alert('Error fetching books data.');
+        }
+        
+        // Since close() is not allowed, we do not need to explicitly close the GlideRecord.
+        // GlideRecord automatically releases resources after the query completes.
+    });
+}
+
+function renderBooksList(booksList) {
+    // Clear existing content
+    var booksContainer = document.getElementById('books-container');
+    booksContainer.innerHTML = '';
+
+    // Create HTML elements to display each book
+    booksList.forEach(function(book) {
+        var bookElement = document.createElement('div');
+        bookElement.classList.add('book-item');
+
+        var titleElement = document.createElement('h3');
+        titleElement.textContent = book.title;
+        bookElement.appendChild(titleElement);
+
+        var borrowDateElement = document.createElement('p');
+        borrowDateElement.textContent = 'Borrow Date: ' + book.borrowDate;
+        bookElement.appendChild(borrowDateElement);
+
+        var dueDateElement = document.createElement('p');
+        dueDateElement.textContent = 'Due Date: ' + book.dueDate;
+        bookElement.appendChild(dueDateElement);
+
+        var returnedDateElement = document.createElement('p');
+        returnedDateElement.textContent = 'Returned Date: ' + (book.returnedDate ? book.returnedDate : 'Not returned yet');
+        bookElement.appendChild(returnedDateElement);
+
+        booksContainer.appendChild(bookElement);
+    });
+}
+
+// Run the function when the page loads
+document.addEventListener('DOMContentLoaded', function() {
+    fetchBorrowedBooks();
+});
+]]&gt;&lt;/client_script&gt;&lt;controller_as&gt;c&lt;/controller_as&gt;&lt;css/&gt;&lt;data_table&gt;sp_instance&lt;/data_table&gt;&lt;demo_data/&gt;&lt;description/&gt;&lt;docs/&gt;&lt;field_list/&gt;&lt;has_preview&gt;true&lt;/has_preview&gt;&lt;id&gt;my_book_filter&lt;/id&gt;&lt;internal&gt;false&lt;/internal&gt;&lt;link&gt;&lt;![CDATA[function link(scope, element, attrs, controller) {  }]]&gt;&lt;/link&gt;&lt;name&gt;My Book Filter&lt;/name&gt;&lt;option_schema/&gt;&lt;public&gt;false&lt;/public&gt;&lt;roles/&gt;&lt;script&gt;&lt;![CDATA[// Define a new GlideRecord for the Borrow table
+var gr = new GlideRecord('x_1383151_bkquest_borrow'); // Replace with your actual table name
+
+// Add a filter to include books that are not returned (returned_date is empty) or returned late (returned_date &gt; due_date)
+gr.addEncodedQuery('returned_dateISEMPTY=true^ORreturned_date&gt;due_date');
+
+// Add an order to sort by returned_date in ascending order (books not returned will naturally come last due to the sorting)
+gr.orderBy('returned_date');
+
+// Execute the query
+gr.query();
+
+// Loop through the results
+while (gr.next()) {
+    // Access fields of interest, e.g., title, borrow_date, due_date, returned_date, etc.
+    var title = gr.getValue('title');
+    var borrowDate = gr.getValue('borrow_date');
+    var dueDate = gr.getValue('due_date');
+    var returnedDate = gr.getValue('returned_date');
+    
+    // Print or process each record as needed
+    gs.info('Title: ' + title + ', Borrow Date: ' + borrowDate + ', Due Date: ' + dueDate + ', Returned Date: ' + returnedDate);
+}
+
+// Don't forget to close the GlideRecord query
+gr.close();
+]]&gt;&lt;/script&gt;&lt;servicenow&gt;false&lt;/servicenow&gt;&lt;sys_class_name&gt;sp_widget&lt;/sys_class_name&gt;&lt;sys_created_by&gt;harini.srija&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-06-21 05:00:14&lt;/sys_created_on&gt;&lt;sys_id&gt;3fb25eaf93320210ef267c5efaba105f&lt;/sys_id&gt;&lt;sys_mod_count&gt;10&lt;/sys_mod_count&gt;&lt;sys_name&gt;My Book Filter&lt;/sys_name&gt;&lt;sys_package display_value="BookQuest" source="x_1383151_bkquest"&gt;327b26db93250210ef267c5efaba100f&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="BookQuest"&gt;327b26db93250210ef267c5efaba100f&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_widget_3fb25eaf93320210ef267c5efaba105f&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;harini.srija&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-06-21 05:54:01&lt;/sys_updated_on&gt;&lt;template&gt;&lt;![CDATA[&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Borrowed Books&lt;/title&gt;
+    &lt;style&gt;
+        .book-item {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Borrowed Books&lt;/h1&gt;
+
+    &lt;div id="books-container"&gt;
+        &lt;!-- Books will be dynamically added here --&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Include the ServiceNow client script --&gt;
+    &lt;script src="/scripts/FetchBorrowedBooks_ClientScript.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+]]&gt;&lt;/template&gt;&lt;/sp_widget&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-692358134</payload_hash>
+        <record_name>My Book Filter</record_name>
+        <reverted_from/>
+        <source>3d9e5eee936e0610ef267c5efaba1086</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-06-21 05:54:01</sys_created_on>
+        <sys_id>7f0f5a2f93720210ef267c5efaba10c9</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>190395be3e10000001</sys_recorded_at>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-06-21 05:54:01</sys_updated_on>
+        <type>Widget</type>
+        <update_guid>370f5a2fa8720210c661510ab37d0ac9</update_guid>
+        <update_guid_history>370f5a2fa8720210c661510ab37d0ac9:-692358134,d1de1a2f51720210b5d5be755d7267bc:1849051188,56cc12eb087202103afc507bc121bcc8:1921429953,3d5c12ebf6720210bcc5870c26df28b6:-111109415,146b562bf8720210344ab810e406009e:-833371759,daea962bf572021019efd2e4d204143f:-451565460,65581e23c67202102fdc20d8e840b460:1664200210,0b9796e7ec720210d2ded3b41a4e56ee:-2003891419,94475ee3827202104ead0a9b6f428c93:437543787,1566de23bd7202108030ffb160724117:-1989190467,44c25eaf28320210601d340193cd4e61:-2128083025</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="My Book Filter">b53fdaef93720210ef267c5efaba1066</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-06-21 05:54:42</sys_created_on>
+        <sys_db_object display_value="" name="sp_widget">sp_widget</sys_db_object>
+        <sys_id>89059e6a0b504b2093cc4eb8001aa3c1</sys_id>
+        <sys_metadata>3fb25eaf93320210ef267c5efaba105f</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>My Book Filter</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_scope_delete display_value="">18e926194902432895b35f3c99259089</sys_scope_delete>
+        <sys_update_name>sp_widget_3fb25eaf93320210ef267c5efaba105f</sys_update_name>
+        <sys_update_version display_value="sp_widget_3fb25eaf93320210ef267c5efaba105f">7f0f5a2f93720210ef267c5efaba10c9</sys_update_version>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-06-21 05:54:42</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

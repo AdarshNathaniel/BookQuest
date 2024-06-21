@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
     <sys_script_include action="INSERT_OR_UPDATE">
         <access>public</access>
-        <active>true</active>
+        <active>false</active>
         <api_name>x_1383151_bkquest.BookService</api_name>
         <caller_access/>
         <client_callable>true</client_callable>
@@ -36,13 +36,13 @@ BookService.prototype = {
         <sys_created_by>harini.srija</sys_created_by>
         <sys_created_on>2024-06-03 14:13:55</sys_created_on>
         <sys_id>538327f593ae4210ef267c5efaba10f7</sys_id>
-        <sys_mod_count>4</sys_mod_count>
+        <sys_mod_count>5</sys_mod_count>
         <sys_name>BookService</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sys_script_include_538327f593ae4210ef267c5efaba10f7</sys_update_name>
         <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-06-11 04:34:12</sys_updated_on>
+        <sys_updated_on>2024-06-21 04:05:54</sys_updated_on>
     </sys_script_include>
 </record_update>

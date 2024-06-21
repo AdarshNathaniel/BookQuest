@@ -5,7 +5,7 @@
         <api_name>x_1383151_bkquest.BorrowedBooksUtils</api_name>
         <caller_access/>
         <client_callable>false</client_callable>
-        <description/>
+        <description>Borrowed books of the current logined user</description>
         <name>BorrowedBooksUtils</name>
         <script><![CDATA[var BorrowedBooksUtils = Class.create();
 BorrowedBooksUtils.prototype = {
@@ -84,13 +84,13 @@ BorrowedBooksUtils.prototype = {
         <sys_created_by>harini.srija</sys_created_by>
         <sys_created_on>2024-06-18 04:35:15</sys_created_on>
         <sys_id>c4bf262693f64210ef267c5efaba10b2</sys_id>
-        <sys_mod_count>5</sys_mod_count>
+        <sys_mod_count>6</sys_mod_count>
         <sys_name>BorrowedBooksUtils</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sys_script_include_c4bf262693f64210ef267c5efaba10b2</sys_update_name>
         <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-06-19 13:56:00</sys_updated_on>
+        <sys_updated_on>2024-06-21 06:05:24</sys_updated_on>
     </sys_script_include>
 </record_update>

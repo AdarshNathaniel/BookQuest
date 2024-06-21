@@ -21,7 +21,129 @@
 	};
 }]]></client_script>
         <controller_as>c</controller_as>
-        <css/>
+        <css>@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&amp;display=swap');
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #F3F3F2;
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  color: #2C3335;
+}
+
+.carddiv {
+  border-radius: 10%;
+}
+
+.book-title {
+  width: 100%;
+  text-align: center;
+  font-size: 1.3rem; /* Increased font size */
+  font-weight: 500;
+  margin-top: 10px; /* Space between image and title */
+}
+
+.container {
+  background-color: #fff;
+  min-height: 30vh;
+  min-width: 700px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.2);
+  padding: 40px;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+.card {
+  border-radius: 5px;
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+.card-body {
+  padding: 0;
+}
+
+.card-title, .books-count, .about-author {
+  padding-top: 20px;
+  margin-left: 20px; /* Align all elements to the same margin */
+}
+
+.card-title {
+  font-size: 4rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.books-count {
+  font-size: 2.5rem;
+  font-weight: 500;
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.about-author {
+  text-align: justify;
+  margin-top: 20px;
+  padding-bottom: 10px; /* Add padding after "About the Author" */
+}
+
+.books {
+  margin-top: 40px;
+}
+
+.books h2 {
+  font-size: 2.25rem;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.books .row {
+  justify-content: flex-start; /* Align books to the left */
+}
+
+.book-item {
+  text-align: center; /* Center align book item content */
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.book-item img {
+  display: block; /* Ensure image takes full width of container */
+  margin-bottom: 10px;
+  transition: 0.3s ease-in-out;
+}
+
+.book-item:hover img {
+  transform: scale(1.05);
+}
+
+.book-item p {
+  font-size: 1rem;
+  font-weight: 400;
+}</css>
         <data_table>sp_instance</data_table>
         <demo_data/>
         <description/>
@@ -43,8 +165,7 @@
 	console.log(authorID);
 	// Create a GlideRecord object for the Author table
 	var authorGR = new GlideRecord('x_1383151_bkquest_author');
-	//authorGR.addQuery('sys_id',authorID);
-	authorGR.addQuery('sys_id','2ffdda86938e4610ef267c5efaba10c2');
+	authorGR.addQuery('sys_id',authorID);
 	authorGR.query();
 
 	// Iterate through the Author records
@@ -85,61 +206,74 @@
         <sys_created_by>harini.srija</sys_created_by>
         <sys_created_on>2024-06-18 04:48:06</sys_created_on>
         <sys_id>f833b22a93f64210ef267c5efaba10ef</sys_id>
-        <sys_mod_count>66</sys_mod_count>
+        <sys_mod_count>144</sys_mod_count>
         <sys_name>Author Page Details</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sp_widget_f833b22a93f64210ef267c5efaba10ef</sys_update_name>
         <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-06-20 09:03:02</sys_updated_on>
-        <template><![CDATA[<div class="container">
+        <sys_updated_on>2024-06-21 06:38:11</sys_updated_on>
+        <template><![CDATA[<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Authors and Their Books</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container" style="background-color: #3d52a0; color: #fff;">
     <div class="row">
-        <div class="col-12">
-            <h1>Authors and Their Books</h1>
-        </div>
+      <div class="col-12">
+        <h1 style="padding-bottom: 40px;">The Author's Shelf</h1>
+      </div>
     </div>
+
     <div class="row" ng-if="authorsWithBooks.length">
-        <!-- AngularJS ng-repeat loop to display authors -->
-        <div class="col-12" ng-repeat="author in authorsWithBooks">
-            <div class="card mb-4">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <img ng-src="{{author.authorImage}}" alt="{{author.fullName}} Image" class="img-fluid">
-                        </div>
-                        <div class="col-md-8">
-                            <h2 class="card-title">{{author.fullName}}</h2>
-                            <p>{{author.aboutTheAuthor}}</p>
-                            <p><strong>Books:</strong> {{author.booksWritten}}</p>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="books">
-                        <h3>Books</h3>
-                        <div class="row">
-                            <!-- AngularJS ng-repeat loop to display books for each author -->
-                            <div class="col-md-4" ng-repeat="book in author.books">
-                                <div class="book-item"ng-click="c.openBook(book.sys_id)">
-                                  <!--<a href="?id=book_details_page_v1">-->
-                                    <img ng-src="{{book.coverImage}}" alt="{{book.title}} cover" class="img-fluid"></a>
-                                    <p>{{book.title}}</p>
-                               <p>{{book.sys_id}}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+      <!-- AngularJS ng-repeat loop to display authors -->
+      <div class="col-12" ng-repeat="author in authorsWithBooks">
+        <div class="card mb-4 carddiv" style="background-color: #7091e6; color: #fff;">
+          <div class="card-body">
+            <div class="row" >
+              <div class="col-md-4 text-center" style="padding-top: 30px;">
+                <img ng-src="{{author.authorImage}}" alt="{{author.fullName}} Image" class="img-fluid">
+              </div>
+              <div class="col-md-8">
+                <h2 class="card-title">{{author.fullName}}</h2>
+                <h3 class="books-count">Books: {{author.booksWritten}}</h3>
+                <hr>
+                <div class="about-author">
+                  <h3>About the Author</h3>
+                  <p>{{author.aboutTheAuthor}}</p>
                 </div>
+              </div>
             </div>
+            <div class="books mt-4">
+              <h1 style="padding-bottom: 40px; margin-left: 40px"><strong>{{author.fullName}}'s Books</strong></h1>
+              <div class="row">
+                <!-- AngularJS ng-repeat loop to display books for each author -->
+                <div class="col-md-4" ng-repeat="book in author.books">
+                  <div class="book-item" ng-click="c.openBook(book.sys_id)">
+                    <!--<a href="?id=book_details_page_v1">-->
+                    <img ng-src="{{book.coverImage}}" alt="{{book.title}} cover" class="img-fluid">
+                    <h3 class="book-title">{{book.title}}</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
+
     <div class="row" ng-if="!authorsWithBooks.length">
-        <div class="col-12">
-            <p>No authors found.</p>
-        </div>
+      <div class="col-12">
+        <p>No authors found.</p>
+      </div>
     </div>
-</div>
-<pre>{{c.data.authorsWithBooks || json}}</pre>
-]]></template>
+  </div>
+</body>
+</html>]]></template>
     </sp_widget>
 </record_update>
