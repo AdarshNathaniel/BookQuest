@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_ui_policy">
+    <sys_ui_policy action="DELETE">
+        <active>true</active>
+        <conditions/>
+        <description/>
+        <global>true</global>
+        <inherit>false</inherit>
+        <isolate_script>true</isolate_script>
+        <model_id/>
+        <model_table/>
+        <on_load>true</on_load>
+        <order>100</order>
+        <reverse_if_false>true</reverse_if_false>
+        <run_scripts>true</run_scripts>
+        <script_false><![CDATA[function onCondition() {
+
+}]]></script_false>
+        <script_true><![CDATA[function onCondition() {
+    var bookId = g_form.getValue('book_id');
+
+    if (bookId) {
+        var ga = new GlideAjax('BookUtils');
+        ga.addParam('sysparm_name', 'hasBeenExtended');
+        ga.addParam('bookId', bookId);
+        ga.getXMLAnswer(function(response) {
+            var hasBeenExtended = response === 'true';
+            updateBorrowStatusChoices(hasBeenExtended);
+        });
+    }
+
+    function updateBorrowStatusChoices(hasBeenExtended) {
+        if (hasBeenExtended) {
+            g_form.removeOption('borrow_status', 'extend');
+        } else {
+            if (!g_form.getOption('borrow_status', 'extend')) {
+                g_form.addOption('borrow_status', 'extend', 'Extend');
+            }
+        }
+    }
+}]]></script_true>
+        <set_values/>
+        <short_description>Manage Borrow Status Choices</short_description>
+        <sys_class_name>sys_ui_policy</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-06-24 07:40:59</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>9314962c93030210ef267c5efaba10f3</sys_id>
+        <sys_mod_count>11</sys_mod_count>
+        <sys_name>Manage Borrow Status Choices</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>sys_ui_policy_9314962c93030210ef267c5efaba10f3</sys_update_name>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-06-24 09:49:08</sys_updated_on>
+        <table>x_1383151_bkquest_borrow</table>
+        <ui_type>10</ui_type>
+        <view/>
+    </sys_ui_policy>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="BookQuest">327b26db93250210ef267c5efaba100f</application>
+        <file_path/>
+        <instance_id>0535015fdb717d1002d9172913961922</instance_id>
+        <instance_name>dev186731</instance_name>
+        <name>sys_ui_policy_9314962c93030210ef267c5efaba10f3</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_ui_policy"&gt;&lt;sys_ui_policy action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;conditions/&gt;&lt;description/&gt;&lt;global&gt;true&lt;/global&gt;&lt;inherit&gt;false&lt;/inherit&gt;&lt;isolate_script&gt;true&lt;/isolate_script&gt;&lt;model_id/&gt;&lt;model_table/&gt;&lt;on_load&gt;true&lt;/on_load&gt;&lt;order&gt;100&lt;/order&gt;&lt;reverse_if_false&gt;true&lt;/reverse_if_false&gt;&lt;run_scripts&gt;true&lt;/run_scripts&gt;&lt;script_false&gt;&lt;![CDATA[function onCondition() {
+
+}]]&gt;&lt;/script_false&gt;&lt;script_true&gt;&lt;![CDATA[function onCondition() {
+    var bookId = g_form.getValue('book_id');
+
+    if (bookId) {
+        var ga = new GlideAjax('BookUtils');
+        ga.addParam('sysparm_name', 'hasBeenExtended');
+        ga.addParam('bookId', bookId);
+        ga.getXMLAnswer(function(response) {
+            var hasBeenExtended = response === 'true';
+            updateBorrowStatusChoices(hasBeenExtended);
+        });
+    }
+
+    function updateBorrowStatusChoices(hasBeenExtended) {
+        if (hasBeenExtended) {
+            g_form.removeOption('borrow_status', 'extend');
+        } else {
+            if (!g_form.getOption('borrow_status', 'extend')) {
+                g_form.addOption('borrow_status', 'extend', 'Extend');
+            }
+        }
+    }
+}]]&gt;&lt;/script_true&gt;&lt;set_values/&gt;&lt;short_description&gt;Manage Borrow Status Choices&lt;/short_description&gt;&lt;sys_class_name&gt;sys_ui_policy&lt;/sys_class_name&gt;&lt;sys_created_by&gt;harini.srija&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-06-24 07:40:59&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;9314962c93030210ef267c5efaba10f3&lt;/sys_id&gt;&lt;sys_mod_count&gt;11&lt;/sys_mod_count&gt;&lt;sys_name&gt;Manage Borrow Status Choices&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="BookQuest" source="x_1383151_bkquest"&gt;327b26db93250210ef267c5efaba100f&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="BookQuest"&gt;327b26db93250210ef267c5efaba100f&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_ui_policy_9314962c93030210ef267c5efaba10f3&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;harini.srija&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-06-24 09:49:08&lt;/sys_updated_on&gt;&lt;table&gt;x_1383151_bkquest_borrow&lt;/table&gt;&lt;ui_type&gt;10&lt;/ui_type&gt;&lt;view/&gt;&lt;/sys_ui_policy&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-46561951</payload_hash>
+        <record_name>Manage Borrow Status Choices</record_name>
+        <reverted_from/>
+        <source>3d9e5eee936e0610ef267c5efaba1086</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-06-24 09:49:08</sys_created_on>
+        <sys_id>c1a1feac93830210ef267c5efaba10ca</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19049a6380e0000001</sys_recorded_at>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-06-24 09:49:08</sys_updated_on>
+        <type>UI Policy</type>
+        <update_guid>0da1f2ac03830210250ce59d9b16fc40</update_guid>
+        <update_guid_history>0da1f2ac03830210250ce59d9b16fc40:-46561951,b6a46aecf64302106bbecb6a487fc053:-692784788,f0bc9a641a430210453297e7fd71f6d0:-46561951,2a0c16240743021047fff8d84ecb37d1:178613376,06da1624774302107f983ceca4b41c74:-564584271,d54a52e08c430210aad324d77354a5f2:739214271,524916600a43021063614d4bf9b4062f:-564584271,b4d75a20e84302109fd5a800f4727ec1:-46561951,65c796207243021036a2db4afb96dfc6:-140535426,c1a71aeca8030210e6e4618bd4a9a573:-395398094,49b496e86b0302106276afe4be2910fd:1149892489,4c5496e84f030210305fce703e204069:1257772562</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-06-24 16:28:50</sys_created_on>
+        <sys_db_object display_value="" name="sys_ui_policy">sys_ui_policy</sys_db_object>
+        <sys_id>0c6dd643dbcb4bea80a4f6eac84c33a4</sys_id>
+        <sys_metadata>9314962c93030210ef267c5efaba10f3</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Manage Borrow Status Choices</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_parent display_value="Borrow">5a71615093b10210ef267c5efaba107d</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_scope_delete display_value="">18e926194902432895b35f3c99259089</sys_scope_delete>
+        <sys_update_name>sys_ui_policy_9314962c93030210ef267c5efaba10f3</sys_update_name>
+        <sys_update_version display_value="sys_ui_policy_9314962c93030210ef267c5efaba10f3">c1a1feac93830210ef267c5efaba10ca</sys_update_version>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-06-24 16:28:50</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

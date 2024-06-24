@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="DELETE">
+        <active>false</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description>Informing the user that they can extend a book only once </description>
+        <field>borrow_status</field>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>Extend </name>
+        <order/>
+        <script><![CDATA[function onChange(control, oldValue, newValue, isLoading) {
+    if (isLoading || newValue === '') {
+        return;
+    }
+
+    // Check if 'extend' option is selected
+    if (newValue === 'extend') {
+        // Show message below the field
+        var message = 'You can extend this book only once.';
+        g_form.showFieldMsg('borrow_status', message, 'info');
+    }
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-06-24 08:24:50</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>b75d52e493430210ef267c5efaba1021</sys_id>
+        <sys_mod_count>10</sys_mod_count>
+        <sys_name>Extend </sys_name>
+        <sys_overrides/>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>sys_script_client_b75d52e493430210ef267c5efaba1021</sys_update_name>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-06-24 16:22:28</sys_updated_on>
+        <table>x_1383151_bkquest_borrow</table>
+        <type>onChange</type>
+        <ui_type>0</ui_type>
+        <view/>
+    </sys_script_client>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="BookQuest">327b26db93250210ef267c5efaba100f</application>
+        <file_path/>
+        <instance_id>0535015fdb717d1002d9172913961922</instance_id>
+        <instance_name>dev186731</instance_name>
+        <name>sys_script_client_b75d52e493430210ef267c5efaba1021</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script_client"&gt;&lt;sys_script_client action="INSERT_OR_UPDATE"&gt;&lt;active&gt;false&lt;/active&gt;&lt;applies_extended&gt;false&lt;/applies_extended&gt;&lt;condition/&gt;&lt;description&gt;Informing the user that they can extend a book only once &lt;/description&gt;&lt;field&gt;borrow_status&lt;/field&gt;&lt;global&gt;true&lt;/global&gt;&lt;isolate_script&gt;true&lt;/isolate_script&gt;&lt;messages/&gt;&lt;name&gt;Extend &lt;/name&gt;&lt;order/&gt;&lt;script&gt;&lt;![CDATA[function onChange(control, oldValue, newValue, isLoading) {
+    if (isLoading || newValue === '') {
+        return;
+    }
+
+    // Check if 'extend' option is selected
+    if (newValue === 'extend') {
+        // Show message below the field
+        var message = 'You can extend this book only once.';
+        g_form.showFieldMsg('borrow_status', message, 'info');
+    }
+}]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_client&lt;/sys_class_name&gt;&lt;sys_created_by&gt;harini.srija&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-06-24 08:24:50&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;b75d52e493430210ef267c5efaba1021&lt;/sys_id&gt;&lt;sys_mod_count&gt;10&lt;/sys_mod_count&gt;&lt;sys_name&gt;Extend &lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="BookQuest" source="x_1383151_bkquest"&gt;327b26db93250210ef267c5efaba100f&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="BookQuest"&gt;327b26db93250210ef267c5efaba100f&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_client_b75d52e493430210ef267c5efaba1021&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;harini.srija&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-06-24 16:22:28&lt;/sys_updated_on&gt;&lt;table&gt;x_1383151_bkquest_borrow&lt;/table&gt;&lt;type&gt;onChange&lt;/type&gt;&lt;ui_type&gt;0&lt;/ui_type&gt;&lt;view/&gt;&lt;/sys_script_client&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>1355085360</payload_hash>
+        <record_name>Extend </record_name>
+        <reverted_from/>
+        <source>3d9e5eee936e0610ef267c5efaba1086</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-06-24 16:22:28</sys_created_on>
+        <sys_id>beab807c930b0210ef267c5efaba1045</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1904b0e53320000001</sys_recorded_at>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-06-24 16:22:28</sys_updated_on>
+        <type>Client Script</type>
+        <update_guid>76ab807cd20b0210794d58f9ea54d045</update_guid>
+        <update_guid_history>76ab807cd20b0210794d58f9ea54d045:1355085360,e97b48b0324b0210d47d8d06fc0b41fc:229395664,e7d6cc3ca60b0210869411ecadcad0d2:-629692035,91668c3ca30b02105350a7bff26a5250:-798127863,07260c3c360b021081991a130fb624e5:211267545,db1584b88a0b0210c6a8cc354be39998:-1709919981,599176acfe83021067563b45bdcc10ce:-203020731,a4b46aeca743021067f438b91b055b0c:-1046394920,b7a02e6835430210621e2757137fc298:-203020731,175f9a286643021071d09744d373da87:-1737136765,165ed2283043021022ea260cb72fe178:988994715</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-06-24 16:27:55</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_client">sys_script_client</sys_db_object>
+        <sys_id>0ec0516d5e734e609223a0cf1aad8091</sys_id>
+        <sys_metadata>b75d52e493430210ef267c5efaba1021</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Extend </sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_parent display_value="Borrow">5a71615093b10210ef267c5efaba107d</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_scope_delete display_value="">18e926194902432895b35f3c99259089</sys_scope_delete>
+        <sys_update_name>sys_script_client_b75d52e493430210ef267c5efaba1021</sys_update_name>
+        <sys_update_version display_value="sys_script_client_b75d52e493430210ef267c5efaba1021">beab807c930b0210ef267c5efaba1045</sys_update_version>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-06-24 16:27:55</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

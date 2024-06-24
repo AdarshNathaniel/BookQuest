@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="DELETE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_1383151_bkquest.BookUtils</api_name>
+        <caller_access/>
+        <client_callable>true</client_callable>
+        <description/>
+        <name>BookUtils</name>
+        <script><![CDATA[var BookUtils = Class.create();
+BookUtils.prototype = {
+    initialize: function() {},
+
+    hasBeenExtended: function(bookId) {
+        var borrowGR = new GlideRecord('x_1383151_bkquest_borrow');
+        borrowGR.addQuery('book_id', bookId);
+        borrowGR.addQuery('borrow_status', 'extend');
+        borrowGR.query();
+        return borrowGR.hasNext();
+    },
+
+    type: 'BookUtils'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-06-24 07:36:05</sys_created_on>
+        <sys_id>a7d212e893030210ef267c5efaba1000</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>BookUtils</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>sys_script_include_a7d212e893030210ef267c5efaba1000</sys_update_name>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-06-24 09:49:03</sys_updated_on>
+    </sys_script_include>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="BookQuest">327b26db93250210ef267c5efaba100f</application>
+        <file_path/>
+        <instance_id>0535015fdb717d1002d9172913961922</instance_id>
+        <instance_name>dev186731</instance_name>
+        <name>sys_script_include_a7d212e893030210ef267c5efaba1000</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_script_include"&gt;&lt;sys_script_include action="INSERT_OR_UPDATE"&gt;&lt;access&gt;package_private&lt;/access&gt;&lt;active&gt;true&lt;/active&gt;&lt;api_name&gt;x_1383151_bkquest.BookUtils&lt;/api_name&gt;&lt;caller_access/&gt;&lt;client_callable&gt;true&lt;/client_callable&gt;&lt;description/&gt;&lt;name&gt;BookUtils&lt;/name&gt;&lt;script&gt;&lt;![CDATA[var BookUtils = Class.create();
+BookUtils.prototype = {
+    initialize: function() {},
+
+    hasBeenExtended: function(bookId) {
+        var borrowGR = new GlideRecord('x_1383151_bkquest_borrow');
+        borrowGR.addQuery('book_id', bookId);
+        borrowGR.addQuery('borrow_status', 'extend');
+        borrowGR.query();
+        return borrowGR.hasNext();
+    },
+
+    type: 'BookUtils'
+};]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_include&lt;/sys_class_name&gt;&lt;sys_created_by&gt;harini.srija&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-06-24 07:36:05&lt;/sys_created_on&gt;&lt;sys_id&gt;a7d212e893030210ef267c5efaba1000&lt;/sys_id&gt;&lt;sys_mod_count&gt;3&lt;/sys_mod_count&gt;&lt;sys_name&gt;BookUtils&lt;/sys_name&gt;&lt;sys_package display_value="BookQuest" source="x_1383151_bkquest"&gt;327b26db93250210ef267c5efaba100f&lt;/sys_package&gt;&lt;sys_policy&gt;read&lt;/sys_policy&gt;&lt;sys_scope display_value="BookQuest"&gt;327b26db93250210ef267c5efaba100f&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_include_a7d212e893030210ef267c5efaba1000&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;harini.srija&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-06-24 09:49:03&lt;/sys_updated_on&gt;&lt;/sys_script_include&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-700976269</payload_hash>
+        <record_name>BookUtils</record_name>
+        <reverted_from/>
+        <source>3d9e5eee936e0610ef267c5efaba1086</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-06-24 09:49:03</sys_created_on>
+        <sys_id>84a13aac93830210ef267c5efaba105f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19049a626210000001</sys_recorded_at>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-06-24 09:49:03</sys_updated_on>
+        <type>Script Include</type>
+        <update_guid>4ca13aacff8302105b619a62e72fb55e</update_guid>
+        <update_guid_history>4ca13aacff8302105b619a62e72fb55e:-700976269,cea462ec87430210cb7eaae40e97d4c2:-1790460668,aad6d6e84b0302108ad3a1b278377903:-700976269,6c3356e8d5030210b4f80ced248725c6:-1401435922</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-06-24 15:46:49</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_include">sys_script_include</sys_db_object>
+        <sys_id>13f89223119c421e85fa0f389bc50824</sys_id>
+        <sys_metadata>a7d212e893030210ef267c5efaba1000</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>BookUtils</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_parent/>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_scope_delete display_value="">18e926194902432895b35f3c99259089</sys_scope_delete>
+        <sys_update_name>sys_script_include_a7d212e893030210ef267c5efaba1000</sys_update_name>
+        <sys_update_version display_value="sys_script_include_a7d212e893030210ef267c5efaba1000">84a13aac93830210ef267c5efaba105f</sys_update_version>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-06-24 15:46:49</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

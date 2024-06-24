@@ -2,11 +2,11 @@
     <sys_script action="INSERT_OR_UPDATE">
         <abort_action>false</abort_action>
         <access>package_private</access>
-        <action_delete>true</action_delete>
+        <action_delete>false</action_delete>
         <action_insert>true</action_insert>
         <action_query>false</action_query>
         <action_update>true</action_update>
-        <active>true</active>
+        <active>false</active>
         <add_message>false</add_message>
         <advanced>true</advanced>
         <change_fields>false</change_fields>
@@ -20,7 +20,7 @@
         </filter_condition>
         <is_rest>false</is_rest>
         <message/>
-        <name>Handle Borrow Status Change</name>
+        <name>test</name>
         <order>100</order>
         <priority>100</priority>
         <rest_method/>
@@ -29,44 +29,46 @@
         <rest_service_text/>
         <rest_variables/>
         <role_conditions/>
-        <script><![CDATA[(function executeRule(current, previous /* , gs */ ) {
-    // Check if Borrow Status has changed
-    if (current.borrow_status.changes()) {
-        // Check if Borrow Status has changed to 'extend'
-        if (current.borrow_status == 'extend') {
-            var extraDays = gs.getProperty('x_1383151_bkquest.extend_borrow_period', 14); // Default to 7 days if property is not set
-            current.days += parseInt(extraDays, 10);
+        <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
+    // Check if the Borrow Status is being updated to "Extend"
+    if (current.borrow_status == 'extend' && previous.borrow_status != 'extend') {
+        // Check if the book has already been extended once
+        if (current.extension_count > 0) {
+            // Book has already been extended once, prevent further extension
+            gs.addErrorMessage('You can only extend this book once.');
+            current.borrow_status = previous.borrow_status; // Rollback to previous status
+            return;
         }
-
-        // Check if Borrow Status has changed to 'return'
-        if (current.borrow_status == 'return') {
-            var returnedDate = new GlideDate();
-            returnedDate.setValue(new GlideDateTime()); // Set returned date to current date
-            current.returned_date = returnedDate;
-        }
-
-        // Update the record after making changes
-        current.update();
+        // Increment the extension count
+        current.extension_count = 1;
+        
+        // Set the returned_date to today's date when extending
+        current.returned_date = new GlideDateTime(); // or gs.nowDateTime();
+        
+        // Hide the "Extend" option from the choice list
+        current.setWorkflow(false); // Disable workflow to bypass validation
+        g_form.removeOption('borrow_status', 'extend'); // Remove the "Extend" option
+        current.setWorkflow(true); // Re-enable workflow
     }
-
-})(current, previous);]]></script>
+})(current, previous);
+]]></script>
         <sys_class_name>sys_script</sys_class_name>
         <sys_created_by>harini.srija</sys_created_by>
-        <sys_created_on>2024-06-21 08:31:03</sys_created_on>
+        <sys_created_on>2024-06-24 10:44:25</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
-        <sys_id>dc524f6393360210ef267c5efaba10d3</sys_id>
-        <sys_mod_count>1</sys_mod_count>
-        <sys_name>Handle Borrow Status Change</sys_name>
+        <sys_id>769df2e893c30210ef267c5efaba1050</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>test</sys_name>
         <sys_overrides/>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
-        <sys_update_name>sys_script_dc524f6393360210ef267c5efaba10d3</sys_update_name>
+        <sys_update_name>sys_script_769df2e893c30210ef267c5efaba1050</sys_update_name>
         <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-06-21 08:44:25</sys_updated_on>
+        <sys_updated_on>2024-06-24 10:52:50</sys_updated_on>
         <template/>
-        <when>after</when>
+        <when>before</when>
     </sys_script>
-    <sys_translated_text action="delete_multiple" query="documentkey=dc524f6393360210ef267c5efaba10d3"/>
+    <sys_translated_text action="delete_multiple" query="documentkey=769df2e893c30210ef267c5efaba1050"/>
 </record_update>
