@@ -32,9 +32,20 @@
         <script><![CDATA[(function executeRule(current, previous /* , gs */ ) {
     // Check if Borrow Status has changed
     if (current.borrow_status.changes()) {
+        var days = current.days; 
+		
+        //Get maxBorrowDays from a property
+        var maxBorrowDays = gs.getProperty('x_1383151_bkquest.max_borrow_days', 28); // default value
+
+        // Validate the borrow period
+        if (days > parseInt(maxBorrowDays, 10)) {
+            // Get a localized message for the error
+            var errorMessage = gs.getMessage('The borrow period cannot exceed {0} days.', maxBorrowDays);
+        }
+
         // Check if Borrow Status has changed to 'extend'
         if (current.borrow_status == 'extend') {
-            var extraDays = gs.getProperty('x_1383151_bkquest.extend_borrow_period', 14); // Default to 7 days if property is not set
+            var extraDays = gs.getProperty('x_1383151_bkquest.extend_borrow_period', 14); // Default to 14 days if property is not set
             current.days += parseInt(extraDays, 10);
         }
 
@@ -44,8 +55,6 @@
             returnedDate.setValue(new GlideDateTime()); // Set returned date to current date
             current.returned_date = returnedDate;
         }
-
-        // Update the record after making changes
         current.update();
     }
 
@@ -56,7 +65,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>0d224cf4930b0210ef267c5efaba10ea</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>2</sys_mod_count>
         <sys_name>Handle Borrow Status Change</sys_name>
         <sys_overrides/>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
@@ -64,7 +73,7 @@
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sys_script_0d224cf4930b0210ef267c5efaba10ea</sys_update_name>
         <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-06-24 15:42:03</sys_updated_on>
+        <sys_updated_on>2024-06-25 09:16:08</sys_updated_on>
         <template/>
         <when>before</when>
     </sys_script>

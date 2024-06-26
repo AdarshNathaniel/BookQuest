@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="DELETE">
+        <access>public</access>
+        <active>false</active>
+        <api_name>x_1383151_bkquest.BorrowedBooksUtils</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>Borrowed books of the current logined user</description>
+        <name>BorrowedBooksUtils</name>
+        <script><![CDATA[var BorrowedBooksUtils = Class.create();
+BorrowedBooksUtils.prototype = {
+
+    initialize: function() {
+    },
+
+    // Function to get details of a borrowed book by its sys_id
+    getBorrowedBookDetails: function(borrowSysId) {
+        var borrowedBookDetails = {};
+
+        // Create a GlideRecord object for the Borrow table
+        var borrowGR = new GlideRecord('x_1383151_bkquest_borrow');
+        if (borrowGR.get(borrowSysId)) {
+
+            // Get the Book Instance ID from the Borrow record
+            var bookInstanceId = borrowGR.book_id.toString();
+            if (bookInstanceId) {
+                // Create a GlideRecord object for the Book Instance table
+                var bookInstanceGR = new GlideRecord('x_1383151_bkquest_book_copy');
+                if (bookInstanceGR.get(bookInstanceId)) {
+
+                    // Get the Book ID from the Book Instance record
+                    var bookId = bookInstanceGR.isbn.toString();
+                    if (bookId) {
+                        // Create a GlideRecord object for the Book Definition table
+                        var bookDefinitionGR = new GlideRecord('x_1383151_bkquest_book');
+                        if (bookDefinitionGR.get(bookId)) {
+
+                            // Get the Author ID from the Book Definition record
+                            var authorId = bookDefinitionGR.author.toString();
+                            if (authorId) {
+                                // Create a GlideRecord object for the Author table
+                                var authorGR = new GlideRecord('x_1383151_bkquest_author');
+                                if (authorGR.get(authorId)) {
+
+                                    // Get the cover image URL
+                                    var coverImageURL = bookDefinitionGR.cover_image ? '/sys_attachment.do?sys_id=' + bookDefinitionGR.cover_image : '';
+
+                                    // Populate borrowed book details
+                                    borrowedBookDetails = {
+                                        borrowId: borrowGR.borrow_id.toString(),
+                                        borrowDate: borrowGR.borrow_date.toString(),
+                                        dueDate: borrowGR.due_date.toString(),
+                                        returnedDate: borrowGR.returned_date.toString(),
+                                        fineAmount: borrowGR.fine_amount.toString(),
+                                        daysLate: borrowGR.days_late.toString(),
+                                        finePaidDate: borrowGR.fine_paid_date.toString(),
+                                        title: bookDefinitionGR.title.toString(),
+                                        author: authorGR.full_name.toString(),
+                                        coverImage: coverImageURL
+                                    };
+
+                                } else {
+                                    gs.info('Author record not found for Author ID: ' + authorId);
+                                }
+                            } else {
+                                gs.info('Author ID not found for Book ID: ' + bookId);
+                            }
+
+                        } else {
+                            gs.info('Book definition record not found for Book ID: ' + bookId);
+                        }
+                    } else {
+                        gs.info('Book ID not found for Book Instance ID: ' + bookInstanceId);
+                    }
+
+                } else {
+                    gs.info('Book instance record not found for Book Instance ID: ' + bookInstanceId);
+                }
+            } else {
+                gs.info('Book Instance ID not found for Borrow ID: ' + borrowSysId);
+            }
+
+        } else {
+            gs.info('Borrow record not found with ID: ' + borrowSysId);
+        }
+
+        // Return the borrowed book details object
+        return borrowedBookDetails;
+    },
+
+    type: 'BorrowedBooksUtils'
+};
+]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-06-18 04:35:15</sys_created_on>
+        <sys_id>c4bf262693f64210ef267c5efaba10b2</sys_id>
+        <sys_mod_count>24</sys_mod_count>
+        <sys_name>BorrowedBooksUtils</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>sys_script_include_c4bf262693f64210ef267c5efaba10b2</sys_update_name>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-06-25 16:13:43</sys_updated_on>
+    </sys_script_include>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="BookQuest">327b26db93250210ef267c5efaba100f</application>
+        <file_path/>
+        <instance_id>0535015fdb717d1002d9172913961922</instance_id>
+        <instance_name>dev186731</instance_name>
+        <name>sys_script_include_c4bf262693f64210ef267c5efaba10b2</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_script_include"&gt;&lt;sys_script_include action="INSERT_OR_UPDATE"&gt;&lt;access&gt;public&lt;/access&gt;&lt;active&gt;false&lt;/active&gt;&lt;api_name&gt;x_1383151_bkquest.BorrowedBooksUtils&lt;/api_name&gt;&lt;caller_access/&gt;&lt;client_callable&gt;false&lt;/client_callable&gt;&lt;description&gt;Borrowed books of the current logined user&lt;/description&gt;&lt;name&gt;BorrowedBooksUtils&lt;/name&gt;&lt;script&gt;&lt;![CDATA[var BorrowedBooksUtils = Class.create();
+BorrowedBooksUtils.prototype = {
+
+    initialize: function() {
+    },
+
+    // Function to get details of a borrowed book by its sys_id
+    getBorrowedBookDetails: function(borrowSysId) {
+        var borrowedBookDetails = {};
+
+        // Create a GlideRecord object for the Borrow table
+        var borrowGR = new GlideRecord('x_1383151_bkquest_borrow');
+        if (borrowGR.get(borrowSysId)) {
+
+            // Get the Book Instance ID from the Borrow record
+            var bookInstanceId = borrowGR.book_id.toString();
+            if (bookInstanceId) {
+                // Create a GlideRecord object for the Book Instance table
+                var bookInstanceGR = new GlideRecord('x_1383151_bkquest_book_copy');
+                if (bookInstanceGR.get(bookInstanceId)) {
+
+                    // Get the Book ID from the Book Instance record
+                    var bookId = bookInstanceGR.isbn.toString();
+                    if (bookId) {
+                        // Create a GlideRecord object for the Book Definition table
+                        var bookDefinitionGR = new GlideRecord('x_1383151_bkquest_book');
+                        if (bookDefinitionGR.get(bookId)) {
+
+                            // Get the Author ID from the Book Definition record
+                            var authorId = bookDefinitionGR.author.toString();
+                            if (authorId) {
+                                // Create a GlideRecord object for the Author table
+                                var authorGR = new GlideRecord('x_1383151_bkquest_author');
+                                if (authorGR.get(authorId)) {
+
+                                    // Get the cover image URL
+                                    var coverImageURL = bookDefinitionGR.cover_image ? '/sys_attachment.do?sys_id=' + bookDefinitionGR.cover_image : '';
+
+                                    // Populate borrowed book details
+                                    borrowedBookDetails = {
+                                        borrowId: borrowGR.borrow_id.toString(),
+                                        borrowDate: borrowGR.borrow_date.toString(),
+                                        dueDate: borrowGR.due_date.toString(),
+                                        returnedDate: borrowGR.returned_date.toString(),
+                                        fineAmount: borrowGR.fine_amount.toString(),
+                                        daysLate: borrowGR.days_late.toString(),
+                                        finePaidDate: borrowGR.fine_paid_date.toString(),
+                                        title: bookDefinitionGR.title.toString(),
+                                        author: authorGR.full_name.toString(),
+                                        coverImage: coverImageURL
+                                    };
+
+                                } else {
+                                    gs.info('Author record not found for Author ID: ' + authorId);
+                                }
+                            } else {
+                                gs.info('Author ID not found for Book ID: ' + bookId);
+                            }
+
+                        } else {
+                            gs.info('Book definition record not found for Book ID: ' + bookId);
+                        }
+                    } else {
+                        gs.info('Book ID not found for Book Instance ID: ' + bookInstanceId);
+                    }
+
+                } else {
+                    gs.info('Book instance record not found for Book Instance ID: ' + bookInstanceId);
+                }
+            } else {
+                gs.info('Book Instance ID not found for Borrow ID: ' + borrowSysId);
+            }
+
+        } else {
+            gs.info('Borrow record not found with ID: ' + borrowSysId);
+        }
+
+        // Return the borrowed book details object
+        return borrowedBookDetails;
+    },
+
+    type: 'BorrowedBooksUtils'
+};
+]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_include&lt;/sys_class_name&gt;&lt;sys_created_by&gt;harini.srija&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-06-18 04:35:15&lt;/sys_created_on&gt;&lt;sys_id&gt;c4bf262693f64210ef267c5efaba10b2&lt;/sys_id&gt;&lt;sys_mod_count&gt;24&lt;/sys_mod_count&gt;&lt;sys_name&gt;BorrowedBooksUtils&lt;/sys_name&gt;&lt;sys_package display_value="BookQuest" source="x_1383151_bkquest"&gt;327b26db93250210ef267c5efaba100f&lt;/sys_package&gt;&lt;sys_policy&gt;read&lt;/sys_policy&gt;&lt;sys_scope display_value="BookQuest"&gt;327b26db93250210ef267c5efaba100f&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_include_c4bf262693f64210ef267c5efaba10b2&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;harini.srija&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-06-25 16:13:43&lt;/sys_updated_on&gt;&lt;/sys_script_include&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-405537978</payload_hash>
+        <record_name>BorrowedBooksUtils</record_name>
+        <reverted_from/>
+        <source>3d9e5eee936e0610ef267c5efaba1086</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-06-25 16:13:43</sys_created_on>
+        <sys_id>9443110993cb0210ef267c5efaba102f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>190502cab570000001</sys_recorded_at>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-06-25 16:13:43</sys_updated_on>
+        <type>Script Include</type>
+        <update_guid>5c4311096fcb021032e88f1a17becc2e</update_guid>
+        <update_guid_history>5c4311096fcb021032e88f1a17becc2e:-405537978,a9f29d4961cb02104944624df2be645d:1940137267,ed215d8536cb0210714a15d0a20c1d4d:-1599900039,e38a4d8dd38b021023e94eaf890325ba:-50610205,09d7cd09f18b0210cbbde70d4677f804:-580236420,e9d4cd09ca8b0210f38f86d09570fcdc:-543780580,01672bf03d070210027b0e0437b640e8:962506408,83f6ebb0680702106b425ee45ac3dce5:-50610205,9e2513f8ed830210ff4ecaa217f4f278:-643595857,cb421b3894830210d78138f63b83ca0f:-50610205,f21307380b4302105ec49f10d60d16b5:649994066,b9a24b746d43021027e9921906e394b7:-1424581395,a85287f49d430210a7929b484d2d8713:-1907514065,1df1cbb40643021067d8e8d4e1ae4dde:-1425242077,60a14b748643021004e0385e2e43a6cd:-2086531477,8911cbb48f43021097a0fe92ad19efb3:998631530,81604f74894302105846c89825374387:-739159408,2e7c36703943021036ec442131ad3d46:649994066,e6a1aaa32eb202104ee000ab6546f059:-50610205,a83a398f88b6c21040777353043702e7:1605048867,494bc1cb88f2c2103ebb5395edb1940b:-1996556720,443bc5cbd1f2c210c299e8a84825fbb8:52290642,f3ea41cb15f2c210b3b0104a916934ce:-1332106512,d0607ea25cf6421067bcb181001d6e1b:-2060734268,3c40f266f6f64210c2d4dabd28d57b83:1814539501</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-06-25 16:13:56</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_include">sys_script_include</sys_db_object>
+        <sys_id>029107c6d2954be0b6d33b7b647705d1</sys_id>
+        <sys_metadata>c4bf262693f64210ef267c5efaba10b2</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>BorrowedBooksUtils</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_parent/>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_scope_delete display_value="">18e926194902432895b35f3c99259089</sys_scope_delete>
+        <sys_update_name>sys_script_include_c4bf262693f64210ef267c5efaba10b2</sys_update_name>
+        <sys_update_version display_value="sys_script_include_c4bf262693f64210ef267c5efaba10b2">9443110993cb0210ef267c5efaba102f</sys_update_version>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-06-25 16:13:56</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

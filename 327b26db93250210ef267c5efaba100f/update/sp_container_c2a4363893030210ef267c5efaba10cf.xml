@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sp_container">
     <sp_container action="INSERT_OR_UPDATE">
-        <background_color/>
+        <background_color>#8697c4</background_color>
         <background_image/>
         <background_style>default</background_style>
         <bootstrap_alt>false</bootstrap_alt>
         <class_name/>
         <container_class_name/>
-        <name>My Books - Container 3</name>
-        <order>3</order>
+        <name>My Books - Container 2</name>
+        <order>2</order>
         <semantic_tag/>
         <sp_page display_value="bkq_my_books">e63e1fc693ee8210ef267c5efaba10fa</sp_page>
         <subheader>false</subheader>
         <sys_class_name>sp_container</sys_class_name>
         <sys_created_by>harini.srija</sys_created_by>
-        <sys_created_on>2024-06-21 06:24:14</sys_created_on>
-        <sys_id>6ef52aa793b20210ef267c5efaba1066</sys_id>
+        <sys_created_on>2024-06-25 04:40:47</sys_created_on>
+        <sys_id>c2a4363893030210ef267c5efaba10cf</sys_id>
         <sys_mod_count>4</sys_mod_count>
-        <sys_name>My Books - Container 3</sys_name>
+        <sys_name>My Books - Container 2</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
-        <sys_update_name>sp_container_6ef52aa793b20210ef267c5efaba1066</sys_update_name>
+        <sys_update_name>sp_container_c2a4363893030210ef267c5efaba10cf</sys_update_name>
         <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-06-26 04:49:23</sys_updated_on>
+        <sys_updated_on>2024-06-26 11:27:07</sys_updated_on>
         <title/>
         <width>container</width>
     </sp_container>

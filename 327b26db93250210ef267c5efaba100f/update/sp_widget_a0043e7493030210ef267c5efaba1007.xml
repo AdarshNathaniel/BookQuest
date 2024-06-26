@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller = function($location, $scope) {
+  var c = this;
+
+  // Function to navigate to the detailed book page
+  c.openBook = function(sysID) {
+    var portalURL = $location.absUrl().split('?')[0];
+    var pageID = 'book_details_page_v1'; 
+    var url = portalURL + '?id=' + pageID + '&sys_id=' + sysID;
+    window.location.href = url;
+  };
+	
+	c.openBorrowDetails = function(borrowID) {
+     var portalURL = $location.absUrl().split('?')[0];
+     var pageID = 'borrow_details'; // Update with your actual page ID for borrow details
+     var url = portalURL + '?id=' + pageID + '&sys_id=' + borrowID;
+     window.location.href = url;
+    };
+
+  // Function to load all books on page load
+  c.onLoadLoadAllBooks = function() {
+    // Assuming c.data.books is already populated with all books
+    // This could be fetched from server or set directly in the UI page
+  };
+};
+]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.book-item {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    height: 400px; /* Fixed height for uniformity */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%; /* Ensures cards take up full width of column */
+    margin-bottom: 30px;
+    margin-top: 30px;
+    align-items: center;
+}
+
+.book-cover {
+    max-height: 200px; /* Adjust based on desired cover size */
+    width: auto;
+    margin: 0 auto 10px; /* Center the image and add bottom margin */
+    border-radius: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.book-cover:hover {
+    transform: scale(1.05); /* Slightly scale up the image */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow effect */
+}
+
+.book-title {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-top: 10px;
+}
+
+.book-author {
+    color: #555;
+    margin-bottom: 10px; /* Ensure spacing at the bottom */
+}
+
+.btn-primary,
+.btn-danger,
+.btn-success {
+    padding: 10px 24px; /* Padding adjustment */
+    font-size: 14px;
+    margin: 0 10px; /* Margin adjustment */
+    transition: background-color 0.3s, border-color 0.3s;
+    width: 100%; /* Button width adjustment */
+    border-radius: 8px;
+}
+
+.btn-primary {
+    background-color: #007bff; /* Primary button color */
+    border-color: #007bff;
+    color: #fff; /* Text color */
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Darker color on hover */
+    border-color: #0056b3;
+}
+
+.btn-danger {
+    background-color: #dc3545; /* Danger button color */
+    border-color: #dc3545;
+    color: #fff; /* Text color */
+}
+
+.btn-danger:hover {
+    background-color: #c82333; /* Darker color on hover */
+    border-color: #bd2130;
+}
+
+.btn-success {
+    background-color: #28a745; /* Success button color */
+    border-color: #28a745;
+    color: #fff; /* Text color */
+}
+
+.btn-success:hover {
+    background-color: #218838; /* Darker color on hover */
+    border-color: #1e7e34;
+}
+</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>borrowed_book_v1</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Borrowed book v1</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+    // Create an array to store borrowed books
+    var borrowedBooks = [];
+	  var bookID=$sp.getParameter('sys_id');
+    var borrowedBooksUtils = new BorrowedBooksUtils();
+    borrowedBooks = borrowedBooksUtils.getBorrowedBooks();
+    
+    var books = [];
+    if (!input) {
+        var bookGR = new GlideRecordSecure('x_1383151_bkquest_book');
+        bookGR.orderBy('title');
+        bookGR.query();
+
+        while (bookGR.next()) {
+            var coverImageSysId = bookGR.getValue('cover_image');
+            var coverImageUrl = '';
+
+            if (coverImageSysId) {
+                var coverImageGR = new GlideRecord('sys_attachment');
+                if (coverImageGR.get(coverImageSysId)) {
+                    coverImageUrl = '/sys_attachment.do?sys_id=' + coverImageSysId;
+                }
+            } else {
+                // Default cover image URL
+                coverImageUrl = '/NoBookImage.jpg';
+            }
+
+            var authorSysId = bookGR.getValue('author');
+            var authorName = '';
+            if (authorSysId) {
+                var authorGR = new GlideRecord('x_1383151_bkquest_author');
+                if (authorGR.get(authorSysId)) {
+                    authorName = authorGR.getDisplayValue();
+                }
+            }
+            // Assign default value if author name is empty
+            if (!authorName) {
+                authorName = 'Unknown';
+            }
+
+            // Fetch the plot summary from the book record
+            var plotSummary = bookGR.getValue('plot_summary') || 'No plot summary available';
+
+            books.push({
+                'sys_id': bookGR.getUniqueValue(),
+                'title': bookGR.getDisplayValue('title'),
+                'author': authorName,
+                'cover_image': coverImageUrl,
+                'plot_summary': plotSummary
+            });
+        }
+    }
+
+    // Combine the books and borrowedBooks arrays into one
+    var combinedArray = {
+        books: books,
+        borrowedBooks: borrowedBooks
+    };
+
+    // Attach the combined result to the data object to pass it to the client-side script
+    data.combinedArray = combinedArray;
+})();
+]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-06-25 04:37:56</sys_created_on>
+        <sys_id>a0043e7493030210ef267c5efaba1007</sys_id>
+        <sys_mod_count>120</sys_mod_count>
+        <sys_name>Borrowed book v1</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>sp_widget_a0043e7493030210ef267c5efaba1007</sys_update_name>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-06-26 11:02:38</sys_updated_on>
+        <template><![CDATA[<div class="container">
+  <div class="row">
+    <div class="borrowedbook-item col-xs-12 col-sm-6 col-md-3 col-lg-3" ng-repeat="book in c.data.combinedArray.borrowedBooks">
+      <div class="card">
+        <a ng-click="c.openBook(book.sys_id)">
+        <img ng-src="{{book.coverImage}}" alt="{{book.title}} cover" class="book-cover img-responsive">
+        </a>
+        <h3 class="book-title">{{book.title}}</h3>
+        <p class="book-author">{{book.author}}</p>
+        <!-- <button type="submit" class="btn btn-primary" ng-if="book.daysLate == 0 && !book.returnedDate">View Details</button> -->
+        <button type="submit" class="btn btn-success" ng-if="book.returnedDate" ng-click="c.openBorrowDetails(book.borrowDetails.borrowID)">Book Returned</button>
+        <button type="submit" class="btn btn-danger" ng-if="book.daysLate > 0 && !book.returnedDate" ng-click="c.openBorrowDetails(book.borrowDetails.borrowID)">Overdue Book</button> 
+        <button type="button" class="btn btn-primary" ng-if="book.daysLate == 0 && !book.returnedDate" ng-click="c.openBorrowDetails(book.borrowDetails.borrowID)">View Borrow Details</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <pre>{{data.combinedArray | json}}</pre> -->
+]]></template>
+    </sp_widget>
+</record_update>
