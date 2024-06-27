@@ -76,54 +76,23 @@ color: #555;
 }
 
 /* CSS for the Borrow button */
-.btn-primary {
-  background-color: #3D52A0;
-  border-color: #3D52A0;
-  color: white;
-  font-size: 1.2em; /* Larger font size */
-  padding: 15px 30px; /* Larger padding */
-  border-radius: 10px; /* Rounded corners */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for 3D effect */
-  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for hover */
+.btn-primary, {
+    padding: 10px 24px; /* Padding adjustment */
+    font-size: 14px;
+    margin: 0 10px; /* Margin adjustment */
+    transition: background-color 0.3s, border-color 0.3s;
+    width: 100%; /* Button width adjustment */
+    border-radius: 8px;
+    background-color: #007bff; /* Primary button color */
+    border-color: #007bff;
+    color: #fff; /* Text color */
 }
 
 .btn-primary:hover {
-  background-color: #7091E6;
-  border-color: #7091E6;
-  transform: translateY(-2px); /* Slight lift on hover */
+    background-color: #0056b3; /* Darker color on hover */
+    border-color: #0056b3;
 }
 
-/* CSS for the Reserve button */
-.btn-secondary {
-  background-color: #8697C4;
-  border-color: #8697C4;
-  color: white;
-  font-size: 1.2em; /* Larger font size */
-  padding: 15px 30px; /* Larger padding */
-  border-radius: 10px; /* Rounded corners */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for 3D effect */
-  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for hover */
-}
-
-.btn-secondary:hover {
-  background-color: #ADBBDA;
-  border-color: #ADBBDA;
-  transform: translateY(-2px); /* Slight lift on hover */
-}
-
-/* CSS for the book instance ID */
-.button-container {
-  display: flex;
-  align-items: center;
-  gap: 10px; /* Space between button and book ID */
-}
-
-.book-instance-id {
-  font-weight: bold;
-  margin-top: 10px;
-  font-size: 1.2em;
-  color: #555;
-}
 </css>
         <data_table>sp_instance</data_table>
         <demo_data/>
@@ -153,14 +122,14 @@ color: #555;
         <sys_created_by>harini.srija</sys_created_by>
         <sys_created_on>2024-06-25 15:00:25</sys_created_on>
         <sys_id>7e7281c1938b0210ef267c5efaba1066</sys_id>
-        <sys_mod_count>23</sys_mod_count>
+        <sys_mod_count>28</sys_mod_count>
         <sys_name>borrow Details</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sp_widget_7e7281c1938b0210ef267c5efaba1066</sys_update_name>
         <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-06-26 09:10:55</sys_updated_on>
+        <sys_updated_on>2024-06-27 12:57:04</sys_updated_on>
         <template><![CDATA[<div class="container book-details-card">
   <div class="row">
     <div class="col-md-3">
@@ -169,6 +138,7 @@ color: #555;
           <img class="card-img-top img-responsive" ng-src="{{c.data.borrowedBooks[0].coverImage}}" alt="{{c.data.borrowedBooks[0].title}} cover">
           <h4 class="card-title">{{c.data.borrowedBooks[0].title}}</h4>
           <h5 class="card-subtitle text-muted">{{c.data.borrowedBooks[0].author}}</h5>
+          <button type="button" class="btn btn-primary" ng-click="c.borrowedBooks">Extend</button>
         </div>
       </div>
     </div>

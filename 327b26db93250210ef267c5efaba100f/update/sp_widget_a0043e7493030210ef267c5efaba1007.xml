@@ -6,18 +6,19 @@
 
   // Function to navigate to the detailed book page
   c.openBook = function(sysID) {
+		console.log(sysID)
     var portalURL = $location.absUrl().split('?')[0];
     var pageID = 'book_details_page_v1'; 
     var url = portalURL + '?id=' + pageID + '&sys_id=' + sysID;
     window.location.href = url;
   };
-	
-	c.openBorrowDetails = function(borrowID) {
+  
+  c.openBorrowDetails = function(borrowID) {
      var portalURL = $location.absUrl().split('?')[0];
      var pageID = 'borrow_details'; // Update with your actual page ID for borrow details
      var url = portalURL + '?id=' + pageID + '&sys_id=' + borrowID;
      window.location.href = url;
-    };
+  };
 
   // Function to load all books on page load
   c.onLoadLoadAllBooks = function() {
@@ -134,10 +135,10 @@
         <script><![CDATA[(function() {
     // Create an array to store borrowed books
     var borrowedBooks = [];
-	  var bookID=$sp.getParameter('sys_id');
+    var bookID = $sp.getParameter('sys_id');
     var borrowedBooksUtils = new BorrowedBooksUtils();
     borrowedBooks = borrowedBooksUtils.getBorrowedBooks();
-    
+
     var books = [];
     if (!input) {
         var bookGR = new GlideRecordSecure('x_1383151_bkquest_book');
@@ -183,7 +184,7 @@
             });
         }
     }
-
+  //data.books=books;
     // Combine the books and borrowedBooks arrays into one
     var combinedArray = {
         books: books,
@@ -199,14 +200,14 @@
         <sys_created_by>harini.srija</sys_created_by>
         <sys_created_on>2024-06-25 04:37:56</sys_created_on>
         <sys_id>a0043e7493030210ef267c5efaba1007</sys_id>
-        <sys_mod_count>120</sys_mod_count>
+        <sys_mod_count>132</sys_mod_count>
         <sys_name>Borrowed book v1</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sp_widget_a0043e7493030210ef267c5efaba1007</sys_update_name>
         <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-06-26 11:02:38</sys_updated_on>
+        <sys_updated_on>2024-06-27 10:44:12</sys_updated_on>
         <template><![CDATA[<div class="container">
   <div class="row">
     <div class="borrowedbook-item col-xs-12 col-sm-6 col-md-3 col-lg-3" ng-repeat="book in c.data.combinedArray.borrowedBooks">
@@ -214,7 +215,9 @@
         <a ng-click="c.openBook(book.sys_id)">
         <img ng-src="{{book.coverImage}}" alt="{{book.title}} cover" class="book-cover img-responsive">
         </a>
+      
         <h3 class="book-title">{{book.title}}</h3>
+         
         <p class="book-author">{{book.author}}</p>
         <!-- <button type="submit" class="btn btn-primary" ng-if="book.daysLate == 0 && !book.returnedDate">View Details</button> -->
         <button type="submit" class="btn btn-success" ng-if="book.returnedDate" ng-click="c.openBorrowDetails(book.borrowDetails.borrowID)">Book Returned</button>
@@ -225,7 +228,7 @@
   </div>
 </div>
 
-<!-- <pre>{{data.combinedArray | json}}</pre> -->
+<pre>{{data.combinedArray | json}}</pre> 
 ]]></template>
     </sp_widget>
 </record_update>

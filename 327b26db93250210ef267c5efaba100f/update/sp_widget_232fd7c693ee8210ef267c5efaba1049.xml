@@ -1,148 +1,125 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
     <sp_widget action="INSERT_OR_UPDATE">
         <category>custom</category>
-        <client_script><![CDATA[api.controller = function() {
+        <client_script><![CDATA[api.controller = function($location, $scope) {
     var c = this;
-   
+
+    c.openBook = function(bookDefinitionSysId) {
+        var portalURL = $location.absUrl().split('?')[0];
+        var pageID = 'book_details_page_v1'; // Replace with your actual page ID for book details
+        var url = portalURL + '?id=' + pageID + '&sys_id=' + bookDefinitionSysId;
+        window.location.href = url;
+    };
+
+    c.openBorrowDetails = function(borrowID) {
+        var portalURL = $location.absUrl().split('?')[0];
+        var pageID = 'borrow_details'; // Replace with your actual page ID for borrow details
+        var url = portalURL + '?id=' + pageID + '&sys_id=' + borrowID;
+        window.location.href = url;
+    };
+
+    // Load all borrowed books initially
+    c.data = {};
+    c.data.borrowedBooks = [];
+    c.onLoadLoadAllBooks = function() {
+        c.server.get().then(function(response) {
+            c.data.borrowedBooks = response.data.borrowedBooks;
+        });
+    };
 };
 ]]></client_script>
         <controller_as>c</controller_as>
-        <css>/* Global reset */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+        <css>.book-item {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
 }
 
-h1 {
-  text-align: center;
-  font-weight: bold;
-  /* padding-bottom: 10px;  Adjusted padding */
-  margin-top: 10px; /* Moved title up */
-  color: #3d52a0; /* Text color */
-}
-
-body {
-  font-family: "Montserrat", "Arial", sans-serif;
-  background-color: #eee;
-  padding: 0px;
-  color: white; /* Text color */
-}
-
-.row-nav {
-  margin-bottom: 20px;
-}
-
-.row-book {
-  border-radius: 10px;
-  padding: 40px 30px;
-  background-color: #7091e6;
-  margin-bottom: 20px;
-  text-align: left; /* Align text to the left */
-}
-
-.img-responsive {
-  margin: 0 auto;
-  max-height: 300px;
-  width: 100%;
-  height: auto;
-}
-
-.bg-danger {
-  color: red;
-  text-align: center;
-  font-size: 2rem;
-  margin-top: 10px;
-}
-
-.bg-success {
-  color: green;
-  text-align: center;
-}
-
-.card-title {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
-}
-
-.card-text {
-  font-size: 2rem;
-  margin-bottom: 5px;
+.card {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    height: 400px; /* Fixed height for uniformity */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%; /* Ensures cards take up full width of column */
+    margin-bottom: 30px;
+    margin-top: 30px;
+    align-items: center;
 }
 
 .book-cover {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
+    max-height: 200px; /* Adjust based on desired cover size */
+    width: auto;
+    margin: 0 auto 10px; /* Center the image and add bottom margin */
+    border-radius: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-@media (max-width: 768px) {
-  .card {
-    flex-direction: column;
-    margin-left: 0;
-    margin-right: 0;
-  }
-
-  .col-md-4, .col-md-8 {
-    width: 100%;
-  }
-
-  .book-cover {
-    border-radius: 10px 10px 10px 10px;
-  }
+.book-cover:hover {
+    transform: scale(1.05); /* Slightly scale up the image */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow effect */
 }
 
-.container-fluid {
-  padding-left: 20px;
-  padding-right: 20px;
+.book-title {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-top: 10px;
 }
 
-.row-body {
-  display: flex;
-  justify-content: flex-start; /* Align cards to the left */
-  margin-top: 20px;
+.book-author {
+    color: #555;
+    margin-bottom: 10px; /* Ensure spacing at the bottom */
 }
 
-.row-book {
-  display: flex;
-  justify-content: flex-start; /* Align cards to the left */
-  align-items: center; 
+.btn-primary,
+.btn-danger,
+.btn-success {
+    padding: 10px 24px; /* Padding adjustment */
+    font-size: 14px;
+    margin: 0 10px; /* Margin adjustment */
+    transition: background-color 0.3s, border-color 0.3s;
+    width: 100%; /* Button width adjustment */
+    border-radius: 8px;
 }
 
-.book-info {
-  margin-left: 30px; /* Adjusted left margin */
+.btn-primary {
+    background-color: #007bff; /* Primary button color */
+    border-color: #007bff;
+    color: #fff; /* Text color */
 }
 
-.book-info h2{
-  text-align: center;
-   margin-bottom: 10px;
-  color: white;
+.btn-primary:hover {
+    background-color: #0056b3; /* Darker color on hover */
+    border-color: #0056b3;
 }
 
-.book-info h3 {
-  text-align: right; /* Moved to the right */
-  padding-bottom: 20px;
-  
-  color: white;
+.btn-danger {
+    background-color: #dc3545; /* Danger button color */
+    border-color: #dc3545;
+    color: #fff; /* Text color */
 }
 
-.book-info h4, .book-info p {
-  margin-left: 10px;
-  color: white; /* Text color */
+.btn-danger:hover {
+    background-color: #c82333; /* Darker color on hover */
+    border-color: #bd2130;
 }
 
-.book-info p{
-  color: red;
-}  
-
-.book-info .bg-danger {
-  font-size: 2rem;
+.btn-success {
+    background-color: #28a745; /* Success button color */
+    border-color: #28a745;
+    color: #fff; /* Text color */
 }
 
-.book-info button {
-  margin-top: 10px;
-  font-size: 2rem; /* Same size as days late */
-}</css>
+.btn-success:hover {
+    background-color: #218838; /* Darker color on hover */
+    border-color: #1e7e34;
+}
+</css>
         <data_table>sp_instance</data_table>
         <demo_data/>
         <description/>
@@ -157,13 +134,50 @@ body {
         <public>false</public>
         <roles/>
         <script><![CDATA[(function() {
-    // Create an instance of the Script Include
-    var borrowedBooksUtils = new BorrowedBooksUtils();
+    var BorrowedUtils = Class.create();
+    BorrowedUtils.prototype = {
+        initialize: function() {},
 
-    // Call the getBorrowedBooks method
-    var borrowedBooks = borrowedBooksUtils.getBorrowedBooks();
-	
-    data.borrowedBooks = borrowedBooks;
+        getBorrowedBooks: function(userId) {
+            var borrowedBooks = [];
+
+            var borrowGR = new GlideRecord('x_1383151_bkquest_borrow');
+            borrowGR.addQuery('sys_created_by', userId);
+            borrowGR.query();
+
+            while (borrowGR.next()) {
+                var bookInstanceGR = new GlideRecord('x_1383151_bkquest_book_copy');
+                if (bookInstanceGR.get(borrowGR.getValue('book_id'))) {
+                    var bookDefinitionGR = new GlideRecord('x_1383151_bkquest_book');
+                    if (bookDefinitionGR.get(bookInstanceGR.getValue('title'))) {
+                        var coverImageURL = bookDefinitionGR.cover_image ? '/sys_attachment.do?sys_id=' + bookDefinitionGR.cover_image : '';
+
+                        borrowedBooks.push({
+                            borrowSysId: borrowGR.getValue('sys_id'),
+                            bookInstanceSysId: bookInstanceGR.getDisplayValue('sys_id'),
+                            bookDefinitionSysId: bookDefinitionGR.getValue('sys_id'),
+                            bookTitle: bookDefinitionGR.getValue('title'),
+                            bookAuthor: bookDefinitionGR.getValue('author'),
+                            coverImage: coverImageURL,
+                            borrowDate: borrowGR.getValue('borrow_date'),
+                            dueDate: borrowGR.getValue('due_date'),
+                            borrowStatus: borrowGR.getValue('borrow_status')
+                        });
+                    }
+                }
+            }
+
+            return borrowedBooks;
+        },
+
+        type: 'BorrowedUtils'
+    };
+
+    // Usage
+    var borrowedUtils = new BorrowedUtils();
+    var borrowedBooks = borrowedUtils.getBorrowedBooks('harini.srija');
+    gs.info('x_1383151_bkquest: Borrowed Books Details:');
+    gs.info(JSON.stringify(borrowedBooks));
 })();
 ]]></script>
         <servicenow>false</servicenow>
@@ -171,58 +185,35 @@ body {
         <sys_created_by>harini.srija</sys_created_by>
         <sys_created_on>2024-06-04 08:27:35</sys_created_on>
         <sys_id>232fd7c693ee8210ef267c5efaba1049</sys_id>
-        <sys_mod_count>173</sys_mod_count>
+        <sys_mod_count>197</sys_mod_count>
         <sys_name>Borrowed Books</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sp_widget_232fd7c693ee8210ef267c5efaba1049</sys_update_name>
         <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-06-25 04:26:20</sys_updated_on>
-        <template><![CDATA[<!DOCTYPE html>
-<html lang="en" ng-app="myApp">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Borrowed Books</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body ng-controller="myController">
-  <div class="container-fluid">
-    <div class="row row-body">
-      <div class="col-md-2 col-sm-2 col-xs-2"></div>
-      <div class="col-md-8 col-sm-8 col-xs-8">
-        <div class="row row-nav">
-          <h1>My Books</h1>
-        </div>
-        
-        <!-- AngularJS ng-repeat loop to display borrowed books -->
-        <div class="row row-book" ng-repeat="book in c.data.borrowedBooks">
-          <div class="col-md-4 col-sm-5 col-xs-12 book-image">
-            <img ng-src="{{book.coverImage}}" alt="{{book.title}} cover" class="img-responsive">
-          </div>
-          <div class="col-md-8 col-sm-7 col-xs-12 book-info">
-            <h2><strong>{{book.title}}</strong></h2>
-            <h3>Author: {{book.author}}</h3>
-            <h4>Borrow ID: {{book.borrowId}}</h4>
-            <h4>Date Borrowed: {{book.borrowDate}}</h4>
-            <h4>Date Returned: {{book.returnedDate || 'Not returned'}}</h4>
-            <!-- Conditional display based on returned status -->
-            <p class="bg-danger" ng-if="book.returnedDate && isLate(book.returnedDate, book.dueDate)">
-              <strong>Days Late: {{calculateDaysLate(book.returnedDate, book.dueDate)}}</strong>
-            </p>
-            <p class="bg-success" ng-if="book.returnedDate && isLate(book.returnedDate, book.dueDate)">
-              <strong>Returned on time</strong>
-            </p>
-            <!-- Conditional button based on returned status -->
-            <p class="bg-danger" ng-if="book.daysLate > 0"><strong>Days Late: {{book.daysLate}}</strong></p>
-            <button type="submit" class="btn btn-danger col-md-12 col-sm-12 col-xs-12" ng-if="!book.returnedDate && isLate(book.returnedDate, book.dueDate)">Overdue Book</button>
-            <button type="submit" class="btn btn-success col-md-12 col-sm-12 col-xs-12" ng-if="book.returnedDate && !isLate(book.returnedDate, book.dueDate)">Returned</button>
-            <button type="submit" class="btn btn-danger col-md-12 col-sm-12 col-xs-12" ng-if="!book.returnedDate">Overdue Book</button> 
-          </div>
-        </div>
+        <sys_updated_on>2024-06-27 14:51:26</sys_updated_on>
+        <template><![CDATA[<!--<div class="container">
+  <div class="row">
+    <div class="borrowedbook-item col-xs-12 col-sm-6 col-md-3 col-lg-3" ng-repeat="book in c.data.borrowedBooks">
+      <div class="card">
+        <a ng-click="c.openBook(borrowedBooks.bookDefinitionSysId)">
+        <img ng-src="{{book.coverImage}}" alt="{{book.title}} cover" class="book-cover img-responsive">
+        </a>
+      
+        <h3 class="book-title">{{book.title}}</h3>
+         
+        <p class="book-author">{{book.author}}</p> -->
+        <!-- <button type="submit" class="btn btn-primary" ng-if="book.daysLate == 0 && !book.returnedDate">View Details</button> 
+        <button type="submit" class="btn btn-success" ng-if="book.returnedDate" ng-click="c.openBorrowDetails(book.borrowDetails.borrowID)">Book Returned</button>
+        <button type="submit" class="btn btn-danger" ng-if="book.daysLate > 0 && !book.returnedDate" ng-click="c.openBorrowDetails(book.borrowDetails.borrowID)">Overdue Book</button> 
+        <button type="button" class="btn btn-primary" ng-if="book.daysLate == 0 && !book.returnedDate" ng-click="c.openBorrowDetails(book.borrowDetails.borrowID)">View Borrow Details</button>
       </div>
     </div>
-  </div>]]></template>
+  </div>
+</div> -->
+
+<pre>{{data.borrowedBooks | json}}</pre> 
+]]></template>
     </sp_widget>
 </record_update>

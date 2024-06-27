@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_container">
+    <sp_container action="DELETE">
+        <background_color/>
+        <background_image/>
+        <background_style>default</background_style>
+        <bootstrap_alt>false</bootstrap_alt>
+        <class_name>padding-top-lg</class_name>
+        <container_class_name/>
+        <name>BookQuest homepage - Container 7</name>
+        <order>7</order>
+        <semantic_tag/>
+        <sp_page display_value="bookquest_index">363d86a193e60210ef267c5efaba10b7</sp_page>
+        <subheader>false</subheader>
+        <sys_class_name>sp_container</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-06-02 13:12:35</sys_created_on>
+        <sys_id>323d4ae193e60210ef267c5efaba10fd</sys_id>
+        <sys_mod_count>16</sys_mod_count>
+        <sys_name>BookQuest homepage - Container 7</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>sp_container_323d4ae193e60210ef267c5efaba10fd</sys_update_name>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-06-21 06:58:40</sys_updated_on>
+        <title/>
+        <width>container</width>
+    </sp_container>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="BookQuest">327b26db93250210ef267c5efaba100f</application>
+        <file_path/>
+        <instance_id>0535015fdb717d1002d9172913961922</instance_id>
+        <instance_name>dev186731</instance_name>
+        <name>sp_container_323d4ae193e60210ef267c5efaba10fd</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_container"><sp_container action="INSERT_OR_UPDATE"><background_color/><background_image/><background_style>default</background_style><bootstrap_alt>false</bootstrap_alt><class_name>padding-top-lg</class_name><container_class_name/><name>BookQuest homepage - Container 7</name><order>7</order><semantic_tag/><sp_page display_value="bookquest_index">363d86a193e60210ef267c5efaba10b7</sp_page><subheader>false</subheader><sys_class_name>sp_container</sys_class_name><sys_created_by>harini.srija</sys_created_by><sys_created_on>2024-06-02 13:12:35</sys_created_on><sys_id>323d4ae193e60210ef267c5efaba10fd</sys_id><sys_mod_count>16</sys_mod_count><sys_name>BookQuest homepage - Container 7</sys_name><sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package><sys_policy/><sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope><sys_update_name>sp_container_323d4ae193e60210ef267c5efaba10fd</sys_update_name><sys_updated_by>harini.srija</sys_updated_by><sys_updated_on>2024-06-21 06:58:40</sys_updated_on><title/><width>container</width></sp_container></record_update>]]></payload>
+        <payload_hash>-1452396746</payload_hash>
+        <record_name>BookQuest homepage - Container 7</record_name>
+        <reverted_from/>
+        <source>3d9e5eee936e0610ef267c5efaba1086</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-06-21 06:58:40</sys_created_on>
+        <sys_id>fedda62393f20210ef267c5efaba102b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1903997116d0000001</sys_recorded_at>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-06-21 06:58:40</sys_updated_on>
+        <type>Container</type>
+        <update_guid>b6dda62395f20210ccbbfdaf43ecfd2b</update_guid>
+        <update_guid_history>b6dda62395f20210ccbbfdaf43ecfd2b:-1452396746,10bda22320f20210628dd2444031cf9b:-780712427,f58deeef94b20210533622875149a13a:-1452396746,df32b61408f642101217b98557df453e:-780712427,d5023214bdf64210190c3962e2e8dec9:-1452396746,05e3434a366e82106c81dffbe3f3db05:-780712427,7b5f7ac28a6e82100aa8549fab43fd4a:-1452396746,975f3ac2ee6e8210951a0193c2c0acfa:-780712427,90befa82686e82107b859559296496b8:-1452396746,15cd5db15f66421046eb36da64622fa8:-780712427,b62d91b12c664210854dd6458d8e38b6:-109028108,89dcd971326642109294911e051aaa6f:-780712427,f384dee9c9e6021070d2b2c603eababb:-109028108,9f24dae9b3e602104c0309d766a9d4df:562656211,0c729a6954e6021003f70d81bf8201be:-109028108,a48d4ae108e60210a85e2c22254499b3:-330898791,f23d4ae1dae60210bf6882a1d52194fe:1583971713</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="BookQuest homepage - Container 7">ea9eb421934f8210ef267c5efaba1065</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-06-27 04:00:26</sys_created_on>
+        <sys_db_object display_value="" name="sp_container">sp_container</sys_db_object>
+        <sys_id>087f86e1e5314d5297ad6a561cad1644</sys_id>
+        <sys_metadata>323d4ae193e60210ef267c5efaba10fd</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>BookQuest homepage - Container 7</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_scope_delete display_value="">18e926194902432895b35f3c99259089</sys_scope_delete>
+        <sys_update_name>sp_container_323d4ae193e60210ef267c5efaba10fd</sys_update_name>
+        <sys_update_version display_value="sp_container_323d4ae193e60210ef267c5efaba10fd">fedda62393f20210ef267c5efaba102b</sys_update_version>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-06-27 04:00:26</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
