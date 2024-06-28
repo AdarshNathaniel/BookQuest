@@ -1,23 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
     <sp_widget action="INSERT_OR_UPDATE">
         <category>custom</category>
-        <client_script><![CDATA[api.controller = function($location, $scope, spUtil) {
+        <client_script><![CDATA[api.controller = function($location, $scope, spUtil, $window, spModal) {
 	var c = this;
+
+	// Helper function to capitalize the first letter
+	function capitalizeFirstLetter(string) {
+		return string.charAt(0).toUpperCase() + string.slice(1);
+	}
+
+	// Format the book details on initialization
+	function formatBookDetails() {
+		if (c.data.book) {
+			c.data.book.language = capitalizeFirstLetter(c.data.book.language);
+			c.data.book.type = capitalizeFirstLetter(c.data.book.type);
+		}
+	}
+
+	// Initial call to format book details
+	formatBookDetails();
 
 	c.borrowBook = function() {
 		c.server.get({
 			action: 'borrowBook',
 			bookSysId: c.data.book.sys_id
 		}).then(function(response) {
-			if (response.success) {
-				spUtil.addInfoMessage('Book borrowed successfully!');
+			if (response.data.response.success) {
+				var imageUrl = "x_1383151_bkquest.success3.gif";
+				var message = '<div style="text-align:center;">' +
+						'<center><img src="' + imageUrl + '" alt="Success"><br>' +
+						'You can now collect the <b> Book ID: </b>' + response.data.response.borrowedBookId + ' from the Library. <br> Happy Reading :) </center>' +
+						'</div>';
+				spModal.open({
+					title: 'Book Borrowed Successfully',
+					message: message,
+					buttons: [{ label: 'OK', primary: true }]
+				}).then(function() {
+					$window.location.reload();
+				});
 			} else {
-				spUtil.addErrorMessage(response.message || 'No available books to borrow.');
+				sessionStorage.setItem('errorMessage', response.data.response.message || 'No available books to borrow.');
+				$window.location.reload();
 			}
 		});
 	};
 
-};]]></client_script>
+	c.reserveBook = function() {
+		c.server.get({
+			action: 'reserveBook',
+			bookSysId: c.data.book.sys_id
+		}).then(function(response) {
+			if (response.data.response.success) {
+				var imageUrl = "x_1383151_bkquest.success3.gif";
+				var message = '<div style="text-align:center;">' +
+						'<center><img src="' + imageUrl + '" alt="Success"><br>' +
+						'<b> We will notify you via email once the book is available again. <br> Thank you for your patience :) </b></center>' +
+						'</div>';
+				spModal.open({
+					title: 'Book Reserved Successfully',
+					message: message,
+					buttons: [{ label: 'OK', primary: true }]
+				}).then(function() {
+					$window.location.reload();
+				});
+			} else {
+				sessionStorage.setItem('errorMessage', response.data.response.message || 'Failed to reserve the book.');
+				$window.location.reload();
+			}
+		});
+	};
+
+	// Display the message after page reload
+	var infoMessage = sessionStorage.getItem('infoMessage');
+	if (infoMessage) {
+		spUtil.addInfoMessage(infoMessage);
+		sessionStorage.removeItem('infoMessage');
+	}
+
+	var errorMessage = sessionStorage.getItem('errorMessage');
+	if (errorMessage) {
+		spUtil.addErrorMessage(errorMessage);
+		sessionStorage.removeItem('errorMessage');
+	}
+
+	var borrowedBookId = sessionStorage.getItem('borrowedBookId');
+	if (borrowedBookId) {
+		c.data.borrowedBookId = borrowedBookId;
+		sessionStorage.removeItem('borrowedBookId');
+	}
+};
+]]></client_script>
         <controller_as>c</controller_as>
         <css>.book-details-card {
   margin-top: 20px;
@@ -50,9 +122,9 @@
 }
 
 .card-subtitle 
-  font-size: 1.5em; /* Adjusted size for author */
-  margin-bottom: 15px;
-  color: #555;
+font-size: 1.5em; /* Adjusted size for author */
+margin-bottom: 15px;
+color: #555;
 }
 
 .card-text {
@@ -63,12 +135,14 @@
   font-size: 1.2em;
   font-weight: bold;
   margin-top: 10px;
+  text-align: left; /* Ensure the term is left-aligned */
 }
 
 .dl-horizontal dd {
   font-size: 1.2em;
   margin-left: 10px;
   margin-top: 10px;
+  text-align: left; /* Ensure the description is left-aligned */
 }
 
 /* CSS for the Borrow button */
@@ -106,6 +180,21 @@
   border-color: #ADBBDA;
   transform: translateY(-2px); /* Slight lift on hover */
 }
+
+/* CSS for the book instance ID 
+.button-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.book-instance-id {
+  font-weight: bold;
+  margin-top: 10px;
+  font-size: 1.2em;
+  color: #555;
+}
+*/
 </css>
         <data_table>sp_instance</data_table>
         <demo_data/>
@@ -125,12 +214,17 @@
 	var bookDetails = new BookDetailsScript(); // Initialize the BookDetailsScript script include
 	var bookAvailability = new BookAvailability(); // Initialize BookAvailability script include
 
-	if (input && input.action) {
-		if (input.action === 'borrowBook') {
-			var result = {};
-			var availableBookIds = bookAvailability.getAvailableBookIds(input.bookSysId);
+	var result = {};
+	var currentUser = gs.getUserID();
 
-			if (availableBookIds.length > 0) {
+	if (input && input.action === 'borrowBook') {
+		var availableBookIds = bookAvailability.getAvailableBookIds(input.bookSysId);
+
+		if (availableBookIds.length > 0) {
+			var bookInstanceGR = new GlideRecord('x_1383151_bkquest_book_copy');
+			if (bookInstanceGR.get(availableBookIds[0])) {
+				var actualBookId = bookInstanceGR.getValue('number'); // Get the actual book instance ID (number)
+
 				var borrowGR = new GlideRecord('x_1383151_bkquest_borrow');
 				borrowGR.initialize();
 				borrowGR.setValue('user_id', gs.getUserID()); // Set the user ID here
@@ -138,37 +232,56 @@
 				borrowGR.insert();
 
 				result.success = true;
+				result.message = 'Yay, Book borrowed successfully! Please collect Book ID ' + actualBookId + ' from the Library';
+				result.borrowedBookId = actualBookId; // Return the actual book ID
 			} else {
 				result.success = false;
-				result.message = 'Nope, No available books to borrow.';
+				result.message = 'Unable to retrieve the actual book ID.';
 			}
-
-			data.response = result;
+		} else {
+			result.success = false;
+			result.message = 'Sorry, no more books available to borrow.';
 		}
-	} else {
-		// Get book details
-		data.book = bookDetails.getBookDetails(bookSysId);
 
-		// Check if book is available
-		data.isBookAvailable = bookAvailability.isBookAvailable(bookSysId);
-		// Check if no book instance is available
+		data.response = result; // Ensure the response is correctly set
+	} else if (input && input.action === 'reserveBook') {
+		var reservationGR = new GlideRecord('x_1383151_bkquest_reservation');
+		reservationGR.initialize();
+		reservationGR.setValue('book_isbn', bookSysId);
+		reservationGR.setValue('user_id', currentUser);
+		reservationGR.insert();
+
+		result.success = true;
+		result.message = 'Book reserved successfully! You will be notified through mail when the book becomes available again';
+
+		data.response = result; // Ensure the response is correctly set
+	} else {
+		// Handle getting book details and availability here
+		data.book = bookDetails.getBookDetails(bookSysId);
+		data.isBookAvailable = bookAvailability.isBookAvailable(data.book.sys_id);
 		data.isBookNotAvailable = !data.isBookAvailable; // Invert the availability flag
+
+		// Check if the user has already reserved this book
+		var reservationCheckGR = new GlideRecord('x_1383151_bkquest_reservation');
+		reservationCheckGR.addQuery('book_isbn', bookSysId);
+		reservationCheckGR.addQuery('user_id', currentUser);
+		reservationCheckGR.query();
+		data.isAlreadyReserved = reservationCheckGR.hasNext();
 	}
-})();
-]]></script>
+})();]]></script>
         <servicenow>false</servicenow>
         <sys_class_name>sp_widget</sys_class_name>
         <sys_created_by>adarsh.nathaniel</sys_created_by>
         <sys_created_on>2024-06-14 05:39:58</sys_created_on>
         <sys_id>39b8525d93720210ef267c5efaba1001</sys_id>
-        <sys_mod_count>114</sys_mod_count>
+        <sys_mod_count>178</sys_mod_count>
         <sys_name>Book Details Widget v1</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sp_widget_39b8525d93720210ef267c5efaba1001</sys_update_name>
         <sys_updated_by>adarsh.nathaniel</sys_updated_by>
-        <sys_updated_on>2024-06-20 11:09:10</sys_updated_on>
+        <sys_updated_on>2024-06-28 05:30:32</sys_updated_on>
         <template><![CDATA[<div class="container book-details-card">
   <div class="row">
     <div class="col-md-3">
@@ -186,9 +299,13 @@
           <h3 class="card-title">Plot Summary</h3>
           <p class="card-text">{{c.data.book.plot_summary}}</p>
           <!-- Borrow button with ng-if based on availability -->
-            <button ng-if="c.data.isBookAvailable" class="btn btn-primary btn-lg" title="Book Available! Click to Borrow" ng-click="c.borrowBook()">Borrow</button>
-          <!-- Reserve button with ng-if based on non-availability -->
-            <button ng-if="c.data.isBookNotAvailable" class="btn btn-secondary btn-lg" title="Book Unavailable! Click to Reserve">Reserve</button>
+          <button ng-if="c.data.isBookAvailable" class="btn btn-primary btn-lg" title="Book Available! Click to Borrow" ng-click="c.borrowBook()">Borrow</button>
+          <!-- Reserve button with ng-if based on non-availability and not already reserved -->
+          <button ng-if="c.data.isBookNotAvailable && !c.data.isAlreadyReserved" class="btn btn-secondary btn-lg" title="Book Unavailable! Click to Reserve" ng-click="c.reserveBook()">Reserve</button>
+          <!-- Reserved button with ng-if based on already reserved -->
+          <button ng-if="c.data.isAlreadyReserved" class="btn btn-secondary btn-lg" title="Book Already Reserved" disabled>Reserved</button>
+          <!-- Display book instance ID beside the button -->
+          <!--<span ng-if="c.data.borrowedBookId" class="ml-3 button-container book-instance-id">You can now collect the Book ID: {{c.data.borrowedBookId}} from the Library</span>-->
         </div>
       </div>
       <div class="row">
@@ -225,7 +342,6 @@
       </div>
     </div>
   </div>
-</div>
-]]></template>
+</div>]]></template>
     </sp_widget>
 </record_update>
