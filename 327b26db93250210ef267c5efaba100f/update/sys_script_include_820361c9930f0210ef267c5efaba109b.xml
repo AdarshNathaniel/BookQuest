@@ -9,14 +9,15 @@
         <name>BorrowedUtils</name>
         <script><![CDATA[var BorrowedUtils = Class.create();
 BorrowedUtils.prototype = {
+
     initialize: function() {},
 
     getBorrowedBooks: function() {
-        var userSysId = gs.getUserID();
+        var userId = gs.getUserID();
         var borrowedBooks = [];
 
         var borrowGR = new GlideRecord('x_1383151_bkquest_borrow');
-        borrowGR.addQuery('sys_created_by', userSysId);
+        borrowGR.addQuery('sys_created_by', userId);
         borrowGR.query();
 
         while (borrowGR.next()) {
@@ -26,7 +27,6 @@ BorrowedUtils.prototype = {
                 if (bookDefinitionGR.get(bookInstanceGR.getValue('title'))) {
                     var coverImageURL = bookDefinitionGR.cover_image ? '/sys_attachment.do?sys_id=' + bookDefinitionGR.cover_image : '';
 
-                    // Add field names without calculating initial values
                     borrowedBooks.push({
                         borrowSysId: borrowGR.getValue('sys_id'),
                         bookInstanceSysId: bookInstanceGR.getDisplayValue('sys_id'),
@@ -36,9 +36,6 @@ BorrowedUtils.prototype = {
                         coverImage: coverImageURL,
                         borrowDate: borrowGR.getValue('borrow_date'),
                         dueDate: borrowGR.getValue('due_date'),
-                        returnedDate: borrowGR.getValue('returned_date'),      
-                        fineAmount: borrowGR.getValue('fine_amount'),
-                        daysLate: borrowGR.getValue('days_late'),       
                         borrowStatus: borrowGR.getValue('borrow_status')
                     });
                 }
@@ -55,13 +52,13 @@ BorrowedUtils.prototype = {
         <sys_created_by>harini.srija</sys_created_by>
         <sys_created_on>2024-06-25 17:23:19</sys_created_on>
         <sys_id>820361c9930f0210ef267c5efaba109b</sys_id>
-        <sys_mod_count>7</sys_mod_count>
+        <sys_mod_count>8</sys_mod_count>
         <sys_name>BorrowedUtils</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sys_script_include_820361c9930f0210ef267c5efaba109b</sys_update_name>
         <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-06-27 14:27:55</sys_updated_on>
+        <sys_updated_on>2024-06-27 15:37:13</sys_updated_on>
     </sys_script_include>
 </record_update>

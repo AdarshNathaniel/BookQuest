@@ -134,50 +134,42 @@
         <public>false</public>
         <roles/>
         <script><![CDATA[(function() {
-    var BorrowedUtils = Class.create();
-    BorrowedUtils.prototype = {
-        initialize: function() {},
+    // Instantiate the BorrowedBooksUtils if necessary
+    var borrowedBooksUtils = new BorrowedBooksUtils();
 
-        getBorrowedBooks: function(userId) {
-            var borrowedBooks = [];
+    // Retrieve borrowed books information
+    var borrowedBooks = borrowedBooksUtils.getBorrowedBooks();
 
-            var borrowGR = new GlideRecord('x_1383151_bkquest_borrow');
-            borrowGR.addQuery('sys_created_by', userId);
-            borrowGR.query();
-
-            while (borrowGR.next()) {
-                var bookInstanceGR = new GlideRecord('x_1383151_bkquest_book_copy');
-                if (bookInstanceGR.get(borrowGR.getValue('book_id'))) {
-                    var bookDefinitionGR = new GlideRecord('x_1383151_bkquest_book');
-                    if (bookDefinitionGR.get(bookInstanceGR.getValue('title'))) {
-                        var coverImageURL = bookDefinitionGR.cover_image ? '/sys_attachment.do?sys_id=' + bookDefinitionGR.cover_image : '';
-
-                        borrowedBooks.push({
-                            borrowSysId: borrowGR.getValue('sys_id'),
-                            bookInstanceSysId: bookInstanceGR.getDisplayValue('sys_id'),
-                            bookDefinitionSysId: bookDefinitionGR.getValue('sys_id'),
-                            bookTitle: bookDefinitionGR.getValue('title'),
-                            bookAuthor: bookDefinitionGR.getValue('author'),
-                            coverImage: coverImageURL,
-                            borrowDate: borrowGR.getValue('borrow_date'),
-                            dueDate: borrowGR.getValue('due_date'),
-                            borrowStatus: borrowGR.getValue('borrow_status')
-                        });
-                    }
-                }
-            }
-
-            return borrowedBooks;
-        },
-
-        type: 'BorrowedUtils'
-    };
-
-    // Usage
-    var borrowedUtils = new BorrowedUtils();
-    var borrowedBooks = borrowedUtils.getBorrowedBooks('harini.srija');
+    // Logging borrowed books details
     gs.info('x_1383151_bkquest: Borrowed Books Details:');
     gs.info(JSON.stringify(borrowedBooks));
+
+    // Example queries for specific records
+    var borrowGR = new GlideRecord('x_1383151_bkquest_borrow');
+    borrowGR.addQuery('sys_id', '7e4092ae932e0610ef267c5efaba10c6'); // Example borrow record sys_id
+    borrowGR.query();
+    if (borrowGR.next()) {
+        var bookInstanceId = borrowGR.getValue('book_id');
+        gs.info("Book Instance ID: " + bookInstanceId);
+
+        var bookInstanceGR = new GlideRecord('x_1383151_bkquest_book_copy');
+        bookInstanceGR.addQuery('sys_id', bookInstanceId);
+        bookInstanceGR.query();
+        if (bookInstanceGR.next()) {
+            var bookDefinitionId = bookInstanceGR.getValue('title');
+            gs.info("Book Copy Instance ID: " + bookInstanceGR.getDisplayValue('sys_id'));
+
+            var bookDefinitionGR = new GlideRecord('x_1383151_bkquest_book');
+            bookDefinitionGR.addQuery('sys_id', bookDefinitionId);
+            bookDefinitionGR.query();
+            if (bookDefinitionGR.next()) {
+                gs.info("Book Definition ID: " + bookDefinitionGR.getDisplayValue('sys_id'));
+                gs.info("Book Title: " + bookDefinitionGR.getDisplayValue('title'));
+                gs.info("Book Author: " + bookDefinitionGR.getDisplayValue('author'));
+                gs.info("Cover Image URL: " + (bookDefinitionGR.cover_image ? '/sys_attachment.do?sys_id=' + bookDefinitionGR.cover_image : ''));
+            }
+        }
+    }
 })();
 ]]></script>
         <servicenow>false</servicenow>
@@ -185,14 +177,14 @@
         <sys_created_by>harini.srija</sys_created_by>
         <sys_created_on>2024-06-04 08:27:35</sys_created_on>
         <sys_id>232fd7c693ee8210ef267c5efaba1049</sys_id>
-        <sys_mod_count>197</sys_mod_count>
+        <sys_mod_count>205</sys_mod_count>
         <sys_name>Borrowed Books</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sp_widget_232fd7c693ee8210ef267c5efaba1049</sys_update_name>
         <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-06-27 14:51:26</sys_updated_on>
+        <sys_updated_on>2024-06-27 17:02:42</sys_updated_on>
         <template><![CDATA[<!--<div class="container">
   <div class="row">
     <div class="borrowedbook-item col-xs-12 col-sm-6 col-md-3 col-lg-3" ng-repeat="book in c.data.borrowedBooks">

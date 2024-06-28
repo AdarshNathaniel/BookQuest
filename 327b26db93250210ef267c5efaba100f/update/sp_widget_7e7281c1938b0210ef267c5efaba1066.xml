@@ -5,8 +5,8 @@
     var c = this;
 
     // Function to navigate to the detailed author page
-    c.openBorrowBooks = function(sysID) {
-			console.log(sysID);
+    c.openBorrowBooks = function(borrowSysId) {
+			console.log(borrowSysId);
         var portalURL = $location.absUrl().split('?')[0];
         var pageID = 'author_page'; 
         var url = portalURL + '?id=' + pageID + '&sys_id=' + sysID;
@@ -108,37 +108,127 @@ color: #555;
         <public>false</public>
         <roles/>
         <script><![CDATA[(function() {
-    // Create an instance of the Script Include
-    var borrowedBooksUtils = new BorrowedBooksUtils();
+    console.log("Fetching borrowed book details...");
 
-    // Call the getBorrowedBooks method
-    var borrowedBooks = borrowedBooksUtils.getBorrowedBooks();
-	
-    data.borrowedBooks = borrowedBooks;
+    var currentUserId = gs.getUserID();
+    var borrowedBooks = [];
+	  data.borrowDetails = [];
+
+    // Create a GlideRecord object for the Borrow table
+    var borrowGR = new GlideRecord('x_1383151_bkquest_borrow');
+
+    // Add a query to filter records by the current user ID
+    borrowGR.addQuery('user_id', currentUserId);
+    borrowGR.query();
+
+    // Iterate through the Borrow records for the current user
+    while (borrowGR.next()) {
+        // Get the Book Instance ID from the Borrow record
+        var bookInstanceId = borrowGR.book_id;
+
+        if (!bookInstanceId) {
+            continue; // Skip if no book instance ID
+        }
+
+        // Create a GlideRecord object for the Book Instance table
+        var bookInstanceGR = new GlideRecord('x_1383151_bkquest_book_copy');
+
+        // Ensure the book instance record is found
+        if (bookInstanceGR.get(bookInstanceId)) {
+            // Get the Book ID from the Book Instance record
+            var bookId = bookInstanceGR.title;
+
+            // Create a GlideRecord object for the Book Definition table
+            var bookDefinitionGR = new GlideRecord('x_1383151_bkquest_book');
+
+            // Ensure the book definition record is found
+            if (bookDefinitionGR.get(bookId)) {
+                // Now fetch borrow details using the borrowGR record
+                var borrowDetails = fetchBorrowDetails(borrowGR.sys_id.toString());
+
+                // Get the cover image URL
+                var coverImageURL = bookDefinitionGR.cover_image ? '/sys_attachment.do?sys_id=' + bookDefinitionGR.cover_image : '';
+
+                // Add the book details to the result array
+                borrowedBooks.push({
+                    borrowSysId: borrowGR.sys_id.toString(),
+                    borrowId: borrowGR.number.toString(),
+                    borrowDate: borrowGR.borrow_date.toString(),
+                    dueDate: borrowGR.due_date.toString(),
+                    returnedDate: borrowGR.returned_date.toString(),
+                    daysLate: borrowGR.days_late.toString(),
+                    fineAmount: borrowGR.fine_amount.toString(),
+                    finePaidDate: borrowGR.fine_paid_date.toString(),
+                    title: bookDefinitionGR.title.toString(),
+                    sys_id: bookDefinitionGR.sys_id.toString(),
+                    user_id: currentUserId, // Include user_id here
+                    coverImage: coverImageURL,
+                    borrowDetails: borrowDetails // Include borrow details
+                });
+            } else {
+                gs.info("Book definition record not found for book instance ID: " + bookInstanceId);
+            }
+        } else {
+            gs.info("Book instance record not found for ID: " + bookInstanceId);
+        }
+    }
+
+    // Log borrowed books details
+    console.log("Borrowed Books Details:");
+    console.log(borrowedBooks);
+
+    // Return the result to the client
+    // You can optionally return the borrowedBooks array or do further processing here
 })();
+
+// Function to fetch borrow details based on borrow sys_id
+function fetchBorrowDetails(borrowSysId) {
+    var borrowDetails = {};
+
+    // Create a GlideRecord object for the Borrow table
+    var borrowGR = new GlideRecord('x_1383151_bkquest_borrow');
+	  borrowGR.addQuery('user_id', gs.getUserID());
+    borrowGR.query();
+    if (borrowGR.get(borrowSysId)) {
+        // Populate borrow details
+        data.borrowDetails.push({
+            borrowId: borrowGR.number.toString(),
+            borrowDate: borrowGR.borrow_date.toString(),
+            dueDate: borrowGR.due_date.toString(),
+            returnedDate: borrowGR.returned_date.toString(),
+            daysLate: borrowGR.days_late.toString(),
+            fineAmount: borrowGR.fine_amount.toString(),
+            finePaidDate: borrowGR.fine_paid_date.toString()
+        });
+    } else {
+        gs.info("Borrow record not found for sys_id: " + borrowSysId);
+    }
+console.log("GGGGGGG",data.borrowDetails)
+   // return borrowDetails;
+}
 ]]></script>
         <servicenow>false</servicenow>
         <sys_class_name>sp_widget</sys_class_name>
         <sys_created_by>harini.srija</sys_created_by>
         <sys_created_on>2024-06-25 15:00:25</sys_created_on>
         <sys_id>7e7281c1938b0210ef267c5efaba1066</sys_id>
-        <sys_mod_count>28</sys_mod_count>
+        <sys_mod_count>59</sys_mod_count>
         <sys_name>borrow Details</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sp_widget_7e7281c1938b0210ef267c5efaba1066</sys_update_name>
         <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-06-27 12:57:04</sys_updated_on>
+        <sys_updated_on>2024-06-28 06:27:40</sys_updated_on>
         <template><![CDATA[<div class="container book-details-card">
   <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-3" ng-repeat="borrowDetails in c.data.borrowDetails">
       <div class="card text-center">
         <div class="card-body">
-          <img class="card-img-top img-responsive" ng-src="{{c.data.borrowedBooks[0].coverImage}}" alt="{{c.data.borrowedBooks[0].title}} cover">
-          <h4 class="card-title">{{c.data.borrowedBooks[0].title}}</h4>
-          <h5 class="card-subtitle text-muted">{{c.data.borrowedBooks[0].author}}</h5>
-          <button type="button" class="btn btn-primary" ng-click="c.borrowedBooks">Extend</button>
+          <img class="card-img-top img-responsive" ng-src="{{borrowDetails.coverImage}}" alt="{{borrowDetails.title}} cover">
+          <h4 class="card-title">{{borrowDetails.title}}</h4>
+          <h5 class="card-subtitle text-muted">{{borrowDetails.author}}</h5>
+          <button type="button" class="btn btn-primary" ng-click="c.openBorrowBooks(borrowDetails.sys_id)">Extend</button>
         </div>
       </div>
     </div>
@@ -150,35 +240,35 @@ color: #555;
         </div>
       </div>
       <div class="row">
-        <div class="col-sm-6" ng-repeat="borrowedBook in c.data.borrowedBooks">
+        <div class="col-sm-6" ng-repeat="borrowDetails in c.data.borrowDetails">
           <div class="card h-100">
             <div class="card-body d-flex flex-column">
               <h3>Borrow Information</h3>
               <dl class="dl-horizontal flex-grow-1">
                 <dt>Borrow ID:</dt>
-                <dd>{{borrowedBook.borrowId}}</dd>
+                <dd>{{borrowDetails.borrowId}}</dd>
                 <dt>Borrow Date:</dt>
-                <dd>{{borrowedBook.borrowDate}}</dd>
+                <dd>{{borrowDetails.borrowDate}}</dd>
                 <dt>Due Date:</dt>
-                <dd>{{borrowedBook.dueDate}}</dd>
+                <dd>{{borrowDetails.dueDate}}</dd>
                 <dt>Returned Date:</dt>
-                <dd>{{borrowedBook.returnedDate}}</dd>
+                <dd>{{borrowDetails.returnedDate}}</dd>
               </dl>
             </div>
           </div>
-          <button ng-if="c.data.isBookAvailable" class="btn btn-primary btn-lg mt-3" title="Extend Borrow Period" ng-click="c.extendBorrow(borrowedBook.borrowId)">Extend</button>
+          <button ng-if="c.data.isBookAvailable" class="btn btn-primary btn-lg mt-3" title="Extend Borrow Period" ng-click="c.extendBorrow(borrowDetails.borrowId)">Extend</button>
         </div>
-        <div class="col-sm-6" ng-repeat="borrowedBook in c.data.borrowedBooks">
+        <div class="col-sm-6" ng-repeat="borrowDetails in c.data.borrowDetails">
           <div class="card h-100">
             <div class="card-body d-flex flex-column">
               <h3>Fine Details</h3>
               <dl class="dl-horizontal flex-grow-1">
                 <dt>Days Late:</dt>
-                <dd>{{borrowedBook.daysLate}}</dd>
+                <dd>{{borrowDetails.daysLate}}</dd>
                 <dt>Fine Amount:</dt>
-                <dd>${{borrowedBook.fineAmount}}</dd>
+                <dd>${{borrowDetails.fineAmount}}</dd>
                 <dt>Fine Paid Date:</dt>
-                <dd>{{borrowedBook.finePaidDate}}</dd>
+                <dd>{{borrowDetails.finePaidDate}}</dd>
               </dl>
             </div>
           </div>
