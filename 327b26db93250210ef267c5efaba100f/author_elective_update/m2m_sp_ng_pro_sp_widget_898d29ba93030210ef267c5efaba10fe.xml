@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sp_ng_pro_sp_widget">
+    <m2m_sp_ng_pro_sp_widget action="DELETE">
+        <sp_angular_provider display_value="ecMultilineEllipsisTooltip">4de01d4677d530109033bfeacf5a9992</sp_angular_provider>
+        <sp_widget display_value="Filter Books">fc8da9f693030210ef267c5efaba1078</sp_widget>
+        <sys_class_name>m2m_sp_ng_pro_sp_widget</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-01 04:37:49</sys_created_on>
+        <sys_id>898d29ba93030210ef267c5efaba10fe</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>ecMultilineEllipsisTooltip.Filter Books</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>m2m_sp_ng_pro_sp_widget_898d29ba93030210ef267c5efaba10fe</sys_update_name>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-01 04:37:49</sys_updated_on>
+    </m2m_sp_ng_pro_sp_widget>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="BookQuest">327b26db93250210ef267c5efaba100f</application>
+        <file_path/>
+        <instance_id>0535015fdb717d1002d9172913961922</instance_id>
+        <instance_name>dev186731</instance_name>
+        <name>m2m_sp_ng_pro_sp_widget_898d29ba93030210ef267c5efaba10fe</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sp_ng_pro_sp_widget"><m2m_sp_ng_pro_sp_widget action="INSERT_OR_UPDATE"><sp_angular_provider display_value="ecMultilineEllipsisTooltip">4de01d4677d530109033bfeacf5a9992</sp_angular_provider><sp_widget display_value="Filter Books">fc8da9f693030210ef267c5efaba1078</sp_widget><sys_class_name>m2m_sp_ng_pro_sp_widget</sys_class_name><sys_created_by>harini.srija</sys_created_by><sys_created_on>2024-07-01 04:37:49</sys_created_on><sys_id>898d29ba93030210ef267c5efaba10fe</sys_id><sys_mod_count>0</sys_mod_count><sys_name>ecMultilineEllipsisTooltip.Filter Books</sys_name><sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package><sys_policy/><sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope><sys_update_name>m2m_sp_ng_pro_sp_widget_898d29ba93030210ef267c5efaba10fe</sys_update_name><sys_updated_by>harini.srija</sys_updated_by><sys_updated_on>2024-07-01 04:37:49</sys_updated_on></m2m_sp_ng_pro_sp_widget></record_update>]]></payload>
+        <payload_hash>1615986764</payload_hash>
+        <record_name>ecMultilineEllipsisTooltip.Filter Books</record_name>
+        <reverted_from/>
+        <source>3d9e5eee936e0610ef267c5efaba1086</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-01 04:37:49</sys_created_on>
+        <sys_id>898d69ba93030210ef267c5efaba1000</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1906c95b8c50000001</sys_recorded_at>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-01 04:37:49</sys_updated_on>
+        <type>Angular Providers</type>
+        <update_guid>cd8d29ba3703021076fda1eac4a2ffff</update_guid>
+        <update_guid_history>cd8d29ba3703021076fda1eac4a2ffff:1615986764</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="ecMultilineEllipsisTooltip.Filter Books">df227dfe93030210ef267c5efaba1046</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-01 04:58:12</sys_created_on>
+        <sys_db_object display_value="" name="m2m_sp_ng_pro_sp_widget">m2m_sp_ng_pro_sp_widget</sys_db_object>
+        <sys_id>75ae7b5effba4ae0b82a580e403aee10</sys_id>
+        <sys_metadata>898d29ba93030210ef267c5efaba10fe</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>ecMultilineEllipsisTooltip.Filter Books</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_scope_delete display_value="">18e926194902432895b35f3c99259089</sys_scope_delete>
+        <sys_update_name>m2m_sp_ng_pro_sp_widget_898d29ba93030210ef267c5efaba10fe</sys_update_name>
+        <sys_update_version display_value="m2m_sp_ng_pro_sp_widget_898d29ba93030210ef267c5efaba10fe">898d69ba93030210ef267c5efaba1000</sys_update_version>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-01 04:58:12</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

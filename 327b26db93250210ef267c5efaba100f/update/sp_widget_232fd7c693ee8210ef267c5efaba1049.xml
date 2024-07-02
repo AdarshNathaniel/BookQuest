@@ -1,123 +1,258 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
     <sp_widget action="INSERT_OR_UPDATE">
         <category>custom</category>
-        <client_script><![CDATA[api.controller = function($location, $scope) {
-    var c = this;
+        <client_script><![CDATA[
+    (function() {
+        var app = angular.module('bookApp', []);
 
-    c.openBook = function(bookDefinitionSysId) {
-        var portalURL = $location.absUrl().split('?')[0];
-        var pageID = 'book_details_page_v1'; // Replace with your actual page ID for book details
-        var url = portalURL + '?id=' + pageID + '&sys_id=' + bookDefinitionSysId;
-        window.location.href = url;
-    };
+        app.controller('BookController', function($location, $scope, spUtil, $http) {
+            var c = this;
+            c.filterQuery = '';
+            c.selectedCategory = 'returned'; // Default category
 
-    c.openBorrowDetails = function(borrowID) {
-        var portalURL = $location.absUrl().split('?')[0];
-        var pageID = 'borrow_details'; // Replace with your actual page ID for borrow details
-        var url = portalURL + '?id=' + pageID + '&sys_id=' + borrowID;
-        window.location.href = url;
-    };
+            c.openBook = function(sys_id) {
+                var portalURL = $location.absUrl().split('?')[0];
+                var pageID = 'book_details_page_v1';
+                var url = portalURL + '?id=' + pageID + '&sys_id=' + sys_id;
+                window.location.href = url;
+            };
 
-    // Load all borrowed books initially
-    c.data = {};
-    c.data.borrowedBooks = [];
-    c.onLoadLoadAllBooks = function() {
-        c.server.get().then(function(response) {
-            c.data.borrowedBooks = response.data.borrowedBooks;
+            c.openBorrowDetails = function(user_id) {
+                var portalURL = $location.absUrl().split('?')[0];
+                var pageID = 'borrow_details';
+                var url = portalURL + '?id=' + pageID + '&user_id=' + user_id;
+                window.location.href = url;
+            };
+
+            c.onLoadLoadAllBooks = function() {
+                c.filteredReturnedBooks = angular.copy(c.returnedBooks);
+                c.filteredOverdueBooks = angular.copy(c.overdueBooks);
+            };
+
+            c.filterBooks = function() {
+                var query = c.filterQuery.toLowerCase();
+                if (c.selectedCategory === 'returned') {
+                    c.filteredReturnedBooks = c.returnedBooks.filter(function(book) {
+                        return book.title.toLowerCase().includes(query) || book.author.toLowerCase().includes(query);
+                    });
+                } else if (c.selectedCategory === 'overdue') {
+                    c.filteredOverdueBooks = c.overdueBooks.filter(function(book) {
+                        return book.title.toLowerCase().includes(query) || book.author.toLowerCase().includes(query);
+                    });
+                }
+            };
+
+            // Load books data (example with hardcoded data for demonstration)
+            c.returnedBooks = [
+                // Populate with your data
+            ];
+            c.overdueBooks = [
+                // Populate with your data
+            ];
+            c.recentlyBorrowedBooks = [
+                // Populate with your data if needed
+            ];
+            c.onLoadLoadAllBooks();
         });
-    };
-};
+    })();
+
 ]]></client_script>
         <controller_as>c</controller_as>
-        <css>.book-item {
-    margin-bottom: 20px;
+        <css>* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    /* background-color: #f9f8eb; */
+    background-color: #FAF0E6;
+    font-family: Arial, Helvetica, sans-serif
+}
+
+
+#bookList {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 20px;
+    padding: 10px;
+}
+#hero {
     display: flex;
+    width: 100%;
+    height: 440px;
+    background-color:#FAEBD7;
+}
+
+#hero-img {
+    width: 30%;
+    height: 380px;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.ribbon {
+  width: 0px;
+  height: 200px;
+  background-color: transparent;
+  position: absolute;
+  top: -5px;
+  right: 20px;
+  border: solid 15px #B13A22;
+  border-bottom: solid 15px transparent;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.ribbon:hover {
+    height: 350px;
+  }
+
+.hero-text {
+    display: flex;
+    flex-wrap: wrap;
+    font-family: 'EB Garamond', serif;
+    color: black;
+}
+.hero-text .booksRecs {
+    text-align: center;
+    margin-left: 100px;
+    font-size: 50px;
+    margin-bottom: 0px;
+}
+
+#divider {
+    margin-left: 375px;
+    margin-top: 0px;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.blurb {
+    font-size: 20px;
+    initial-letter: 2;
+    margin-bottom: 50px;
+    margin-left: 80px;
+    width: 85%;
+    text-indent: 5px;
+}
+
+.blurb::first-letter {
+    initial-letter: 1.5;
+    padding: 12px;
+}
+
+.filter {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    padding-left: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #808876;
+    margin-bottom: 50px;
+    font-weight: 525;
+}
+
+.filter select {
+    margin-left: 20px;
+    padding: 10px;
+    font-size: 14px;
+    background-color: #ffffff;
+    border: 2px solid black;
+    color: black;
+    font-weight: light;
+    cursor: pointer;
+}
+
+.book-listing {
+    width: 90%;
+    /* height: 90%; */
+    margin-bottom: 30px;
+}
+
+.book-listing img {
+    width: 100%;
+    height: 65%;
+}
+
+.book-listing figcaption, .book-listing p {
+    text-align: center;
+}
+
+.book-listing figcaption {
+    font-weight: bold;
+    color: #20392C;
+    padding-top: 20px;
+}
+
+.book-listing p {
+    font-style: italic;
+}
+
+.caption-wrapper {
+    background-color: white;
+    padding: 10px;
+    display: flex;
+    min-height: 170px;
+    flex-direction: column;
+    flex-wrap: wrap;
     justify-content: center;
 }
 
-.card {
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    text-align: center;
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    height: 400px; /* Fixed height for uniformity */
+.book-capt {
+    cursor: pointer;
+}
+
+.book-capt:hover {
+    color: #74A705;
+    transition: ease-in-out 0.2s;
+    text-decoration: underline;
+}
+
+.see-more {
+    background-color: #ffffff;
+    color: black;
+    border: none;
+    cursor: pointer;
+    /* margin-top: 20px; */
+}
+
+.btn-container {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 100%; /* Ensures cards take up full width of column */
-    margin-bottom: 30px;
-    margin-top: 30px;
-    align-items: center;
+    border-top: 1px solid grey;
+    padding-top: 10px;
 }
 
-.book-cover {
-    max-height: 200px; /* Adjust based on desired cover size */
-    width: auto;
-    margin: 0 auto 10px; /* Center the image and add bottom margin */
-    border-radius: 10px;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.book-cover:hover {
-    transform: scale(1.05); /* Slightly scale up the image */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow effect */
-}
-
-.book-title {
-    font-weight: bold;
-    font-size: 1.2em;
+.btn-text {
+    width: 100%;
     margin-top: 10px;
+    opacity: 0;
+    text-align: center;
 }
 
-.book-author {
-    color: #555;
-    margin-bottom: 10px; /* Ensure spacing at the bottom */
+.take-quiz {
+    border: none;
+    background-color: #ffffff;
+    /* margin-top: 20px; */
+
 }
 
-.btn-primary,
-.btn-danger,
-.btn-success {
-    padding: 10px 24px; /* Padding adjustment */
-    font-size: 14px;
-    margin: 0 10px; /* Margin adjustment */
-    transition: background-color 0.3s, border-color 0.3s;
-    width: 100%; /* Button width adjustment */
-    border-radius: 8px;
+.take-quiz:hover {
+    /* color: #D8FF81; */
+    color: #74A705;
+    transition: 0.3s ease-out;
+    cursor: pointer;
 }
 
-.btn-primary {
-    background-color: #007bff; /* Primary button color */
-    border-color: #007bff;
-    color: #fff; /* Text color */
-}
-
-.btn-primary:hover {
-    background-color: #0056b3; /* Darker color on hover */
-    border-color: #0056b3;
-}
-
-.btn-danger {
-    background-color: #dc3545; /* Danger button color */
-    border-color: #dc3545;
-    color: #fff; /* Text color */
-}
-
-.btn-danger:hover {
-    background-color: #c82333; /* Darker color on hover */
-    border-color: #bd2130;
-}
-
-.btn-success {
-    background-color: #28a745; /* Success button color */
-    border-color: #28a745;
-    color: #fff; /* Text color */
-}
-
-.btn-success:hover {
-    background-color: #218838; /* Darker color on hover */
-    border-color: #1e7e34;
+.see-more:hover {
+    /* color: #D8FF81; */
+    color: #74A705;
+    transition: 0.3s ease-out;
 }
 </css>
         <data_table>sp_instance</data_table>
@@ -134,42 +269,90 @@
         <public>false</public>
         <roles/>
         <script><![CDATA[(function() {
-    // Instantiate the BorrowedBooksUtils if necessary
-    var borrowedBooksUtils = new BorrowedBooksUtils();
+	var currentUserId = gs.getUserID();
+	data.borrowedBooks = [];
+	data.returnedBooks = [];
+	data.overdueBooks = [];
 
-    // Retrieve borrowed books information
-    var borrowedBooks = borrowedBooksUtils.getBorrowedBooks();
+	// Create a GlideRecord object for the Borrow table
+	var borrowGR = new GlideRecord('x_1383151_bkquest_borrow');
 
-    // Logging borrowed books details
-    gs.info('x_1383151_bkquest: Borrowed Books Details:');
-    gs.info(JSON.stringify(borrowedBooks));
+	// Add a query to filter records by the current user ID
+	borrowGR.addQuery('user_id', currentUserId);
+	borrowGR.query();
 
-    // Example queries for specific records
-    var borrowGR = new GlideRecord('x_1383151_bkquest_borrow');
-    borrowGR.addQuery('sys_id', '7e4092ae932e0610ef267c5efaba10c6'); // Example borrow record sys_id
-    borrowGR.query();
-    if (borrowGR.next()) {
-        var bookInstanceId = borrowGR.getValue('book_id');
-        gs.info("Book Instance ID: " + bookInstanceId);
+	// Iterate through the Borrow records for the current user
+	while (borrowGR.next()) {
+		// Get the Book Instance ID from the Borrow record
+		var bookInstanceId = borrowGR.book_id;
 
-        var bookInstanceGR = new GlideRecord('x_1383151_bkquest_book_copy');
-        bookInstanceGR.addQuery('sys_id', bookInstanceId);
-        bookInstanceGR.query();
-        if (bookInstanceGR.next()) {
-            var bookDefinitionId = bookInstanceGR.getValue('title');
-            gs.info("Book Copy Instance ID: " + bookInstanceGR.getDisplayValue('sys_id'));
+		if (!bookInstanceId) {
+			continue; // Skip if no book instance ID
+		}
 
-            var bookDefinitionGR = new GlideRecord('x_1383151_bkquest_book');
-            bookDefinitionGR.addQuery('sys_id', bookDefinitionId);
-            bookDefinitionGR.query();
-            if (bookDefinitionGR.next()) {
-                gs.info("Book Definition ID: " + bookDefinitionGR.getDisplayValue('sys_id'));
-                gs.info("Book Title: " + bookDefinitionGR.getDisplayValue('title'));
-                gs.info("Book Author: " + bookDefinitionGR.getDisplayValue('author'));
-                gs.info("Cover Image URL: " + (bookDefinitionGR.cover_image ? '/sys_attachment.do?sys_id=' + bookDefinitionGR.cover_image : ''));
-            }
-        }
-    }
+		// Create a GlideRecord object for the Book Instance table
+		var bookInstanceGR = new GlideRecord('x_1383151_bkquest_book_copy');
+
+		// Ensure the book instance record is found
+		if (bookInstanceGR.get(bookInstanceId)) {
+			// Get the Book ID from the Book Instance record
+			var bookId = bookInstanceGR.title;
+
+			// Create a GlideRecord object for the Book Definition table
+			var bookDefinitionGR = new GlideRecord('x_1383151_bkquest_book');
+
+			// Ensure the book definition record is found
+			if (bookDefinitionGR.get(bookId)) {
+				// Create a GlideRecord object for the Author table
+				var authorGR = new GlideRecord('x_1383151_bkquest_author');
+
+				// Ensure the author record is found
+				if (authorGR.get(bookDefinitionGR.author)) {
+					// Get the cover image URL
+					var coverImageURL = bookDefinitionGR.cover_image ? '/sys_attachment.do?sys_id=' + bookDefinitionGR.cover_image : '';
+
+					// Prepare book details object
+					var bookDetails = {
+						borrowId: borrowGR.number.toString(),
+						borrowDate: borrowGR.borrow_date.toString(),
+						dueDate: borrowGR.due_date.toString(),
+						returnedDate: borrowGR.returned_date.toString(),
+						daysLate: borrowGR.days_late.toString(),
+						fineAmount: borrowGR.fine_amount.toString(),
+						finePaidDate: borrowGR.fine_paid_date.toString(),
+						title: bookDefinitionGR.title.toString(),
+						author: authorGR.full_name.toString(),
+						sys_id: bookDefinitionGR.sys_id.toString(),
+						user_id: currentUserId,
+						coverImage: coverImageURL
+					};
+
+					// Categorize books into returned and overdue
+					if (borrowGR.returned_date.nil()) {
+						data.borrowedBooks.push(bookDetails);
+					} else {
+						data.returnedBooks.push(bookDetails);
+					}
+
+					if (borrowGR.days_late > 0) {
+						data.overdueBooks.push(bookDetails);
+					}
+				} else {
+					// gs.info("Author record not found for book ID: " + bookId);
+				}
+			} else {
+				// gs.info("Book definition record not found for book instance ID: " + bookInstanceId);
+			}
+		} else {
+			// gs.info("Book instance record not found for ID: " + bookInstanceId);
+		}
+	}
+
+	// Return the results to the client or log them
+	console.log("Borrowed Books:", data.borrowedBooks);
+	console.log("Returned Books:", data.returnedBooks);
+	console.log("Overdue Books:", data.overdueBooks);
+
 })();
 ]]></script>
         <servicenow>false</servicenow>
@@ -177,35 +360,68 @@
         <sys_created_by>harini.srija</sys_created_by>
         <sys_created_on>2024-06-04 08:27:35</sys_created_on>
         <sys_id>232fd7c693ee8210ef267c5efaba1049</sys_id>
-        <sys_mod_count>205</sys_mod_count>
+        <sys_mod_count>236</sys_mod_count>
         <sys_name>Borrowed Books</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sp_widget_232fd7c693ee8210ef267c5efaba1049</sys_update_name>
         <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-06-27 17:02:42</sys_updated_on>
-        <template><![CDATA[<!--<div class="container">
-  <div class="row">
-    <div class="borrowedbook-item col-xs-12 col-sm-6 col-md-3 col-lg-3" ng-repeat="book in c.data.borrowedBooks">
-      <div class="card">
-        <a ng-click="c.openBook(borrowedBooks.bookDefinitionSysId)">
-        <img ng-src="{{book.coverImage}}" alt="{{book.title}} cover" class="book-cover img-responsive">
-        </a>
-      
-        <h3 class="book-title">{{book.title}}</h3>
-         
-        <p class="book-author">{{book.author}}</p> -->
-        <!-- <button type="submit" class="btn btn-primary" ng-if="book.daysLate == 0 && !book.returnedDate">View Details</button> 
-        <button type="submit" class="btn btn-success" ng-if="book.returnedDate" ng-click="c.openBorrowDetails(book.borrowDetails.borrowID)">Book Returned</button>
-        <button type="submit" class="btn btn-danger" ng-if="book.daysLate > 0 && !book.returnedDate" ng-click="c.openBorrowDetails(book.borrowDetails.borrowID)">Overdue Book</button> 
-        <button type="button" class="btn btn-primary" ng-if="book.daysLate == 0 && !book.returnedDate" ng-click="c.openBorrowDetails(book.borrowDetails.borrowID)">View Borrow Details</button>
-      </div>
-    </div>
-  </div>
-</div> -->
+        <sys_updated_on>2024-07-01 09:29:52</sys_updated_on>
+        <template><![CDATA[<div ng-app="bookApp" id="booksApp" ng-controller="BookController as c">
+    <!-- Filter input -->
+    <input type="text" ng-model="c.filterQuery" placeholder="Filter books..." class="form-control" ng-change="c.filterBooks()">
+    
+    <!-- Dropdown to choose between Returned and Overdue books -->
+    <select ng-model="c.selectedCategory" ng-change="c.filterBooks()" class="form-control">
+        <option value="returned">Returned Books</option>
+        <option value="overdue">Overdue Books</option>
+    </select>
 
-<pre>{{data.borrowedBooks | json}}</pre> 
+    <!-- Returned Books -->
+    <div class="panel panel-default" ng-show="c.selectedCategory === 'returned' && c.filteredReturnedBooks.length > 0">
+        <div class="panel-heading">
+            <h3 class="panel-title">Returned Books</h3>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-4" ng-repeat="book in c.filteredReturnedBooks">
+                    <div class="thumbnail" ng-click="c.openBook(book.sys_id)">
+                        <img ng-src="{{ book.coverImage }}" alt="{{ book.title }}">
+                        <div class="caption">
+                            <h4>{{ book.title }}</h4>
+                            <p><strong>Author:</strong> {{ book.author }}</p>
+                            <p><strong>Borrow Date:</strong> {{ book.borrowDate }}</p>
+                            <p><strong>Returned Date:</strong> {{ book.returnedDate }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Overdue Books -->
+    <div class="panel panel-default" ng-show="c.selectedCategory === 'overdue' && c.filteredOverdueBooks.length > 0">
+        <div class="panel-heading">
+            <h3 class="panel-title">Overdue Books</h3>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-4" ng-repeat="book in c.filteredOverdueBooks">
+                    <div class="thumbnail" ng-click="c.openBook(book.sys_id)">
+                        <img ng-src="{{ book.coverImage }}" alt="{{ book.title }}">
+                        <div class="caption">
+                            <h4>{{ book.title }}</h4>
+                            <p><strong>Author:</strong> {{ book.author }}</p>
+                            <p><strong>Borrow Date:</strong> {{ book.borrowDate }}</p>
+                            <p><strong>Due Date:</strong> {{ book.dueDate }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 ]]></template>
     </sp_widget>
 </record_update>
