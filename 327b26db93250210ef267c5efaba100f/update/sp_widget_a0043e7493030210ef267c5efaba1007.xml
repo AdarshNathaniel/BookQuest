@@ -14,12 +14,13 @@
     };
   
     // Function to navigate to the borrowed book details page
-    c.openBorrowDetails = function(user_id) {
-        var portalURL = $location.absUrl().split('?')[0];
-        var pageID = 'borrow_details'; // Update with your actual page ID for borrow details
-        var url = portalURL + '?id=' + pageID + '&user_id=' + user_id;
-        window.location.href = url;
-    };
+   c.openBorrowDetails = function(borrowSysId) {
+    var portalURL = $location.absUrl().split('?')[0];
+    var pageID = 'borrow_details'; // Update with your actual page ID for borrow details
+    var url = portalURL + '?id=' + pageID + '&sys_id=' + borrowSysId;
+    window.location.href = url;
+};
+
 
     // Function to load all books on page load
     c.onLoadLoadAllBooks = function() {
@@ -261,6 +262,7 @@
 						title: bookDefinitionGR.title.toString(),
 						author: authorGR.full_name.toString(),
 					  sys_id:bookDefinitionGR.sys_id.toString(),
+						borrowSysId: borrowGR.sys_id.toString(),
 						user_id: currentUserId,
 						coverImage: coverImageURL
 					});
@@ -286,14 +288,14 @@
         <sys_created_by>harini.srija</sys_created_by>
         <sys_created_on>2024-06-25 04:37:56</sys_created_on>
         <sys_id>a0043e7493030210ef267c5efaba1007</sys_id>
-        <sys_mod_count>156</sys_mod_count>
+        <sys_mod_count>163</sys_mod_count>
         <sys_name>Borrowed book v1</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sp_widget_a0043e7493030210ef267c5efaba1007</sys_update_name>
         <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-06-28 06:36:34</sys_updated_on>
+        <sys_updated_on>2024-07-02 13:35:19</sys_updated_on>
         <template><![CDATA[<div class="container">
     <h2 class="h1">My Books</h2> <!-- Title for the book list -->
     <div class="row">
@@ -304,9 +306,10 @@
                 </a>
                 <h3 class="book-title">{{book.title}}</h3>
                 <p class="book-author">{{book.author}}</p>
-                <button type="submit" class="btn btn-success" ng-if="book.returnedDate" ng-click="c.openBorrowDetails(book.user_id)">Book Returned</button>
-                <button type="submit" class="btn btn-danger" ng-if="book.daysLate > 0 && !book.returnedDate" ng-click="c.openBorrowDetails(book.user_id)">Overdue Book</button>
-                <button type="button" class="btn btn-primary" ng-if="book.daysLate == 0 && !book.returnedDate" ng-click="c.openBorrowDetails(book.user_id)">View Borrow Details</button>
+                <button type="submit" class="btn btn-success" ng-if="book.returnedDate" ng-click="c.openBorrowDetails(book.borrowSysId)">Book Returned</button>
+								<button type="submit" class="btn btn-danger" ng-if="book.daysLate > 0 && !book.returnedDate" ng-click="c.openBorrowDetails(book.borrowSysId)">Overdue Book</button>
+								<button type="button" class="btn btn-primary" ng-if="book.daysLate == 0 && !book.returnedDate" ng-click="c.openBorrowDetails(book.borrowSysId)">View Borrow Details</button>
+
             </div>
         </div>
     </div>

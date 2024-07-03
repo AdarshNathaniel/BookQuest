@@ -2,63 +2,85 @@
     <sys_script_include action="INSERT_OR_UPDATE">
         <access>package_private</access>
         <active>true</active>
-        <api_name>x_1383151_bkquest.BorrowedUtils</api_name>
+        <api_name>x_1383151_bkquest.BorrowDetailsUtils</api_name>
         <caller_access/>
         <client_callable>false</client_callable>
         <description/>
-        <name>BorrowedUtils</name>
-        <script><![CDATA[var BorrowedUtils = Class.create();
-BorrowedUtils.prototype = {
-
+        <name>BorrowDetailsUtils</name>
+        <script><![CDATA[var BorrowDetailsUtils = Class.create();
+BorrowDetailsUtils.prototype = {
     initialize: function() {},
 
-    getBorrowedBooks: function() {
-        var userId = gs.getUserID();
-        var borrowedBooks = [];
-
+    // Function to fetch borrow details including book details
+    getBorrowDetails: function(borrowSysId) {
+        var result = {};
         var borrowGR = new GlideRecord('x_1383151_bkquest_borrow');
-        borrowGR.addQuery('sys_created_by', userId);
-        borrowGR.query();
+        if (borrowGR.get(borrowSysId)) {
+            var bookInstanceId = borrowGR.book_id;
 
-        while (borrowGR.next()) {
-            var bookInstanceGR = new GlideRecord('x_1383151_bkquest_book_copy');
-            if (bookInstanceGR.get(borrowGR.getValue('book_id'))) {
-                var bookDefinitionGR = new GlideRecord('x_1383151_bkquest_book');
-                if (bookDefinitionGR.get(bookInstanceGR.getValue('title'))) {
-                    var coverImageURL = bookDefinitionGR.cover_image ? '/sys_attachment.do?sys_id=' + bookDefinitionGR.cover_image : '';
-
-                    borrowedBooks.push({
-                        borrowSysId: borrowGR.getValue('sys_id'),
-                        bookInstanceSysId: bookInstanceGR.getDisplayValue('sys_id'),
-                        bookDefinitionSysId: bookDefinitionGR.getValue('sys_id'),
-                        bookTitle: bookDefinitionGR.getValue('title'),
-                        bookAuthor: bookDefinitionGR.getValue('author'),
-                        coverImage: coverImageURL,
-                        borrowDate: borrowGR.getValue('borrow_date'),
-                        dueDate: borrowGR.getValue('due_date'),
-                        borrowStatus: borrowGR.getValue('borrow_status')
-                    });
-                }
+            // Check if the book is reserved
+            if (this.isBookReserved(bookInstanceId)) {
+                return { error: 'Book is reserved and cannot be extended.' };
             }
-        }
 
-        return borrowedBooks;
+            // Extend borrow period (Example: increase by 7 days)
+            var newBorrowPeriod = new GlideDateTime(borrowGR.days);
+            newBorrowPeriod.addDays(7); // Extend by 7 days, modify as needed
+
+            borrowGR.days = newBorrowPeriod;
+            borrowGR.update();
+
+            // Fetch book details
+            var bookGR = new GlideRecord('x_1383151_bkquest_book');
+            if (bookGR.get(borrowGR.book_id)) {
+                result = {
+                    success: true,
+                    message: 'Borrow extended successfully.',
+                    borrowDetails: {
+                        borrowId: borrowGR.number.toString(),
+                        borrowDate: borrowGR.borrow_date.getDisplayValue(),
+                        dueDate: borrowGR.due_date.getDisplayValue(),
+                        returnedDate: borrowGR.returned_date.getDisplayValue(),
+                        daysLate: borrowGR.days_late.toString(),
+                        fineAmount: borrowGR.fine_amount.toString(),
+                        finePaidDate: borrowGR.fine_paid_date.getDisplayValue(),
+                        title: bookGR.getValue('title').toString(),
+                        author: bookGR.getValue('author').toString(),
+                        borrowSysId: borrowGR.sys_id.toString(),
+                        coverImage: bookGR.getValue('cover_image').toString()
+                    }
+                };
+            } else {
+                result = { error: 'Book details not found.' };
+            }
+        } else {
+            result = { error: 'Borrow record not found.' };
+        }
+        return result;
     },
 
-    type: 'BorrowedUtils'
+    // Function to check if a book instance is reserved
+    isBookReserved: function(bookInstanceId) {
+        var reservationGR = new GlideRecord('x_1383151_bkquest_reservation');
+        reservationGR.addQuery('book_id', bookInstanceId);
+        reservationGR.query();
+        return reservationGR.hasNext();
+    },
+
+    type: 'BorrowDetailsUtils'
 };
 ]]></script>
         <sys_class_name>sys_script_include</sys_class_name>
         <sys_created_by>harini.srija</sys_created_by>
         <sys_created_on>2024-06-25 17:23:19</sys_created_on>
         <sys_id>820361c9930f0210ef267c5efaba109b</sys_id>
-        <sys_mod_count>8</sys_mod_count>
-        <sys_name>BorrowedUtils</sys_name>
+        <sys_mod_count>9</sys_mod_count>
+        <sys_name>BorrowDetailsUtils</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sys_script_include_820361c9930f0210ef267c5efaba109b</sys_update_name>
         <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-06-27 15:37:13</sys_updated_on>
+        <sys_updated_on>2024-07-02 10:29:51</sys_updated_on>
     </sys_script_include>
 </record_update>

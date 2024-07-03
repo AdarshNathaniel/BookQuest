@@ -1,25 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
     <sp_widget action="INSERT_OR_UPDATE">
         <category>custom</category>
-        <client_script><![CDATA[api.controller = function($location, $scope) {
+        <client_script><![CDATA[api.controller = function($location, $scope, spUtil) {
     var c = this;
 
-    // Function to navigate to extend borrow functionality
-    c.extendBorrow = function(borrowSysId) {
-        console.log("Extending borrow for Borrow Sys ID:", borrowSysId);
-        
-        // Adjust the URL and page ID for extending borrow (assuming you have an 'extend' page)
-        var portalURL = $location.absUrl().split('?')[0];
-        var pageID = 'extend_page'; // Change this to the correct page ID for extending borrow
-        var url = portalURL + '?id=' + pageID + '&borrow_sys_id=' + borrowSysId;
-        window.location.href = url;
+    // Function to fetch borrow details
+    c.fetchBorrowDetails = function(borrowSysId) {
+        c.server.get({
+            action: 'fetchBorrowDetails',
+            borrowSysId: borrowSysId
+        }).then(function(response) {
+            if (response.data.error) {
+                spUtil.addErrorMessage(response.data.error);
+            } else {
+                c.data.borrowDetails = response.data.borrowDetails;
+            }
+        });
     };
 
-    // Function to load all borrowed books on page load
-    c.onLoadLoadAllBorrowBooks = function() {
-        // Assuming c.data.borrowedBooks is already populated with all borrowed books
-        // This could be fetched from server or set directly in the UI page
+    // Function to extend borrow
+    c.extendBorrow = function(borrowSysId) {
+        c.server.get({
+            action: 'fetchBorrowDetails',
+            borrowSysId: borrowSysId
+        }).then(function(response) {
+            if (response.data.error) {
+                spUtil.addErrorMessage(response.data.error);
+            } else {
+                // Refresh borrow details after extension
+                c.fetchBorrowDetails(borrowSysId);
+                spUtil.addInfoMessage(response.data.message);
+            }
+        });
     };
+
+    // Fetch initial borrow details
+    c.fetchBorrowDetails($scope.data.borrowSysId);
 };
 ]]></client_script>
         <controller_as>c</controller_as>
@@ -110,103 +126,83 @@ color: #555;
         <public>false</public>
         <roles/>
         <script><![CDATA[(function() {
-    var bookSysId = $sp.getParameter('sys_id');
-    console.log("Fetching borrowed book details for Book Sys ID: " + bookSysId);
+    var borrowSysId = $sp.getParameter('borrow_sys_id'); // Assuming you pass the borrow_sys_id parameter to fetch specific borrow details
+		
+		var result = {};
+    if (input && input.action === 'fetchBorrowDetails') {
+        result = fetchBorrowDetails(input.borrowSysId);
+    }
+    // Function to fetch borrow details
+    function fetchBorrowDetails(borrowSysId) {
+        var borrowGR = new GlideRecord('x_1383151_bkquest_borrow');
+        if (borrowGR.get(borrowSysId)) {
+            var bookInstanceId = borrowGR.book_id;
 
-    var currentUserId = gs.getUserID();
-    var borrowedBooks = [];
-    data.borrowDetails = [];
+            // Check if the book is reserved
+            if (isBookReserved(bookInstanceId)) {
+                return { error: 'Book is reserved and cannot be extended.' };
+            }
 
-    // Create a GlideRecord object for the Borrow table
-    var borrowGR = new GlideRecord('x_1383151_bkquest_borrow');
+            // Extend borrow period (Example: increase by 7 days)
+            var newborrowPeriod = new GlideDateTime(borrowGR.days);
+            newborrowPeriod.addDays(14); // Extend by 7 days, modify as needed
 
-    // Add queries to filter records by the current user ID and the book sys_id
-    borrowGR.addQuery('user_id', currentUserId);
-    borrowGR.addQuery('book_id', bookSysId); // Assuming book_id field in x_1383151_bkquest_borrow table relates to book sys_id
-    borrowGR.query();
+            borrowGR.days = newborrowPeriod;
+            borrowGR.update();
 
-    // Iterate through the Borrow records for the current user and specified book sys_id
-    while (borrowGR.next()) {
-        // Create a GlideRecord object for the Book Definition table
-        var bookDefinitionGR = new GlideRecord('x_1383151_bkquest_book');
-
-        // Ensure the book definition record is found
-        if (bookDefinitionGR.get(bookSysId)) {
-            // Now fetch borrow details using the borrowGR record
-            var borrowDetails = fetchBorrowDetails(borrowGR.sys_id.toString());
-
-            // Get the cover image URL
-            var coverImageURL = bookDefinitionGR.cover_image ? '/sys_attachment.do?sys_id=' + bookDefinitionGR.cover_image : '';
-
-            // Add the book details to the result array
-            borrowedBooks.push({
-                borrowSysId: borrowGR.sys_id.toString(),
-                borrowId: borrowGR.number.toString(),
-                borrowDate: borrowGR.borrow_date.toString(),
-                dueDate: borrowGR.due_date.toString(),
-                returnedDate: borrowGR.returned_date.toString(),
-                daysLate: borrowGR.days_late.toString(),
-                fineAmount: borrowGR.fine_amount.toString(),
-                finePaidDate: borrowGR.fine_paid_date.toString(),
-                title: bookDefinitionGR.title.toString(),
-                sys_id: bookDefinitionGR.sys_id.toString(),
-                user_id: currentUserId, // Include user_id here
-                coverImage: coverImageURL,
-                borrowDetails: borrowDetails // Include borrow details
-            });
+            return {
+                success: true,
+                message: 'Borrow extended successfully.',
+                borrowDetails: {
+										// borrowSysId: borrowGR.sys_id.toString(),
+                    borrowId: borrowGR.number.toString(),
+										borrowPeriod: borrowGR.days.toSyring(),
+                    borrowDate: borrowGR.borrow_date.toString(),
+                    dueDate: borrowGR.due_date.toString(),
+                    returnedDate: borrowGR.returned_date.toString(),
+                    daysLate: borrowGR.days_late.toString(),
+                    fineAmount: borrowGR.fine_amount.toString(),
+                    finePaidDate: borrowGR.fine_paid_date.toString(),
+                    bookInstanceId: bookInstanceId,
+                    userId: borrowGR.user_id.toString()
+                }
+            };
         } else {
-            gs.info("Book definition record not found for book Sys ID: " + bookSysId);
+            return { error: 'Borrow record not found.' };
         }
     }
 
-    // Log borrowed books details
-    console.log("Borrowed Books Details:");
-    console.log(borrowedBooks);
-
-    // Return the result to the client
-    data.borrowedBooks = borrowedBooks; // Assigning borrowedBooks to data object for client-side usage
-})();
-
-// Function to fetch borrow details based on borrow sys_id
-function fetchBorrowDetails(borrowSysId) {
-    var borrowDetails = [];
-
-    // Create a GlideRecord object for the Borrow table
-    var borrowGR = new GlideRecord('x_1383151_bkquest_borrow');
-    borrowGR.addQuery('sys_id', borrowSysId); // Query by sys_id to fetch specific borrow details
-    borrowGR.query();
-
-    if (borrowGR.next()) {
-        // Populate borrow details
-        borrowDetails.push({
-            borrowId: borrowGR.number.toString(),
-            borrowDate: borrowGR.borrow_date.toString(),
-            dueDate: borrowGR.due_date.toString(),
-            returnedDate: borrowGR.returned_date.toString(),
-            daysLate: borrowGR.days_late.toString(),
-            fineAmount: borrowGR.fine_amount.toString(),
-            finePaidDate: borrowGR.fine_paid_date.toString()
-        });
-    } else {
-        gs.info("Borrow record not found for sys_id: " + borrowSysId);
+    // Function to check if a book instance is reserved
+    function isBookReserved(bookInstanceId) {
+        var reservationGR = new GlideRecord('x_1383151_bkquest_reservation');
+        reservationGR.addQuery('book_id', bookInstanceId);
+        reservationGR.query();
+        return reservationGR.hasNext();
     }
 
-    return borrowDetails;
-}
+    // Handle API request
+    /*var result = {};
+    if (input && input.action === 'fetchBorrowDetails') {
+        result = fetchBorrowDetails(input.borrowSysId);
+    }*/
+
+    data.response = result;
+	
+})();
 ]]></script>
         <servicenow>false</servicenow>
         <sys_class_name>sp_widget</sys_class_name>
         <sys_created_by>harini.srija</sys_created_by>
         <sys_created_on>2024-06-25 15:00:25</sys_created_on>
         <sys_id>7e7281c1938b0210ef267c5efaba1066</sys_id>
-        <sys_mod_count>70</sys_mod_count>
+        <sys_mod_count>101</sys_mod_count>
         <sys_name>borrow Details</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sp_widget_7e7281c1938b0210ef267c5efaba1066</sys_update_name>
         <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-07-01 11:06:21</sys_updated_on>
+        <sys_updated_on>2024-07-02 10:43:18</sys_updated_on>
         <template><![CDATA[<div class="container book-details-card">
   <div class="row">
     <div class="col-md-3" ng-repeat="borrowDetails in c.data.borrowDetails">
