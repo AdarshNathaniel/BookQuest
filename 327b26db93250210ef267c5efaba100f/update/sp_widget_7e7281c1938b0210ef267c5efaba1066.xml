@@ -21,7 +21,7 @@
     // Function to extend borrow
     c.extendBorrow = function(borrowSysId) {
         c.server.get({
-            action: 'fetchBorrowDetails',
+            action: 'extendBorrow',
             borrowSysId: borrowSysId
         }).then(function(response) {
             if (response.data.error) {
@@ -125,69 +125,97 @@ color: #555;
         <option_schema/>
         <public>false</public>
         <roles/>
-        <script><![CDATA[(function() {
-    var borrowSysId = $sp.getParameter('borrow_sys_id'); // Assuming you pass the borrow_sys_id parameter to fetch specific borrow details
-		
-		var result = {};
-    if (input && input.action === 'fetchBorrowDetails') {
-        result = fetchBorrowDetails(input.borrowSysId);
-    }
-    // Function to fetch borrow details
-    function fetchBorrowDetails(borrowSysId) {
+        <script><![CDATA[/*(function() {
+    //var borrowSysId = $sp.getParameter('borrow_sys_id'); 
+    if (!input) {
+        var borrowSysId = $sp.getParameter('borrow_sys_id'); 
+			  var userId = gs.getUser().getID();
+        data.borrowedBooks = [];
+        
         var borrowGR = new GlideRecord('x_1383151_bkquest_borrow');
-        if (borrowGR.get(borrowSysId)) {
-            var bookInstanceId = borrowGR.book_id;
+        borrowGR.addQuery('user_id', userId); 
+        borrowGR.query();
 
-            // Check if the book is reserved
-            if (isBookReserved(bookInstanceId)) {
-                return { error: 'Book is reserved and cannot be extended.' };
-            }
+        while (borrowGR.next()) {
+            var bookId = borrowGR.getValue('book_id');
+            var borrowDate = borrowGR.getValue('borrow_date');
+            var borrowStatus = borrowGR.getValue('borrow_status');
+            var daysLate = borrowGR.getValue('days_late');
+            var dueDate = borrowGR.getValue('due_date');
+            var fineAmount = borrowGR.getValue('fine_amount');
+            var finePaidDate = borrowGR.getValue('fine_paid_date');
+            var fineStatus = borrowGR.getValue('fine_status');
+            var returnedDate = borrowGR.getValue('returned_date');
+            var title = borrowGR.getValue('title');
 
-            // Extend borrow period (Example: increase by 7 days)
-            var newborrowPeriod = new GlideDateTime(borrowGR.days);
-            newborrowPeriod.addDays(14); // Extend by 7 days, modify as needed
-
-            borrowGR.days = newborrowPeriod;
-            borrowGR.update();
-
-            return {
-                success: true,
-                message: 'Borrow extended successfully.',
-                borrowDetails: {
-										// borrowSysId: borrowGR.sys_id.toString(),
-                    borrowId: borrowGR.number.toString(),
-										borrowPeriod: borrowGR.days.toSyring(),
-                    borrowDate: borrowGR.borrow_date.toString(),
-                    dueDate: borrowGR.due_date.toString(),
-                    returnedDate: borrowGR.returned_date.toString(),
-                    daysLate: borrowGR.days_late.toString(),
-                    fineAmount: borrowGR.fine_amount.toString(),
-                    finePaidDate: borrowGR.fine_paid_date.toString(),
-                    bookInstanceId: bookInstanceId,
-                    userId: borrowGR.user_id.toString()
-                }
-            };
-        } else {
-            return { error: 'Borrow record not found.' };
+            data.borrowedBooks.push({
+                'sys_id': borrowGR.getUniqueValue(),
+                'book_id': bookId,
+                'borrow_date': borrowDate,
+                'borrow_status': borrowStatus,
+                'days_late': daysLate,
+                'due_date': dueDate,
+                'fine_amount': fineAmount,
+                'fine_paid_date': finePaidDate,
+                'fine_status': fineStatus,
+                'returned_date': returnedDate,
+                'title': title
+            });
         }
     }
+})(); */
 
-    // Function to check if a book instance is reserved
-    function isBookReserved(bookInstanceId) {
-        var reservationGR = new GlideRecord('x_1383151_bkquest_reservation');
-        reservationGR.addQuery('book_id', bookInstanceId);
-        reservationGR.query();
-        return reservationGR.hasNext();
-    }
-
-    // Handle API request
-    /*var result = {};
-    if (input && input.action === 'fetchBorrowDetails') {
-        result = fetchBorrowDetails(input.borrowSysId);
-    }*/
-
-    data.response = result;
+(function() {
 	
+    // Retrieve the borrow_sys_id parameter from the request
+    var borrowSysId = $sp.getParameter('sys_id'); 
+	  console.log(borrowSysId);
+
+    // Instantiate the BorrowedBooksUtils class
+    var borrowedBooksUtils = new BorrowedBooksUtils();
+
+    // Call the getBorrowedBooks method and store the result
+    var borrowedBooks = borrowedBooksUtils.getBorrowedBooks();
+
+    // Attach the result to the data object to pass it to the client-side script
+    data.borrowedBooks = borrowedBooks;
+
+    // Result object to store response for extendBorrow action
+    var result = {};
+
+    // Check if the input action is to extend borrow
+    if (input && input.action === 'extendBorrow') {
+        // Check if the book is reserved or not
+        var bookReservationUtils = new BookReservationUtils();
+        var isReserved = bookReservationUtils.isBookReserved(borrowSysId);
+
+        if (!isReserved) {
+            // Instantiate GlideRecord for the borrow table
+            var borrowGR = new GlideRecord('x_1383151_bkquest_borrow');
+            // Check if the borrow record exists
+            if (borrowGR.get(borrowSysId)) {
+                // Adjust the days field by adding additionalDays (adjust as needed)
+                borrowGR.setValue('days', borrowGR.getValue('days'));
+                // Update the record in the database
+                borrowGR.update();
+
+                // Set success message in result object
+                result.success = true;
+                result.message = 'Book extended successfully!';
+            } else {
+                // If borrow record not found, set error message in result object
+                result.success = false;
+                result.message = 'Borrow record not found.';
+            }
+        } else {
+            // If book is reserved, set error message in result object
+            result.success = false;
+            result.message = 'Book is reserved and cannot be extended.';
+        }
+
+        // Attach the result to the data object to pass it to the client-side script
+        data.response = result;
+    }
 })();
 ]]></script>
         <servicenow>false</servicenow>
@@ -195,40 +223,45 @@ color: #555;
         <sys_created_by>harini.srija</sys_created_by>
         <sys_created_on>2024-06-25 15:00:25</sys_created_on>
         <sys_id>7e7281c1938b0210ef267c5efaba1066</sys_id>
-        <sys_mod_count>101</sys_mod_count>
+        <sys_mod_count>123</sys_mod_count>
         <sys_name>borrow Details</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sp_widget_7e7281c1938b0210ef267c5efaba1066</sys_update_name>
         <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-07-02 10:43:18</sys_updated_on>
+        <sys_updated_on>2024-07-03 07:29:31</sys_updated_on>
         <template><![CDATA[<div class="container book-details-card">
   <div class="row">
-    <div class="col-md-3" ng-repeat="borrowDetails in c.data.borrowDetails">
-      <div class="card text-center">
+    <!-- Cards for each borrowed book -->
+    <div class="col-md-3" ng-repeat="borrowDetails in c.data.borrowedBooks">
+      <div class="card text-center mb-3">
         <div class="card-body">
           <img class="card-img-top img-responsive" ng-src="{{borrowDetails.coverImage}}" alt="{{borrowDetails.title}} cover">
           <h4 class="card-title">{{borrowDetails.title}}</h4>
           <h5 class="card-subtitle text-muted">{{borrowDetails.author}}</h5>
           <!-- Button to extend borrow period -->
-          <button type="button" class="btn btn-primary" ng-if="c.data.isBookAvailable" ng-click="c.extendBorrow(borrowDetails.borrowId)">Extend</button>
+          <button type="button" class="btn btn-primary" ng-if="!borrowDetails.reserved" ng-click="c.extendBorrow(borrowDetails.borrowId)">Extend</button>
+          <p ng-if="borrowDetails.reserved" class="text-danger">Book is reserved and cannot be extended.</p>
         </div>
       </div>
     </div>
+
+    <!-- Details of the selected borrowed book -->
     <div class="col-md-9">
-      <div class="card">
+      <div class="card mb-3">
         <div class="card-body">
           <h3 class="card-title">Borrow Details</h3>
           <p class="card-text">Here are the details of your borrowed book.</p>
         </div>
       </div>
+
       <div class="row">
         <!-- Borrow Information -->
-        <div class="col-sm-6" ng-repeat="borrowDetails in c.data.borrowDetails">
-          <div class="card h-100">
+        <div class="col-sm-6" ng-repeat="borrowDetails in c.data.borrowedBooks">
+          <div class="card mb-3 h-100">
             <div class="card-body d-flex flex-column">
-              <h3>Borrow Information</h3>
+              <h4>Borrow Information</h4>
               <dl class="dl-horizontal flex-grow-1">
                 <dt>Borrow ID:</dt>
                 <dd>{{borrowDetails.borrowId}}</dd>
@@ -242,11 +275,12 @@ color: #555;
             </div>
           </div>
         </div>
+
         <!-- Fine Details -->
-        <div class="col-sm-6" ng-repeat="borrowDetails in c.data.borrowDetails">
-          <div class="card h-100">
+        <div class="col-sm-6" ng-repeat="borrowDetails in c.data.borrowedBooks">
+          <div class="card mb-3 h-100">
             <div class="card-body d-flex flex-column">
-              <h3>Fine Details</h3>
+              <h4>Fine Details</h4>
               <dl class="dl-horizontal flex-grow-1">
                 <dt>Days Late:</dt>
                 <dd>{{borrowDetails.daysLate}}</dd>
@@ -262,8 +296,6 @@ color: #555;
     </div>
   </div>
 </div>
-
-<pre>{{c.data.borrowDetails | json}}</pre>
 ]]></template>
     </sp_widget>
 </record_update>

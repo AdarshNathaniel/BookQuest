@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_master_item">
+    <sys_sg_master_item action="INSERT_OR_UPDATE">
+        <condition_order/>
+        <datasource_table>x_1383151_bkquest_author</datasource_table>
+        <datasource_table_condition/>
+        <embedded_screen display_value="Author record screen">1a43c9e79383c210ef267c5efaba10a7</embedded_screen>
+        <item_view/>
+        <name>Author </name>
+        <sys_class_name>sys_sg_master_item</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-03 07:08:51</sys_created_on>
+        <sys_id>3443aca39303c210ef267c5efaba1054</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Author </sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>sys_sg_master_item_3443aca39303c210ef267c5efaba1054</sys_update_name>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-03 09:28:46</sys_updated_on>
+        <use_view_config>true</use_view_config>
+        <view_config display_value="Author view config">5ace74a39383c210ef267c5efaba1080</view_config>
+    </sys_sg_master_item>
+</record_update>

@@ -1,61 +1,123 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
     <sp_widget action="INSERT_OR_UPDATE">
         <category>custom</category>
-        <client_script><![CDATA[
-    (function() {
-        var app = angular.module('bookApp', []);
+        <client_script><![CDATA[api.controller = function($location, $scope) {
+    var c = this;
 
-        app.controller('BookController', function($location, $scope, spUtil, $http) {
-            var c = this;
-            c.filterQuery = '';
-            c.selectedCategory = 'returned'; // Default category
+    // Function to navigate to the detailed book page
+    c.openBook = function(sys_id) {
+        console.log(sys_id);
+        var portalURL = $location.absUrl().split('?')[0];
+        var pageID = 'book_details_page_v1'; 
+        var url = portalURL + '?id=' + pageID + '&sys_id=' + sys_id; // Corrected variable name
+        window.location.href = url;
+    };
+  
+    // Function to navigate to the borrowed book details page
+   c.openBorrowDetails = function(borrowSysId) {
+    var portalURL = $location.absUrl().split('?')[0];
+    var pageID = 'borrow_details'; // Update with your actual page ID for borrow details
+    var url = portalURL + '?id=' + pageID + '&sys_id=' + borrowSysId;
+    window.location.href = url;
+};
 
-            c.openBook = function(sys_id) {
-                var portalURL = $location.absUrl().split('?')[0];
-                var pageID = 'book_details_page_v1';
-                var url = portalURL + '?id=' + pageID + '&sys_id=' + sys_id;
-                window.location.href = url;
-            };
+var allBooks = document.getElementById("allBooks");
+var filterDropdown = document.getElementById("filterDropdown");
+var sortingSelect = document.getElementById("sortingSelect");
+var searchInput = document.getElementById("search-input");
+var searchResults = document.getElementById("search-results");
+var listTitle = document.getElementById("listTitle");
 
-            c.openBorrowDetails = function(user_id) {
-                var portalURL = $location.absUrl().split('?')[0];
-                var pageID = 'borrow_details';
-                var url = portalURL + '?id=' + pageID + '&user_id=' + user_id;
-                window.location.href = url;
-            };
+// Function to filter and display books based on their genre and get selected value from the filter dropdown.
+var filterBooks = function() {
+    var value = filterDropdown.value;
 
-            c.onLoadLoadAllBooks = function() {
-                c.filteredReturnedBooks = angular.copy(c.returnedBooks);
-                c.filteredOverdueBooks = angular.copy(c.overdueBooks);
-            };
+    // Show all books or filter based on genre and load the filtered list.
+    if (value === "all") {
+        loadBooks(borrowedBooks);
+    } else {
+        var filteredList = borrowedBooks.filter(function(borrowedBooks) { return borrowedBooks.genre === value; });
+        loadborrowedBooks(filteredList);
+    }
+};
 
-            c.filterBooks = function() {
-                var query = c.filterQuery.toLowerCase();
-                if (c.selectedCategory === 'returned') {
-                    c.filteredReturnedBooks = c.returnedBooks.filter(function(book) {
-                        return book.title.toLowerCase().includes(query) || book.author.toLowerCase().includes(query);
-                    });
-                } else if (c.selectedCategory === 'overdue') {
-                    c.filteredOverdueBooks = c.overdueBooks.filter(function(book) {
-                        return book.title.toLowerCase().includes(query) || book.author.toLowerCase().includes(query);
-                    });
-                }
-            };
+// Function to sort books based on options
+var sortBooks = function() {
+    var value = sortingSelect.value;
+    var sortedBooks = borrowedBooks.slice(); // Create a copy of Books array
 
-            // Load books data (example with hardcoded data for demonstration)
-            c.returnedBooks = [
-                // Populate with your data
-            ];
-            c.overdueBooks = [
-                // Populate with your data
-            ];
-            c.recentlyBorrowedBooks = [
-                // Populate with your data if needed
-            ];
-            c.onLoadLoadAllBooks();
-        });
-    })();
+    switch (value) {
+        case "highToLowRating":
+            sortedBooks.sort(function(low, high) { return high.rating - low.rating; });
+            break;
+        case "lowToHighRating":
+            sortedBooks.sort(function(low, high) { return low.rating - high.rating; });
+            break;
+        case "azTitle":
+            sortedBooks.sort(function(a, z) { return a.title.localeCompare(z.title); });
+            break;
+        case "zaTitle":
+            sortedBooks.sort(function(a, z) { return z.title.localeCompare(a.title); });
+            break;
+        default:
+            break;
+    }
+    loadborrowedBooks(sortedBooks);
+};
 
+// Function to handle the search
+var handleSearch = function() {
+    var searchTerm = searchInput.value.trim().toLowerCase();
+
+    if (searchTerm === "") {
+        return;
+    }
+
+    var matchingBooks = loadborrowedBooks.filter(function(Books) {
+        var title = loadborrowedBooks.title.toLowerCase();
+        var author = loadborrowedBooks.author.toLowerCase();
+        var genre = loadborrowedBooks.genre.toLowerCase();
+        return (
+            title.includes(searchTerm) ||
+            author.includes(searchTerm) ||
+            genre.includes(searchTerm)
+        );
+    });
+    if (matchingBooks.length > 0) {
+        loadBooks(matchingBooks);
+    } else {
+        // Display a message at the top-right corner that disappears after 1.5 seconds
+        var messageElement = document.createElement("div");
+        messageElement.textContent = "Sorry, I don't have that book :(";
+        messageElement.classList.add("message");
+        document.body.appendChild(messageElement);
+
+        setTimeout(function () {
+            // Remove the message after 1.5 seconds
+            document.body.removeChild(messageElement);
+        }, 1500);
+    }
+};
+
+// Apply the filter when the user changes the dropdown selection.
+filterDropdown.addEventListener("change", filterBooks);
+sortingSelect.addEventListener("change", sortBooks);
+searchInput.addEventListener("input", handleSearch);
+showShoppingCartButton.addEventListener("click", toggleShoppingCart);
+
+// Load the initial list of books when the page loads.
+loadborrowedBooks(Books);
+
+
+
+    // Function to load all books on page load
+    c.onLoadLoadAllBooks = function() {
+        // Assuming c.data.books is already populated with all books
+        // This could be fetched from server or set directly in the UI page
+    };
+	
+	
+};
 ]]></client_script>
         <controller_as>c</controller_as>
         <css>* {
@@ -270,9 +332,8 @@ body {
         <roles/>
         <script><![CDATA[(function() {
 	var currentUserId = gs.getUserID();
+	var data = {};
 	data.borrowedBooks = [];
-	data.returnedBooks = [];
-	data.overdueBooks = [];
 
 	// Create a GlideRecord object for the Borrow table
 	var borrowGR = new GlideRecord('x_1383151_bkquest_borrow');
@@ -311,8 +372,8 @@ body {
 					// Get the cover image URL
 					var coverImageURL = bookDefinitionGR.cover_image ? '/sys_attachment.do?sys_id=' + bookDefinitionGR.cover_image : '';
 
-					// Prepare book details object
-					var bookDetails = {
+					// Add the book details to the result array
+					data.borrowedBooks.push({
 						borrowId: borrowGR.number.toString(),
 						borrowDate: borrowGR.borrow_date.toString(),
 						dueDate: borrowGR.due_date.toString(),
@@ -322,37 +383,17 @@ body {
 						finePaidDate: borrowGR.fine_paid_date.toString(),
 						title: bookDefinitionGR.title.toString(),
 						author: authorGR.full_name.toString(),
-						sys_id: bookDefinitionGR.sys_id.toString(),
+					  sys_id:bookDefinitionGR.sys_id.toString(),
+						borrowSysId: borrowGR.sys_id.toString(),
 						user_id: currentUserId,
 						coverImage: coverImageURL
-					};
-
-					// Categorize books into returned and overdue
-					if (borrowGR.returned_date.nil()) {
-						data.borrowedBooks.push(bookDetails);
-					} else {
-						data.returnedBooks.push(bookDetails);
-					}
-
-					if (borrowGR.days_late > 0) {
-						data.overdueBooks.push(bookDetails);
-					}
-				} else {
-					// gs.info("Author record not found for book ID: " + bookId);
+					});
 				}
-			} else {
-				// gs.info("Book definition record not found for book instance ID: " + bookInstanceId);
 			}
-		} else {
-			// gs.info("Book instance record not found for ID: " + bookInstanceId);
 		}
 	}
 
-	// Return the results to the client or log them
-	console.log("Borrowed Books:", data.borrowedBooks);
-	console.log("Returned Books:", data.returnedBooks);
-	console.log("Overdue Books:", data.overdueBooks);
-
+	return data.borrowedBooks;
 })();
 ]]></script>
         <servicenow>false</servicenow>
@@ -360,68 +401,54 @@ body {
         <sys_created_by>harini.srija</sys_created_by>
         <sys_created_on>2024-06-04 08:27:35</sys_created_on>
         <sys_id>232fd7c693ee8210ef267c5efaba1049</sys_id>
-        <sys_mod_count>236</sys_mod_count>
+        <sys_mod_count>238</sys_mod_count>
         <sys_name>Borrowed Books</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sp_widget_232fd7c693ee8210ef267c5efaba1049</sys_update_name>
         <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-07-01 09:29:52</sys_updated_on>
-        <template><![CDATA[<div ng-app="bookApp" id="booksApp" ng-controller="BookController as c">
-    <!-- Filter input -->
-    <input type="text" ng-model="c.filterQuery" placeholder="Filter books..." class="form-control" ng-change="c.filterBooks()">
-    
-    <!-- Dropdown to choose between Returned and Overdue books -->
-    <select ng-model="c.selectedCategory" ng-change="c.filterBooks()" class="form-control">
-        <option value="returned">Returned Books</option>
-        <option value="overdue">Overdue Books</option>
+        <sys_updated_on>2024-07-03 15:14:31</sys_updated_on>
+        <template><![CDATA[<div class="buttons">
+    <select id="filterDropdown">
+      <option value="all">All Genres</option>
+      <option value="Fiction">Fiction</option>
+      <option value="Science Fiction">Science Fiction</option>
+      <option value="Fantasy">Fantasy</option>
+      <option value="Horror">Horror</option>
+      <option value="Mystery">Mystery</option>
+      <option value="Dystopian">Dystopian</option>
     </select>
 
-    <!-- Returned Books -->
-    <div class="panel panel-default" ng-show="c.selectedCategory === 'returned' && c.filteredReturnedBooks.length > 0">
-        <div class="panel-heading">
-            <h3 class="panel-title">Returned Books</h3>
-        </div>
-        <div class="panel-body">
-            <div class="row">
-                <div class="col-md-4" ng-repeat="book in c.filteredReturnedBooks">
-                    <div class="thumbnail" ng-click="c.openBook(book.sys_id)">
-                        <img ng-src="{{ book.coverImage }}" alt="{{ book.title }}">
-                        <div class="caption">
-                            <h4>{{ book.title }}</h4>
-                            <p><strong>Author:</strong> {{ book.author }}</p>
-                            <p><strong>Borrow Date:</strong> {{ book.borrowDate }}</p>
-                            <p><strong>Returned Date:</strong> {{ book.returnedDate }}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <select id="sortingSelect">
+      <option value="default">Sort books</option>
+      <option value="highToLowRating">High-Low Rating</option>
+      <option value="lowToHighRating">Low-High Rating</option>
+      <option value="azTitle">Title A-Z</option>
+      <option value="zaTitle">Title Z-A</option>
+    </select>
 
-    <!-- Overdue Books -->
-    <div class="panel panel-default" ng-show="c.selectedCategory === 'overdue' && c.filteredOverdueBooks.length > 0">
-        <div class="panel-heading">
-            <h3 class="panel-title">Overdue Books</h3>
-        </div>
-        <div class="panel-body">
-            <div class="row">
-                <div class="col-md-4" ng-repeat="book in c.filteredOverdueBooks">
-                    <div class="thumbnail" ng-click="c.openBook(book.sys_id)">
-                        <img ng-src="{{ book.coverImage }}" alt="{{ book.title }}">
-                        <div class="caption">
-                            <h4>{{ book.title }}</h4>
-                            <p><strong>Author:</strong> {{ book.author }}</p>
-                            <p><strong>Borrow Date:</strong> {{ book.borrowDate }}</p>
-                            <p><strong>Due Date:</strong> {{ book.dueDate }}</p>
-                        </div>
-                    </div>
-                </div>
+  <script src="script.js"></script>
+
+<div class="container">
+    <h2 class="h1">My Books</h2> <!-- Title for the book list -->
+    <div class="row">
+        <div class="borrowedbook-item col-xs-12 col-sm-6 col-md-3 col-lg-3" ng-repeat="book in c.data.borrowedBooks">
+            <div class="card">
+                <a ng-click="c.openBook(book.sys_id)">
+                    <img ng-src="{{book.coverImage}}" alt="{{book.title}} cover" class="book-cover img-responsive">
+                </a>
+                <h3 class="book-title">{{book.title}}</h3>
+                <p class="book-author">{{book.author}}</p>
+                <button type="submit" class="btn btn-success" ng-if="book.returnedDate" ng-click="c.openBorrowDetails(book.borrowSysId)">Book Returned</button>
+								<button type="submit" class="btn btn-danger" ng-if="book.daysLate > 0 && !book.returnedDate" ng-click="c.openBorrowDetails(book.borrowSysId)">Overdue Book</button>
+								<button type="button" class="btn btn-primary" ng-if="book.daysLate == 0 && !book.returnedDate" ng-click="c.openBorrowDetails(book.borrowSysId)">View Borrow Details</button>
+
             </div>
         </div>
     </div>
 </div>
+<!-- <pre>{{data.borrowedBooks | json}}</pre> -->
 ]]></template>
     </sp_widget>
 </record_update>

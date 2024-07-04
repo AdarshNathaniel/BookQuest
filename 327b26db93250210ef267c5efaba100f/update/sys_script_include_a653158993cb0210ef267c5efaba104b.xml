@@ -55,6 +55,7 @@ BorrowedBooksUtils.prototype = {
                         // Add the book details to the result array
                         borrowedBooks.push({
                             borrowId: borrowGR.number.toString(),
+							borrowPeriod: borrowGR.days.toString(),
                             borrowDate: borrowGR.borrow_date.toString(),
                             dueDate: borrowGR.due_date.toString(),
                             returnedDate: borrowGR.returned_date.toString(),
@@ -86,13 +87,13 @@ BorrowedBooksUtils.prototype = {
         <sys_created_by>harini.srija</sys_created_by>
         <sys_created_on>2024-06-25 16:17:16</sys_created_on>
         <sys_id>a653158993cb0210ef267c5efaba104b</sys_id>
-        <sys_mod_count>5</sys_mod_count>
+        <sys_mod_count>6</sys_mod_count>
         <sys_name>BorrowedBooksUtils</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sys_script_include_a653158993cb0210ef267c5efaba104b</sys_update_name>
         <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-06-27 14:57:00</sys_updated_on>
+        <sys_updated_on>2024-07-03 05:05:27</sys_updated_on>
     </sys_script_include>
 </record_update>
