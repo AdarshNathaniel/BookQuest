@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_view_template_slot">
+    <sys_sg_view_template_slot action="INSERT_OR_UPDATE">
+        <name>text_03</name>
+        <sys_class_name>sys_sg_view_template_slot</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-04 09:32:35</sys_created_on>
+        <sys_id>08cd0ef3934b0610ef267c5efaba10a2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>text_03</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>sys_sg_view_template_slot_08cd0ef3934b0610ef267c5efaba10a2</sys_update_name>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-04 09:32:35</sys_updated_on>
+        <type>text</type>
+        <view_template display_value="My books card template">c9884a7f930b0610ef267c5efaba1065</view_template>
+    </sys_sg_view_template_slot>
+</record_update>

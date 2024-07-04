@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_view_template_slot">
+    <sys_sg_view_template_slot action="INSERT_OR_UPDATE">
+        <name>image_01</name>
+        <sys_class_name>sys_sg_view_template_slot</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-04 06:39:32</sys_created_on>
+        <sys_id>d52629f393870610ef267c5efaba10fe</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>image_01</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>sys_sg_view_template_slot_d52629f393870610ef267c5efaba10fe</sys_update_name>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-04 06:39:32</sys_updated_on>
+        <type>image</type>
+        <view_template display_value="Author card template">52f429f393870610ef267c5efaba106d</view_template>
+    </sys_sg_view_template_slot>
+</record_update>

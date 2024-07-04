@@ -9,16 +9,16 @@
         <sys_created_by>harini.srija</sys_created_by>
         <sys_created_on>2024-07-03 09:09:06</sys_created_on>
         <sys_id>5ace74a39383c210ef267c5efaba1080</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_name>Author view config</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sys_sg_view_config_5ace74a39383c210ef267c5efaba1080</sys_update_name>
         <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-07-03 09:09:06</sys_updated_on>
+        <sys_updated_on>2024-07-04 05:27:21</sys_updated_on>
         <table>x_1383151_bkquest_author</table>
-        <template display_value="Template 01">6bb0be5c41a71010f877183fc9b8be0c</template>
+        <template display_value="Employee Directory Card Template">e80cb4491bfbb010322f0fe0604bcb28</template>
     </sys_sg_view_config>
     <sys_translated_text action="delete_multiple" query="documentkey=5ace74a39383c210ef267c5efaba1080"/>
 </record_update>

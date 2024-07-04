@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_view_template_slot_attribute">
+    <sys_sg_view_template_slot_attribute action="DELETE">
+        <description>text_10_Typography</description>
+        <name display_value="Typography">30871ab9b701301096aa25efce11a925</name>
+        <sys_class_name>sys_sg_view_template_slot_attribute</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-04 10:02:52</sys_created_on>
+        <sys_id>aba4d6fb934b0610ef267c5efaba10f6</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>30871ab9b701301096aa25efce11a925</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>sys_sg_view_template_slot_attribute_aba4d6fb934b0610ef267c5efaba10f6</sys_update_name>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-04 10:28:37</sys_updated_on>
+        <translated_value/>
+        <value>Highlighted Value</value>
+        <view_template_slot display_value="text_10">efa4da37934b0610ef267c5efaba108f</view_template_slot>
+    </sys_sg_view_template_slot_attribute>
+    <sys_translated_text action="DELETE" query="documentkey=aba4d6fb934b0610ef267c5efaba10f6"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="BookQuest">327b26db93250210ef267c5efaba100f</application>
+        <file_path/>
+        <instance_id>0535015fdb717d1002d9172913961922</instance_id>
+        <instance_name>dev186731</instance_name>
+        <name>sys_sg_view_template_slot_attribute_aba4d6fb934b0610ef267c5efaba10f6</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_view_template_slot_attribute"><sys_sg_view_template_slot_attribute action="INSERT_OR_UPDATE"><description>text_10_Typography</description><name display_value="Typography">30871ab9b701301096aa25efce11a925</name><sys_class_name>sys_sg_view_template_slot_attribute</sys_class_name><sys_created_by>harini.srija</sys_created_by><sys_created_on>2024-07-04 10:02:52</sys_created_on><sys_id>aba4d6fb934b0610ef267c5efaba10f6</sys_id><sys_mod_count>3</sys_mod_count><sys_name>30871ab9b701301096aa25efce11a925</sys_name><sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package><sys_policy/><sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope><sys_update_name>sys_sg_view_template_slot_attribute_aba4d6fb934b0610ef267c5efaba10f6</sys_update_name><sys_updated_by>harini.srija</sys_updated_by><sys_updated_on>2024-07-04 10:28:37</sys_updated_on><translated_value/><value>Highlighted Value</value><view_template_slot display_value="text_10">efa4da37934b0610ef267c5efaba108f</view_template_slot></sys_sg_view_template_slot_attribute><sys_translated_text action="delete_multiple" query="documentkey=aba4d6fb934b0610ef267c5efaba10f6"/></record_update>]]></payload>
+        <payload_hash>146029634</payload_hash>
+        <record_name>30871ab9b701301096aa25efce11a925</record_name>
+        <reverted_from/>
+        <source>3d9e5eee936e0610ef267c5efaba1086</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-04 10:28:38</sys_created_on>
+        <sys_id>019a5e73938b0610ef267c5efaba1030</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1907d49f84e0000001</sys_recorded_at>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-04 10:28:38</sys_updated_on>
+        <type>Card template element attribute</type>
+        <update_guid>c59a5e73f08b0610dcb33a92350b702f</update_guid>
+        <update_guid_history>c59a5e73f08b0610dcb33a92350b702f:146029634,297a5eb3d48b0610b85115573df131e7:-1281474924,78471abf094b06104ca5525cadbb8275:-888475979,e7a4d6fbbe4b061065378913005f12f8:-1281474924</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-04 10:30:42</sys_created_on>
+        <sys_db_object display_value="" name="sys_sg_view_template_slot_attribute">sys_sg_view_template_slot_attribute</sys_db_object>
+        <sys_id>6c24dcba256c451e9ddc6de7734d5ef1</sys_id>
+        <sys_metadata>aba4d6fb934b0610ef267c5efaba10f6</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>30871ab9b701301096aa25efce11a925</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_scope_delete display_value="">18e926194902432895b35f3c99259089</sys_scope_delete>
+        <sys_update_name>sys_sg_view_template_slot_attribute_aba4d6fb934b0610ef267c5efaba10f6</sys_update_name>
+        <sys_update_version display_value="sys_sg_view_template_slot_attribute_aba4d6fb934b0610ef267c5efaba10f6">019a5e73938b0610ef267c5efaba1030</sys_update_version>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-04 10:30:42</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
