@@ -53,92 +53,6 @@
     justify-content: center;
 }
 
-/* Dropdown Filters */
-.dropdown-container .filter-container {
-  height: 100%;
-  width: 30%;
-  border-radius: 25px;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  border: 2px solid #006060;
-}
-
-.sort-filter {
-  height: 100%;
-  width: 40%;
-  display: flex;
-  align-items: center;
-  border-right: 2px solid #006060;
-  justify-content: center;
-}
-
-.sort-filter &gt; svg {
-  height: 50%;
-  width: 50%;
-  border: none;
-  transform: rotate(-90deg);
-}
-
-.sort-filter &gt; label {
-  margin: 0;
-  height: 100%;
-  display: flex;
-  align-items: center;
-}
-
-.category-filter {
-  height: 100%;
-  width: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-}
-
-.category-filter &gt; p {
-  margin: 0;
-  height: 100%;
-  display: flex;
-  align-items: center;
-}
-
-.category-filter &gt; select {
-  height: 100%;
-  width: 50%;
-  border: none;
-}
-
-.dropdown-container select:focus {
-  box-shadow: none;
-}
-
-@media only screen and (max-width: 600px) {
-  .dropdown-container {
-    flex-direction: column;
-    align-items: flex-start;
-    height: 90px;
-    row-gap: 2px;
-    margin-top: 10px;
-  }
-
-  .dropdown-container .search-box-container {
-    width: 100%;
-    height: 50%;
-  }
-
-  .dropdown-container .filter-container {
-    width: 100%; /* Adjust width for mobile */
-    margin-top: 5px;
-  }
-
-  .sort-filter,
-  .category-filter {
-    width: 100%; /* Full width on mobile */
-    margin-top: 5px;
-  }
-}
-
-
 .card {
     padding: 10px;
     border: 1px solid #ddd;
@@ -154,6 +68,12 @@
     margin-bottom: 30px;
     margin-top: 30px;
     align-items: center;
+    transition: transform 0.3s, box-shadow 0.3s; /* Add transition for smooth hover effect */
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+    transform: scale(1.02); /* Slightly scale up the card */
 }
 
 .h1 {
@@ -162,12 +82,11 @@
     font-weight: bold;
     margin-bottom: 30px;
 }
-  
 
 .book-cover {
     max-height: 200px; /* Adjust based on desired cover size */
     width: auto;
-    margin: 0 auto 10px; /* Center the image and add bottom margin */
+    margin: 10px 20px 10px; /* Center the image and add bottom margin */
     border-radius: 10px;
     transition: transform 0.3s, box-shadow 0.3s;
 }
@@ -200,36 +119,36 @@
 }
 
 .btn-primary {
-    background-color: #007bff; /* Primary button color */
-    border-color: #007bff;
+    background-color: #5a9dfb; /* Lighter primary button color */
+    border-color: #5a9dfb;
     color: #fff; /* Text color */
 }
 
 .btn-primary:hover {
-    background-color: #0056b3; /* Darker color on hover */
-    border-color: #0056b3;
+    background-color: #3d78d4; /* Darker color on hover */
+    border-color: #3d78d4;
 }
 
 .btn-danger {
-    background-color: #dc3545; /* Danger button color */
-    border-color: #dc3545;
+    background-color: #f78d8d; /* Lighter danger button color */
+    border-color: #f78d8d;
     color: #fff; /* Text color */
 }
 
 .btn-danger:hover {
-    background-color: #c82333; /* Darker color on hover */
-    border-color: #bd2130;
+    background-color: #d46060; /* Darker color on hover */
+    border-color: #d46060;
 }
 
 .btn-success {
-    background-color: #28a745; /* Success button color */
-    border-color: #28a745;
+    background-color: #72d697; /* Lighter success button color */
+    border-color: #72d697;
     color: #fff; /* Text color */
 }
 
 .btn-success:hover {
-    background-color: #218838; /* Darker color on hover */
-    border-color: #1e7e34;
+    background-color: #50b678; /* Darker color on hover */
+    border-color: #50b678;
 }
 
 /* Container for filter buttons */
@@ -261,21 +180,11 @@
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  margin: 5px; /* Add margin around each button for spacing */
+  margin: 10px; /* Increase margin for more space around each button */
 }
 
 .button-71:before {
-  background-color: initial;
-  background-image: linear-gradient(#fff 0, rgba(255, 255, 255, 0) 100%);
-  border-radius: 125px;
-  content: "";
-  height: 50%;
-  left: 4%;
-  opacity: .5;
-  position: absolute;
-  top: 0;
-  transition: all .3s;
-  width: 92%;
+  content: none; /* Remove the background effect */
 }
 
 .button-71:hover {
@@ -348,13 +257,13 @@
 
 						// Add the book details to the result array
 						data.borrowedBooks.push({
-							borrowId: borrowGR.number.toString(),
+							//borrowId: borrowGR.number.toString(),
 							borrowDate: borrowGR.borrow_date.toString(),
 							dueDate: borrowGR.due_date.toString(),
 							returnedDate: borrowGR.returned_date.toString(),
 							daysLate: borrowGR.days_late.toString(),
-							fineAmount: borrowGR.fine_amount.toString(),
-							finePaidDate: borrowGR.fine_paid_date.toString(),
+							//fineAmount: borrowGR.fine_amount.toString(),
+							//finePaidDate: borrowGR.fine_paid_date.toString(),
 							title: bookDefinitionGR.title.toString(),
 							author: authorGR.full_name.toString(),
 							sys_id: bookDefinitionGR.sys_id.toString(),
@@ -407,13 +316,13 @@
 
 						// Add the book details to the result array
 						data.borrowedBooks.push({
-							borrowId: borrowGR.number.toString(),
+							//borrowId: borrowGR.number.toString(),
 							borrowDate: borrowGR.borrow_date.toString(),
 							dueDate: borrowGR.due_date.toString(),
 							returnedDate: borrowGR.returned_date.toString(),
 							daysLate: borrowGR.days_late.toString(),
-							fineAmount: borrowGR.fine_amount.toString(),
-							finePaidDate: borrowGR.fine_paid_date.toString(),
+							//fineAmount: borrowGR.fine_amount.toString(),
+							//finePaidDate: borrowGR.fine_paid_date.toString(),
 							title: bookDefinitionGR.title.toString(),
 							author: authorGR.full_name.toString(),
 							sys_id: bookDefinitionGR.sys_id.toString(),
@@ -444,14 +353,14 @@
         <sys_created_by>harini.srija</sys_created_by>
         <sys_created_on>2024-06-04 08:27:35</sys_created_on>
         <sys_id>232fd7c693ee8210ef267c5efaba1049</sys_id>
-        <sys_mod_count>276</sys_mod_count>
+        <sys_mod_count>290</sys_mod_count>
         <sys_name>Borrowed Books</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sp_widget_232fd7c693ee8210ef267c5efaba1049</sys_update_name>
         <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-07-05 11:03:32</sys_updated_on>
+        <sys_updated_on>2024-07-05 13:30:23</sys_updated_on>
         <template><![CDATA[<div class="container">
     <h2 class="h1">My Books</h2> <!-- Title for the book list -->
 
@@ -479,7 +388,7 @@
         </div>
     </div>
 </div>
-<pre>{{c.data.borrowedBooks | json}}</pre>
+<!-- <pre>{{c.data.borrowedBooks | json}}</pre> -->
 ]]></template>
     </sp_widget>
 </record_update>

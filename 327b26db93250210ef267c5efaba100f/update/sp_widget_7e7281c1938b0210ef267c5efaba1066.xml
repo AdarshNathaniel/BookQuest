@@ -125,47 +125,7 @@ color: #555;
         <option_schema/>
         <public>false</public>
         <roles/>
-        <script><![CDATA[/*(function() {
-    //var borrowSysId = $sp.getParameter('borrow_sys_id'); 
-    if (!input) {
-        var borrowSysId = $sp.getParameter('borrow_sys_id'); 
-			  var userId = gs.getUser().getID();
-        data.borrowedBooks = [];
-        
-        var borrowGR = new GlideRecord('x_1383151_bkquest_borrow');
-        borrowGR.addQuery('user_id', userId); 
-        borrowGR.query();
-
-        while (borrowGR.next()) {
-            var bookId = borrowGR.getValue('book_id');
-            var borrowDate = borrowGR.getValue('borrow_date');
-            var borrowStatus = borrowGR.getValue('borrow_status');
-            var daysLate = borrowGR.getValue('days_late');
-            var dueDate = borrowGR.getValue('due_date');
-            var fineAmount = borrowGR.getValue('fine_amount');
-            var finePaidDate = borrowGR.getValue('fine_paid_date');
-            var fineStatus = borrowGR.getValue('fine_status');
-            var returnedDate = borrowGR.getValue('returned_date');
-            var title = borrowGR.getValue('title');
-
-            data.borrowedBooks.push({
-                'sys_id': borrowGR.getUniqueValue(),
-                'book_id': bookId,
-                'borrow_date': borrowDate,
-                'borrow_status': borrowStatus,
-                'days_late': daysLate,
-                'due_date': dueDate,
-                'fine_amount': fineAmount,
-                'fine_paid_date': finePaidDate,
-                'fine_status': fineStatus,
-                'returned_date': returnedDate,
-                'title': title
-            });
-        }
-    }
-})(); */
-
-(function() {
+        <script><![CDATA[(function() {
 	
     // Retrieve the borrow_sys_id parameter from the request
     var borrowSysId = $sp.getParameter('sys_id'); 
@@ -223,14 +183,14 @@ color: #555;
         <sys_created_by>harini.srija</sys_created_by>
         <sys_created_on>2024-06-25 15:00:25</sys_created_on>
         <sys_id>7e7281c1938b0210ef267c5efaba1066</sys_id>
-        <sys_mod_count>123</sys_mod_count>
+        <sys_mod_count>136</sys_mod_count>
         <sys_name>borrow Details</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sp_widget_7e7281c1938b0210ef267c5efaba1066</sys_update_name>
         <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-07-03 07:29:31</sys_updated_on>
+        <sys_updated_on>2024-07-05 14:25:50</sys_updated_on>
         <template><![CDATA[<div class="container book-details-card">
   <div class="row">
     <!-- Cards for each borrowed book -->
