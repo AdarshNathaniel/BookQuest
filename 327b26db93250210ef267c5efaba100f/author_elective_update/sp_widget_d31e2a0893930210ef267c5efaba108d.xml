@@ -1,0 +1,765 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="DELETE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller = function($location, $scope) {
+    var c = this;
+
+    // Default filter
+    $scope.currentFilter = 'borrowedBooks';
+
+    // Example data initialization (replace with actual data assignment)
+    c.categorizedBooks = {
+        borrowedBooks: [], // Initialize with empty arrays
+        returnedBooks: [],
+        overdueBooks: [],
+        recentlyBorrowedBooks: []
+    };
+
+    // Function to navigate to the detailed book page
+    c.openBook = function(sys_id) {
+        var portalURL = $location.absUrl().split('?')[0];
+        var pageID = 'book_details_page_v1';
+        var url = portalURL + '?id=' + pageID + '&sys_id=' + sys_id;
+        window.location.href = url;
+    };
+
+    // Function to navigate to the borrowed book details page
+    c.openBorrowDetails = function(borrowSysId) {
+        var portalURL = $location.absUrl().split('?')[0];
+        var pageID = 'borrow_details';
+        var url = portalURL + '?id=' + pageID + '&sys_id=' + borrowSysId;
+        window.location.href = url;
+    };
+
+    // Function to filter books based on selected category
+    $scope.filterBooks = function(category) {
+        $scope.currentFilter = category;
+    };
+
+    // Function to determine which books to display based on current filter
+    $scope.getFilteredBooks = function() {
+        switch ($scope.currentFilter) {
+            case 'returnedBooks':
+                return c.data.returnedBooks;
+            case 'overdueBooks':
+                return c.data.overdueBooks;
+            case 'recentlyBorrowedBooks':
+                return c.data.recentlyBorrowedBooks;
+            default:
+                return c.data.borrowedBooks; // Default to borrowedBooks
+        }
+    };
+
+    // Initial setup of displayed books
+    $scope.books = $scope.getFilteredBooks();
+};
+]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.book-item {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Dropdown Filters */
+.dropdown-container .filter-container {
+  height: 100%;
+  width: 30%;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  border: 2px solid #006060;
+}
+
+.sort-filter {
+  height: 100%;
+  width: 40%;
+  display: flex;
+  align-items: center;
+  border-right: 2px solid #006060;
+  justify-content: center;
+}
+
+.sort-filter &gt; svg {
+  height: 50%;
+  width: 50%;
+  border: none;
+  transform: rotate(-90deg);
+}
+
+.sort-filter &gt; label {
+  margin: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.category-filter {
+  height: 100%;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.category-filter &gt; p {
+  margin: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.category-filter &gt; select {
+  height: 100%;
+  width: 50%;
+  border: none;
+}
+
+.dropdown-container select:focus {
+  box-shadow: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .dropdown-container {
+    flex-direction: column;
+    align-items: flex-start;
+    height: 90px;
+    row-gap: 2px;
+    margin-top: 10px;
+  }
+
+  .dropdown-container .search-box-container {
+    width: 100%;
+    height: 50%;
+  }
+
+  .dropdown-container .filter-container {
+    width: 100%; /* Adjust width for mobile */
+    margin-top: 5px;
+  }
+
+  .sort-filter,
+  .category-filter {
+    width: 100%; /* Full width on mobile */
+    margin-top: 5px;
+  }
+}
+
+
+.card {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    height: 400px; /* Fixed height for uniformity */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%; /* Ensures cards take up full width of column */
+    margin-bottom: 30px;
+    margin-top: 30px;
+    align-items: center;
+}
+
+.h1 {
+    text-align: center;
+    color: white;
+    font-weight: bold;
+}
+  
+
+.book-cover {
+    max-height: 200px; /* Adjust based on desired cover size */
+    width: auto;
+    margin: 0 auto 10px; /* Center the image and add bottom margin */
+    border-radius: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.book-cover:hover {
+    transform: scale(1.05); /* Slightly scale up the image */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow effect */
+}
+
+.book-title {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-top: 10px;
+}
+
+.book-author {
+    color: #555;
+    margin-bottom: 10px; /* Ensure spacing at the bottom */
+}
+
+.btn-primary,
+.btn-danger,
+.btn-success {
+    padding: 10px 24px; /* Padding adjustment */
+    font-size: 14px;
+    margin: 0 10px; /* Margin adjustment */
+    transition: background-color 0.3s, border-color 0.3s;
+    width: 100%; /* Button width adjustment */
+    border-radius: 8px;
+}
+
+.btn-primary {
+    background-color: #007bff; /* Primary button color */
+    border-color: #007bff;
+    color: #fff; /* Text color */
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Darker color on hover */
+    border-color: #0056b3;
+}
+
+.btn-danger {
+    background-color: #dc3545; /* Danger button color */
+    border-color: #dc3545;
+    color: #fff; /* Text color */
+}
+
+.btn-danger:hover {
+    background-color: #c82333; /* Darker color on hover */
+    border-color: #bd2130;
+}
+
+.btn-success {
+    background-color: #28a745; /* Success button color */
+    border-color: #28a745;
+    color: #fff; /* Text color */
+}
+
+.btn-success:hover {
+    background-color: #218838; /* Darker color on hover */
+    border-color: #1e7e34;
+}
+</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>test</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>test</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+    var currentUserId = gs.getUserID();
+    var borrowedBooks = [];
+
+    // Log current user ID
+    console.log('Current User ID: ' + currentUserId);
+
+    // Create GlideRecord object for Borrow table
+    var borrowGR = new GlideRecord('x_1383151_bkquest_borrow');
+
+    // Add query to filter records by the current user ID
+    borrowGR.addQuery('user_id', currentUserId);
+    borrowGR.query();
+
+    // Iterate through the Borrow records for the current user
+    while (borrowGR.next()) {
+        // Get the Book Instance ID from the Borrow record
+        var bookInstanceId = borrowGR.book_id;
+
+        if (!bookInstanceId) {
+            continue; // Skip if no book instance ID
+        }
+
+        // Create GlideRecord object for Book Instance table
+        var bookInstanceGR = new GlideRecord('x_1383151_bkquest_book_copy');
+
+        // Ensure the book instance record is found
+        if (bookInstanceGR.get(bookInstanceId)) {
+            // Get the Book ID from the Book Instance record
+            var bookId = bookInstanceGR.title;
+
+            // Create GlideRecord object for Book Definition table
+            var bookDefinitionGR = new GlideRecord('x_1383151_bkquest_book');
+
+            // Ensure the book definition record is found
+            if (bookDefinitionGR.get(bookId)) {
+                // Create GlideRecord object for Author table
+                var authorGR = new GlideRecord('x_1383151_bkquest_author');
+
+                // Ensure the author record is found
+                if (authorGR.get(bookDefinitionGR.author)) {
+                    // Get the cover image URL
+                    var coverImageURL = '';
+                    if (bookDefinitionGR.cover_image) {
+                        coverImageURL = '/sys_attachment.do?sys_id=' + bookDefinitionGR.cover_image.sys_id;
+                    }
+
+                    // Create book detail object
+                    var bookDetail = {
+                        borrowId: borrowGR.number.toString(),
+                        borrowDate: borrowGR.borrow_date.toString(),
+                        dueDate: borrowGR.due_date.toString(),
+                        returnedDate: borrowGR.returned_date.toString(),
+                        daysLate: borrowGR.days_late.toString(),
+                        fineAmount: borrowGR.fine_amount.toString(),
+                        finePaidDate: borrowGR.fine_paid_date.toString(),
+                        title: bookDefinitionGR.title.toString(),
+                        author: authorGR.full_name.toString(),
+                        sys_id: bookDefinitionGR.sys_id.toString(),
+                        borrowSysId: borrowGR.sys_id.toString(),
+                        user_id: currentUserId,
+                        coverImage: coverImageURL
+                    };
+
+                    // Add book detail to borrowedBooks array
+                    borrowedBooks.push(bookDetail);
+                }
+            }
+        }
+    }
+
+    // Log borrowed books data
+    console.log('Borrowed books data: ' + JSON.stringify(borrowedBooks));
+
+    // Return the borrowedBooks array containing categorized books
+    return borrowedBooks;
+})();
+]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-05 06:32:27</sys_created_on>
+        <sys_id>d31e2a0893930210ef267c5efaba108d</sys_id>
+        <sys_mod_count>59</sys_mod_count>
+        <sys_name>test</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>sp_widget_d31e2a0893930210ef267c5efaba108d</sys_update_name>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-05 09:43:23</sys_updated_on>
+        <template><![CDATA[<div class="container" ng-controller="api.controller as c">
+    <h2 class="h1">My Books</h2>
+    <div class="filter-container">
+        <label for="bookFilter">Filter Books: </label>
+        <select id="bookFilter" ng-model="c.selectedFilter" ng-change="c.applyFilter()">
+            <option value="all">All Books</option>
+            <option value="borrowedBooks">Borrowed Books</option>
+            <option value="returnedBooks">Returned Books</option>
+            <option value="overdueBooks">Overdue Books</option>
+            <option value="recentlyBorrowedBooks">Recently Borrowed Books</option>
+        </select>
+    </div>
+    <div class="row">
+        <div class="borrowedbook-item col-xs-12 col-sm-6 col-md-3 col-lg-3" 
+             ng-repeat="book in c.data[c.selectedFilter]">
+            <div class="card">
+                <a ng-click="c.openBook(book.sys_id)">
+                    <img ng-src="{{book.coverImage}}" alt="{{book.title}} cover" class="book-cover img-responsive">
+                </a>
+                <h3 class="book-title">{{book.title}}</h3>
+                <p class="book-author">{{book.author}}</p>
+                <button type="submit" class="btn btn-success" ng-if="book.returnedDate" ng-click="c.openBorrowDetails(book.borrowSysId)">Book Returned</button>
+                <button type="submit" class="btn btn-danger" ng-if="book.daysLate > 0 && !book.returnedDate" ng-click="c.openBorrowDetails(book.borrowSysId)">Overdue Book</button>
+                <button type="button" class="btn btn-primary" ng-if="book.daysLate == 0 && !book.returnedDate" ng-click="c.openBorrowDetails(book.borrowSysId)">View Borrow Details</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<pre>{{data.borrowedBooks}}</pre>
+]]></template>
+    </sp_widget>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="BookQuest">327b26db93250210ef267c5efaba100f</application>
+        <file_path/>
+        <instance_id>0535015fdb717d1002d9172913961922</instance_id>
+        <instance_name>dev186731</instance_name>
+        <name>sp_widget_d31e2a0893930210ef267c5efaba108d</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sp_widget"&gt;&lt;sp_widget action="INSERT_OR_UPDATE"&gt;&lt;category&gt;custom&lt;/category&gt;&lt;client_script&gt;&lt;![CDATA[api.controller = function($location, $scope) {
+    var c = this;
+
+    // Default filter
+    $scope.currentFilter = 'borrowedBooks';
+
+    // Example data initialization (replace with actual data assignment)
+    c.categorizedBooks = {
+        borrowedBooks: [], // Initialize with empty arrays
+        returnedBooks: [],
+        overdueBooks: [],
+        recentlyBorrowedBooks: []
+    };
+
+    // Function to navigate to the detailed book page
+    c.openBook = function(sys_id) {
+        var portalURL = $location.absUrl().split('?')[0];
+        var pageID = 'book_details_page_v1';
+        var url = portalURL + '?id=' + pageID + '&amp;sys_id=' + sys_id;
+        window.location.href = url;
+    };
+
+    // Function to navigate to the borrowed book details page
+    c.openBorrowDetails = function(borrowSysId) {
+        var portalURL = $location.absUrl().split('?')[0];
+        var pageID = 'borrow_details';
+        var url = portalURL + '?id=' + pageID + '&amp;sys_id=' + borrowSysId;
+        window.location.href = url;
+    };
+
+    // Function to filter books based on selected category
+    $scope.filterBooks = function(category) {
+        $scope.currentFilter = category;
+    };
+
+    // Function to determine which books to display based on current filter
+    $scope.getFilteredBooks = function() {
+        switch ($scope.currentFilter) {
+            case 'returnedBooks':
+                return c.data.returnedBooks;
+            case 'overdueBooks':
+                return c.data.overdueBooks;
+            case 'recentlyBorrowedBooks':
+                return c.data.recentlyBorrowedBooks;
+            default:
+                return c.data.borrowedBooks; // Default to borrowedBooks
+        }
+    };
+
+    // Initial setup of displayed books
+    $scope.books = $scope.getFilteredBooks();
+};
+]]&gt;&lt;/client_script&gt;&lt;controller_as&gt;c&lt;/controller_as&gt;&lt;css&gt;.book-item {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Dropdown Filters */
+.dropdown-container .filter-container {
+  height: 100%;
+  width: 30%;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  border: 2px solid #006060;
+}
+
+.sort-filter {
+  height: 100%;
+  width: 40%;
+  display: flex;
+  align-items: center;
+  border-right: 2px solid #006060;
+  justify-content: center;
+}
+
+.sort-filter &amp;gt; svg {
+  height: 50%;
+  width: 50%;
+  border: none;
+  transform: rotate(-90deg);
+}
+
+.sort-filter &amp;gt; label {
+  margin: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.category-filter {
+  height: 100%;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.category-filter &amp;gt; p {
+  margin: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.category-filter &amp;gt; select {
+  height: 100%;
+  width: 50%;
+  border: none;
+}
+
+.dropdown-container select:focus {
+  box-shadow: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .dropdown-container {
+    flex-direction: column;
+    align-items: flex-start;
+    height: 90px;
+    row-gap: 2px;
+    margin-top: 10px;
+  }
+
+  .dropdown-container .search-box-container {
+    width: 100%;
+    height: 50%;
+  }
+
+  .dropdown-container .filter-container {
+    width: 100%; /* Adjust width for mobile */
+    margin-top: 5px;
+  }
+
+  .sort-filter,
+  .category-filter {
+    width: 100%; /* Full width on mobile */
+    margin-top: 5px;
+  }
+}
+
+
+.card {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    height: 400px; /* Fixed height for uniformity */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%; /* Ensures cards take up full width of column */
+    margin-bottom: 30px;
+    margin-top: 30px;
+    align-items: center;
+}
+
+.h1 {
+    text-align: center;
+    color: white;
+    font-weight: bold;
+}
+  
+
+.book-cover {
+    max-height: 200px; /* Adjust based on desired cover size */
+    width: auto;
+    margin: 0 auto 10px; /* Center the image and add bottom margin */
+    border-radius: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.book-cover:hover {
+    transform: scale(1.05); /* Slightly scale up the image */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow effect */
+}
+
+.book-title {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-top: 10px;
+}
+
+.book-author {
+    color: #555;
+    margin-bottom: 10px; /* Ensure spacing at the bottom */
+}
+
+.btn-primary,
+.btn-danger,
+.btn-success {
+    padding: 10px 24px; /* Padding adjustment */
+    font-size: 14px;
+    margin: 0 10px; /* Margin adjustment */
+    transition: background-color 0.3s, border-color 0.3s;
+    width: 100%; /* Button width adjustment */
+    border-radius: 8px;
+}
+
+.btn-primary {
+    background-color: #007bff; /* Primary button color */
+    border-color: #007bff;
+    color: #fff; /* Text color */
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Darker color on hover */
+    border-color: #0056b3;
+}
+
+.btn-danger {
+    background-color: #dc3545; /* Danger button color */
+    border-color: #dc3545;
+    color: #fff; /* Text color */
+}
+
+.btn-danger:hover {
+    background-color: #c82333; /* Darker color on hover */
+    border-color: #bd2130;
+}
+
+.btn-success {
+    background-color: #28a745; /* Success button color */
+    border-color: #28a745;
+    color: #fff; /* Text color */
+}
+
+.btn-success:hover {
+    background-color: #218838; /* Darker color on hover */
+    border-color: #1e7e34;
+}
+&lt;/css&gt;&lt;data_table&gt;sp_instance&lt;/data_table&gt;&lt;demo_data/&gt;&lt;description/&gt;&lt;docs/&gt;&lt;field_list/&gt;&lt;has_preview&gt;true&lt;/has_preview&gt;&lt;id&gt;test&lt;/id&gt;&lt;internal&gt;false&lt;/internal&gt;&lt;link&gt;&lt;![CDATA[function link(scope, element, attrs, controller) {  }]]&gt;&lt;/link&gt;&lt;name&gt;test&lt;/name&gt;&lt;option_schema/&gt;&lt;public&gt;false&lt;/public&gt;&lt;roles/&gt;&lt;script&gt;&lt;![CDATA[(function() {
+    var currentUserId = gs.getUserID();
+    var borrowedBooks = [];
+
+    // Log current user ID
+    console.log('Current User ID: ' + currentUserId);
+
+    // Create GlideRecord object for Borrow table
+    var borrowGR = new GlideRecord('x_1383151_bkquest_borrow');
+
+    // Add query to filter records by the current user ID
+    borrowGR.addQuery('user_id', currentUserId);
+    borrowGR.query();
+
+    // Iterate through the Borrow records for the current user
+    while (borrowGR.next()) {
+        // Get the Book Instance ID from the Borrow record
+        var bookInstanceId = borrowGR.book_id;
+
+        if (!bookInstanceId) {
+            continue; // Skip if no book instance ID
+        }
+
+        // Create GlideRecord object for Book Instance table
+        var bookInstanceGR = new GlideRecord('x_1383151_bkquest_book_copy');
+
+        // Ensure the book instance record is found
+        if (bookInstanceGR.get(bookInstanceId)) {
+            // Get the Book ID from the Book Instance record
+            var bookId = bookInstanceGR.title;
+
+            // Create GlideRecord object for Book Definition table
+            var bookDefinitionGR = new GlideRecord('x_1383151_bkquest_book');
+
+            // Ensure the book definition record is found
+            if (bookDefinitionGR.get(bookId)) {
+                // Create GlideRecord object for Author table
+                var authorGR = new GlideRecord('x_1383151_bkquest_author');
+
+                // Ensure the author record is found
+                if (authorGR.get(bookDefinitionGR.author)) {
+                    // Get the cover image URL
+                    var coverImageURL = '';
+                    if (bookDefinitionGR.cover_image) {
+                        coverImageURL = '/sys_attachment.do?sys_id=' + bookDefinitionGR.cover_image.sys_id;
+                    }
+
+                    // Create book detail object
+                    var bookDetail = {
+                        borrowId: borrowGR.number.toString(),
+                        borrowDate: borrowGR.borrow_date.toString(),
+                        dueDate: borrowGR.due_date.toString(),
+                        returnedDate: borrowGR.returned_date.toString(),
+                        daysLate: borrowGR.days_late.toString(),
+                        fineAmount: borrowGR.fine_amount.toString(),
+                        finePaidDate: borrowGR.fine_paid_date.toString(),
+                        title: bookDefinitionGR.title.toString(),
+                        author: authorGR.full_name.toString(),
+                        sys_id: bookDefinitionGR.sys_id.toString(),
+                        borrowSysId: borrowGR.sys_id.toString(),
+                        user_id: currentUserId,
+                        coverImage: coverImageURL
+                    };
+
+                    // Add book detail to borrowedBooks array
+                    borrowedBooks.push(bookDetail);
+                }
+            }
+        }
+    }
+
+    // Log borrowed books data
+    console.log('Borrowed books data: ' + JSON.stringify(borrowedBooks));
+
+    // Return the borrowedBooks array containing categorized books
+    return borrowedBooks;
+})();
+]]&gt;&lt;/script&gt;&lt;servicenow&gt;false&lt;/servicenow&gt;&lt;sys_class_name&gt;sp_widget&lt;/sys_class_name&gt;&lt;sys_created_by&gt;harini.srija&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-07-05 06:32:27&lt;/sys_created_on&gt;&lt;sys_id&gt;d31e2a0893930210ef267c5efaba108d&lt;/sys_id&gt;&lt;sys_mod_count&gt;59&lt;/sys_mod_count&gt;&lt;sys_name&gt;test&lt;/sys_name&gt;&lt;sys_package display_value="BookQuest" source="x_1383151_bkquest"&gt;327b26db93250210ef267c5efaba100f&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="BookQuest"&gt;327b26db93250210ef267c5efaba100f&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_widget_d31e2a0893930210ef267c5efaba108d&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;harini.srija&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-07-05 09:43:23&lt;/sys_updated_on&gt;&lt;template&gt;&lt;![CDATA[&lt;div class="container" ng-controller="api.controller as c"&gt;
+    &lt;h2 class="h1"&gt;My Books&lt;/h2&gt;
+    &lt;div class="filter-container"&gt;
+        &lt;label for="bookFilter"&gt;Filter Books: &lt;/label&gt;
+        &lt;select id="bookFilter" ng-model="c.selectedFilter" ng-change="c.applyFilter()"&gt;
+            &lt;option value="all"&gt;All Books&lt;/option&gt;
+            &lt;option value="borrowedBooks"&gt;Borrowed Books&lt;/option&gt;
+            &lt;option value="returnedBooks"&gt;Returned Books&lt;/option&gt;
+            &lt;option value="overdueBooks"&gt;Overdue Books&lt;/option&gt;
+            &lt;option value="recentlyBorrowedBooks"&gt;Recently Borrowed Books&lt;/option&gt;
+        &lt;/select&gt;
+    &lt;/div&gt;
+    &lt;div class="row"&gt;
+        &lt;div class="borrowedbook-item col-xs-12 col-sm-6 col-md-3 col-lg-3" 
+             ng-repeat="book in c.data[c.selectedFilter]"&gt;
+            &lt;div class="card"&gt;
+                &lt;a ng-click="c.openBook(book.sys_id)"&gt;
+                    &lt;img ng-src="{{book.coverImage}}" alt="{{book.title}} cover" class="book-cover img-responsive"&gt;
+                &lt;/a&gt;
+                &lt;h3 class="book-title"&gt;{{book.title}}&lt;/h3&gt;
+                &lt;p class="book-author"&gt;{{book.author}}&lt;/p&gt;
+                &lt;button type="submit" class="btn btn-success" ng-if="book.returnedDate" ng-click="c.openBorrowDetails(book.borrowSysId)"&gt;Book Returned&lt;/button&gt;
+                &lt;button type="submit" class="btn btn-danger" ng-if="book.daysLate &gt; 0 &amp;&amp; !book.returnedDate" ng-click="c.openBorrowDetails(book.borrowSysId)"&gt;Overdue Book&lt;/button&gt;
+                &lt;button type="button" class="btn btn-primary" ng-if="book.daysLate == 0 &amp;&amp; !book.returnedDate" ng-click="c.openBorrowDetails(book.borrowSysId)"&gt;View Borrow Details&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;pre&gt;{{data.borrowedBooks}}&lt;/pre&gt;
+]]&gt;&lt;/template&gt;&lt;/sp_widget&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-1884559494</payload_hash>
+        <record_name>test</record_name>
+        <reverted_from/>
+        <source>3d9e5eee936e0610ef267c5efaba1086</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-05 09:43:23</sys_created_on>
+        <sys_id>fbc9130893570210ef267c5efaba100c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1908246e6d50000001</sys_recorded_at>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-05 09:43:23</sys_updated_on>
+        <type>Widget</type>
+        <update_guid>b3c91308855702104be5e9f37b64090c</update_guid>
+        <update_guid_history>b3c91308855702104be5e9f37b64090c:-1884559494,76a917884e57021015faeab346d09650:671630138,5e99dfc4e9570210182f85861b8e5fcb:17132977,00b7130878570210b85e368a4621d0da:787385460,0ca75b84f557021082461407598b9be6:-185010673,ab379780905702105db479c349f0fff1:1325358134,c53657441d570210bd85f1b5e38176e8:787385460,e5c5df445e5702107e42acd0dd85548f:1023129406,ae951bc03a5702101b34b09741ddbeb4:-348304196,22359744435702104cdf4ba0133fea0b:-2054894117,02e41344cf57021022e4cdd2fdf76238:-1097994092,e5c39b001b570210a8d4f0570ac1c8f4:-2018553420,b5831bc0185702102690d001760e0c66:67144516,b6d1dbccbf1702107d69b79b168196a9:-2018553420,71b0d7cc93170210fe0df7a6065a9fe8:393982713,4180d3007b570210f2ab0766dacd5743:-2018553420,26609bcc08170210b4ed3a0864919893:5389375,1f001bccb1170210472b81c3c0d2cc17:-178093232,e8ff4f4cf81702103d83189438220487:773422717,2dfe4b0cbb1702109eb0f4b1bdff61b6:431735990,099e0f4c8c17021078f08fcc049adefa:1637246709,555d47c8bf170210c0a5991795f8a270:1055066617,736c438495170210c4f745fd07d1accc:1211708596,ec9b0f088417021008649c4adf4fed0e:-1742637730,32cacb48061702108637de0af59bf561:-1257653161,70e90344b6170210f2ac0f46f0610efe:-224958840,9ab80bc4641702106a9902b90705e910:918677731,1d774384cd170210075f3031857c1bc1:-184159414,7bb64744b717021068970da7df611b92:-1542078757,8696434423170210688b57fb0f660540:1902582196,3b760f4881d302108cd7367ab2dc3ff0:-1824327510,ca568f04f4170210c75ed3ae37a17c3b:-916198473,d436cb486fd302105fee4d6832f7215f:2075932867,edc50704c1170210daf9b7151eef8483:-916198473,2ba583048b1702105e49373073b21ea0:1651761083,04a58b4844d3021035d489015bcb3e1b:248137104,89758fc045170210cd5a94f7b83f0888:-440703982,b5254b0858d30210a53112eebc83f774:1414905680,81154788a4d3021085977db136d1b6f6:1048119808,e1ac7e48e5d302102cc25b5396db5d01:180797767,fc9c3a48fad302109b26f3083b066383:-2085070559,cc1c3e4838d30210145f83b338ad40e6:-530633706,32fbf604d5d30210e1f5f92bb79d25d0:1045063370,52eb7e4476d30210acdfe946221046a9:838420158,0adb3a480bd3021084a12554d9e45b7c:-1587690702,e26bbac024d302105291862f30e31135:1284659499,496876c0fad302108056604ac35d20ac:-1353543707,eb163acc1993021063ed846c7e195df5:-265099845,073536809bd30210c1385b318b6c0b08:-1353543707,9725f24cf2930210e31881b7c3d6aab1:809168403,e6053280e6d3021063f3929e828efdab:693474055,9a13b60c19930210f9dbbbc522668851:2111899139,1ce2be0cec9302108cf438516bc79174:-1353543707,186272c8309302108cfa8996742dd44e:-1542078757,1ff1b60cde930210481b11a9bdadc46c:1239357617,6e91ba08ee9302107249a28d11e635a0:-1543607227,60e072c88c930210e8531eb0960c5a57:1922834589,2950fa08869302107c406d9f303af066:-1505358370,c57e6ec0df930210be97629c92b2c85f:-2058763444,d71e2a0893930210a622aee64d64f58e:34736038</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="test">6f73a34493970210ef267c5efaba10ca</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-05 10:25:41</sys_created_on>
+        <sys_db_object display_value="" name="sp_widget">sp_widget</sys_db_object>
+        <sys_id>2c18b54ce4ac45a08a1953df09b0fa41</sys_id>
+        <sys_metadata>d31e2a0893930210ef267c5efaba108d</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>test</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_scope_delete display_value="">18e926194902432895b35f3c99259089</sys_scope_delete>
+        <sys_update_name>sp_widget_d31e2a0893930210ef267c5efaba108d</sys_update_name>
+        <sys_update_version display_value="sp_widget_d31e2a0893930210ef267c5efaba108d">fbc9130893570210ef267c5efaba100c</sys_update_version>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-05 10:25:41</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_view_template_slot_attribute">
     <sys_sg_view_template_slot_attribute action="INSERT_OR_UPDATE">
-        <description>text_12_TextValue</description>
+        <description>text_20_TextValue</description>
         <name display_value="TextValue">601f19c2b7321010df65f6efce11a925</name>
         <sys_class_name>sys_sg_view_template_slot_attribute</sys_class_name>
         <sys_created_by>harini.srija</sys_created_by>
-        <sys_created_on>2024-07-04 10:02:52</sys_created_on>
-        <sys_id>ffa41afb934b0610ef267c5efaba1012</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_created_on>2024-07-04 13:43:06</sys_created_on>
+        <sys_id>fd174f37934f0610ef267c5efaba10a8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
         <sys_name>601f19c2b7321010df65f6efce11a925</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
-        <sys_update_name>sys_sg_view_template_slot_attribute_ffa41afb934b0610ef267c5efaba1012</sys_update_name>
+        <sys_update_name>sys_sg_view_template_slot_attribute_fd174f37934f0610ef267c5efaba10a8</sys_update_name>
         <sys_updated_by>harini.srija</sys_updated_by>
         <sys_updated_on>2024-07-04 13:43:06</sys_updated_on>
-        <translated_value>Returned date:  </translated_value>
+        <translated_value>Fine status:  </translated_value>
         <value/>
-        <view_template_slot display_value="text_12">7ba41afb934b0610ef267c5efaba1001</view_template_slot>
+        <view_template_slot display_value="text_20">31174f37934f0610ef267c5efaba10a4</view_template_slot>
     </sys_sg_view_template_slot_attribute>
-    <sys_translated_text action="delete_multiple" query="documentkey=ffa41afb934b0610ef267c5efaba1012"/>
+    <sys_translated_text action="delete_multiple" query="documentkey=fd174f37934f0610ef267c5efaba10a8"/>
 </record_update>

@@ -10,13 +10,13 @@
         <sys_created_by>harini.srija</sys_created_by>
         <sys_created_on>2024-07-04 08:51:05</sys_created_on>
         <sys_id>4c448a3b930b0610ef267c5efaba10da</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>2</sys_mod_count>
         <sys_name>My books screen segment</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sys_sg_item_stream_segment_4c448a3b930b0610ef267c5efaba10da</sys_update_name>
         <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-07-04 08:51:05</sys_updated_on>
+        <sys_updated_on>2024-07-04 13:48:50</sys_updated_on>
     </sys_sg_item_stream_segment>
 </record_update>
