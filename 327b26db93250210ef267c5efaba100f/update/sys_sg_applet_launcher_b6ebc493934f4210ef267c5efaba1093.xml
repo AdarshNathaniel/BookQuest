@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_applet_launcher">
+    <sys_sg_applet_launcher action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <available_offline>false</available_offline>
+        <header_button/>
+        <header_titles>b683167b934b0610ef267c5efaba103f</header_titles>
+        <hide_empty_sections>true</hide_empty_sections>
+        <name>Home</name>
+        <required_roles>x_1383151_bkquest.author_user,x_1383151_bkquest.borrow_manager,x_1383151_bkquest.catalog_lib,x_1383151_bkquest.genre_lookup_user,x_1383151_bkquest.lib_admin,x_1383151_bkquest.publisher_lookup_user,x_1383151_bkquest.reservation_user</required_roles>
+        <search_config/>
+        <sys_class_name>sys_sg_applet_launcher</sys_class_name>
+        <sys_created_by>adarsh.nathaniel</sys_created_by>
+        <sys_created_on>2024-07-02 10:48:23</sys_created_on>
+        <sys_id>b6ebc493934f4210ef267c5efaba1093</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>Home</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>sys_sg_applet_launcher_b6ebc493934f4210ef267c5efaba1093</sys_update_name>
+        <sys_updated_by>adarsh.nathaniel</sys_updated_by>
+        <sys_updated_on>2024-07-04 10:36:50</sys_updated_on>
+        <title>Home</title>
+    </sys_sg_applet_launcher>
+</record_update>

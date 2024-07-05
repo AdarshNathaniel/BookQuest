@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_browser_screen">
+    <sys_sg_browser_screen action="INSERT_OR_UPDATE">
+        <available_offline>false</available_offline>
+        <check_acl>false</check_acl>
+        <description/>
+        <dynamic_prefetch_count/>
+        <empty_state/>
+        <external_browser>false</external_browser>
+        <fetch_type>not_required</fetch_type>
+        <filter/>
+        <hide_filters>false</hide_filters>
+        <hide_screen_name>false</hide_screen_name>
+        <icon display_value="Window">57eb0893934f4210ef267c5efaba10fd</icon>
+        <name>BookQuest Portal</name>
+        <relative_url>false</relative_url>
+        <roles_override/>
+        <sys_class_name>sys_sg_browser_screen</sys_class_name>
+        <sys_created_by>adarsh.nathaniel</sys_created_by>
+        <sys_created_on>2024-07-02 10:48:24</sys_created_on>
+        <sys_id>93eb0893934f4210ef267c5efaba10fe</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>BookQuest Portal</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>sys_sg_browser_screen_93eb0893934f4210ef267c5efaba10fe</sys_update_name>
+        <sys_updated_by>adarsh.nathaniel</sys_updated_by>
+        <sys_updated_on>2024-07-02 10:48:24</sys_updated_on>
+        <url>https://dev186731.service-now.com/bq?id=bookquest_index</url>
+    </sys_sg_browser_screen>
+    <sys_translated_text action="delete_multiple" query="documentkey=93eb0893934f4210ef267c5efaba10fe"/>
+</record_update>

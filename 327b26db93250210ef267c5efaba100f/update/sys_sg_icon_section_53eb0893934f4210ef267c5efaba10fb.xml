@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_icon_section">
+    <sys_sg_icon_section action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applets>43eb0893934f4210ef267c5efaba1021</applets>
+        <card_size/>
+        <column_count/>
+        <custom_height/>
+        <custom_width/>
+        <data_item/>
+        <display_feed_count>true</display_feed_count>
+        <hide_header>false</hide_header>
+        <hide_section_if_empty>false</hide_section_if_empty>
+        <is_custom_size>false</is_custom_size>
+        <is_hidden_preference_name/>
+        <orientation>vertical</orientation>
+        <required_roles>x_1383151_bkquest.author_user,x_1383151_bkquest.borrow_manager,x_1383151_bkquest.catalog_lib,x_1383151_bkquest.genre_lookup_user,x_1383151_bkquest.lib_admin,x_1383151_bkquest.publisher_lookup_user,x_1383151_bkquest.reservation_user</required_roles>
+        <row_count/>
+        <sys_class_name>sys_sg_icon_section</sys_class_name>
+        <sys_created_by>adarsh.nathaniel</sys_created_by>
+        <sys_created_on>2024-07-02 10:48:24</sys_created_on>
+        <sys_id>53eb0893934f4210ef267c5efaba10fb</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>Explore our Catalog</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>sys_sg_icon_section_53eb0893934f4210ef267c5efaba10fb</sys_update_name>
+        <sys_updated_by>adarsh.nathaniel</sys_updated_by>
+        <sys_updated_on>2024-07-04 04:58:59</sys_updated_on>
+        <table/>
+        <title>Explore our Catalog</title>
+        <visible_condition/>
+        <wide_column_count/>
+    </sys_sg_icon_section>
+</record_update>

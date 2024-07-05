@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_applet_launcher_tab">
+    <sys_sg_applet_launcher_tab action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applet_launcher display_value="My Books Launcher Screen">429e69ff93870610ef267c5efaba10d5</applet_launcher>
+        <icon display_value="Assets icon">0308385b1c003300964f3fc617b23a2e</icon>
+        <label>My Books</label>
+        <sys_class_name>sys_sg_applet_launcher_tab</sys_class_name>
+        <sys_created_by>adarsh.nathaniel</sys_created_by>
+        <sys_created_on>2024-07-04 07:16:28</sys_created_on>
+        <sys_id>ca9e69ff93870610ef267c5efaba10d7</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>My Books</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>sys_sg_applet_launcher_tab_ca9e69ff93870610ef267c5efaba10d7</sys_update_name>
+        <sys_updated_by>adarsh.nathaniel</sys_updated_by>
+        <sys_updated_on>2024-07-04 07:26:31</sys_updated_on>
+    </sys_sg_applet_launcher_tab>
+</record_update>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_analytics_bucket">
+    <sys_analytics_bucket action="INSERT_OR_UPDATE">
+        <analytics_channel display_value="mobile">3c70585353001010d69cddeeff7b1226</analytics_channel>
+        <application_name>BookQuest User</application_name>
+        <bucket_document_id>029e25ff93870610ef267c5efaba10b5</bucket_document_id>
+        <bucket_metadata/>
+        <bucket_table_name>sys_sg_native_client</bucket_table_name>
+        <bucket_type>mobile_request</bucket_type>
+        <enable_unauthenticated_user_tracking>false</enable_unauthenticated_user_tracking>
+        <enabled>true</enabled>
+        <internal_name_for_index>x_1383151_bkquest.sys_sg_native_client.029e25ff93870610ef267c5efaba10b5</internal_name_for_index>
+        <sys_class_name>sys_analytics_bucket</sys_class_name>
+        <sys_created_by>adarsh.nathaniel</sys_created_by>
+        <sys_created_on>2024-07-04 07:16:28</sys_created_on>
+        <sys_id>129e69ff93870610ef267c5efaba106c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>BookQuest User</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>sys_analytics_bucket_129e69ff93870610ef267c5efaba106c</sys_update_name>
+        <sys_updated_by>adarsh.nathaniel</sys_updated_by>
+        <sys_updated_on>2024-07-04 07:16:28</sys_updated_on>
+    </sys_analytics_bucket>
+</record_update>
