@@ -21,14 +21,14 @@
         <sys_created_by>harini.srija</sys_created_by>
         <sys_created_on>2024-05-30 07:29:29</sys_created_on>
         <sys_id>038e95a093aa0210ef267c5efaba1090</sys_id>
-        <sys_mod_count>9</sys_mod_count>
+        <sys_mod_count>12</sys_mod_count>
         <sys_name>BookQuest Theme</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sp_theme_038e95a093aa0210ef267c5efaba1090</sys_update_name>
-        <sys_updated_by>adarsh.nathaniel</sys_updated_by>
-        <sys_updated_on>2024-06-06 03:58:46</sys_updated_on>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-09 14:53:26</sys_updated_on>
         <turn_off_scss_compilation>false</turn_off_scss_compilation>
     </sp_theme>
 </record_update>

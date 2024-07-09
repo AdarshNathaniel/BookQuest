@@ -8,29 +8,39 @@
 ]]></client_script>
         <controller_as>c</controller_as>
         <css>.container {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
+    position: relative; /* Ensures the container can have absolutely positioned children */
+    display: flex; /* Enables Flexbox layout */
+    justify-content: space-between; /* Adds space between each stat-box */
+    align-items: center; /* Vertically centers the boxes */
+    padding: 20px; /* Add some padding if needed */
+    height: 300px; /* Set the desired height for the container */
+    width: 100%; /* Ensure the container takes full width */
+    box-sizing: border-box; /* Include padding in height/width calculations */
+}
+
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the entire container */
+    z-index: -1; /* Places the image behind the other content */
 }
 
 .stat-box {
-    flex: 1;
-    margin: 0 10px;
+    position: relative;
+    margin: 10px;
     padding: 20px;
-    text-align: center;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background-color: #f9f9f9;
+    background: rgba(255, 255, 255, 0.8); /* Semi-transparent background for readability */
+    border-radius: 5px; /* Optional: to make the corners rounded */
+    flex: 1; /* Allows the stat boxes to grow and shrink equally */
+    max-width: 200px; /* Optional: set a maximum width for the boxes */
+    text-align: center; /* Centers the text inside the boxes */
 }
 
-.stat-box h2 {
-    margin: 0 0 10px;
-    font-size: 24px;
-}
-
-.stat-box p {
-    margin: 0;
-    font-size: 18px;
+h1, h3 {
+    color: black;
 }
 </css>
         <data_table>sp_instance</data_table>
@@ -47,35 +57,11 @@
         <public>false</public>
         <roles/>
         <script><![CDATA[(function() {
-    var data = {};
-
-    // Initialize an array to store the statistics
-    data.stats = [];
-
-    // Count Total Books
-    var bookGR = new GlideRecord('x_1383151_bkquest_book');
-    bookGR.query();
-    var totalBooks = bookGR.getRowCount();
-
-    // Count Total Genres
-    var genreGR = new GlideRecord('x_1383151_bkquest_genre_lookup');
-    genreGR.query();
-    var totalGenres = genreGR.getRowCount();
-
-    // Count Total Borrowed Books
-    var borrowGR = new GlideRecord('x_1383151_bkquest_borrow');
-    borrowGR.query();
-    var totalBorrowedBooks = borrowGR.getRowCount();
-
-    // Push the counts into the stats array
-    data.stats.push({
-        totalBooks: totalBooks,
-        totalGenres: totalGenres,
-        totalBorrowedBooks: totalBorrowedBooks
-    });
-
-    // Return the data object to the client-side
-    return data;
+    var counts = new BookQuestCounts().getCounts();
+    data.totalBooks = counts.totalBooks;
+    data.totalLanguages = counts.totalLanguages;
+    data.totalGenres = counts.totalGenres;
+    data.totalBorrowedBooks = counts.totalBorrowedBooks;
 })();
 ]]></script>
         <servicenow>false</servicenow>
@@ -83,29 +69,30 @@
         <sys_created_by>harini.srija</sys_created_by>
         <sys_created_on>2024-07-09 04:52:21</sys_created_on>
         <sys_id>3f8d3ed5939b4610ef267c5efaba10ea</sys_id>
-        <sys_mod_count>21</sys_mod_count>
+        <sys_mod_count>49</sys_mod_count>
         <sys_name>BookStats</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sp_widget_3f8d3ed5939b4610ef267c5efaba10ea</sys_update_name>
         <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-07-09 06:04:01</sys_updated_on>
+        <sys_updated_on>2024-07-09 14:03:03</sys_updated_on>
         <template><![CDATA[<div class="container">
+    <img src="BookStats.png" alt="Background Image" class="background-image">
     <div class="stat-box">
-        <h2>Stories</h2>
-        <p>{{c.stats.totalBooks}}</p>
+      	<h1><strong>{{data.totalBooks}}</strong></h1>
+        <h3>Stories</h3>
     </div>
     <div class="stat-box">
-        <h2>Genres</h2>
-        <p>{{c.stats.totalGenres}}</p>
+        <h1><strong>{{data.totalGenres}}</strong></h1>
+        <h3>Genres</h3>
     </div>
     <div class="stat-box">
-        <h2>Reads</h2>
-        <p>{{c.stats.totalBorrowedBooks}}</p>
+        <h1><strong>{{data.totalBorrowedBooks}}</strong></h1>
+        <h3>Reads</h3>
     </div>
 </div>
-<pre>{{data.stats | json}}</pre>
+
 ]]></template>
     </sp_widget>
 </record_update>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance_link">
+    <sp_instance_link action="DELETE">
+        <active>true</active>
+        <class_name/>
+        <color>info</color>
+        <css/>
+        <glyph>bullhorn</glyph>
+        <id/>
+        <kb_article/>
+        <kb_category/>
+        <kb_topic/>
+        <order>1</order>
+        <roles/>
+        <sc_cat_item/>
+        <sc_category/>
+        <short_description>Stories that come alive. Listen on the go.</short_description>
+        <size>md</size>
+        <sp_column display_value="3">98fcc85d939f0610ef267c5efaba10be</sp_column>
+        <sp_page display_value="bkq_explorev2">9a3f238a9322c210ef267c5efaba101c</sp_page>
+        <sp_widget display_value="Icon Link">3caa67afcb13020000f8d856634c9c2e</sp_widget>
+        <sys_class_name>sp_instance_link</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-06-02 13:12:35</sys_created_on>
+        <sys_id>3a3d4ae193e60210ef267c5efaba10fa</sys_id>
+        <sys_mod_count>8</sys_mod_count>
+        <sys_name>Audio Books</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>sp_instance_link_3a3d4ae193e60210ef267c5efaba10fa</sys_update_name>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-08 16:01:18</sys_updated_on>
+        <title>Audio Books</title>
+        <type>sc_category</type>
+        <url/>
+        <widget_parameters><![CDATA[{
+	"link_template": {
+		"value": "Color Box",
+		"displayValue": "Color Box"
+	}
+}]]></widget_parameters>
+    </sp_instance_link>
+    <sys_translated_text action="DELETE" query="documentkey=3a3d4ae193e60210ef267c5efaba10fa"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="BookQuest">327b26db93250210ef267c5efaba100f</application>
+        <file_path/>
+        <instance_id>0535015fdb717d1002d9172913961922</instance_id>
+        <instance_name>dev186731</instance_name>
+        <name>sp_instance_link_3a3d4ae193e60210ef267c5efaba10fa</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sp_instance_link"&gt;&lt;sp_instance_link action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;class_name/&gt;&lt;color&gt;info&lt;/color&gt;&lt;css/&gt;&lt;glyph&gt;bullhorn&lt;/glyph&gt;&lt;id/&gt;&lt;kb_article/&gt;&lt;kb_category/&gt;&lt;kb_topic/&gt;&lt;order&gt;1&lt;/order&gt;&lt;roles/&gt;&lt;sc_cat_item/&gt;&lt;sc_category/&gt;&lt;short_description&gt;Stories that come alive. Listen on the go.&lt;/short_description&gt;&lt;size&gt;md&lt;/size&gt;&lt;sp_column display_value="3"&gt;98fcc85d939f0610ef267c5efaba10be&lt;/sp_column&gt;&lt;sp_page display_value="bkq_explorev2"&gt;9a3f238a9322c210ef267c5efaba101c&lt;/sp_page&gt;&lt;sp_widget display_value="Icon Link"&gt;3caa67afcb13020000f8d856634c9c2e&lt;/sp_widget&gt;&lt;sys_class_name&gt;sp_instance_link&lt;/sys_class_name&gt;&lt;sys_created_by&gt;harini.srija&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-06-02 13:12:35&lt;/sys_created_on&gt;&lt;sys_id&gt;3a3d4ae193e60210ef267c5efaba10fa&lt;/sys_id&gt;&lt;sys_mod_count&gt;8&lt;/sys_mod_count&gt;&lt;sys_name&gt;Audio Books&lt;/sys_name&gt;&lt;sys_package display_value="BookQuest" source="x_1383151_bkquest"&gt;327b26db93250210ef267c5efaba100f&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="BookQuest"&gt;327b26db93250210ef267c5efaba100f&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_instance_link_3a3d4ae193e60210ef267c5efaba10fa&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;harini.srija&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-07-08 16:01:18&lt;/sys_updated_on&gt;&lt;title&gt;Audio Books&lt;/title&gt;&lt;type&gt;sc_category&lt;/type&gt;&lt;url/&gt;&lt;widget_parameters&gt;&lt;![CDATA[{
+	"link_template": {
+		"value": "Color Box",
+		"displayValue": "Color Box"
+	}
+}]]&gt;&lt;/widget_parameters&gt;&lt;/sp_instance_link&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=3a3d4ae193e60210ef267c5efaba10fa"/&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-1502839775</payload_hash>
+        <record_name>Audio Books</record_name>
+        <reverted_from/>
+        <source>3d9e5eee936e0610ef267c5efaba1086</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-08 16:01:18</sys_created_on>
+        <sys_id>911d8c5d939f0610ef267c5efaba10df</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1909313fb5e0000001</sys_recorded_at>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-08 16:01:18</sys_updated_on>
+        <type>Instance with Link</type>
+        <update_guid>591d8c5d159f061059eb850d9ca179de</update_guid>
+        <update_guid_history>591d8c5d159f061059eb850d9ca179de:-1502839775,51483862dbe606105189bba36c8584e1:-747717128,79601b0a1aae82104344ace2cb85e04a:136264215,2e0fcf86e5ae82105346988b49327c2b:1056433666,e7bc5665c42a0210900e2bddf127da59:-1785232160,0ea3daa97fe60210eb171ff25e066de1:465681603,76835aa9e7e60210c41c87e7bba68403:-833836157,8f1f8e6541e60210f871577c88b4d6c5:-1935372856,323d4ae12ae602104bd37995f24cd4fc:-2000132857</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Audio Books">c62efc6d93d38610ef267c5efaba100b</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-09 14:14:12</sys_created_on>
+        <sys_db_object display_value="" name="sp_instance_link">sp_instance_link</sys_db_object>
+        <sys_id>47ff7cc7d3b64c4eb813c8f49d85d544</sys_id>
+        <sys_metadata>3a3d4ae193e60210ef267c5efaba10fa</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Audio Books</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_scope_delete display_value="">18e926194902432895b35f3c99259089</sys_scope_delete>
+        <sys_update_name>sp_instance_link_3a3d4ae193e60210ef267c5efaba10fa</sys_update_name>
+        <sys_update_version display_value="sp_instance_link_3a3d4ae193e60210ef267c5efaba10fa">911d8c5d939f0610ef267c5efaba10df</sys_update_version>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-09 14:14:12</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

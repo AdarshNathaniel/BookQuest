@@ -22,7 +22,7 @@ body {
 /* Styles for homepage-search section */
 #homepage-search {
     padding: 20px;
-    margin-top: -200px; /* Move the whole section up */
+    margin-top: -50px; /* Move the whole section up */
 }
 
 .wrapper-xl {
@@ -105,7 +105,7 @@ body {
         <description/>
         <docs/>
         <field_list/>
-        <has_preview>false</has_preview>
+        <has_preview>true</has_preview>
         <id>types_of_books</id>
         <internal>false</internal>
         <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
@@ -119,14 +119,14 @@ body {
         <sys_created_by>harini.srija</sys_created_by>
         <sys_created_on>2024-07-08 10:53:01</sys_created_on>
         <sys_id>5586c7cd935b0610ef267c5efaba10d8</sys_id>
-        <sys_mod_count>19</sys_mod_count>
+        <sys_mod_count>22</sys_mod_count>
         <sys_name>Types Of Books</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sp_widget_5586c7cd935b0610ef267c5efaba10d8</sys_update_name>
         <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-07-09 04:54:43</sys_updated_on>
+        <sys_updated_on>2024-07-09 14:07:09</sys_updated_on>
         <template><![CDATA[<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -146,9 +146,9 @@ body {
                 <div class="cont-1">
                     <h1 class="margarine-regular">"Discover with Every Click"</h1>
                     <div class="search">
-                        <a href="?id=bkq_explorev2" class="button-74"><i class="fa-solid fa-book"></i>Physical Books</a>
-                        <a href="?id=bkq_explorev2" class="button-74"><i class="bi bi-journal-bookmark-fill"></i> eBooks</a>
-                        <a href="?id=bkq_explorev2" class="button-74"><i class="fas fa-volume-up"></i> Audiobooks</a>
+                        <a href="?id=bkq_explorev2" class="button-74">Physical Books</a>
+                        <a href="?id=bkq_explorev2" class="button-74">eBooks</a>
+                        <a href="?id=bkq_explorev2" class="button-74">Audiobooks</a>
                     </div>
                 </div>
             </div>
