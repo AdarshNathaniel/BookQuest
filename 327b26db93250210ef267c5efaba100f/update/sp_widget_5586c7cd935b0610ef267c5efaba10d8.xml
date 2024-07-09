@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function() {  /* widget controller */  var c = this;};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>@import url('https://fonts.googleapis.com/css2?family=Margarine&amp;display=swap');
+
+/* Resetting margins and padding for all elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* General body and font styles */
+body {
+    font-family: Arial, sans-serif; /* Fallback font */
+    line-height: 1.6;
+    background-color: #f0f0f0; /* Example background color */
+}
+
+/* Styles for homepage-search section */
+#homepage-search {
+    padding: 20px;
+    margin-top: -200px; /* Move the whole section up */
+}
+
+.wrapper-xl {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap; /* Enable wrapping */
+    justify-content: center; /* Center content horizontally */
+    align-items: flex-start; /* Align items to the top */
+    max-width: 1200px;
+    margin: auto;
+}
+
+.cont-1 {
+    flex: 1;
+    color: #3d52a0;
+    padding: 20px;
+    font-size: 1.2em; /* Increase text size */
+    text-align: center; /* Center text */
+}
+
+.cont-1 h1 {
+    margin: 0; /* Remove top margin */
+    font-size: 3em; /* Increase heading size */
+}
+
+.cont-1 p {
+    margin: 10px 0 20px; /* Adjust margins */
+    font-size: 1.2em; /* Increase paragraph text size */
+    text-align: justify; /* Justify paragraph text */
+}
+
+/* Button styles */
+.button-74 {
+    display: inline-block;
+    padding: 20px 40px; /* Increased padding for button */
+    font-size: 1.2em; /* Increase font size for button */
+    background-color: #3d52a0;
+    color: white;
+    text-decoration: none;
+    border-radius: 20px; /* Round button corners */
+    box-shadow: #422800 4px 4px 0 0;
+    transition: background-color 0.3s ease;
+    margin: 40px; /* Add spacing between buttons */
+}
+
+.button-74:hover {
+    background-color: #2c3b7b;
+}
+
+.button-74:focus {
+    outline: none;
+}
+
+.button-74 i {
+    margin-right: 10px; /* Spacing between icon and text */
+    font-size: 1.2em; /* Adjust the icon size */
+}
+
+/* Margarine font styles */
+.margarine-regular {
+    font-family: "Margarine", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Justify paragraph text */
+.justify {
+    text-align: justify;
+}
+</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>types_of_books</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Types Of Books</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {  /* populate the 'data' object */  /* e.g., data.table = $sp.getValue('table'); */})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-08 10:53:01</sys_created_on>
+        <sys_id>5586c7cd935b0610ef267c5efaba10d8</sys_id>
+        <sys_mod_count>19</sys_mod_count>
+        <sys_name>Types Of Books</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>sp_widget_5586c7cd935b0610ef267c5efaba10d8</sys_update_name>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-09 04:54:43</sys_updated_on>
+        <template><![CDATA[<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookQuest</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Margarine&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-lL+O4Mx3Mxv/L2+MjY9E3n4en99SpW5MHOpC3L0qEi24UuXa7MI1dWq7l4kT3iweSbb2ivtvlJ9/U8oF/5Nw8A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your external stylesheet -->
+</head>
+<body>
+    <div id="homepage-search" class="hidden-xs wrapper-xl">
+        <div class="wrapper-xl">
+            <div class="container">
+                <div class="cont-1">
+                    <h1 class="margarine-regular">"Discover with Every Click"</h1>
+                    <div class="search">
+                        <a href="?id=bkq_explorev2" class="button-74"><i class="fa-solid fa-book"></i>Physical Books</a>
+                        <a href="?id=bkq_explorev2" class="button-74"><i class="bi bi-journal-bookmark-fill"></i> eBooks</a>
+                        <a href="?id=bkq_explorev2" class="button-74"><i class="fas fa-volume-up"></i> Audiobooks</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+]]></template>
+    </sp_widget>
+</record_update>

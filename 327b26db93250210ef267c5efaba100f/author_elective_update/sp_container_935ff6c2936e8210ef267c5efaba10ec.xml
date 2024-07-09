@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_container">
+    <sp_container action="DELETE">
+        <background_color>#EDE8F5</background_color>
+        <background_image>cabe7285935b0610ef267c5efaba1054</background_image>
+        <background_style>default</background_style>
+        <bootstrap_alt>false</bootstrap_alt>
+        <class_name/>
+        <container_class_name/>
+        <name>BookQuest homepage - Container 2</name>
+        <order>2</order>
+        <semantic_tag/>
+        <sp_page display_value="bookquest_index">363d86a193e60210ef267c5efaba10b7</sp_page>
+        <subheader>false</subheader>
+        <sys_class_name>sp_container</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-06-04 06:08:35</sys_created_on>
+        <sys_id>935ff6c2936e8210ef267c5efaba10ec</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>BookQuest homepage - Container 2</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>sp_container_935ff6c2936e8210ef267c5efaba10ec</sys_update_name>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-08 10:18:57</sys_updated_on>
+        <title/>
+        <width>container</width>
+    </sp_container>
+    <sys_attachment action="DELETE">
+        <average_image_color>#ede8f5</average_image_color>
+        <chunk_size_bytes>700000</chunk_size_bytes>
+        <compressed>true</compressed>
+        <content_type>image/png</content_type>
+        <file_name>background_image</file_name>
+        <hash>9363b859aab461fb4cabb7fe1a8d98e3424ebb013c8b54495f86ed7aec1e9deb</hash>
+        <image_height>768</image_height>
+        <image_width>1366</image_width>
+        <size_bytes>7415</size_bytes>
+        <size_compressed>837</size_compressed>
+        <state>available</state>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-08 10:18:56</sys_created_on>
+        <sys_id>cabe7285935b0610ef267c5efaba1054</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-08 10:18:57</sys_updated_on>
+        <table_name>ZZ_YYsp_container</table_name>
+        <table_sys_id>935ff6c2936e8210ef267c5efaba10ec</table_sys_id>
+    </sys_attachment>
+    <sys_attachment_doc action="DELETE">
+        <data>H4sIAAAAAAAAAA==</data>
+        <length>16</length>
+        <position>0</position>
+        <sys_attachment display_value="background_image" sys_id="cabe7285935b0610ef267c5efaba1054">cabe7285935b0610ef267c5efaba1054</sys_attachment>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-08 10:18:56</sys_created_on>
+        <sys_id>0ebe7285935b0610ef267c5efaba1054</sys_id>
+    </sys_attachment_doc>
+    <sys_attachment_doc action="DELETE">
+        <data>7ZXPa9RAFMfTSsUWWkEQQSkOKI0/yE42u+t2w26w7bZ2oVbZrm09tZNkto3NJjGZ7aYXLeql4EEQwYP4Dyhib16EUoroRcGLnr3aov9BncnWtbtbRKToYRMIL2/mfee9fN5ksnJ1/FJ31/EujuO6c6PZPMd1THLcAe7QQTryQUmvU9PpjF73OK5ng91tj873nKBRvFGYJtOXx2TNLkWQbqs44pccjl1pX6aPJUwQ8Eum5cl+hg8iZPrMhiGvdIGdK+3qRTmfHdkJpV6GnyfEkSGsVCqRSixiu3MwmkqloChBSRJohOAtWQT5guWdoivVL5XFnuYaDjFsCzAfqXaZZHi+FlXNo2u1NE7ZNYMkugaxiUvYIh6MRqJ1VeqaTAxi4obCB0zSMGIaLINsImsuw/uCjouobBJeGbTtBQ/k6dsbJpjCqmcQDAwLDGJjDgNk6WDQRNoCuOLOIcvQwBRyS2CCLJkYCGB4kRWVhtUEuzLC5iLgHqXCBjJ/CW2AENdQa+AsL4KCkTITRuhGgEhn6MQ6dFWVPKB7Dagm8M1meMw4yPVwYcnBGT6PPbvsaniPBYdcjAjWFUmU4oKYFMT+NGyYatIM+ySnK9FUtKjGkpKQkJJYiGMRCWo81i+oSS1ZjMWR2B8r1taqSppWGlHpaEJKSBcSqWg8mkwl+sWaJphskhTssjbPXkuRapG/xhq61dzmelxwT6z71Ghn11fIuhx83qy/dIL2N1bXX4dtwTKZt11lFLmGZYAJ17iBwEQa7pra9xrpEbN3jT5ymvYgDa5uCtst2LapDCFrEYEzeWzp2MXu2TRsjPhdvT+nGmLoKbZbVjsFle6773s57thiLjtQ8J9sfl7tXha5tZcftw9vrb8dm5nvu6fPPEh9ev20EpyfjnmrN3j4nnxzjtmL+vN2ZrOhu18u/YVtb9NOMGcN3P4a3YT3N4KQtdOTbcz2rbKfIieuXGNmOVcVjqlHmZk98izo0MPpDmYeh9I/kraH1EPqLSINqYfUW0UaUg+pt4o0pB5SbxVpSD2k3irSkHpIvVWkIfX/Rn0rpP6PqZ/c6Hz3beTLK+blhsezLwZn7/wAkXp6r/ccAAA=</data>
+        <length>1104</length>
+        <position>1</position>
+        <sys_attachment display_value="background_image" sys_id="cabe7285935b0610ef267c5efaba1054">cabe7285935b0610ef267c5efaba1054</sys_attachment>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-08 10:18:56</sys_created_on>
+        <sys_id>8ebe7285935b0610ef267c5efaba1054</sys_id>
+    </sys_attachment_doc>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="BookQuest">327b26db93250210ef267c5efaba100f</application>
+        <file_path/>
+        <instance_id>0535015fdb717d1002d9172913961922</instance_id>
+        <instance_name>dev186731</instance_name>
+        <name>sp_container_935ff6c2936e8210ef267c5efaba10ec</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_container"><sp_container action="INSERT_OR_UPDATE"><background_color>#EDE8F5</background_color><background_image>cabe7285935b0610ef267c5efaba1054</background_image><background_style>default</background_style><bootstrap_alt>false</bootstrap_alt><class_name/><container_class_name/><name>BookQuest homepage - Container 2</name><order>2</order><semantic_tag/><sp_page display_value="bookquest_index">363d86a193e60210ef267c5efaba10b7</sp_page><subheader>false</subheader><sys_class_name>sp_container</sys_class_name><sys_created_by>harini.srija</sys_created_by><sys_created_on>2024-06-04 06:08:35</sys_created_on><sys_id>935ff6c2936e8210ef267c5efaba10ec</sys_id><sys_mod_count>5</sys_mod_count><sys_name>BookQuest homepage - Container 2</sys_name><sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package><sys_policy/><sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope><sys_update_name>sp_container_935ff6c2936e8210ef267c5efaba10ec</sys_update_name><sys_updated_by>harini.srija</sys_updated_by><sys_updated_on>2024-07-08 10:18:57</sys_updated_on><title/><width>container</width></sp_container><sys_attachment action="INSERT_OR_UPDATE"><average_image_color>#ede8f5</average_image_color><chunk_size_bytes>700000</chunk_size_bytes><compressed>true</compressed><content_type>image/png</content_type><file_name>background_image</file_name><hash>9363b859aab461fb4cabb7fe1a8d98e3424ebb013c8b54495f86ed7aec1e9deb</hash><image_height>768</image_height><image_width>1366</image_width><size_bytes>7415</size_bytes><size_compressed>837</size_compressed><state>available</state><sys_created_by>harini.srija</sys_created_by><sys_created_on>2024-07-08 10:18:56</sys_created_on><sys_id>cabe7285935b0610ef267c5efaba1054</sys_id><sys_mod_count>3</sys_mod_count><sys_updated_by>harini.srija</sys_updated_by><sys_updated_on>2024-07-08 10:18:57</sys_updated_on><table_name>ZZ_YYsp_container</table_name><table_sys_id>935ff6c2936e8210ef267c5efaba10ec</table_sys_id></sys_attachment><sys_attachment_doc action="INSERT_OR_UPDATE"><data>H4sIAAAAAAAAAA==</data><length>16</length><position>0</position><sys_attachment display_value="background_image" sys_id="cabe7285935b0610ef267c5efaba1054">cabe7285935b0610ef267c5efaba1054</sys_attachment><sys_created_by>harini.srija</sys_created_by><sys_created_on>2024-07-08 10:18:56</sys_created_on><sys_id>0ebe7285935b0610ef267c5efaba1054</sys_id></sys_attachment_doc><sys_attachment_doc action="INSERT_OR_UPDATE"><data>7ZXPa9RAFMfTSsUWWkEQQSkOKI0/yE42u+t2w26w7bZ2oVbZrm09tZNkto3NJjGZ7aYXLeql4EEQwYP4Dyhib16EUoroRcGLnr3aov9BncnWtbtbRKToYRMIL2/mfee9fN5ksnJ1/FJ31/EujuO6c6PZPMd1THLcAe7QQTryQUmvU9PpjF73OK5ng91tj873nKBRvFGYJtOXx2TNLkWQbqs44pccjl1pX6aPJUwQ8Eum5cl+hg8iZPrMhiGvdIGdK+3qRTmfHdkJpV6GnyfEkSGsVCqRSixiu3MwmkqloChBSRJohOAtWQT5guWdoivVL5XFnuYaDjFsCzAfqXaZZHi+FlXNo2u1NE7ZNYMkugaxiUvYIh6MRqJ1VeqaTAxi4obCB0zSMGIaLINsImsuw/uCjouobBJeGbTtBQ/k6dsbJpjCqmcQDAwLDGJjDgNk6WDQRNoCuOLOIcvQwBRyS2CCLJkYCGB4kRWVhtUEuzLC5iLgHqXCBjJ/CW2AENdQa+AsL4KCkTITRuhGgEhn6MQ6dFWVPKB7Dagm8M1meMw4yPVwYcnBGT6PPbvsaniPBYdcjAjWFUmU4oKYFMT+NGyYatIM+ySnK9FUtKjGkpKQkJJYiGMRCWo81i+oSS1ZjMWR2B8r1taqSppWGlHpaEJKSBcSqWg8mkwl+sWaJphskhTssjbPXkuRapG/xhq61dzmelxwT6z71Ghn11fIuhx83qy/dIL2N1bXX4dtwTKZt11lFLmGZYAJ17iBwEQa7pra9xrpEbN3jT5ymvYgDa5uCtst2LapDCFrEYEzeWzp2MXu2TRsjPhdvT+nGmLoKbZbVjsFle6773s57thiLjtQ8J9sfl7tXha5tZcftw9vrb8dm5nvu6fPPEh9ev20EpyfjnmrN3j4nnxzjtmL+vN2ZrOhu18u/YVtb9NOMGcN3P4a3YT3N4KQtdOTbcz2rbKfIieuXGNmOVcVjqlHmZk98izo0MPpDmYeh9I/kraH1EPqLSINqYfUW0UaUg+pt4o0pB5SbxVpSD2k3irSkHpIvVWkIfX/Rn0rpP6PqZ/c6Hz3beTLK+blhsezLwZn7/wAkXp6r/ccAAA=</data><length>1104</length><position>1</position><sys_attachment display_value="background_image" sys_id="cabe7285935b0610ef267c5efaba1054">cabe7285935b0610ef267c5efaba1054</sys_attachment><sys_created_by>harini.srija</sys_created_by><sys_created_on>2024-07-08 10:18:56</sys_created_on><sys_id>8ebe7285935b0610ef267c5efaba1054</sys_id></sys_attachment_doc></record_update>]]></payload>
+        <payload_hash>0</payload_hash>
+        <record_name>BookQuest homepage - Container 2</record_name>
+        <reverted_from/>
+        <source>3d9e5eee936e0610ef267c5efaba1086</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-08 10:18:57</sys_created_on>
+        <sys_id>1ebe7e85935b0610ef267c5efaba106a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19091da8c250000001</sys_recorded_at>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-08 10:18:57</sys_updated_on>
+        <type>Container</type>
+        <update_guid>d2be7e85355b06102f3f7eb1b4207b6a</update_guid>
+        <update_guid_history>d2be7e85355b06102f3f7eb1b4207b6a:1014794010,92be7e85765b061095938a9e560b2a64:-1750901913,aedde223fef20210eb59282590949e04:45850928,50bda22398f20210700d03e108e6fd84:717535247,a58deaef60b2021038da6a1cde98f8b0:45850928,bf20c7c2d16e821032571c36e39cb851:717535247,575ff6c2ce6e82100a1d1534852b45ed:1780831245</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="BookQuest homepage - Container 2">185fbac5935b0610ef267c5efaba1043</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-08 10:21:33</sys_created_on>
+        <sys_db_object display_value="" name="sp_container">sp_container</sys_db_object>
+        <sys_id>3afec9ed7f974bb89471cbd93757da40</sys_id>
+        <sys_metadata>935ff6c2936e8210ef267c5efaba10ec</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>BookQuest homepage - Container 2</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_scope_delete display_value="">18e926194902432895b35f3c99259089</sys_scope_delete>
+        <sys_update_name>sp_container_935ff6c2936e8210ef267c5efaba10ec</sys_update_name>
+        <sys_update_version display_value="sp_container_935ff6c2936e8210ef267c5efaba10ec">1ebe7e85935b0610ef267c5efaba106a</sys_update_version>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-08 10:21:33</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

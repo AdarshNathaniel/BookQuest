@@ -11,24 +11,20 @@
 BorrowedBooksUtils.prototype = {
     initialize: function() {},
 
-    getBorrowedBooks: function() {
-        var currentUserId = gs.getUserID();
-        var borrowedBooks = [];
+    getBorrowDetailsBySysId: function(sysId) {
+        var borrowedBook = {};
 
         // Create a GlideRecord object for the Borrow table
         var borrowGR = new GlideRecord('x_1383151_bkquest_borrow');
 
-        // Add a query to filter records by the current user ID
-        borrowGR.addQuery('user_id', currentUserId);
-        borrowGR.query();
-
-        // Iterate through the Borrow records for the current user
-        while (borrowGR.next()) {
+        // Check if the sys_id is valid and fetch the record
+        if (borrowGR.get(sysId)) {
             // Get the Book Instance ID from the Borrow record
             var bookInstanceId = borrowGR.book_id;
 
             if (!bookInstanceId) {
-                continue; // Skip if no book instance ID
+                gs.info("Book Instance ID not found for Borrow record: " + sysId);
+                return borrowedBook;
             }
 
             // Create a GlideRecord object for the Book Instance table
@@ -52,20 +48,20 @@ BorrowedBooksUtils.prototype = {
                         // Get the cover image URL
                         var coverImageURL = bookDefinitionGR.cover_image ? '/sys_attachment.do?sys_id=' + bookDefinitionGR.cover_image : '';
 
-                        // Add the book details to the result array
-                        borrowedBooks.push({
+                        // Populate the borrowed book details
+                        borrowedBook = {
                             borrowId: borrowGR.number.toString(),
-							borrowPeriod: borrowGR.days.toString(),
+                            borrowPeriod: borrowGR.days.toString(),
                             borrowDate: borrowGR.borrow_date.toString(),
                             dueDate: borrowGR.due_date.toString(),
                             returnedDate: borrowGR.returned_date.toString(),
-							daysLate: borrowGR.days_late.toString(),
-							fineAmount: borrowGR.fine_amount.toString(),
-							finePaidDate: borrowGR.fine_paid_date.toString(),
+                            daysLate: borrowGR.days_late.toString(),
+                            fineAmount: borrowGR.fine_amount.toString(),
+                            finePaidDate: borrowGR.fine_paid_date.toString(),
                             title: bookDefinitionGR.title.toString(),
                             author: authorGR.full_name.toString(),
                             coverImage: coverImageURL
-                        });
+                        };
                     } else {
                         gs.info("Author record not found for book ID: " + bookId);
                     }
@@ -75,25 +71,28 @@ BorrowedBooksUtils.prototype = {
             } else {
                 gs.info("Book instance record not found for ID: " + bookInstanceId);
             }
+        } else {
+            gs.info("Borrow record not found for sys_id: " + sysId);
         }
 
-        // Return the result to the client
-        return borrowedBooks;
+        // Return the borrowed book details
+        return borrowedBook;
     },
 
     type: 'BorrowedBooksUtils'
-};]]></script>
+};
+]]></script>
         <sys_class_name>sys_script_include</sys_class_name>
         <sys_created_by>harini.srija</sys_created_by>
         <sys_created_on>2024-06-25 16:17:16</sys_created_on>
         <sys_id>a653158993cb0210ef267c5efaba104b</sys_id>
-        <sys_mod_count>6</sys_mod_count>
+        <sys_mod_count>9</sys_mod_count>
         <sys_name>BorrowedBooksUtils</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sys_script_include_a653158993cb0210ef267c5efaba104b</sys_update_name>
         <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-07-03 05:05:27</sys_updated_on>
+        <sys_updated_on>2024-07-08 06:25:06</sys_updated_on>
     </sys_script_include>
 </record_update>
