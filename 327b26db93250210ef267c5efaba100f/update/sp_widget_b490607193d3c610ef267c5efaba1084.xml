@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller = function($location, $scope, spUtil) {
+    var c = this;
+
+    // Function to fetch borrow details
+    c.fetchBorrowDetails = function(borrowSysId) {
+        c.server.get({
+            action: 'fetchBorrowDetails',
+            borrowSysId: borrowSysId
+        }).then(function(response) {
+            if (response.data.error) {
+                spUtil.addErrorMessage(response.data.error);
+            } else {
+                c.data.borrowDetails = response.data.borrowDetails;
+            }
+        });
+    };
+
+    // Function to extend borrow period
+    c.extendBorrow = function(borrowId) {
+        c.server.get({
+            action: 'extendBorrow',
+            borrowSysId: borrowId
+        }).then(function(response) {
+            if (response.data.error) {
+                spUtil.addErrorMessage(response.data.error);
+            } else {
+                if (response.data.success) {
+                    spUtil.addInfoMessage(response.data.message);
+                    // Refresh borrow details after extension
+                    c.fetchBorrowDetails(c.data.borrowSysId);
+                } else {
+                    spUtil.addErrorMessage(response.data.message);
+                }
+            }
+        });
+    };
+
+    // Fetch initial borrow details
+    c.fetchBorrowDetails($scope.data.borrowSysId);
+};
+]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.book-details-card {
+  margin-top: 20px;
+}
+
+.card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  background-color: #FFFFFF;
+}
+
+.card-img-top {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto; /* Center the image horizontally */
+  padding: 20px; /* Add padding around the image */
+}
+
+.card-body {
+  padding: 20px;
+  height: 100%; /* Set a fixed height for the card body */
+}
+
+.card-title {
+  font-size: 2em; /* Increased size for Plot Summary */
+  margin-bottom: 10px;
+}
+
+.card-subtitle 
+font-size: 1.5em; /* Adjusted size for author */
+margin-bottom: 15px;
+color: #555;
+}
+
+.card-text {
+  font-size: 1.2em;
+}
+
+.dl-horizontal dt {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-top: 10px;
+  text-align: left; /* Ensure the term is left-aligned */
+}
+
+.dl-horizontal dd {
+  font-size: 1.2em;
+  margin-left: 10px;
+  margin-top: 10px;
+  text-align: left; /* Ensure the description is left-aligned */
+}
+
+/* CSS for the Borrow button */
+.btn-primary, {
+    padding: 10px 24px; /* Padding adjustment */
+    font-size: 14px;
+    margin: 0 10px; /* Margin adjustment */
+    transition: background-color 0.3s, border-color 0.3s;
+    width: 100%; /* Button width adjustment */
+    border-radius: 8px;
+    background-color: #007bff; /* Primary button color */
+    border-color: #007bff;
+    color: #fff; /* Text color */
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Darker color on hover */
+    border-color: #0056b3;
+}
+
+</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>borrow_details_v1</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Borrow Details v1</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+    // Retrieve the borrow_sys_id parameter from the request
+    var borrowSysId = $sp.getParameter('sys_id');
+    console.log(borrowSysId);
+
+    // Instantiate the BorrowedBooksUtils class
+    var borrowedBooksUtils = new BorrowedBooksUtils();
+
+    // Result object to store response for extendBorrow action
+    var result = {};
+
+    // Check if the input action is to extend borrow
+    if (input && input.action === 'extendBorrow') {
+        // Check if the book is reserved or not
+        var isReserved = borrowedBooksUtils.isBookReserved(borrowSysId);
+
+        if (!isReserved) {
+            // Instantiate GlideRecord for the borrow table
+            var borrowGR = new GlideRecord('x_1383151_bkquest_borrow');
+            // Check if the borrow record exists
+            if (borrowGR.get(borrowSysId)) {
+                // Adjust the days field by adding additionalDays (adjust as needed)
+                borrowGR.setValue('days', borrowGR.getValue('days'));
+                // Update the record in the database
+                borrowGR.update();
+
+                // Set success message in result object
+                result.success = true;
+                result.message = 'Book extended successfully!';
+            } else {
+                // If borrow record not found, set error message in result object
+                result.success = false;
+                result.message = 'Borrow record not found.';
+            }
+        } else {
+            // If book is reserved, set error message in result object
+            result.success = false;
+            result.message = 'Book is reserved and cannot be extended.';
+        }
+    }
+
+    // Attach the result to the data object to pass it to the client-side script
+    data.response = result;
+})();
+]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-10 06:43:26</sys_created_on>
+        <sys_id>b490607193d3c610ef267c5efaba1084</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Borrow Details v1</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>sp_widget_b490607193d3c610ef267c5efaba1084</sys_update_name>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-10 06:45:46</sys_updated_on>
+        <template><![CDATA[<div class="container book-details-card">
+  <div class="row">
+    <!-- Cards for each borrowed book -->
+    <div class="col-md-3" ng-repeat="borrowDetails in c.data.borrowedBooks">
+      <div class="card text-center mb-3">
+        <div class="card-body">
+          <img class="card-img-top img-responsive" ng-src="{{borrowDetails.coverImage}}" alt="{{borrowDetails.title}} cover">
+          <h4 class="card-title">{{borrowDetails.title}}</h4>
+          <h5 class="card-subtitle text-muted">{{borrowDetails.author}}</h5>
+          <!-- Button to extend borrow period -->
+          <button type="button" class="btn btn-primary" ng-if="!borrowDetails.reserved" ng-click="c.extendBorrow(borrowDetails.borrowId)">Extend</button>
+          <p ng-if="borrowDetails.reserved" class="text-danger">Book is reserved and cannot be extended.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Details of the selected borrowed book -->
+    <div class="col-md-9">
+      <div class="card mb-3">
+        <div class="card-body">
+          <h3 class="card-title">Borrow Details</h3>
+          <p class="card-text">Here are the details of your borrowed book.</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <!-- Borrow Information -->
+        <div class="col-sm-6" ng-repeat="borrowDetails in c.data.borrowedBooks">
+          <div class="card mb-3 h-100">
+            <div class="card-body d-flex flex-column">
+              <h4>Borrow Information</h4>
+              <dl class="dl-horizontal flex-grow-1">
+                <dt>Borrow ID:</dt>
+                <dd>{{borrowDetails.borrowId}}</dd>
+                <dt>Borrow Date:</dt>
+                <dd>{{borrowDetails.borrowDate}}</dd>
+                <dt>Due Date:</dt>
+                <dd>{{borrowDetails.dueDate}}</dd>
+                <dt>Returned Date:</dt>
+                <dd>{{borrowDetails.returnedDate}}</dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fine Details -->
+        <div class="col-sm-6" ng-repeat="borrowDetails in c.data.borrowedBooks">
+          <div class="card mb-3 h-100">
+            <div class="card-body d-flex flex-column">
+              <h4>Fine Details</h4>
+              <dl class="dl-horizontal flex-grow-1">
+                <dt ng-if="borrowDetails.daysLate !== ''">Days Late:</dt>
+                <dd ng-if="borrowDetails.daysLate !== ''">{{borrowDetails.daysLate}}</dd>
+                <dt ng-if="borrowDetails.fineAmount !== ''">Fine Amount:</dt>
+                <dd ng-if="borrowDetails.fineAmount !== ''">${{borrowDetails.fineAmount}}</dd>
+                <dt ng-if="borrowDetails.finePaidDate !== ''">Fine Paid Date:</dt>
+                <dd ng-if="borrowDetails.finePaidDate !== ''">{{borrowDetails.finePaidDate}}</dd>
+                <dd ng-if="borrowDetails.daysLate === '' && borrowDetails.fineAmount === '' && borrowDetails.finePaidDate === ''">No fine details available.</dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+]]></template>
+    </sp_widget>
+</record_update>

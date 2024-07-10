@@ -4,27 +4,34 @@
         <active>true</active>
         <api_name>x_1383151_bkquest.BorrowedBooksUtils</api_name>
         <caller_access/>
-        <client_callable>true</client_callable>
+        <client_callable>false</client_callable>
         <description/>
         <name>BorrowedBooksUtils</name>
         <script><![CDATA[var BorrowedBooksUtils = Class.create();
 BorrowedBooksUtils.prototype = {
     initialize: function() {},
 
-    getBorrowDetailsBySysId: function(sysId) {
-        var borrowedBook = {};
+    getBorrowedBooks: function(borrowSysId) {
+        var currentUserId = gs.getUserID();
+        var borrowedBooks = [];
 
         // Create a GlideRecord object for the Borrow table
         var borrowGR = new GlideRecord('x_1383151_bkquest_borrow');
 
-        // Check if the sys_id is valid and fetch the record
-        if (borrowGR.get(sysId)) {
+        // Add queries to filter records by the current user ID and optionally by borrow_sys_id
+        borrowGR.addQuery('user_id', currentUserId);
+        if (borrowSysId) {
+            borrowGR.addQuery('sys_id', borrowSysId); // Assuming sys_id is the correct field name
+        }
+        borrowGR.query();
+
+        // Iterate through the Borrow records
+        while (borrowGR.next()) {
             // Get the Book Instance ID from the Borrow record
             var bookInstanceId = borrowGR.book_id;
 
             if (!bookInstanceId) {
-                gs.info("Book Instance ID not found for Borrow record: " + sysId);
-                return borrowedBook;
+                continue; // Skip if no book instance ID
             }
 
             // Create a GlideRecord object for the Book Instance table
@@ -48,8 +55,8 @@ BorrowedBooksUtils.prototype = {
                         // Get the cover image URL
                         var coverImageURL = bookDefinitionGR.cover_image ? '/sys_attachment.do?sys_id=' + bookDefinitionGR.cover_image : '';
 
-                        // Populate the borrowed book details
-                        borrowedBook = {
+                        // Add the book details to the result array
+                        borrowedBooks.push({
                             borrowId: borrowGR.number.toString(),
                             borrowPeriod: borrowGR.days.toString(),
                             borrowDate: borrowGR.borrow_date.toString(),
@@ -60,8 +67,9 @@ BorrowedBooksUtils.prototype = {
                             finePaidDate: borrowGR.fine_paid_date.toString(),
                             title: bookDefinitionGR.title.toString(),
                             author: authorGR.full_name.toString(),
-                            coverImage: coverImageURL
-                        };
+                            coverImage: coverImageURL,
+                            reserved: bookInstanceGR.reserved // Assuming reserved field exists in book copy table
+                        });
                     } else {
                         gs.info("Author record not found for book ID: " + bookId);
                     }
@@ -71,28 +79,25 @@ BorrowedBooksUtils.prototype = {
             } else {
                 gs.info("Book instance record not found for ID: " + bookInstanceId);
             }
-        } else {
-            gs.info("Borrow record not found for sys_id: " + sysId);
         }
 
-        // Return the borrowed book details
-        return borrowedBook;
+        // Return the result to the client
+        return borrowedBooks;
     },
 
     type: 'BorrowedBooksUtils'
-};
-]]></script>
+};]]></script>
         <sys_class_name>sys_script_include</sys_class_name>
         <sys_created_by>harini.srija</sys_created_by>
         <sys_created_on>2024-06-25 16:17:16</sys_created_on>
         <sys_id>a653158993cb0210ef267c5efaba104b</sys_id>
-        <sys_mod_count>9</sys_mod_count>
+        <sys_mod_count>13</sys_mod_count>
         <sys_name>BorrowedBooksUtils</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sys_script_include_a653158993cb0210ef267c5efaba104b</sys_update_name>
         <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-07-08 06:25:06</sys_updated_on>
+        <sys_updated_on>2024-07-10 06:49:30</sys_updated_on>
     </sys_script_include>
 </record_update>

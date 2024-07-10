@@ -1,39 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
     <sp_widget action="INSERT_OR_UPDATE">
         <category>custom</category>
-        <client_script><![CDATA[api.controller = function($scope, spUtil, $http) {
-    // Initialize variables
-    $scope.borrowedBookDetails = {};
+        <client_script><![CDATA[api.controller = function($scope, spUtil) {
+    var c = this;
 
-    // Function to fetch borrow details based on sys_id
-    $scope.fetchBorrowDetails = function(sysId) {
-        // Make a server call to fetch borrow details
-        var url = '/api/now/sp/u_borrow_details_by_sys_id?sys_id=' + sysId;
-        $http.get(url).then(function(response) {
-            // Handle successful response
-            $scope.borrowedBookDetails = response.data;
-        }, function(error) {
-            // Handle error
-            console.error('Error fetching borrow details:', error);
+    // Function to fetch borrow details
+    c.fetchBorrowDetails = function(borrowSysId) {
+        c.server.get({
+            action: 'fetchBorrowDetails',
+            sys_id: borrowSysId
+        }).then(function(response) {
+            if (response.data.error) {
+                spUtil.addErrorMessage(response.data.error);
+            } else {
+                c.data.borrowedBooks = response.data.borrowedBooks;
+            }
         });
     };
 
-    // Function to initialize page and fetch borrow details based on URL parameter
-    $scope.initPage = function() {
-        // Retrieve the sys_id parameter from the URL
-        var sysId = spUtil.getURLParameter('sys_id');
-        
-        // Fetch borrow details if sysId is present
-        if (sysId) {
-            $scope.fetchBorrowDetails(sysId);
-        } else {
-            console.error('sys_id parameter not found in URL.');
-        }
-    };
-
-    // Call initPage function when the controller loads
-    $scope.initPage();
-}
+    // Fetch initial borrow details
+    c.fetchBorrowDetails($scope.data.sys_id);
+};
 ]]></client_script>
         <controller_as>c</controller_as>
         <css>.book-details-card {
@@ -123,17 +110,18 @@ color: #555;
         <public>false</public>
         <roles/>
         <script><![CDATA[(function() {
-    // Retrieve the sys_id parameter from the URL
-var sysId = $sp.getParameter('sys_id');
+    // Retrieve the borrow_sys_id parameter from the request
+    var borrowSysId = $sp.getParameter('sys_id'); 
+    console.log(borrowSysId);
 
-// Create an instance of the BorrowedBooksUtils script include
-var borrowedUtils = new BorrowedBooksUtils();
+    // Instantiate the BorrowedBooksUtils class
+    var borrowedBooksUtils = new BorrowedBooksUtils();
 
-// Fetch borrow details for the specified sys_id
-var borrowedBookDetails = borrowedUtils.getBorrowDetailsBySysId(sysId);
+    // Call the getBorrowedBooks method with the borrowSysId parameter
+    var borrowedBooks = borrowedBooksUtils.getBorrowedBooks(borrowSysId);
 
-data.borrowedBookDetails = borrowedBookDetails;
-
+    // Attach the filtered result to the data object to pass it to the client-side script
+    data.borrowedBooks = borrowedBooks;
 })();
 ]]></script>
         <servicenow>false</servicenow>
@@ -141,79 +129,77 @@ data.borrowedBookDetails = borrowedBookDetails;
         <sys_created_by>harini.srija</sys_created_by>
         <sys_created_on>2024-06-25 15:00:25</sys_created_on>
         <sys_id>7e7281c1938b0210ef267c5efaba1066</sys_id>
-        <sys_mod_count>186</sys_mod_count>
+        <sys_mod_count>145</sys_mod_count>
         <sys_name>borrow Details</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sp_widget_7e7281c1938b0210ef267c5efaba1066</sys_update_name>
         <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-07-09 15:45:24</sys_updated_on>
-        <template><![CDATA[<div class="container book-details-card" ng-controller="BorrowDetailsController">
+        <sys_updated_on>2024-07-10 06:25:12</sys_updated_on>
+        <template><![CDATA[<div class="container book-details-card">
     <div class="row">
-        <!-- Book Details Card -->
-        <div class="col-md-3">
-            <div class="card text-center">
+        <!-- Cards for each borrowed book -->
+        <div class="col-md-3" ng-repeat="borrowDetails in c.data.borrowedBooks">
+            <div class="card text-center mb-3">
                 <div class="card-body">
-                    <img class="card-img-top img-responsive" ng-src="{{borrowedBookDetails.coverImage}}" alt="{{borrowedBookDetails.title}} cover">
-                    <h4 class="card-title">{{borrowedBookDetails.title}}</h4>
-                    <h5 class="card-subtitle text-muted">{{borrowedBookDetails.author}}</h5>
+                    <img class="card-img-top img-responsive" ng-src="{{borrowDetails.coverImage}}" alt="{{borrowDetails.title}} cover">
+                    <h4 class="card-title">{{borrowDetails.title}}</h4>
+                    <h5 class="card-subtitle text-muted">{{borrowDetails.author}}</h5>
+                    <!-- Button to extend borrow period 
+                    <button type="button" class="btn btn-primary" ng-if="!borrowDetails.reserved" ng-click="c.extendBorrow(borrowDetails.borrowId)">Extend</button>
+                    <p ng-if="borrowDetails.reserved" class="text-danger">Book is reserved and cannot be extended.</p> -->
                 </div>
             </div>
         </div>
 
-        <!-- Borrow Details Section -->
+        <!-- Details of the selected borrowed book -->
         <div class="col-md-9">
-            <div class="card">
+            <div class="card mb-3">
                 <div class="card-body">
                     <h3 class="card-title">Borrow Details</h3>
                     <p class="card-text">Here are the details of your borrowed book.</p>
-                    <!-- Extend Borrow Button -->
-                    <button type="button" class="btn btn-primary" ng-if="!borrowedBookDetails.reserved" ng-click="extendBorrow(borrowedBookDetails.borrowId)" ng-disabled="loading">
-                        Extend Borrow
-                    </button>
-                    <p ng-if="borrowedBookDetails.reserved" class="text-danger">Book is reserved and cannot be extended.</p>
-                    <!-- Loading Spinner -->
-                    <div ng-show="loading" class="text-center mt-3">
-                        <div class="spinner-border text-primary" role="status">
-                            <span class="sr-only">Loading...</span>
-                        </div>
-                    </div>
                 </div>
             </div>
 
-            <!-- Borrow Information -->
-            <div class="row mt-3" ng-show="!loading">
-                <div class="col-sm-6">
-                    <div class="card h-100">
+            <div class="row">
+                <!-- Borrow Information -->
+                <div class="col-sm-6" ng-repeat="borrowDetails in c.data.borrowedBooks">
+                    <div class="card mb-3 h-100">
                         <div class="card-body d-flex flex-column">
-                            <h3>Borrow Information</h3>
+                            <h4>Borrow Information</h4>
                             <dl class="dl-horizontal flex-grow-1">
-                                <dt>Borrow ID:</dt>
-                                <dd>{{borrowedBookDetails.borrowId}}</dd>
-                                <dt>Borrow Date:</dt>
-                                <dd>{{borrowedBookDetails.borrowDate}}</dd>
-                                <dt>Due Date:</dt>
-                                <dd>{{borrowedBookDetails.dueDate}}</dd>
-                                <dt>Returned Date:</dt>
-                                <dd>{{borrowedBookDetails.returnedDate}}</dd>
+                                <dt ng-if="borrowDetails.borrowId"><i class="fa fa-id-card-o"></i> Borrow ID:</dt>
+                                <dd ng-if="borrowDetails.borrowId">{{borrowDetails.borrowId}}</dd>
+                                <dt ng-if="borrowDetails.borrowDate"><i class="fa fa-calendar-o"></i> Borrow Date:</dt>
+                                <dd ng-if="borrowDetails.borrowDate">{{borrowDetails.borrowDate}}</dd>
+                                <dt ng-if="borrowDetails.dueDate"><i class="fa fa-calendar-times-o"></i> Due Date:</dt>
+                                <dd ng-if="borrowDetails.dueDate">{{borrowDetails.dueDate}}</dd>
+                                <dt ng-if="borrowDetails.returnedDate"><i class="fa fa-calendar-check-o"></i> Returned Date:</dt>
+                                <dd ng-if="borrowDetails.returnedDate">{{borrowDetails.returnedDate}}</dd>
                             </dl>
                         </div>
                     </div>
                 </div>
 
                 <!-- Fine Details -->
-                <div class="col-sm-6">
-                    <div class="card h-100">
+                <div class="col-sm-6" ng-repeat="borrowDetails in c.data.borrowedBooks">
+                    <div class="card mb-3 h-100">
                         <div class="card-body d-flex flex-column">
-                            <h3>Fine Details</h3>
+                            <h4>Fine Details</h4>
                             <dl class="dl-horizontal flex-grow-1">
-                                <dt>Days Late:</dt>
-                                <dd>{{borrowedBookDetails.daysLate}}</dd>
-                                <dt>Fine Amount:</dt>
-                                <dd>${{borrowedBookDetails.fineAmount}}</dd>
-                                <dt>Fine Paid Date:</dt>
-                                <dd>{{borrowedBookDetails.finePaidDate}}</dd>
+                                <div ng-if="borrowDetails.daysLate || borrowDetails.fineAmount || borrowDetails.finePaidDate">
+                                    <dt ng-if="borrowDetails.daysLate"><i class="fa fa-clock-o"></i> Days Late:</dt>
+                                    <dd ng-if="borrowDetails.daysLate">{{borrowDetails.daysLate}}</dd>
+                                    <dt ng-if="borrowDetails.fineAmount"><i class="fa fa-money"></i> Fine Amount:</dt>
+                                    <dd ng-if="borrowDetails.fineAmount">${{borrowDetails.fineAmount}}</dd>
+                                    <dt ng-if="borrowDetails.finePaidDate"><i class="fa fa-calendar-check"></i> Fine Paid Date:</dt>
+                                    <dd ng-if="borrowDetails.finePaidDate">{{borrowDetails.finePaidDate}}</dd>
+                                </div>
+                                <div ng-if="!borrowDetails.daysLate && !borrowDetails.fineAmount && !borrowDetails.finePaidDate">
+                                    <p>No fine details available.</p>
+                                    <!-- You can add any interesting message or content here -->
+                                </div>
                             </dl>
                         </div>
                     </div>
@@ -222,8 +208,6 @@ data.borrowedBookDetails = borrowedBookDetails;
         </div>
     </div>
 </div>
-
-<pre>{{data.borrowedBook | json}}</pre>
 ]]></template>
     </sp_widget>
 </record_update>
