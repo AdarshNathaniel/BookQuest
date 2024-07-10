@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_item_section">
     <sys_sg_item_section action="INSERT_OR_UPDATE">
         <active>true</active>
-        <card_size display_value="Medium">51703cd5c7023010be78953c14c2604e</card_size>
+        <card_size display_value="Large">68803cd5c7023010be78953c14c260bc</card_size>
         <column_count>2</column_count>
         <custom_height/>
         <custom_width/>
@@ -22,14 +22,14 @@
         <sys_created_by>harini.srija</sys_created_by>
         <sys_created_on>2024-07-04 09:23:07</sys_created_on>
         <sys_id>619bc273934b0610ef267c5efaba10f2</sys_id>
-        <sys_mod_count>7</sys_mod_count>
+        <sys_mod_count>12</sys_mod_count>
         <sys_name>My Books </sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sys_sg_item_section_619bc273934b0610ef267c5efaba10f2</sys_update_name>
-        <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-07-04 10:11:05</sys_updated_on>
+        <sys_updated_by>adarsh.nathaniel</sys_updated_by>
+        <sys_updated_on>2024-07-10 06:50:55</sys_updated_on>
         <table/>
         <title>My Books </title>
         <visible_condition/>

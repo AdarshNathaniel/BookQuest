@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_ui_parameter">
+    <sys_sg_ui_parameter action="INSERT_OR_UPDATE">
+        <button/>
+        <button_parent_table>x_1383151_bkquest_book</button_parent_table>
+        <carried>false</carried>
+        <constant/>
+        <default_value/>
+        <default_value_type>none</default_value_type>
+        <field_name>sys_scope</field_name>
+        <input_source>auto</input_source>
+        <input_style>popup</input_style>
+        <input_type>source_field</input_type>
+        <mandatory>false</mandatory>
+        <max_entries/>
+        <multi_entry>false</multi_entry>
+        <multi_select>false</multi_select>
+        <name>Genre UI Parameter</name>
+        <order>100</order>
+        <parameter_type>screen</parameter_type>
+        <placeholder>Genre...</placeholder>
+        <screen/>
+        <search_type>starts_with</search_type>
+        <source_field>genre</source_field>
+        <sys_class_name>sys_sg_ui_parameter</sys_class_name>
+        <sys_created_by>adarsh.nathaniel</sys_created_by>
+        <sys_created_on>2024-07-08 06:32:10</sys_created_on>
+        <sys_id>10da868593570610ef267c5efaba10c2</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>Genre UI Parameter</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>sys_sg_ui_parameter_10da868593570610ef267c5efaba10c2</sys_update_name>
+        <sys_updated_by>adarsh.nathaniel</sys_updated_by>
+        <sys_updated_on>2024-07-08 06:56:13</sys_updated_on>
+        <table_name>x_1383151_bkquest_genre_lookup</table_name>
+        <virtual_field_value>false</virtual_field_value>
+    </sys_sg_ui_parameter>
+    <sys_translated_text action="delete_multiple" query="documentkey=10da868593570610ef267c5efaba10c2"/>
+</record_update>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_write_back_action_item">
+    <sys_sg_write_back_action_item action="INSERT_OR_UPDATE">
+        <description>Reserve Action Item</description>
+        <execution_script><![CDATA[(function WriteBackAction(input) {
+    
+	var reservationGR = new GlideRecord('x_1383151_bkquest_reservation');
+    reservationGR.initialize();
+    reservationGR.setValue('book_isbn', input.sys_id);
+    reservationGR.setValue('user_id', gs.getUserID());
+    reservationGR.insert();
+
+})(input);]]></execution_script>
+        <name>Reserve Action Item</name>
+        <parameter_screen/>
+        <query_condition/>
+        <sys_class_name>sys_sg_write_back_action_item</sys_class_name>
+        <sys_created_by>adarsh.nathaniel</sys_created_by>
+        <sys_created_on>2024-07-09 06:28:26</sys_created_on>
+        <sys_id>9b839f11931f4610ef267c5efaba106f</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Reserve Action Item</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>sys_sg_write_back_action_item_9b839f11931f4610ef267c5efaba106f</sys_update_name>
+        <sys_updated_by>adarsh.nathaniel</sys_updated_by>
+        <sys_updated_on>2024-07-09 06:35:35</sys_updated_on>
+        <table/>
+        <template/>
+        <type>script</type>
+        <use_current_record_as_condition>true</use_current_record_as_condition>
+        <use_fields_for_ref_lookup>false</use_fields_for_ref_lookup>
+    </sys_sg_write_back_action_item>
+    <sys_translated_text action="delete_multiple" query="documentkey=9b839f11931f4610ef267c5efaba106f"/>
+</record_update>

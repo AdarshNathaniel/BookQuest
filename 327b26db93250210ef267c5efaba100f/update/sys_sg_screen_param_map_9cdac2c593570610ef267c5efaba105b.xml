@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_screen_param_map">
+    <sys_sg_screen_param_map action="INSERT_OR_UPDATE">
+        <item_parameter display_value="Genre Data Parameter">41450a0193570610ef267c5efaba10e5</item_parameter>
+        <screen/>
+        <sys_class_name>sys_sg_screen_param_map</sys_class_name>
+        <sys_created_by>adarsh.nathaniel</sys_created_by>
+        <sys_created_on>2024-07-08 06:32:10</sys_created_on>
+        <sys_id>9cdac2c593570610ef267c5efaba105b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>41450a0193570610ef267c5efaba10e5</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>sys_sg_screen_param_map_9cdac2c593570610ef267c5efaba105b</sys_update_name>
+        <sys_updated_by>adarsh.nathaniel</sys_updated_by>
+        <sys_updated_on>2024-07-08 06:32:10</sys_updated_on>
+        <ui_parameter display_value="Genre UI Parameter">10da868593570610ef267c5efaba10c2</ui_parameter>
+    </sys_sg_screen_param_map>
+</record_update>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_item_stream">
+    <sys_sg_item_stream action="INSERT_OR_UPDATE">
+        <data_item display_value="Genre Data Item">9819b98193170610ef267c5efaba1037</data_item>
+        <interleaved_field/>
+        <name>Genre List Stream</name>
+        <sys_class_name>sys_sg_item_stream</sys_class_name>
+        <sys_created_by>adarsh.nathaniel</sys_created_by>
+        <sys_created_on>2024-07-08 05:14:38</sys_created_on>
+        <sys_id>6019b98193170610ef267c5efaba103b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Genre List Stream</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>sys_sg_item_stream_6019b98193170610ef267c5efaba103b</sys_update_name>
+        <sys_updated_by>adarsh.nathaniel</sys_updated_by>
+        <sys_updated_on>2024-07-08 05:14:38</sys_updated_on>
+        <table>x_1383151_bkquest_genre_lookup</table>
+    </sys_sg_item_stream>
+</record_update>

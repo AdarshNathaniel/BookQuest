@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_button_instance">
+    <sys_sg_button_instance action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <button display_value="All Books Navigation Function">7d2463d5935f4610ef267c5efaba10fb</button>
+        <color_theme>secondary</color_theme>
+        <description>Function Instance</description>
+        <disable_offline>false</disable_offline>
+        <field_name/>
+        <icon/>
+        <label>Check it out</label>
+        <location>footer</location>
+        <name>All Books Navigation</name>
+        <order>70</order>
+        <parent>8860eb91935f4610ef267c5efaba104e</parent>
+        <parent_table>sys_sg_details_screen</parent_table>
+        <sys_class_name>sys_sg_button_instance</sys_class_name>
+        <sys_created_by>adarsh.nathaniel</sys_created_by>
+        <sys_created_on>2024-07-09 07:40:59</sys_created_on>
+        <sys_id>422463d5935f4610ef267c5efaba10ff</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>All Books Navigation</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>sys_sg_button_instance_422463d5935f4610ef267c5efaba10ff</sys_update_name>
+        <sys_updated_by>adarsh.nathaniel</sys_updated_by>
+        <sys_updated_on>2024-07-09 07:40:59</sys_updated_on>
+        <table/>
+    </sys_sg_button_instance>
+    <sys_translated_text action="delete_multiple" query="documentkey=422463d5935f4610ef267c5efaba10ff"/>
+</record_update>

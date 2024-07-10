@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_master_item">
+    <sys_sg_master_item action="INSERT_OR_UPDATE">
+        <condition_order/>
+        <datasource_table>x_1383151_bkquest_book</datasource_table>
+        <datasource_table_condition/>
+        <embedded_screen display_value="Available Books Record Screen">8feb0893934f4210ef267c5efaba1021</embedded_screen>
+        <item_view/>
+        <name>Available Books Item Config</name>
+        <sys_class_name>sys_sg_master_item</sys_class_name>
+        <sys_created_by>adarsh.nathaniel</sys_created_by>
+        <sys_created_on>2024-07-08 09:49:57</sys_created_on>
+        <sys_id>29183e8d931b0610ef267c5efaba10b6</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>Available Books Item Config</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>sys_sg_master_item_29183e8d931b0610ef267c5efaba10b6</sys_update_name>
+        <sys_updated_by>adarsh.nathaniel</sys_updated_by>
+        <sys_updated_on>2024-07-08 10:30:34</sys_updated_on>
+        <use_view_config>true</use_view_config>
+        <view_config display_value="Available Books List View Config">3aebc493934f4210ef267c5efaba1097</view_config>
+    </sys_sg_master_item>
+</record_update>

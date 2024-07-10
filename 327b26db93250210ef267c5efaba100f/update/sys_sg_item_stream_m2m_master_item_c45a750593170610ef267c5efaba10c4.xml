@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_item_stream_m2m_master_item">
+    <sys_sg_item_stream_m2m_master_item action="INSERT_OR_UPDATE">
+        <item_stream display_value="Genre List Stream">6019b98193170610ef267c5efaba103b</item_stream>
+        <master_item display_value="Genre List Item Config">045a750593170610ef267c5efaba10c1</master_item>
+        <sys_class_name>sys_sg_item_stream_m2m_master_item</sys_class_name>
+        <sys_created_by>adarsh.nathaniel</sys_created_by>
+        <sys_created_on>2024-07-08 05:20:04</sys_created_on>
+        <sys_id>c45a750593170610ef267c5efaba10c4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>sys_sg_item_stream_m2m_master_item_c45a750593170610ef267c5efaba10c4</sys_update_name>
+        <sys_updated_by>adarsh.nathaniel</sys_updated_by>
+        <sys_updated_on>2024-07-08 05:20:04</sys_updated_on>
+    </sys_sg_item_stream_m2m_master_item>
+</record_update>

@@ -3,21 +3,21 @@
         <condition_order/>
         <datasource_table>x_1383151_bkquest_book</datasource_table>
         <datasource_table_condition/>
-        <embedded_screen display_value="BookQuest Form Screen">8feb0893934f4210ef267c5efaba1021</embedded_screen>
+        <embedded_screen display_value="Popular Books Record Screen">f750eb91935f4610ef267c5efaba104b</embedded_screen>
         <item_view/>
         <name>Popular Books List Item Config</name>
         <sys_class_name>sys_sg_master_item</sys_class_name>
         <sys_created_by>adarsh.nathaniel</sys_created_by>
         <sys_created_on>2024-07-04 05:27:49</sys_created_on>
         <sys_id>2eb5597393470610ef267c5efaba1006</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_mod_count>3</sys_mod_count>
         <sys_name>Popular Books List Item Config</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sys_sg_master_item_2eb5597393470610ef267c5efaba1006</sys_update_name>
         <sys_updated_by>adarsh.nathaniel</sys_updated_by>
-        <sys_updated_on>2024-07-04 06:25:51</sys_updated_on>
+        <sys_updated_on>2024-07-09 07:24:28</sys_updated_on>
         <use_view_config>true</use_view_config>
         <view_config display_value="Popular Books View Config">eeb5597393470610ef267c5efaba1003</view_config>
     </sys_sg_master_item>

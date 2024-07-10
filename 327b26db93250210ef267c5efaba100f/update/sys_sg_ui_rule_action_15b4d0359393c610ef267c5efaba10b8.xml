@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_ui_rule_action">
+    <sys_sg_ui_rule_action action="INSERT_OR_UPDATE">
+        <operation display_value="Set UI Style">1fc6ba105b431010da168d8fa881c7bb</operation>
+        <order>10</order>
+        <sys_class_name>sys_sg_ui_rule_action</sys_class_name>
+        <sys_created_by>adarsh.nathaniel</sys_created_by>
+        <sys_created_on>2024-07-10 05:51:35</sys_created_on>
+        <sys_id>15b4d0359393c610ef267c5efaba10b8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>sys_sg_ui_rule_action_15b4d0359393c610ef267c5efaba10b8</sys_update_name>
+        <sys_updated_by>adarsh.nathaniel</sys_updated_by>
+        <sys_updated_on>2024-07-10 05:51:35</sys_updated_on>
+        <target>container_04</target>
+        <ui_rule display_value="E-book Book UI Rule">51b4d0359393c610ef267c5efaba10b6</ui_rule>
+        <value>{"BackgroundColor":"","BackgroundColorVariable":"--now-alert--positive--background-color"}</value>
+    </sys_sg_ui_rule_action>
+</record_update>

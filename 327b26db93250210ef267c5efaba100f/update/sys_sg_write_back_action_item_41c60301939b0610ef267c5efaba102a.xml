@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_write_back_action_item">
+    <sys_sg_write_back_action_item action="INSERT_OR_UPDATE">
+        <description>Borrow Action Item</description>
+        <execution_script><![CDATA[(function WriteBackAction(input) {
+    var bookAvailability = new BookAvailability(); // Initialize BookAvailability script include
+	
+	var availableBookIds = bookAvailability.getAvailableBookIds(input.sys_id);
+
+	var borrowGR = new GlideRecord('x_1383151_bkquest_borrow');
+    borrowGR.initialize();
+    borrowGR.setValue('user_id', gs.getUserID()); // Set the user ID here
+    borrowGR.setValue('book_id', availableBookIds[0]); // Set the available book ID here
+    borrowGR.insert();
+})(input);]]></execution_script>
+        <name>Borrow Action Item</name>
+        <parameter_screen/>
+        <query_condition/>
+        <sys_class_name>sys_sg_write_back_action_item</sys_class_name>
+        <sys_created_by>adarsh.nathaniel</sys_created_by>
+        <sys_created_on>2024-07-08 10:54:06</sys_created_on>
+        <sys_id>41c60301939b0610ef267c5efaba102a</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>Borrow Action Item</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>sys_sg_write_back_action_item_41c60301939b0610ef267c5efaba102a</sys_update_name>
+        <sys_updated_by>adarsh.nathaniel</sys_updated_by>
+        <sys_updated_on>2024-07-08 11:54:17</sys_updated_on>
+        <table/>
+        <template/>
+        <type>script</type>
+        <use_current_record_as_condition>true</use_current_record_as_condition>
+        <use_fields_for_ref_lookup>false</use_fields_for_ref_lookup>
+    </sys_sg_write_back_action_item>
+    <sys_translated_text action="delete_multiple" query="documentkey=41c60301939b0610ef267c5efaba102a"/>
+</record_update>

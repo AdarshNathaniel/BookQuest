@@ -5,15 +5,15 @@
         <sys_created_by>adarsh.nathaniel</sys_created_by>
         <sys_created_on>2024-07-02 10:48:23</sys_created_on>
         <sys_id>32ebc493934f4210ef267c5efaba10bc</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_name>quantity-FieldValue</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sys_sg_view_config_element_32ebc493934f4210ef267c5efaba10bc</sys_update_name>
         <sys_updated_by>adarsh.nathaniel</sys_updated_by>
-        <sys_updated_on>2024-07-02 10:48:23</sys_updated_on>
-        <view_config display_value="BookQuest List Screen View Config">3aebc493934f4210ef267c5efaba1097</view_config>
-        <view_template_slot display_value="text_03">ef5ef07841e35010f877183fc9b8be34</view_template_slot>
+        <sys_updated_on>2024-07-09 10:16:52</sys_updated_on>
+        <view_config display_value="Available Books List View Config">3aebc493934f4210ef267c5efaba1097</view_config>
+        <view_template_slot display_value="text_03">c280082993df4610ef267c5efaba1085</view_template_slot>
     </sys_sg_view_config_element>
 </record_update>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element db_object_id="34edf61393a50210ef267c5efaba10b1" label="Book Definition" max_length="40" name="x_1383151_bkquest_book" type="collection">
+        <element label="Are Instances Available" max_length="40" name="are_instances_available" type="boolean"/>
         <element label="Audio length" max_length="40" name="audio_length" type="glide_duration"/>
         <element label="Author" max_length="32" name="author" reference="x_1383151_bkquest_author" type="reference"/>
         <element label="Borrow count" max_length="40" name="borrow_count" read_only="true" type="integer"/>
@@ -14,7 +15,6 @@
                 <element inactive_on_update="false" label="Spanish" value="spanish"/>
             </choice>
         </element>
-        <element label="No of Books Available" max_length="40" name="no_of_books_available" read_only="true" type="integer"/>
         <element label="Number of pages" max_length="40" name="no_of_pages" type="integer"/>
         <element label="Plot summary" max_length="1000" name="plot_summary" type="string"/>
         <element label="Publisher" max_length="32" name="publisher" reference="x_1383151_bkquest_publisher_lookup" type="reference"/>
