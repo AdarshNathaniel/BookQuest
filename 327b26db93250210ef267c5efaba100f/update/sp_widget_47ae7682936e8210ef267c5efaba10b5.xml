@@ -44,12 +44,12 @@
         <css>.search-container {
   text-align: center;
   margin-top: 50px;
-  margin-bottom: 30px;
+  margin-bottom: 50px;
 }
 
 .search-title {
-  font-size: 1.5em; /* Slightly increased font size */
-  margin-bottom: 20px;
+  font-size: 3em; /* Slightly increased font size */
+  margin-bottom: 50px;
   color: white;
 }
 
@@ -74,6 +74,7 @@
   border-radius: 5px 0 0 5px; /* Added border-radius to the left side only */
   border: 1px solid #ccc; /* Light border for better visibility */
   border-right: none; /* Remove right border to seamlessly connect with button */
+  /* margin-bottom: 30px; */
 }
 
 .search-button {	
@@ -101,6 +102,7 @@
   gap: 40px;
   margin-top: 50px;
 }
+
 
 /*
 	A. Mini Reset 
@@ -797,14 +799,14 @@ figcaption p {
         <sys_created_by>adarsh.nathaniel</sys_created_by>
         <sys_created_on>2024-06-04 06:05:33</sys_created_on>
         <sys_id>47ae7682936e8210ef267c5efaba10b5</sys_id>
-        <sys_mod_count>132</sys_mod_count>
+        <sys_mod_count>143</sys_mod_count>
         <sys_name>Book Search Widget</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sp_widget_47ae7682936e8210ef267c5efaba10b5</sys_update_name>
         <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-07-09 15:13:15</sys_updated_on>
+        <sys_updated_on>2024-07-10 14:09:07</sys_updated_on>
         <template><![CDATA[<div class="search-container">
   <h1 class="search-title">Ready to start your Quest?</h1>
   <form class="search-form" role="search" ng-submit="c.search()" onload="c.onLoadSearchAll()">

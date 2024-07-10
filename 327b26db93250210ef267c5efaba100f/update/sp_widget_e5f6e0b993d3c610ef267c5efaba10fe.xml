@@ -5,20 +5,35 @@
         <controller_as>c</controller_as>
         <css>.container {
   display: flex;
-  align-items: center; /* Centers vertically */
+  align-items: flex-start; /* Aligns items to the top */
   justify-content: center; /* Centers horizontally */
   margin: 20px;
+  margin-top: -10px; /* Move the whole widget up */
+  margin-bottom: -100px; /* Reduce the bottom margin */
 }
 
 .image {
-   /* Takes 1/3 of the space */
-  max-width: 0%; /* Reduce the size of the image */
+  flex: 1; /* Takes 1/3 of the space */
+  max-width: 100px; /* Increase the size of the image */
   text-align: left; /* Align image to the left */
+  margin-top: -270px; /* Moves the image up */
+  margin-right: 800px; /* Moves the image a little to the left */
 }
 
 .text {
   flex: 2; /* Takes 2/3 of the space */
-  padding-left: 20px; /* Adds some space between image and text */
+  padding-right: 20px; /* Adds some space between image and text */
+  text-align: right; /* Align text to the right side of the image */
+  margin-left: -50px;
+  margin-top: 30px;
+  color: white;
+  text-align: left; 
+}
+
+.text h1 {
+  font-size: 3em;
+  text-align: center; 
+  font-family: 'Margarine', cursive; /* Apply the specified font to h1 */
 }
 </css>
         <data_table>sp_instance</data_table>
@@ -40,23 +55,39 @@
         <sys_created_by>harini.srija</sys_created_by>
         <sys_created_on>2024-07-10 07:11:20</sys_created_on>
         <sys_id>e5f6e0b993d3c610ef267c5efaba10fe</sys_id>
-        <sys_mod_count>12</sys_mod_count>
+        <sys_mod_count>71</sys_mod_count>
         <sys_name>BKQ Mobile Mockup</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sp_widget_e5f6e0b993d3c610ef267c5efaba10fe</sys_update_name>
         <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-07-10 09:56:17</sys_updated_on>
-        <template><![CDATA[<div class="container">
-  <div class="image">
-    <img src="BookQuest_mobile.png" alt="Mobile Screen">
+        <sys_updated_on>2024-07-10 13:45:37</sys_updated_on>
+        <template><![CDATA[<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Margarine&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css"> <!-- Link to your external stylesheet -->
+  <title>Book Quest</title>
+</head>
+<body>
+  <div class="container">
+    <div class="text">
+      <h3>Introducing your ereader mobile app!</h3>
+      <h1>Book Quest</h1>
+      <h3>Get The Best Reading Experience</h3>
+      <h3>EBOOKS • AUDIO BOOKS • GENRES • POPULAR BOOKS • BOOK CATALOG</h3>
+    </div>
+    <div class="image">
+      <img src="BookQuest_mobile_2.png" alt="Mobile Screen">
+    </div>
   </div>
-  <div class="text">
-    <h2>Heading</h2>
-    <p>Some text goes here describing the image or providing additional information.</p>
-  </div>
-</div>
+</body>
+</html>
 ]]></template>
     </sp_widget>
 </record_update>
