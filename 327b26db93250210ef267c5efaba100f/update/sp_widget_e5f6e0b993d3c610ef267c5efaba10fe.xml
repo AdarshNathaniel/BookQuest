@@ -22,16 +22,16 @@
 
 .text {
   flex: 2; /* Takes 2/3 of the space */
-  padding-right: 20px; /* Adds some space between image and text */
+  padding-right: 1px; /* Adds some space between image and text */
   text-align: right; /* Align text to the right side of the image */
   margin-left: -50px;
   margin-top: 30px;
   color: white;
-  text-align: left; 
+  text-align: center; 
 }
 
 .text h1 {
-  font-size: 3em;
+  font-size: 3.5em;
   text-align: center; 
   font-family: 'Margarine', cursive; /* Apply the specified font to h1 */
 }
@@ -55,14 +55,14 @@
         <sys_created_by>harini.srija</sys_created_by>
         <sys_created_on>2024-07-10 07:11:20</sys_created_on>
         <sys_id>e5f6e0b993d3c610ef267c5efaba10fe</sys_id>
-        <sys_mod_count>71</sys_mod_count>
+        <sys_mod_count>74</sys_mod_count>
         <sys_name>BKQ Mobile Mockup</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sp_widget_e5f6e0b993d3c610ef267c5efaba10fe</sys_update_name>
         <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-07-10 13:45:37</sys_updated_on>
+        <sys_updated_on>2024-07-10 17:35:09</sys_updated_on>
         <template><![CDATA[<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -77,10 +77,9 @@
 <body>
   <div class="container">
     <div class="text">
-      <h3>Introducing your ereader mobile app!</h3>
+      <h3>Introducing your e-reader mobile app!</h3>
       <h1>Book Quest</h1>
       <h3>Get The Best Reading Experience</h3>
-      <h3>EBOOKS • AUDIO BOOKS • GENRES • POPULAR BOOKS • BOOK CATALOG</h3>
     </div>
     <div class="image">
       <img src="BookQuest_mobile_2.png" alt="Mobile Screen">
