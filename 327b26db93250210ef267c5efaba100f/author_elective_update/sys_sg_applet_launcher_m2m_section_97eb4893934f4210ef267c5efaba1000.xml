@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_applet_launcher_m2m_section">
+    <sys_sg_applet_launcher_m2m_section action="DELETE">
+        <applet_launcher display_value="Home">b6ebc493934f4210ef267c5efaba1093</applet_launcher>
+        <order>40</order>
+        <section/>
+        <sys_class_name>sys_sg_applet_launcher_m2m_section</sys_class_name>
+        <sys_created_by>adarsh.nathaniel</sys_created_by>
+        <sys_created_on>2024-07-02 10:48:24</sys_created_on>
+        <sys_id>97eb4893934f4210ef267c5efaba1000</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>sys_sg_applet_launcher_m2m_section_97eb4893934f4210ef267c5efaba1000</sys_update_name>
+        <sys_updated_by>adarsh.nathaniel</sys_updated_by>
+        <sys_updated_on>2024-07-04 06:42:20</sys_updated_on>
+    </sys_sg_applet_launcher_m2m_section>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="BookQuest">327b26db93250210ef267c5efaba100f</application>
+        <file_path/>
+        <instance_id>0535015fdb717d1002d9172913961922</instance_id>
+        <instance_name>dev186731</instance_name>
+        <name>sys_sg_applet_launcher_m2m_section_97eb4893934f4210ef267c5efaba1000</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_applet_launcher_m2m_section"><sys_sg_applet_launcher_m2m_section action="INSERT_OR_UPDATE"><applet_launcher display_value="Home">b6ebc493934f4210ef267c5efaba1093</applet_launcher><order>40</order><section/><sys_class_name>sys_sg_applet_launcher_m2m_section</sys_class_name><sys_created_by>adarsh.nathaniel</sys_created_by><sys_created_on>2024-07-02 10:48:24</sys_created_on><sys_id>97eb4893934f4210ef267c5efaba1000</sys_id><sys_mod_count>2</sys_mod_count><sys_name/><sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package><sys_policy/><sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope><sys_update_name>sys_sg_applet_launcher_m2m_section_97eb4893934f4210ef267c5efaba1000</sys_update_name><sys_updated_by>adarsh.nathaniel</sys_updated_by><sys_updated_on>2024-07-04 06:42:20</sys_updated_on></sys_sg_applet_launcher_m2m_section></record_update>]]></payload>
+        <payload_hash>521228874</payload_hash>
+        <record_name/>
+        <reverted_from/>
+        <source>d09d87a793760210ef267c5efaba1070</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>adarsh.nathaniel</sys_created_by>
+        <sys_created_on>2024-07-11 01:39:05</sys_created_on>
+        <sys_id>8c84ec8e93170a10ef267c5efaba10ef</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1909f71ab1b0000001</sys_recorded_at>
+        <sys_updated_by>adarsh.nathaniel</sys_updated_by>
+        <sys_updated_on>2024-07-11 01:39:05</sys_updated_on>
+        <type>Launcher section mapping</type>
+        <update_guid>4884ec8e4c170a10b8a05b2accf5a2ef</update_guid>
+        <update_guid_history>4884ec8e4c170a10b8a05b2accf5a2ef:0,dac6697734870610c38dd2892e7663af:1971590468,678f78e3f983c21016a6871425873dcd:305716773,5beb4893ef4f421036d7fdbfbaeccd20:-180583436</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>adarsh.nathaniel</sys_created_by>
+        <sys_created_on>2024-07-11 01:45:26</sys_created_on>
+        <sys_db_object display_value="" name="sys_sg_applet_launcher_m2m_section">sys_sg_applet_launcher_m2m_section</sys_db_object>
+        <sys_id>4876edadaeac4d37bb9322d7b656e3b9</sys_id>
+        <sys_metadata>97eb4893934f4210ef267c5efaba1000</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_scope_delete display_value="">18e926194902432895b35f3c99259089</sys_scope_delete>
+        <sys_update_name>sys_sg_applet_launcher_m2m_section_97eb4893934f4210ef267c5efaba1000</sys_update_name>
+        <sys_update_version display_value="sys_sg_applet_launcher_m2m_section_97eb4893934f4210ef267c5efaba1000">8c84ec8e93170a10ef267c5efaba10ef</sys_update_version>
+        <sys_updated_by>adarsh.nathaniel</sys_updated_by>
+        <sys_updated_on>2024-07-11 01:45:26</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

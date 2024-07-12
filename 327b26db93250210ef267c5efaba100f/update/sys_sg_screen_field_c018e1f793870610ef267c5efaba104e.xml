@@ -2,7 +2,7 @@
     <sys_sg_screen_field action="INSERT_OR_UPDATE">
         <data_item_field_name>full_name</data_item_field_name>
         <field_name/>
-        <hidden>false</hidden>
+        <hidden>true</hidden>
         <order>20</order>
         <record_id_field/>
         <screen display_value="Author details">0418edb793870610ef267c5efaba10af</screen>
@@ -11,14 +11,14 @@
         <sys_created_by>harini.srija</sys_created_by>
         <sys_created_on>2024-07-04 06:47:56</sys_created_on>
         <sys_id>c018e1f793870610ef267c5efaba104e</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>4</sys_mod_count>
         <sys_name>full_name</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sys_sg_screen_field_c018e1f793870610ef267c5efaba104e</sys_update_name>
-        <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-07-04 07:22:09</sys_updated_on>
+        <sys_updated_by>adarsh.nathaniel</sys_updated_by>
+        <sys_updated_on>2024-07-11 02:11:35</sys_updated_on>
         <type>auto</type>
         <value_only>false</value_only>
     </sys_sg_screen_field>

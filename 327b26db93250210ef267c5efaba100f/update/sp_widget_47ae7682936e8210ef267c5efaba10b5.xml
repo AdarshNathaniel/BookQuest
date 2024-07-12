@@ -85,10 +85,11 @@
   color: white; /* White text color */
   border: 1px solid #3D5280; /* Matching border color */
   height: 18px; /* Adjust the height to match the input field */
-  display: flex;
+  //display: flex;
   align-items: center;
   margin-top: -15px;
   padding-left: 10px;
+  display: none;
 }
 
 .search-button:hover {
@@ -799,23 +800,24 @@ figcaption p {
         <sys_created_by>adarsh.nathaniel</sys_created_by>
         <sys_created_on>2024-06-04 06:05:33</sys_created_on>
         <sys_id>47ae7682936e8210ef267c5efaba10b5</sys_id>
-        <sys_mod_count>143</sys_mod_count>
+        <sys_mod_count>149</sys_mod_count>
         <sys_name>Book Search Widget</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sp_widget_47ae7682936e8210ef267c5efaba10b5</sys_update_name>
-        <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-07-10 14:09:07</sys_updated_on>
+        <sys_updated_by>adarsh.nathaniel</sys_updated_by>
+        <sys_updated_on>2024-07-11 07:46:48</sys_updated_on>
         <template><![CDATA[<div class="search-container">
   <h1 class="search-title">Ready to start your Quest?</h1>
   <form class="search-form" role="search" ng-submit="c.search()" onload="c.onLoadSearchAll()">
     <div class="form-group">
       <input type="text" class="form-control search-input" ng-model="c.searchKeyword" placeholder="Search books" value="">
     </div>
-    <button type="submit" class="btn btn-default search-button">
+
+    <!--<button type="submit" class="btn btn-default search-button">
       <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-    </button>
+    </button>-->
   </form>
 </div>
 
