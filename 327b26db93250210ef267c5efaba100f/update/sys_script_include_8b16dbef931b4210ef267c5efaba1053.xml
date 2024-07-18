@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>false</active>
+        <api_name>x_1383151_bkquest.GoogleBooksAPI</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>GoogleBooksAPI</name>
+        <script><![CDATA[var GoogleBooksAPI = Class.create();
+GoogleBooksAPI.prototype = {
+    initialize: function() {
+        this.apiKey = 'AIzaSyAouWbxNvLFUZyOUs-3kbiwn6f32PYUHqk';
+        this.apiUrl = 'https://www.googleapis.com/books/v1/volumes';
+    },
+
+    getBookByISBN: function(isbn) {
+        try {
+            var restMessage = new sn_ws.RESTMessageV2();
+            restMessage.setHttpMethod('GET');
+            var endpoint = this.apiUrl + '?q=isbn:' + encodeURIComponent(isbn) + '&key=' + this.apiKey;
+            restMessage.setEndpoint(endpoint);
+
+            var response = restMessage.execute();
+            var responseBody = response.getBody();
+            var httpStatus = response.getStatusCode();
+
+            if (httpStatus == 200) {
+                var responseData = JSON.parse(responseBody);
+                if (responseData.totalItems > 0) {
+                    var bookInfo = responseData.items[0].volumeInfo;
+                    this.insertBookDetails(bookInfo);
+                    return bookInfo;
+                } else {
+                    gs.info('No book found with ISBN: ' + isbn);
+                }
+            } else {
+                gs.error('Google Books API request failed: HTTP Status ' + httpStatus);
+                gs.error(responseBody);
+            }
+        } catch (ex) {
+            gs.error('Google Books API request failed: ' + ex.message);
+        }
+        return null;
+    },
+
+    insertBookDetails: function(bookInfo) {
+        var bookRecord = new GlideRecord('x_1383151_bkquest_book');
+        bookRecord.initialize();
+        bookRecord.setValue('title', bookInfo.title);
+        bookRecord.setValue('subtitle', bookInfo.subtitle || '');
+        bookRecord.setValue('author', bookInfo.authors ? bookInfo.authors.join(', ') : '');
+        bookRecord.setValue('date_of_publication', bookInfo.publishedDate || '');
+        bookRecord.setValue('publisher', bookInfo.publisher || '');
+        bookRecord.setValue('plot_summary', bookInfo.description || '');
+        bookRecord.setValue('no_of_pages', bookInfo.pageCount || 0);
+        bookRecord.setValue('isbn', bookInfo.industryIdentifiers.find(id => id.type === 'ISBN_13').identifier || '');
+        bookRecord.setValue('genre', bookInfo.categories ? bookInfo.categories.join(', ') : '');
+        bookRecord.setValue('average_rating', bookInfo.averageRating || 0);
+        bookRecord.setValue('ratings_count', bookInfo.ratingsCount || 0);
+        bookRecord.setValue('image_links', bookInfo.imageLinks ? bookInfo.imageLinks.thumbnail : '');
+        bookRecord.setValue('language', bookInfo.language || '');
+        bookRecord.insert();
+        gs.info('Book details inserted successfully.');
+    },
+
+    fetchAndInsertBooks: function(query) {
+        try {
+            var restMessage = new sn_ws.RESTMessageV2();
+            restMessage.setHttpMethod('GET');
+            var endpoint = this.apiUrl + '?q=' + encodeURIComponent(query) + '&key=' + this.apiKey;
+            restMessage.setEndpoint(endpoint);
+
+            var response = restMessage.execute();
+            var responseBody = response.getBody();
+            var httpStatus = response.getStatusCode();
+
+            if (httpStatus == 200) {
+                var responseData = JSON.parse(responseBody);
+                if (responseData.totalItems > 0) {
+                    var items = responseData.items;
+                    for (var i = 0; i < items.length; i++) {
+                        var bookInfo = items[i].volumeInfo;
+                        this.insertBookDetails(bookInfo);
+                    }
+                } else {
+                    gs.info('No books found with query: ' + query);
+                }
+            } else {
+                gs.error('Google Books API request failed: HTTP Status ' + httpStatus);
+                gs.error(responseBody);
+            }
+        } catch (ex) {
+            gs.error('Google Books API request failed: ' + ex.message);
+        }
+    },
+
+    type: 'GoogleBooksAPI'
+};
+]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-16 06:26:15</sys_created_on>
+        <sys_id>8b16dbef931b4210ef267c5efaba1053</sys_id>
+        <sys_mod_count>15</sys_mod_count>
+        <sys_name>GoogleBooksAPI</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>sys_script_include_8b16dbef931b4210ef267c5efaba1053</sys_update_name>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-16 14:01:01</sys_updated_on>
+    </sys_script_include>
+</record_update>

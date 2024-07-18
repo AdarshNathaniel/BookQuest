@@ -252,6 +252,20 @@
             <sys_user/>
             <type/>
         </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>image_links</element>
+            <position>18</position>
+            <sys_created_by>harini.srija</sys_created_by>
+            <sys_created_on>2024-07-16 09:39:43</sys_created_on>
+            <sys_id>6d7284bf935f4210ef267c5efaba10e2</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_1383151_bkquest_book" sys_domain="global" view="Default view">e3d74fd793a50210ef267c5efaba10e9</sys_ui_section>
+            <sys_updated_by>harini.srija</sys_updated_by>
+            <sys_updated_on>2024-07-16 09:39:43</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
         <sys_ui_section action="INSERT_OR_UPDATE">
             <caption/>
             <header>false</header>

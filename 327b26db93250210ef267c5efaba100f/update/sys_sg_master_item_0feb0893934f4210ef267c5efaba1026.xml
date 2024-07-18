@@ -3,7 +3,7 @@
         <condition_order/>
         <datasource_table>x_1383151_bkquest_book</datasource_table>
         <datasource_table_condition/>
-        <embedded_screen display_value="BookQuest Form Screen">8feb0893934f4210ef267c5efaba1021</embedded_screen>
+        <embedded_screen display_value="Available Books Record Screen">8feb0893934f4210ef267c5efaba1021</embedded_screen>
         <item_view/>
         <name>BookQuest Form Screen Master Item</name>
         <sys_class_name>sys_sg_master_item</sys_class_name>
@@ -19,6 +19,6 @@
         <sys_updated_by>adarsh.nathaniel</sys_updated_by>
         <sys_updated_on>2024-07-02 10:48:24</sys_updated_on>
         <use_view_config>true</use_view_config>
-        <view_config display_value="BookQuest List Screen View Config">3aebc493934f4210ef267c5efaba1097</view_config>
+        <view_config/>
     </sys_sg_master_item>
 </record_update>

@@ -1,0 +1,2158 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_hub_action_type_definition">
+    <sys_hub_action_type_definition action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <acls/>
+        <action_status/>
+        <action_template/>
+        <active>true</active>
+        <annotation/>
+        <callable_by_client_api>false</callable_by_client_api>
+        <category/>
+        <compiler_build/>
+        <copied_from/>
+        <copied_from_name/>
+        <description/>
+        <ih_action>false</ih_action>
+        <internal_name>get_books_details_api</internal_name>
+        <label_cache>[{"name":"{{action.isbn}}","label":"action➛ISBN","type":"action","ref":"","reference_display":"","base_type":"string","parent_table_name":"","column_name":"","choices":null,"attributes":{}},{"name":"{{step[3f571d27-70c7-416d-8da5-82308953bdde].sn_auth_token}}","label":"step➛REST step➛Credential Value","type":"step","ref":"","reference_display":"","base_type":"password2","parent_table_name":"","column_name":"","choices":null,"attributes":{"isLocal":"true"}},{"name":"{{step[3f571d27-70c7-416d-8da5-82308953bdde].response_body}}","label":"step➛REST step➛Response Body","type":"step","ref":"","reference_display":"","base_type":"string","parent_table_name":"","column_name":"","choices":null,"attributes":{"hidden_for":"DATASTREAM"}},{"name":"{{step[0174e437-6dac-4863-a15d-970ad1051ee2].root.totalItems}}","label":"step➛JSON Parser step➛root➛totalItems","type":"step","ref":"","reference_display":"","base_type":"string","parent_table_name":"","column_name":"","choices":null,"attributes":{}},{"name":"{{step[0174e437-6dac-4863-a15d-970ad1051ee2].root}}","label":"step➛JSON Parser step➛root","type":"step","ref":"","reference_display":"","base_type":"object","parent_table_name":"","column_name":"","choices":null,"attributes":{}},{"name":"{{step[3f571d27-70c7-416d-8da5-82308953bdde].status_code}}","label":"step➛REST step➛Status Code","type":"step","ref":"","reference_display":"","base_type":"string","parent_table_name":"","column_name":"","choices":null,"attributes":{"hidden_for":"DATASTREAM"}},{"name":"{{step[89903dff-f42c-4b05-a502-7fcdb86267a5].step_output_title}}","label":"step➛Script step➛step_output_title","type":"step","ref":"","reference_display":"","base_type":"string","parent_table_name":"","column_name":"","choices":null,"attributes":{"sourceUiUniqueId":"","sourceType":"","sourceId":""}},{"name":"{{step[89903dff-f42c-4b05-a502-7fcdb86267a5].step_output_authors}}","label":"step➛Script step➛step_output_authors","type":"step","ref":"","reference_display":"","base_type":"string","parent_table_name":"","column_name":"","choices":null,"attributes":{"sourceUiUniqueId":"","sourceType":"","sourceId":""}}]</label_cache>
+        <latest_snapshot/>
+        <master_snapshot/>
+        <name>Get Books Details API</name>
+        <natlang/>
+        <outputs/>
+        <outputs/>
+        <pre_compiled>false</pre_compiled>
+        <state>draft</state>
+        <sys_class_name>sys_hub_action_type_definition</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-17 04:25:15</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>051488809323c210ef267c5efaba1078</sys_id>
+        <sys_mod_count>13</sys_mod_count>
+        <sys_name>Get Books Details API</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>sys_hub_action_type_definition_051488809323c210ef267c5efaba1078</sys_update_name>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-17 10:40:34</sys_updated_on>
+        <system_level>false</system_level>
+        <type/>
+    </sys_hub_action_type_definition>
+    <sys_translated_text action="delete_multiple" query="documentkey=051488809323c210ef267c5efaba1078"/>
+    <sys_variable_value action="delete_multiple" query="document_key=051488809323c210ef267c5efaba1078"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_type_definition</document>
+        <document_key>051488809323c210ef267c5efaba1078</document_key>
+        <order>1</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-17 05:24:05</sys_created_on>
+        <sys_id>b28190809363c210ef267c5efaba1001</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-17 08:28:38</sys_updated_on>
+        <value>{"version":"1.0","complexObject":{"code":{"$cv":{"$c":"java.lang.String","$v":""}},"message":{"$cv":{"$c":"java.lang.String","$v":""}}},"complexObjectSchema":{"FlowDesigner:FDACTIONSTATUS":{"code":"Integer","code.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"Integer\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"integer\",\"default_value\":\"\",\"label\":\"Code\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"order\":\"1\",\"max_length\":\"40\"}"},"message":"String","message.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"Message\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"order\":\"2\",\"max_length\":\"4000\"}"}},"FlowDesigner:FDACTIONSTATUS.$type_facets":{"SimpleMapFacet":"{\"default_value\":\"\",\"label\":\"Action Status\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"uiUniqueId\":\"4adfb7bc-9d67-498d-88d0-8d6c3d584fed\",\"uiTypeLabel\":\"Object\",\"co_type_name\":\"FDACTIONSTATUS\",\"element_mapping_provider\":\"com.glide.flow_design.action.data.FlowDesignVariableMapper\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"object\",\"order\":\"1\",\"max_length\":\"65000\"}"}},"serializationFormat":"JSON"}</value>
+        <variable display_value="Action Status">6a8150809363c210ef267c5efaba10f4</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_type_definition</document>
+        <document_key>051488809323c210ef267c5efaba1078</document_key>
+        <order>2</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-17 05:24:05</sys_created_on>
+        <sys_id>fe8190809363c210ef267c5efaba1000</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-17 05:24:05</sys_updated_on>
+        <value>0</value>
+        <variable display_value="Don't Treat as Error">368150809363c210ef267c5efaba10f9</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=051488809323c210ef267c5efaba1078"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>title</field>
+        <id>051488809323c210ef267c5efaba1078</id>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-17 06:59:04</sys_created_on>
+        <sys_id>9e4760c893a3c210ef267c5efaba10c6</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-17 08:28:38</sys_updated_on>
+        <table>var__m_sys_hub_action_output_051488809323c210ef267c5efaba1078</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>variable</field>
+        <id>051488809323c210ef267c5efaba1078</id>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-17 10:40:34</sys_created_on>
+        <sys_id>7ef9994883e30210c4fab5a6feaad3c2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-17 10:40:34</sys_updated_on>
+        <table>var__m_sys_hub_action_output_051488809323c210ef267c5efaba1078</table>
+        <value>{{step[89903dff-f42c-4b05-a502-7fcdb86267a5].step_output_title}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>variable1</field>
+        <id>051488809323c210ef267c5efaba1078</id>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-17 10:40:34</sys_created_on>
+        <sys_id>baf9994883e30210c4fab5a6feaad3c2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-17 10:40:34</sys_updated_on>
+        <table>var__m_sys_hub_action_output_051488809323c210ef267c5efaba1078</table>
+        <value>{{step[89903dff-f42c-4b05-a502-7fcdb86267a5].step_output_authors}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>__action_status__</field>
+        <id>051488809323c210ef267c5efaba1078</id>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-17 05:24:05</sys_created_on>
+        <sys_id>7e8190809363c210ef267c5efaba1000</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-17 05:24:05</sys_updated_on>
+        <table>var__m_sys_hub_action_output_051488809323c210ef267c5efaba1078</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>__dont_treat_as_error__</field>
+        <id>051488809323c210ef267c5efaba1078</id>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-17 05:24:05</sys_created_on>
+        <sys_id>ba8190809363c210ef267c5efaba1000</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-17 05:24:05</sys_updated_on>
+        <table>var__m_sys_hub_action_output_051488809323c210ef267c5efaba1078</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_hub_step_instance action="delete_multiple" query="action=051488809323c210ef267c5efaba1078^sys_idNOT IN52f9994883e30210c4fab5a6feaad362,ce4760c893a3c210ef267c5efaba1091,e68150809363c210ef267c5efaba10a3"/>
+    <sys_hub_step_instance action="INSERT_OR_UPDATE">
+        <action display_value="Get Books Details API">051488809323c210ef267c5efaba1078</action>
+        <cid>89903dff-f42c-4b05-a502-7fcdb86267a5</cid>
+        <error_handling_type>1</error_handling_type>
+        <extended_inputs/>
+        <extended_inputs/>
+        <extended_outputs/>
+        <icon/>
+        <inputs/>
+        <label>Script step</label>
+        <order>2</order>
+        <outputs/>
+        <section/>
+        <step_type display_value="Script">106afb6647032200b4fad7527c9a71e7</step_type>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-17 10:40:33</sys_created_on>
+        <sys_id>52f9994883e30210c4fab5a6feaad362</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-17 10:40:33</sys_updated_on>
+    </sys_hub_step_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=52f9994883e30210c4fab5a6feaad362"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_step_instance</document>
+        <document_key>52f9994883e30210c4fab5a6feaad362</document_key>
+        <order>600</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-17 10:40:33</sys_created_on>
+        <sys_id>a6f9994883e30210c4fab5a6feaad37f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-17 10:40:33</sys_updated_on>
+        <value>(function execute(inputs, outputs) {&#13;
+&#13;
+if (inputs.step_input_status_code == '200')  {&#13;
+ &#13;
+    var responseObj = JSON.parse(inputs.step_input_response_body);&#13;
+   &#13;
+    outputs.step_output_title = responseObj.result.title;&#13;
+    outputs.step_output_authors = responseObj.result.authors;&#13;
+    outputs.step_output_genre = responseObj.result.genre;&#13;
+    outputs.step_output_language = responseObj.result.language;&#13;
+}&#13;
+  &#13;
+})(inputs, outputs);</value>
+        <variable display_value="Script">71aa7f6647032200b4fad7527c9a719b</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_step_instance</document>
+        <document_key>52f9994883e30210c4fab5a6feaad362</document_key>
+        <order>400</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-17 10:40:33</sys_created_on>
+        <sys_id>e2f9994883e30210c4fab5a6feaad37f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-17 10:40:33</sys_updated_on>
+        <value>35aa573fd7802200bdbaee5b5e610375</value>
+        <variable display_value="MID Application">f5e56d79b3101300176b051a16a8dce4</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=52f9994883e30210c4fab5a6feaad362"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>application</field>
+        <id>52f9994883e30210c4fab5a6feaad362</id>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-17 10:40:33</sys_created_on>
+        <sys_id>aef9994883e30210c4fab5a6feaad37e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-17 10:40:33</sys_updated_on>
+        <table>var__m_sys_flow_step_definition_input_106afb6647032200b4fad7527c9a71e7</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>script</field>
+        <id>52f9994883e30210c4fab5a6feaad362</id>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-17 10:40:33</sys_created_on>
+        <sys_id>62f9994883e30210c4fab5a6feaad37f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-17 10:40:33</sys_updated_on>
+        <table>var__m_sys_flow_step_definition_input_106afb6647032200b4fad7527c9a71e7</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>step_input_response_body</field>
+        <id>52f9994883e30210c4fab5a6feaad362</id>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-17 10:40:34</sys_created_on>
+        <sys_id>eef9994883e30210c4fab5a6feaad37f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-17 10:40:34</sys_updated_on>
+        <table>var__m_sys_hub_step_ext_input_52f9994883e30210c4fab5a6feaad362</table>
+        <value>{{step[3f571d27-70c7-416d-8da5-82308953bdde].response_body}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>step_input_status_code</field>
+        <id>52f9994883e30210c4fab5a6feaad362</id>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-17 10:40:34</sys_created_on>
+        <sys_id>a2f9994883e30210c4fab5a6feaad380</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-17 10:40:34</sys_updated_on>
+        <table>var__m_sys_hub_step_ext_input_52f9994883e30210c4fab5a6feaad362</table>
+        <value>{{step[3f571d27-70c7-416d-8da5-82308953bdde].status_code}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="delete_multiple" query="table=var__m_sys_hub_step_ext_output_52f9994883e30210c4fab5a6feaad362^id=52f9994883e30210c4fab5a6feaad362"/>
+    <sys_element_mapping action="delete_multiple" query="table=var__m_sys_flow_step_definition_input_106afb6647032200b4fad7527c9a71e7^id=52f9994883e30210c4fab5a6feaad362"/>
+    <sys_translated_text action="delete_multiple" query="documentkey=52f9994883e30210c4fab5a6feaad362"/>
+    <sys_hub_step_ext_input action="delete_multiple" query="model=52f9994883e30210c4fab5a6feaad362^sys_idNOT IN16f9994883e30210c4fab5a6feaad369,9ef9994883e30210c4fab5a6feaad36b"/>
+    <sys_hub_step_ext_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=string,uiTypeLabel=String</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>step_input_response_body</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="String">string</internal_type>
+        <label/>
+        <mandatory>true</mandatory>
+        <max_length>8000</max_length>
+        <model display_value="Script step">52f9994883e30210c4fab5a6feaad362</model>
+        <model_id>52f9994883e30210c4fab5a6feaad362</model_id>
+        <model_table>sys_hub_step_instance</model_table>
+        <name>var__m_sys_hub_step_ext_input_52f9994883e30210c4fab5a6feaad362</name>
+        <next_element/>
+        <order>0</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_step_ext_input</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-17 10:40:33</sys_created_on>
+        <sys_id>16f9994883e30210c4fab5a6feaad369</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-17 10:40:33</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_step_ext_input>
+    <sys_hub_step_ext_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=string,uiTypeLabel=String</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>step_input_status_code</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="String">string</internal_type>
+        <label/>
+        <mandatory>true</mandatory>
+        <max_length>8000</max_length>
+        <model display_value="Script step">52f9994883e30210c4fab5a6feaad362</model>
+        <model_id>52f9994883e30210c4fab5a6feaad362</model_id>
+        <model_table>sys_hub_step_instance</model_table>
+        <name>var__m_sys_hub_step_ext_input_52f9994883e30210c4fab5a6feaad362</name>
+        <next_element/>
+        <order>100</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_step_ext_input</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-17 10:40:33</sys_created_on>
+        <sys_id>9ef9994883e30210c4fab5a6feaad36b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-17 10:40:33</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_step_ext_input>
+    <sys_hub_step_ext_output action="delete_multiple" query="model=52f9994883e30210c4fab5a6feaad362^sys_idNOT IN66f9994883e30210c4fab5a6feaad372,6af9994883e30210c4fab5a6feaad36e,6af9994883e30210c4fab5a6feaad375,6ef9994883e30210c4fab5a6feaad378"/>
+    <sys_hub_step_ext_output action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=string,uiTypeLabel=String,uiUniqueId=a5d4130d-e8ae-4668-a8b2-baea362700e0</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>step_output_authors</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="String">string</internal_type>
+        <label>step_output_authors</label>
+        <mandatory>false</mandatory>
+        <max_length>8000</max_length>
+        <model display_value="Script step">52f9994883e30210c4fab5a6feaad362</model>
+        <model_id>52f9994883e30210c4fab5a6feaad362</model_id>
+        <model_table>sys_hub_step_instance</model_table>
+        <name>var__m_sys_hub_step_ext_output_52f9994883e30210c4fab5a6feaad362</name>
+        <next_element/>
+        <order>2</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_step_ext_output</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-17 10:40:33</sys_created_on>
+        <sys_id>66f9994883e30210c4fab5a6feaad372</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-17 10:40:33</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_step_ext_output>
+    <sys_hub_step_ext_output action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=string,uiTypeLabel=String,uiUniqueId=c1874b53-7e1b-43eb-b44c-9a62e6d2425d</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>step_output_title</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="String">string</internal_type>
+        <label>step_output_title</label>
+        <mandatory>false</mandatory>
+        <max_length>8000</max_length>
+        <model display_value="Script step">52f9994883e30210c4fab5a6feaad362</model>
+        <model_id>52f9994883e30210c4fab5a6feaad362</model_id>
+        <model_table>sys_hub_step_instance</model_table>
+        <name>var__m_sys_hub_step_ext_output_52f9994883e30210c4fab5a6feaad362</name>
+        <next_element/>
+        <order>1</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_step_ext_output</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-17 10:40:33</sys_created_on>
+        <sys_id>6af9994883e30210c4fab5a6feaad36e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-17 10:40:33</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_step_ext_output>
+    <sys_hub_step_ext_output action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=string,uiTypeLabel=String,uiUniqueId=01fff5ac-6c61-4218-9658-ac7b43e953a5</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>step_output_genre</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="String">string</internal_type>
+        <label>step_output_genre</label>
+        <mandatory>false</mandatory>
+        <max_length>8000</max_length>
+        <model display_value="Script step">52f9994883e30210c4fab5a6feaad362</model>
+        <model_id>52f9994883e30210c4fab5a6feaad362</model_id>
+        <model_table>sys_hub_step_instance</model_table>
+        <name>var__m_sys_hub_step_ext_output_52f9994883e30210c4fab5a6feaad362</name>
+        <next_element/>
+        <order>3</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_step_ext_output</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-17 10:40:33</sys_created_on>
+        <sys_id>6af9994883e30210c4fab5a6feaad375</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-17 10:40:33</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_step_ext_output>
+    <sys_hub_step_ext_output action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=string,uiTypeLabel=String,uiUniqueId=3b9010b1-9e9a-446f-94d2-509fe86a42a2</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>step_output_language</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="String">string</internal_type>
+        <label>step_output_language</label>
+        <mandatory>false</mandatory>
+        <max_length>8000</max_length>
+        <model display_value="Script step">52f9994883e30210c4fab5a6feaad362</model>
+        <model_id>52f9994883e30210c4fab5a6feaad362</model_id>
+        <model_table>sys_hub_step_instance</model_table>
+        <name>var__m_sys_hub_step_ext_output_52f9994883e30210c4fab5a6feaad362</name>
+        <next_element/>
+        <order>4</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_step_ext_output</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-17 10:40:33</sys_created_on>
+        <sys_id>6ef9994883e30210c4fab5a6feaad378</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-17 10:40:33</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_step_ext_output>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=52f9994883e30210c4fab5a6feaad362"/>
+    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_step_ext_output_52f9994883e30210c4fab5a6feaad362^sys_idNOT INe2f9994883e30210c4fab5a6feaad37b,e6f9994883e30210c4fab5a6feaad371,eaf9994883e30210c4fab5a6feaad374,eef9994883e30210c4fab5a6feaad377"/>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>step_output_language</element>
+        <help/>
+        <hint/>
+        <label>step_output_language</label>
+        <language>en</language>
+        <name>var__m_sys_hub_step_ext_output_52f9994883e30210c4fab5a6feaad362</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-17 10:40:33</sys_created_on>
+        <sys_id>e2f9994883e30210c4fab5a6feaad37b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-17 10:40:33</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>step_output_title</element>
+        <help/>
+        <hint/>
+        <label>step_output_title</label>
+        <language>en</language>
+        <name>var__m_sys_hub_step_ext_output_52f9994883e30210c4fab5a6feaad362</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-17 10:40:33</sys_created_on>
+        <sys_id>e6f9994883e30210c4fab5a6feaad371</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-17 10:40:33</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>step_output_authors</element>
+        <help/>
+        <hint/>
+        <label>step_output_authors</label>
+        <language>en</language>
+        <name>var__m_sys_hub_step_ext_output_52f9994883e30210c4fab5a6feaad362</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-17 10:40:33</sys_created_on>
+        <sys_id>eaf9994883e30210c4fab5a6feaad374</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-17 10:40:33</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>step_output_genre</element>
+        <help/>
+        <hint/>
+        <label>step_output_genre</label>
+        <language>en</language>
+        <name>var__m_sys_hub_step_ext_output_52f9994883e30210c4fab5a6feaad362</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-17 10:40:33</sys_created_on>
+        <sys_id>eef9994883e30210c4fab5a6feaad377</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-17 10:40:33</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_hub_step_instance action="INSERT_OR_UPDATE">
+        <action display_value="Get Books Details API">051488809323c210ef267c5efaba1078</action>
+        <cid>0174e437-6dac-4863-a15d-970ad1051ee2</cid>
+        <error_handling_type>1</error_handling_type>
+        <extended_inputs/>
+        <extended_outputs/>
+        <icon/>
+        <inputs/>
+        <inputs/>
+        <label>JSON Parser step</label>
+        <order>3</order>
+        <outputs/>
+        <section/>
+        <step_type display_value="JSON Parser">502328c387523300f917e55936cb0bf0</step_type>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-17 06:59:04</sys_created_on>
+        <sys_id>ce4760c893a3c210ef267c5efaba1091</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-17 10:40:34</sys_updated_on>
+    </sys_hub_step_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=ce4760c893a3c210ef267c5efaba1091"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_step_instance</document>
+        <document_key>ce4760c893a3c210ef267c5efaba1091</document_key>
+        <order>300</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-17 06:59:04</sys_created_on>
+        <sys_id>064760c893a3c210ef267c5efaba10aa</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-17 10:40:34</sys_updated_on>
+        <value>{&#13;
+  "kind": "books#volumes",&#13;
+  "totalItems": 1,&#13;
+  "items": [&#13;
+    {&#13;
+      "kind": "books#volume",&#13;
+      "id": "Y2i2yVp0dzEC",&#13;
+      "etag": "tIcg3mwwtv4",&#13;
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/Y2i2yVp0dzEC",&#13;
+      "volumeInfo": {&#13;
+        "title": "Alice in Wonderland-English Classics",&#13;
+        "authors": [&#13;
+          "Lewis Carroll"&#13;
+        ],&#13;
+        "publisher": "Star Publications",&#13;
+        "publishedDate": "2008",&#13;
+        "description": "Classics for children",&#13;
+        "industryIdentifiers": [&#13;
+          {&#13;
+            "type": "ISBN_10",&#13;
+            "identifier": "1905863233"&#13;
+          },&#13;
+          {&#13;
+            "type": "ISBN_13",&#13;
+            "identifier": "9781905863235"&#13;
+          }&#13;
+        ],&#13;
+        "readingModes": {&#13;
+          "text": false,&#13;
+          "image": true&#13;
+        },&#13;
+        "pageCount": 124,&#13;
+        "printType": "BOOK",&#13;
+        "categories": [&#13;
+          "Alice (Fictitious character : Carroll)"&#13;
+        ],&#13;
+        "maturityRating": "NOT_MATURE",&#13;
+        "allowAnonLogging": false,&#13;
+        "contentVersion": "2.5.4.0.preview.1",&#13;
+        "panelizationSummary": {&#13;
+          "containsEpubBubbles": false,&#13;
+          "containsImageBubbles": false&#13;
+        },&#13;
+        "imageLinks": {&#13;
+          "smallThumbnail": "http://books.google.com/books/content?id=Y2i2yVp0dzEC&amp;printsec=frontcover&amp;img=1&amp;zoom=5&amp;edge=curl&amp;source=gbs_api",&#13;
+          "thumbnail": "http://books.google.com/books/content?id=Y2i2yVp0dzEC&amp;printsec=frontcover&amp;img=1&amp;zoom=1&amp;edge=curl&amp;source=gbs_api"&#13;
+        },&#13;
+        "language": "en",&#13;
+        "previewLink": "http://books.google.com/books?id=Y2i2yVp0dzEC&amp;printsec=frontcover&amp;dq=isbn:9781905863235&amp;hl=&amp;cd=1&amp;source=gbs_api",&#13;
+        "infoLink": "http://books.google.com/books?id=Y2i2yVp0dzEC&amp;dq=isbn:9781905863235&amp;hl=&amp;source=gbs_api",&#13;
+        "canonicalVolumeLink": "https://books.google.com/books/about/Alice_in_Wonderland_English_Classics.html?hl=&amp;id=Y2i2yVp0dzEC"&#13;
+      },&#13;
+      "saleInfo": {&#13;
+        "country": "US",&#13;
+        "saleability": "NOT_FOR_SALE",&#13;
+        "isEbook": false&#13;
+      },&#13;
+      "accessInfo": {&#13;
+        "country": "US",&#13;
+        "viewability": "PARTIAL",&#13;
+        "embeddable": true,&#13;
+        "publicDomain": false,&#13;
+        "textToSpeechPermission": "ALLOWED",&#13;
+        "epub": {&#13;
+          "isAvailable": false&#13;
+        },&#13;
+        "pdf": {&#13;
+          "isAvailable": true,&#13;
+          "acsTokenLink": "http://books.google.com/books/download/Alice_in_Wonderland_English_Classics-sample-pdf.acsm?id=Y2i2yVp0dzEC&amp;format=pdf&amp;output=acs4_fulfillment_token&amp;dl_type=sample&amp;source=gbs_api"&#13;
+        },&#13;
+        "webReaderLink": "http://play.google.com/books/reader?id=Y2i2yVp0dzEC&amp;hl=&amp;source=gbs_api",&#13;
+        "accessViewStatus": "SAMPLE",&#13;
+        "quoteSharingAllowed": false&#13;
+      },&#13;
+      "searchInfo": {&#13;
+        "textSnippet": "Classics for children"&#13;
+      }&#13;
+    }&#13;
+  ]&#13;
+}</value>
+        <variable display_value="Sample payload">d335ac0787523300f917e55936cb0b1d</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_step_instance</document>
+        <document_key>ce4760c893a3c210ef267c5efaba1091</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-17 06:59:04</sys_created_on>
+        <sys_id>424760c893a3c210ef267c5efaba10aa</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-17 10:40:34</sys_updated_on>
+        <value>{"name":"root","children":[{"name":"kind","children":[],"type":"string","jpath":"$.kind","previewValue":"books#volumes"},{"name":"totalItems","children":[],"type":"string","jpath":"$.totalItems","previewValue":"1"},{"name":"items","children":[{"name":"items_object","children":[{"name":"kind","children":[],"type":"string","jpath":"$.items[*].kind","previewValue":"books#volume"},{"name":"id","children":[],"type":"string","jpath":"$.items[*].id","previewValue":"Y2i2yVp0dzEC"},{"name":"etag","children":[],"type":"string","jpath":"$.items[*].etag","previewValue":"tIcg3mwwtv4"},{"name":"selfLink","children":[],"type":"string","jpath":"$.items[*].selfLink","previewValue":"https://www.googleapis.com/books/v1/volumes/Y2i2yVp0dzEC"},{"name":"volumeInfo","children":[{"name":"title","children":[],"type":"string","jpath":"$.items[*].volumeInfo.title","previewValue":"Alice in Wonderland-English Classics"},{"name":"authors","children":[{"name":"authors_string","children":[],"type":"string","jpath":"$.items[*].volumeInfo.authors[*]","previewValue":"Lewis Carroll"}],"type":"array.string","jpath":"$.items[*].volumeInfo.authors[*]","previewValue":""},{"name":"publisher","children":[],"type":"string","jpath":"$.items[*].volumeInfo.publisher","previewValue":"Star Publications"},{"name":"publishedDate","children":[],"type":"string","jpath":"$.items[*].volumeInfo.publishedDate","previewValue":"2008"},{"name":"description","children":[],"type":"string","jpath":"$.items[*].volumeInfo.description","previewValue":"Classics for children"},{"name":"industryIdentifiers","children":[{"name":"industryIdentifiers_object","children":[{"name":"type","children":[],"type":"string","jpath":"$.items[*].volumeInfo.industryIdentifiers[*].type","previewValue":"ISBN_10"},{"name":"identifier","children":[],"type":"string","jpath":"$.items[*].volumeInfo.industryIdentifiers[*].identifier","previewValue":"1905863233"}],"type":"object","jpath":"$.items[*].volumeInfo.industryIdentifiers[*]","previewValue":""}],"type":"array.object","jpath":"$.items[*].volumeInfo.industryIdentifiers[*]","previewValue":""},{"name":"readingModes","children":[{"name":"text","children":[],"type":"string","jpath":"$.items[*].volumeInfo.readingModes.text","previewValue":"false"},{"name":"image","children":[],"type":"string","jpath":"$.items[*].volumeInfo.readingModes.image","previewValue":"true"}],"type":"object","jpath":"$.items[*].volumeInfo.readingModes","previewValue":""},{"name":"pageCount","children":[],"type":"string","jpath":"$.items[*].volumeInfo.pageCount","previewValue":"124"},{"name":"printType","children":[],"type":"string","jpath":"$.items[*].volumeInfo.printType","previewValue":"BOOK"},{"name":"categories","children":[{"name":"categories_string","children":[],"type":"string","jpath":"$.items[*].volumeInfo.categories[*]","previewValue":"Alice (Fictitious character : Carroll)"}],"type":"array.string","jpath":"$.items[*].volumeInfo.categories[*]","previewValue":""},{"name":"maturityRating","children":[],"type":"string","jpath":"$.items[*].volumeInfo.maturityRating","previewValue":"NOT_MATURE"},{"name":"allowAnonLogging","children":[],"type":"string","jpath":"$.items[*].volumeInfo.allowAnonLogging","previewValue":"false"},{"name":"contentVersion","children":[],"type":"string","jpath":"$.items[*].volumeInfo.contentVersion","previewValue":"2.5.4.0.preview.1"},{"name":"panelizationSummary","children":[{"name":"containsEpubBubbles","children":[],"type":"string","jpath":"$.items[*].volumeInfo.panelizationSummary.containsEpubBubbles","previewValue":"false"},{"name":"containsImageBubbles","children":[],"type":"string","jpath":"$.items[*].volumeInfo.panelizationSummary.containsImageBubbles","previewValue":"false"}],"type":"object","jpath":"$.items[*].volumeInfo.panelizationSummary","previewValue":""},{"name":"imageLinks","children":[{"name":"smallThumbnail","children":[],"type":"string","jpath":"$.items[*].volumeInfo.imageLinks.smallThumbnail","previewValue":"http://books.google.com/books/content?id=Y2i2yVp0dzEC&amp;printsec=frontcover&amp;img=1&amp;zoom=5&amp;edge=curl&amp;source=gbs_api"},{"name":"thumbnail","children":[],"type":"string","jpath":"$.items[*].volumeInfo.imageLinks.thumbnail","previewValue":"http://books.google.com/books/content?id=Y2i2yVp0dzEC&amp;printsec=frontcover&amp;img=1&amp;zoom=1&amp;edge=curl&amp;source=gbs_api"}],"type":"object","jpath":"$.items[*].volumeInfo.imageLinks","previewValue":""},{"name":"language","children":[],"type":"string","jpath":"$.items[*].volumeInfo.language","previewValue":"en"},{"name":"previewLink","children":[],"type":"string","jpath":"$.items[*].volumeInfo.previewLink","previewValue":"http://books.google.com/books?id=Y2i2yVp0dzEC&amp;printsec=frontcover&amp;dq=isbn:9781905863235&amp;hl=&amp;cd=1&amp;source=gbs_api"},{"name":"infoLink","children":[],"type":"string","jpath":"$.items[*].volumeInfo.infoLink","previewValue":"http://books.google.com/books?id=Y2i2yVp0dzEC&amp;dq=isbn:9781905863235&amp;hl=&amp;source=gbs_api"},{"name":"canonicalVolumeLink","children":[],"type":"string","jpath":"$.items[*].volumeInfo.canonicalVolumeLink","previewValue":"https://books.google.com/books/about/Alice_in_Wonderland_English_Classics.html?hl=&amp;id=Y2i2yVp0dzEC"}],"type":"object","jpath":"$.items[*].volumeInfo","previewValue":""},{"name":"saleInfo","children":[{"name":"country","children":[],"type":"string","jpath":"$.items[*].saleInfo.country","previewValue":"US"},{"name":"saleability","children":[],"type":"string","jpath":"$.items[*].saleInfo.saleability","previewValue":"NOT_FOR_SALE"},{"name":"isEbook","children":[],"type":"string","jpath":"$.items[*].saleInfo.isEbook","previewValue":"false"}],"type":"object","jpath":"$.items[*].saleInfo","previewValue":""},{"name":"accessInfo","children":[{"name":"country","children":[],"type":"string","jpath":"$.items[*].accessInfo.country","previewValue":"US"},{"name":"viewability","children":[],"type":"string","jpath":"$.items[*].accessInfo.viewability","previewValue":"PARTIAL"},{"name":"embeddable","children":[],"type":"string","jpath":"$.items[*].accessInfo.embeddable","previewValue":"true"},{"name":"publicDomain","children":[],"type":"string","jpath":"$.items[*].accessInfo.publicDomain","previewValue":"false"},{"name":"textToSpeechPermission","children":[],"type":"string","jpath":"$.items[*].accessInfo.textToSpeechPermission","previewValue":"ALLOWED"},{"name":"epub","children":[{"name":"isAvailable","children":[],"type":"string","jpath":"$.items[*].accessInfo.epub.isAvailable","previewValue":"false"}],"type":"object","jpath":"$.items[*].accessInfo.epub","previewValue":""},{"name":"pdf","children":[{"name":"isAvailable","children":[],"type":"string","jpath":"$.items[*].accessInfo.pdf.isAvailable","previewValue":"true"},{"name":"acsTokenLink","children":[],"type":"string","jpath":"$.items[*].accessInfo.pdf.acsTokenLink","previewValue":"http://books.google.com/books/download/Alice_in_Wonderland_English_Classics-sample-pdf.acsm?id=Y2i2yVp0dzEC&amp;format=pdf&amp;output=acs4_fulfillment_token&amp;dl_type=sample&amp;source=gbs_api"}],"type":"object","jpath":"$.items[*].accessInfo.pdf","previewValue":""},{"name":"webReaderLink","children":[],"type":"string","jpath":"$.items[*].accessInfo.webReaderLink","previewValue":"http://play.google.com/books/reader?id=Y2i2yVp0dzEC&amp;hl=&amp;source=gbs_api"},{"name":"accessViewStatus","children":[],"type":"string","jpath":"$.items[*].accessInfo.accessViewStatus","previewValue":"SAMPLE"},{"name":"quoteSharingAllowed","children":[],"type":"string","jpath":"$.items[*].accessInfo.quoteSharingAllowed","previewValue":"false"}],"type":"object","jpath":"$.items[*].accessInfo","previewValue":""},{"name":"searchInfo","children":[{"name":"textSnippet","children":[],"type":"string","jpath":"$.items[*].searchInfo.textSnippet","previewValue":"Classics for children"}],"type":"object","jpath":"$.items[*].searchInfo","previewValue":""}],"type":"object","jpath":"$.items[*]","previewValue":""}],"type":"array.object","jpath":"$.items[*]","previewValue":""}],"type":"object","jpath":"$","previewValue":""}</value>
+        <variable display_value="Target">4674240787523300f917e55936cb0b0e</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="table=var__m_sys_hub_step_ext_output_ce4760c893a3c210ef267c5efaba1091^id=ce4760c893a3c210ef267c5efaba1091"/>
+    <sys_element_mapping action="delete_multiple" query="id=ce4760c893a3c210ef267c5efaba1091"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>sample_payload</field>
+        <id>ce4760c893a3c210ef267c5efaba1091</id>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-17 06:59:04</sys_created_on>
+        <sys_id>ce4760c893a3c210ef267c5efaba10a9</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-17 06:59:04</sys_updated_on>
+        <table>var__m_sys_flow_step_definition_input_502328c387523300f917e55936cb0bf0</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>source_data</field>
+        <id>ce4760c893a3c210ef267c5efaba1091</id>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-17 06:59:04</sys_created_on>
+        <sys_id>0e4760c893a3c210ef267c5efaba10a9</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-17 06:59:04</sys_updated_on>
+        <table>var__m_sys_flow_step_definition_input_502328c387523300f917e55936cb0bf0</table>
+        <value>{{step[3f571d27-70c7-416d-8da5-82308953bdde].response_body}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>target_schema</field>
+        <id>ce4760c893a3c210ef267c5efaba1091</id>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-17 06:59:04</sys_created_on>
+        <sys_id>4a4760c893a3c210ef267c5efaba10a9</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-17 06:59:04</sys_updated_on>
+        <table>var__m_sys_flow_step_definition_input_502328c387523300f917e55936cb0bf0</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_translated_text action="delete_multiple" query="documentkey=ce4760c893a3c210ef267c5efaba1091"/>
+    <sys_hub_step_ext_input action="delete_multiple" query="model=ce4760c893a3c210ef267c5efaba1091"/>
+    <sys_hub_step_ext_output action="delete_multiple" query="model=ce4760c893a3c210ef267c5efaba1091^sys_idNOT IN424760c893a3c210ef267c5efaba1097"/>
+    <sys_complex_object action="INSERT_OR_UPDATE">
+        <label/>
+        <name>FDaef9994867e30210afe0446a25087f86</name>
+        <namespace>FlowDesigner</namespace>
+        <scope_name>327b26db93250210ef267c5efaba100f</scope_name>
+        <serialized_content>{"FlowDesigner:FDaef9994867e30210afe0446a25087f86":{"totalItems":"String","totalItems.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"totalItems\",\"mandatory\":\"false\",\"order\":\"2\",\"max_length\":\"0\",\"uiUniqueId\":\"0f620de5-69b6-4bec-b61e-95d6884e19d2\"}"},"kind":"String","kind.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"kind\",\"mandatory\":\"false\",\"order\":\"1\",\"max_length\":\"0\",\"uiUniqueId\":\"9c34a013-0657-4b2a-ab24-fd7c4751dc39\"}"},"items":[{"$12_items":{"saleInfo":{"country":"String","country.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"country\",\"mandatory\":\"false\",\"order\":\"1\",\"max_length\":\"0\",\"uiUniqueId\":\"3cd96614-8c09-4d1d-99f1-25c6db749de2\"}"},"isEbook":"String","isEbook.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"isEbook\",\"mandatory\":\"false\",\"order\":\"3\",\"max_length\":\"0\",\"uiUniqueId\":\"561c0aea-7b38-4dd3-a1f3-51119bbe8b3f\"}"},"saleability":"String","saleability.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"saleability\",\"mandatory\":\"false\",\"order\":\"2\",\"max_length\":\"0\",\"uiUniqueId\":\"0cbc39e9-744b-48a8-9a26-b4d2d05fd7a2\"}"}},"saleInfo.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"Object\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"object\",\"default_value\":\"\",\"label\":\"saleInfo\",\"mandatory\":\"false\",\"order\":\"6\",\"max_length\":\"0\",\"uiUniqueId\":\"5a04fed6-35d3-434a-ba93-cb65f84d5b9c\"}"},"searchInfo":{"textSnippet":"String","textSnippet.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"textSnippet\",\"mandatory\":\"false\",\"order\":\"1\",\"max_length\":\"0\",\"uiUniqueId\":\"70d904a9-7ce4-4065-88a4-0aac14e51ac5\"}"}},"searchInfo.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"Object\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"object\",\"default_value\":\"\",\"label\":\"searchInfo\",\"mandatory\":\"false\",\"order\":\"8\",\"max_length\":\"0\",\"uiUniqueId\":\"5c95b934-4ccb-42ca-a1f8-a9e283f678df\"}"},"kind":"String","kind.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"kind\",\"mandatory\":\"false\",\"order\":\"1\",\"max_length\":\"0\",\"uiUniqueId\":\"176b6f55-b443-4851-b3d2-84f6b250dcdd\"}"},"volumeInfo":{"industryIdentifiers":[{"$8_industryIdentifiers":{"identifier":"String","identifier.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"identifier\",\"mandatory\":\"false\",\"order\":\"2\",\"max_length\":\"0\",\"uiUniqueId\":\"a50b6b92-a427-4fa5-978b-5e7880c91405\"}"},"type":"String","type.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"type\",\"mandatory\":\"false\",\"order\":\"1\",\"max_length\":\"0\",\"uiUniqueId\":\"c5dfbd8a-4862-40a1-b2d2-ec3086ce6d61\"}"}}}],"industryIdentifiers.$field_facets":{"SimpleMapFacet":"{\"default_value\":\"\",\"child_hint\":\"\",\"child_maxsize\":\"\",\"label\":\"industryIdentifiers\",\"mandatory\":\"false\",\"child_name\":\"industryIdentifiers_object\",\"uiUniqueId\":\"23d8e3ed-e8e4-42ae-a9d7-2007867dc303\",\"uiTypeLabel\":\"Array.Object\",\"child_label\":\"industryIdentifiers_object\",\"child_type_label\":\"Object\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"array.object\",\"child_defaultValue\":\"\",\"child_type\":\"object\",\"order\":\"6\",\"max_length\":\"0\",\"child_uiUniqueId\":\"1b9bdadd-037a-4184-a2b8-a91a0f25b225\"}"},"pageCount":"String","pageCount.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"pageCount\",\"mandatory\":\"false\",\"order\":\"8\",\"max_length\":\"0\",\"uiUniqueId\":\"e06f63e0-6dba-4b9f-864b-891ffa4e093c\"}"},"printType":"String","printType.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"printType\",\"mandatory\":\"false\",\"order\":\"9\",\"max_length\":\"0\",\"uiUniqueId\":\"9111ce2a-411f-4484-b03d-e79fa71ca181\"}"},"readingModes":{"image":"String","image.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"image\",\"mandatory\":\"false\",\"order\":\"2\",\"max_length\":\"0\",\"uiUniqueId\":\"c6db2ebb-9dbb-47d9-bc3f-ddd770ae1bc1\"}"},"text":"String","text.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"text\",\"mandatory\":\"false\",\"order\":\"1\",\"max_length\":\"0\",\"uiUniqueId\":\"06605502-4afb-4e42-91cb-2328f9000476\"}"}},"readingModes.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"Object\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"object\",\"default_value\":\"\",\"label\":\"readingModes\",\"mandatory\":\"false\",\"order\":\"7\",\"max_length\":\"0\",\"uiUniqueId\":\"f236869b-0c71-466c-8e9d-7e268b426e59\"}"},"previewLink":"String","previewLink.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"previewLink\",\"mandatory\":\"false\",\"order\":\"17\",\"max_length\":\"0\",\"uiUniqueId\":\"2e8fc6b3-e3b8-49c1-b688-235e43275485\"}"},"canonicalVolumeLink":"String","canonicalVolumeLink.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"canonicalVolumeLink\",\"mandatory\":\"false\",\"order\":\"19\",\"max_length\":\"0\",\"uiUniqueId\":\"89c2d5cb-b85c-497d-94f5-1b2bbea6f20a\"}"},"description":"String","description.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"description\",\"mandatory\":\"false\",\"order\":\"5\",\"max_length\":\"0\",\"uiUniqueId\":\"133b159a-9c0b-441b-a42e-0dbaf5cb49cf\"}"},"language":"String","language.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"language\",\"mandatory\":\"false\",\"order\":\"16\",\"max_length\":\"0\",\"uiUniqueId\":\"965a9917-9ce4-4659-83f2-f16ac1729c4b\"}"},"title":"String","title.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"title\",\"mandatory\":\"false\",\"order\":\"1\",\"max_length\":\"0\",\"uiUniqueId\":\"c6378a46-a497-446d-8034-5476f8cd772a\"}"},"imageLinks":{"thumbnail":"String","thumbnail.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"thumbnail\",\"mandatory\":\"false\",\"order\":\"2\",\"max_length\":\"0\",\"uiUniqueId\":\"d579f5fd-5d2b-4316-9c60-9b1b37a58326\"}"},"smallThumbnail":"String","smallThumbnail.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"smallThumbnail\",\"mandatory\":\"false\",\"order\":\"1\",\"max_length\":\"0\",\"uiUniqueId\":\"323162d3-ddf4-4bca-a6e1-1fe2f4165ce7\"}"}},"imageLinks.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"Object\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"object\",\"default_value\":\"\",\"label\":\"imageLinks\",\"mandatory\":\"false\",\"order\":\"15\",\"max_length\":\"0\",\"uiUniqueId\":\"c8abc8d4-e8f4-4751-9422-72458949ed81\"}"},"panelizationSummary":{"containsImageBubbles":"String","containsImageBubbles.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"containsImageBubbles\",\"mandatory\":\"false\",\"order\":\"2\",\"max_length\":\"0\",\"uiUniqueId\":\"2ed8f66d-45a8-41e3-a393-47314e56c275\"}"},"containsEpubBubbles":"String","containsEpubBubbles.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"containsEpubBubbles\",\"mandatory\":\"false\",\"order\":\"1\",\"max_length\":\"0\",\"uiUniqueId\":\"7a79772c-d48e-4077-995b-9a9beb309eff\"}"}},"panelizationSummary.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"Object\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"object\",\"default_value\":\"\",\"label\":\"panelizationSummary\",\"mandatory\":\"false\",\"order\":\"14\",\"max_length\":\"0\",\"uiUniqueId\":\"44dada2e-1c29-4377-abcb-02037e9ee013\"}"},"publisher":"String","publisher.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"publisher\",\"mandatory\":\"false\",\"order\":\"3\",\"max_length\":\"0\",\"uiUniqueId\":\"5d28c3af-1392-4712-94f8-31df20f60f4b\"}"},"categories":["Any"],"categories.$field_facets":{"SimpleMapFacet":"{\"default_value\":\"\",\"child_hint\":\"\",\"child_maxsize\":\"\",\"label\":\"categories\",\"mandatory\":\"false\",\"child_name\":\"categories_string\",\"uiUniqueId\":\"ff665709-e036-46e5-9cd6-04fc85076e29\",\"uiTypeLabel\":\"Array.String\",\"child_label\":\"categories_string\",\"child_type_label\":\"String\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"array.string\",\"child_defaultValue\":\"\",\"child_type\":\"string\",\"order\":\"10\",\"max_length\":\"0\",\"child_uiUniqueId\":\"3773c587-36d6-4389-8845-174a328f2a4a\"}"},"publishedDate":"String","publishedDate.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"publishedDate\",\"mandatory\":\"false\",\"order\":\"4\",\"max_length\":\"0\",\"uiUniqueId\":\"99aa654a-ad6a-4080-9caa-b34dea43d9a2\"}"},"allowAnonLogging":"String","allowAnonLogging.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"allowAnonLogging\",\"mandatory\":\"false\",\"order\":\"12\",\"max_length\":\"0\",\"uiUniqueId\":\"f57a421a-2d90-4452-8ddb-f9f573cdf335\"}"},"contentVersion":"String","contentVersion.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"contentVersion\",\"mandatory\":\"false\",\"order\":\"13\",\"max_length\":\"0\",\"uiUniqueId\":\"810d72fa-6341-400e-b711-9c3ef4b8c023\"}"},"maturityRating":"String","maturityRating.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"maturityRating\",\"mandatory\":\"false\",\"order\":\"11\",\"max_length\":\"0\",\"uiUniqueId\":\"0927ab0b-fdad-47f2-a98d-44a468300f66\"}"},"authors":["Any"],"authors.$field_facets":{"SimpleMapFacet":"{\"default_value\":\"\",\"child_hint\":\"\",\"child_maxsize\":\"\",\"label\":\"authors\",\"mandatory\":\"false\",\"child_name\":\"authors_string\",\"uiUniqueId\":\"d1903a52-7b39-4a62-a858-72a0b5dd2d22\",\"uiTypeLabel\":\"Array.String\",\"child_label\":\"authors_string\",\"child_type_label\":\"String\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"array.string\",\"child_defaultValue\":\"\",\"child_type\":\"string\",\"order\":\"2\",\"max_length\":\"0\",\"child_uiUniqueId\":\"7e3af417-c395-46fe-9d70-10fe6be1c635\"}"},"infoLink":"String","infoLink.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"infoLink\",\"mandatory\":\"false\",\"order\":\"18\",\"max_length\":\"0\",\"uiUniqueId\":\"61be65da-12b5-4a6f-a385-a6b60d8345a6\"}"}},"volumeInfo.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"Object\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"object\",\"default_value\":\"\",\"label\":\"volumeInfo\",\"mandatory\":\"false\",\"order\":\"5\",\"max_length\":\"0\",\"uiUniqueId\":\"6e045619-050a-429e-9c60-76df36eb684d\"}"},"etag":"String","etag.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"etag\",\"mandatory\":\"false\",\"order\":\"3\",\"max_length\":\"0\",\"uiUniqueId\":\"c6efe3ba-c3ea-4f62-8efe-3d3bb681d75f\"}"},"accessInfo":{"accessViewStatus":"String","accessViewStatus.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"accessViewStatus\",\"mandatory\":\"false\",\"order\":\"9\",\"max_length\":\"0\",\"uiUniqueId\":\"6b87b52a-df66-4212-8343-a8681a7577d0\"}"},"country":"String","country.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"country\",\"mandatory\":\"false\",\"order\":\"1\",\"max_length\":\"0\",\"uiUniqueId\":\"20e42dfb-44dc-4689-8a30-caa725f5c1d3\"}"},"viewability":"String","viewability.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"viewability\",\"mandatory\":\"false\",\"order\":\"2\",\"max_length\":\"0\",\"uiUniqueId\":\"95bdbb6e-cd02-481a-875c-f506cefe6d52\"}"},"pdf":{"isAvailable":"String","isAvailable.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"isAvailable\",\"mandatory\":\"false\",\"order\":\"1\",\"max_length\":\"0\",\"uiUniqueId\":\"4e737fac-5716-4f5d-a3bc-2d64570d2672\"}"},"acsTokenLink":"String","acsTokenLink.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"acsTokenLink\",\"mandatory\":\"false\",\"order\":\"2\",\"max_length\":\"0\",\"uiUniqueId\":\"2c6c5187-650c-4f18-86ae-46b03d251692\"}"}},"pdf.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"Object\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"object\",\"default_value\":\"\",\"label\":\"pdf\",\"mandatory\":\"false\",\"order\":\"7\",\"max_length\":\"0\",\"uiUniqueId\":\"6d7e1046-c2a4-4ea4-818a-07a7db45f719\"}"},"webReaderLink":"String","webReaderLink.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"webReaderLink\",\"mandatory\":\"false\",\"order\":\"8\",\"max_length\":\"0\",\"uiUniqueId\":\"afe842d1-dbe8-4167-9aa9-e1c6c8a08b30\"}"},"epub":{"isAvailable":"String","isAvailable.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"isAvailable\",\"mandatory\":\"false\",\"order\":\"1\",\"max_length\":\"0\",\"uiUniqueId\":\"68c21d69-c84e-4c81-9b1b-1df427b26871\"}"}},"epub.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"Object\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"object\",\"default_value\":\"\",\"label\":\"epub\",\"mandatory\":\"false\",\"order\":\"6\",\"max_length\":\"0\",\"uiUniqueId\":\"23328cc4-eb4c-4b85-a47a-8410f7fc477a\"}"},"publicDomain":"String","publicDomain.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"publicDomain\",\"mandatory\":\"false\",\"order\":\"4\",\"max_length\":\"0\",\"uiUniqueId\":\"620db9d3-a0b2-48e6-8449-2f3ff59be501\"}"},"quoteSharingAllowed":"String","quoteSharingAllowed.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"quoteSharingAllowed\",\"mandatory\":\"false\",\"order\":\"10\",\"max_length\":\"0\",\"uiUniqueId\":\"1d190daa-82a4-44f7-8919-0db7c0ae1647\"}"},"embeddable":"String","embeddable.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"embeddable\",\"mandatory\":\"false\",\"order\":\"3\",\"max_length\":\"0\",\"uiUniqueId\":\"02257342-477f-4d7b-a076-fd2c2dd8c874\"}"},"textToSpeechPermission":"String","textToSpeechPermission.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"textToSpeechPermission\",\"mandatory\":\"false\",\"order\":\"5\",\"max_length\":\"0\",\"uiUniqueId\":\"b1acfa5d-177c-4632-a597-1b897afad08a\"}"}},"accessInfo.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"Object\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"object\",\"default_value\":\"\",\"label\":\"accessInfo\",\"mandatory\":\"false\",\"order\":\"7\",\"max_length\":\"0\",\"uiUniqueId\":\"d5eada12-1503-4967-bcf2-33c003c6d2ef\"}"},"id":"String","id.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"id\",\"mandatory\":\"false\",\"order\":\"2\",\"max_length\":\"0\",\"uiUniqueId\":\"7795db65-d2df-4279-ba1f-0df8382fb6ac\"}"},"selfLink":"String","selfLink.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"selfLink\",\"mandatory\":\"false\",\"order\":\"4\",\"max_length\":\"0\",\"uiUniqueId\":\"376f0065-aaef-47ec-ba93-fb0584c7f877\"}"}}}],"items.$field_facets":{"SimpleMapFacet":"{\"default_value\":\"\",\"child_hint\":\"\",\"child_maxsize\":\"\",\"label\":\"items\",\"mandatory\":\"false\",\"child_name\":\"items_object\",\"uiUniqueId\":\"5280b554-02f3-4ae0-aa72-f10586f6ccec\",\"uiTypeLabel\":\"Array.Object\",\"child_label\":\"items_object\",\"child_type_label\":\"Object\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"array.object\",\"child_defaultValue\":\"\",\"child_type\":\"object\",\"order\":\"3\",\"max_length\":\"0\",\"child_uiUniqueId\":\"26b57f41-07e2-4c5b-8bcf-edf038727556\"}"}},"FlowDesigner:FDaef9994867e30210afe0446a25087f86.$type_facets":{"SimpleMapFacet":"{\"sourceId\":\"\",\"default_value\":\"\",\"label\":\"root\",\"mandatory\":\"false\",\"uiUniqueId\":\"f1c16dd2-752e-4fbb-9382-3135f640d6eb\",\"uiTypeLabel\":\"Object\",\"co_type_name\":\"FDaef9994867e30210afe0446a25087f86\",\"read_only\":\"false\",\"sourceUiUniqueId\":\"\",\"sourceType\":\"\",\"hint\":null,\"uiType\":\"object\",\"order\":\"1\",\"max_length\":\"0\"}"}}</serialized_content>
+        <sys_class_name>sys_complex_object</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-17 10:40:34</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>62f9994883e30210c4fab5a6feaad387</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_overrides/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-17 10:40:34</sys_updated_on>
+        <type>complex_object_schema</type>
+    </sys_complex_object>
+    <sys_hub_step_ext_output action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>co_type_name=FDaef9994867e30210afe0446a25087f86,element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=object,uiTypeLabel=Object,uiUniqueId=f1c16dd2-752e-4fbb-9382-3135f640d6eb</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>root</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="String">string</internal_type>
+        <label>root</label>
+        <mandatory>false</mandatory>
+        <max_length>65000</max_length>
+        <model display_value="JSON Parser step">ce4760c893a3c210ef267c5efaba1091</model>
+        <model_id>ce4760c893a3c210ef267c5efaba1091</model_id>
+        <model_table>sys_hub_step_instance</model_table>
+        <name>var__m_sys_hub_step_ext_output_ce4760c893a3c210ef267c5efaba1091</name>
+        <next_element/>
+        <order>1</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_step_ext_output</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-17 06:59:04</sys_created_on>
+        <sys_id>424760c893a3c210ef267c5efaba1097</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-17 10:40:34</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_step_ext_output>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=ce4760c893a3c210ef267c5efaba1091"/>
+    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_step_ext_output_ce4760c893a3c210ef267c5efaba1091^sys_idNOT IN464760c893a3c210ef267c5efaba109a"/>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>root</element>
+        <help/>
+        <hint/>
+        <label>root</label>
+        <language>en</language>
+        <name>var__m_sys_hub_step_ext_output_ce4760c893a3c210ef267c5efaba1091</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-17 06:59:04</sys_created_on>
+        <sys_id>464760c893a3c210ef267c5efaba109a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-17 06:59:04</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_hub_step_instance action="INSERT_OR_UPDATE">
+        <action display_value="Get Books Details API">051488809323c210ef267c5efaba1078</action>
+        <cid>3f571d27-70c7-416d-8da5-82308953bdde</cid>
+        <error_handling_type>1</error_handling_type>
+        <extended_inputs/>
+        <extended_outputs/>
+        <icon/>
+        <inputs/>
+        <inputs/>
+        <label>REST step</label>
+        <order>1</order>
+        <outputs/>
+        <section/>
+        <step_type display_value="REST">07a762fb47222200b4fad7527c9a7129</step_type>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-17 05:24:04</sys_created_on>
+        <sys_id>e68150809363c210ef267c5efaba10a3</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-17 06:42:34</sys_updated_on>
+    </sys_hub_step_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=e68150809363c210ef267c5efaba10a3"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_step_instance</document>
+        <document_key>e68150809363c210ef267c5efaba10a3</document_key>
+        <order>12</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-17 05:24:04</sys_created_on>
+        <sys_id>228150809363c210ef267c5efaba10ef</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-17 05:24:04</sys_updated_on>
+        <value>35aa573fd7802200bdbaee5b5e610375</value>
+        <variable display_value="MID Application">f11ebf865f101300a09a2abd7f466652</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_step_instance</document>
+        <document_key>e68150809363c210ef267c5efaba10a3</document_key>
+        <order>10</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-17 05:24:04</sys_created_on>
+        <sys_id>268150809363c210ef267c5efaba10ee</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-17 06:42:34</sys_updated_on>
+        <value>5210ec8093a3c210ef267c5efaba10f0</value>
+        <variable display_value="Connection Alias">262882f03b23320057a4a2e334efc4f0</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_step_instance</document>
+        <document_key>e68150809363c210ef267c5efaba10a3</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-17 05:24:04</sys_created_on>
+        <sys_id>628150809363c210ef267c5efaba10ee</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-17 05:24:04</sys_updated_on>
+        <value>1</value>
+        <variable display_value="Honor Duplicate Query Params">58715a1c53f22010d3a8ddeeff7b1248</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_step_instance</document>
+        <document_key>e68150809363c210ef267c5efaba10a3</document_key>
+        <order>15</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-17 05:24:04</sys_created_on>
+        <sys_id>6e8150809363c210ef267c5efaba10ee</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-17 05:24:04</sys_updated_on>
+        <value>https://www.googleapis.com/books/v1</value>
+        <variable display_value="Base URL">a67a8ef03b23320057a4a2e334efc472</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_step_instance</document>
+        <document_key>e68150809363c210ef267c5efaba10a3</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-17 05:24:04</sys_created_on>
+        <sys_id>a68150809363c210ef267c5efaba10ed</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-17 05:24:04</sys_updated_on>
+        <value>1</value>
+        <variable display_value="Honor Duplicate Headers">15288f755bd24110ab933520b881c713</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_step_instance</document>
+        <document_key>e68150809363c210ef267c5efaba10a3</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-17 05:24:04</sys_created_on>
+        <sys_id>a68150809363c210ef267c5efaba10ef</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-17 05:24:04</sys_updated_on>
+        <value/>
+        <variable display_value="Connection Timeout">7a59009bc7522010820469467ec260c0</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_step_instance</document>
+        <document_key>e68150809363c210ef267c5efaba10a3</document_key>
+        <order>13</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-17 05:24:04</sys_created_on>
+        <sys_id>aa8150809363c210ef267c5efaba10ee</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-17 05:24:04</sys_updated_on>
+        <value>18409d8007482000dada43c0d1021e8f</value>
+        <variable display_value="Capabilities">c30a451d2f201300a09a839fb18c95b4</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_step_instance</document>
+        <document_key>e68150809363c210ef267c5efaba10a3</document_key>
+        <order>400</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-17 05:24:04</sys_created_on>
+        <sys_id>ae8150809363c210ef267c5efaba10ed</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-17 05:24:04</sys_updated_on>
+        <value>ef751ff07301330025d71afe2ff6a7f9</value>
+        <variable display_value="Retry Policy">37be397587c03300a8cc7d5e27cb0ba2</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_step_instance</document>
+        <document_key>e68150809363c210ef267c5efaba10a3</document_key>
+        <order>30</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-17 06:03:41</sys_created_on>
+        <sys_id>ba9ad00c9363c210ef267c5efaba10c7</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-17 06:03:41</sys_updated_on>
+        <value>{"type":"ADV_NV","value":[]}</value>
+        <variable display_value="Headers">371837f1c71003007b237f48cb9763b0</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_step_instance</document>
+        <document_key>e68150809363c210ef267c5efaba10a3</document_key>
+        <order>25</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-17 05:24:04</sys_created_on>
+        <sys_id>e28150809363c210ef267c5efaba10ef</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-17 06:03:41</sys_updated_on>
+        <value>{}</value>
+        <variable display_value="Query Parameters">4328e2fb47222200b4fad7527c9a7164</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_step_instance</document>
+        <document_key>e68150809363c210ef267c5efaba10a3</document_key>
+        <order>20</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-17 05:24:04</sys_created_on>
+        <sys_id>e68150809363c210ef267c5efaba10ee</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-17 05:24:04</sys_updated_on>
+        <value>/volumes</value>
+        <variable display_value="Resource Path">3d090af03b23320057a4a2e334efc455</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="table=var__m_sys_hub_step_ext_output_e68150809363c210ef267c5efaba10a3^id=e68150809363c210ef267c5efaba10a3"/>
+    <sys_element_mapping action="delete_multiple" query="id=e68150809363c210ef267c5efaba10a3"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>application</field>
+        <id>e68150809363c210ef267c5efaba10a3</id>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-17 05:24:04</sys_created_on>
+        <sys_id>ae8150809363c210ef267c5efaba10ec</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-17 05:24:04</sys_updated_on>
+        <table>var__m_sys_flow_step_definition_input_07a762fb47222200b4fad7527c9a7129</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>base_url</field>
+        <id>e68150809363c210ef267c5efaba10a3</id>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-17 05:24:04</sys_created_on>
+        <sys_id>ea8150809363c210ef267c5efaba10ec</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-17 05:24:04</sys_updated_on>
+        <table>var__m_sys_flow_step_definition_input_07a762fb47222200b4fad7527c9a7129</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>capabilities</field>
+        <id>e68150809363c210ef267c5efaba10a3</id>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-17 05:24:04</sys_created_on>
+        <sys_id>2a8150809363c210ef267c5efaba10ec</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-17 05:24:04</sys_updated_on>
+        <table>var__m_sys_flow_step_definition_input_07a762fb47222200b4fad7527c9a7129</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>connection_alias</field>
+        <id>e68150809363c210ef267c5efaba10a3</id>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-17 05:24:04</sys_created_on>
+        <sys_id>a28150809363c210ef267c5efaba10ec</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-17 05:24:04</sys_updated_on>
+        <table>var__m_sys_flow_step_definition_input_07a762fb47222200b4fad7527c9a7129</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>connection_timeout</field>
+        <id>e68150809363c210ef267c5efaba10a3</id>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-17 05:24:04</sys_created_on>
+        <sys_id>268150809363c210ef267c5efaba10ed</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-17 05:24:04</sys_updated_on>
+        <table>var__m_sys_flow_step_definition_input_07a762fb47222200b4fad7527c9a7129</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>headers</field>
+        <id>e68150809363c210ef267c5efaba10a3</id>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-17 06:03:41</sys_created_on>
+        <sys_id>fa9ad00c9363c210ef267c5efaba10c6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-17 06:03:41</sys_updated_on>
+        <table>var__m_sys_flow_step_definition_input_07a762fb47222200b4fad7527c9a7129</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>honor_duplicate_headers</field>
+        <id>e68150809363c210ef267c5efaba10a3</id>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-17 05:24:04</sys_created_on>
+        <sys_id>668150809363c210ef267c5efaba10eb</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-17 05:24:04</sys_updated_on>
+        <table>var__m_sys_flow_step_definition_input_07a762fb47222200b4fad7527c9a7129</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>honor_duplicate_query_params</field>
+        <id>e68150809363c210ef267c5efaba10a3</id>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-17 05:24:04</sys_created_on>
+        <sys_id>ee8150809363c210ef267c5efaba10eb</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-17 05:24:04</sys_updated_on>
+        <table>var__m_sys_flow_step_definition_input_07a762fb47222200b4fad7527c9a7129</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>query_params</field>
+        <id>e68150809363c210ef267c5efaba10a3</id>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-17 05:24:04</sys_created_on>
+        <sys_id>628150809363c210ef267c5efaba10ed</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-17 06:42:34</sys_updated_on>
+        <table>var__m_sys_flow_step_definition_input_07a762fb47222200b4fad7527c9a7129</table>
+        <value>{"type":"ADV_NV","value":[{"name":"q","value":"isbn:{{action.isbn}}","attributes":{"omit_if_empty":false,"mandatory":false}}]}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>resource_path</field>
+        <id>e68150809363c210ef267c5efaba10a3</id>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-17 05:24:04</sys_created_on>
+        <sys_id>668150809363c210ef267c5efaba10ec</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-17 05:24:04</sys_updated_on>
+        <table>var__m_sys_flow_step_definition_input_07a762fb47222200b4fad7527c9a7129</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>retry_policy</field>
+        <id>e68150809363c210ef267c5efaba10a3</id>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-17 05:24:04</sys_created_on>
+        <sys_id>2e8150809363c210ef267c5efaba10eb</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-17 05:24:04</sys_updated_on>
+        <table>var__m_sys_flow_step_definition_input_07a762fb47222200b4fad7527c9a7129</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_translated_text action="delete_multiple" query="documentkey=e68150809363c210ef267c5efaba10a3"/>
+    <sys_hub_step_ext_input action="delete_multiple" query="model=e68150809363c210ef267c5efaba10a3"/>
+    <sys_hub_step_ext_output action="delete_multiple" query="model=e68150809363c210ef267c5efaba10a3^sys_idNOT IN668150809363c210ef267c5efaba10d4"/>
+    <sys_hub_step_ext_output action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,isLocal=true,uiType=password2,uiTypeLabel=Password (2 Way Encrypted),uiUniqueId=b5053936-1368-4729-b4d9-de6da2b90469</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>sn_auth_token</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="">password2</internal_type>
+        <label>Credential Value</label>
+        <mandatory>false</mandatory>
+        <max_length>255</max_length>
+        <model display_value="REST step">e68150809363c210ef267c5efaba10a3</model>
+        <model_id>e68150809363c210ef267c5efaba10a3</model_id>
+        <model_table>sys_hub_step_instance</model_table>
+        <name>var__m_sys_hub_step_ext_output_e68150809363c210ef267c5efaba10a3</name>
+        <next_element/>
+        <order>1</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_step_ext_output</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-17 05:24:04</sys_created_on>
+        <sys_id>668150809363c210ef267c5efaba10d4</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-17 06:59:04</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_step_ext_output>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=e68150809363c210ef267c5efaba10a3"/>
+    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_step_ext_output_e68150809363c210ef267c5efaba10a3^sys_idNOT IN6a8150809363c210ef267c5efaba10d7"/>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>sn_auth_token</element>
+        <help/>
+        <hint/>
+        <label>Credential Value</label>
+        <language>en</language>
+        <name>var__m_sys_hub_step_ext_output_e68150809363c210ef267c5efaba10a3</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-17 05:24:04</sys_created_on>
+        <sys_id>6a8150809363c210ef267c5efaba10d7</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-17 05:24:04</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_hub_action_input action="delete_multiple" query="model=051488809323c210ef267c5efaba1078^sys_idNOT INe68150809363c210ef267c5efaba108e"/>
+    <sys_hub_action_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=string,uiTypeLabel=String,uiUniqueId=f4a38cfd-b259-49c1-b868-07edf070efef</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>isbn</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="String">string</internal_type>
+        <label>ISBN</label>
+        <mandatory>false</mandatory>
+        <max_length>8000</max_length>
+        <model display_value="Get Books Details API">051488809323c210ef267c5efaba1078</model>
+        <model_id>051488809323c210ef267c5efaba1078</model_id>
+        <model_table>sys_hub_action_type_definition</model_table>
+        <name>var__m_sys_hub_action_input_051488809323c210ef267c5efaba1078</name>
+        <next_element/>
+        <order>1</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_action_input</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-17 05:24:04</sys_created_on>
+        <sys_id>e68150809363c210ef267c5efaba108e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-17 05:24:04</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_action_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=e68150809363c210ef267c5efaba108e"/>
+    <sys_hub_action_output action="delete_multiple" query="model=051488809323c210ef267c5efaba1078^sys_idNOT IN368150809363c210ef267c5efaba10f9,66f9994883e30210c4fab5a6feaad3a1,6a8150809363c210ef267c5efaba10f4,eaf9994883e30210c4fab5a6feaad39c"/>
+    <sys_hub_action_output action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>action_error_output=true,element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=boolean,uiTypeLabel=True/False,uiUniqueId=fc08caf9-9293-4dac-ae92-2ab717366206,visible_in_ui=false</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value>true</default_value>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>__dont_treat_as_error__</element>
+        <element_prototype/>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_link/>
+        <internal_type display_value="">boolean</internal_type>
+        <label>Don't Treat as Error</label>
+        <mandatory>false</mandatory>
+        <max_length>40</max_length>
+        <model display_value="Get Books Details API">051488809323c210ef267c5efaba1078</model>
+        <model_id>051488809323c210ef267c5efaba1078</model_id>
+        <model_table>sys_hub_action_type_definition</model_table>
+        <name>var__m_sys_hub_action_output_051488809323c210ef267c5efaba1078</name>
+        <next_element/>
+        <order>4</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_action_output</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-17 05:24:05</sys_created_on>
+        <sys_id>368150809363c210ef267c5efaba10f9</sys_id>
+        <sys_mod_count>13</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-17 10:40:34</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_action_output>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=368150809363c210ef267c5efaba10f9"/>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=368150809363c210ef267c5efaba10f9"/>
+    <sys_hub_action_output action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,pwd2droppable=true,uiType=string,uiTypeLabel=String,uiUniqueId=d8665555-4d2c-4f73-818f-e5a2e14e7544</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>variable1</element>
+        <element_prototype/>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_link/>
+        <internal_type display_value="String">string</internal_type>
+        <label>authors</label>
+        <mandatory>false</mandatory>
+        <max_length>8000</max_length>
+        <model display_value="Get Books Details API">051488809323c210ef267c5efaba1078</model>
+        <model_id>051488809323c210ef267c5efaba1078</model_id>
+        <model_table>sys_hub_action_type_definition</model_table>
+        <name>var__m_sys_hub_action_output_051488809323c210ef267c5efaba1078</name>
+        <next_element/>
+        <order>2</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_action_output</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-17 10:40:34</sys_created_on>
+        <sys_id>66f9994883e30210c4fab5a6feaad3a1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-17 10:40:34</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_action_output>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=66f9994883e30210c4fab5a6feaad3a1"/>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=66f9994883e30210c4fab5a6feaad3a1"/>
+    <sys_hub_action_output action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>action_error_output=true,co_type_name=FDACTIONSTATUS,element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=object,uiTypeLabel=Object,uiUniqueId=cfed68e2-b495-4c0d-8550-dcc47de4b410</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>__action_status__</element>
+        <element_prototype/>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_link/>
+        <internal_type display_value="String">string</internal_type>
+        <label>Action Status</label>
+        <mandatory>false</mandatory>
+        <max_length>65000</max_length>
+        <model display_value="Get Books Details API">051488809323c210ef267c5efaba1078</model>
+        <model_id>051488809323c210ef267c5efaba1078</model_id>
+        <model_table>sys_hub_action_type_definition</model_table>
+        <name>var__m_sys_hub_action_output_051488809323c210ef267c5efaba1078</name>
+        <next_element/>
+        <order>3</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_action_output</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-17 05:24:04</sys_created_on>
+        <sys_id>6a8150809363c210ef267c5efaba10f4</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-17 10:40:34</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_action_output>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=6a8150809363c210ef267c5efaba10f4"/>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=6a8150809363c210ef267c5efaba10f4"/>
+    <sys_complex_object action="INSERT_OR_UPDATE">
+        <label/>
+        <name>FD66f999487ce3021098ba5bc8d500b88f</name>
+        <namespace>FlowDesigner</namespace>
+        <scope_name>327b26db93250210ef267c5efaba100f</scope_name>
+        <serialized_content>{"FlowDesigner:FD66f999487ce3021098ba5bc8d500b88f":{},"FlowDesigner:FD66f999487ce3021098ba5bc8d500b88f.$type_facets":{"SimpleMapFacet":"{\"sourceId\":\"89903dff-f42c-4b05-a502-7fcdb86267a5\",\"pwd2droppable\":\"true\",\"default_value\":\"\",\"label\":\"title\",\"mandatory\":\"false\",\"uiUniqueId\":\"3b1a5813-b2ea-4e93-81d3-622b526439c9\",\"uiTypeLabel\":\"Object\",\"co_type_name\":\"FD66f999487ce3021098ba5bc8d500b88f\",\"read_only\":\"false\",\"sourceUiUniqueId\":\"c1874b53-7e1b-43eb-b44c-9a62e6d2425d\",\"sourceType\":\"step\",\"hint\":null,\"uiType\":\"object\",\"order\":\"1\",\"max_length\":\"0\"}"}}</serialized_content>
+        <sys_class_name>sys_complex_object</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-17 10:40:34</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>2af9994883e30210c4fab5a6feaad38f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_overrides/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-17 10:40:34</sys_updated_on>
+        <type>complex_object_schema</type>
+    </sys_complex_object>
+    <sys_hub_action_output action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>co_type_name=FD66f999487ce3021098ba5bc8d500b88f,element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,pwd2droppable=true,sourceId=89903dff-f42c-4b05-a502-7fcdb86267a5,sourceType=step,sourceUiUniqueId=c1874b53-7e1b-43eb-b44c-9a62e6d2425d,uiType=object,uiTypeLabel=Object,uiUniqueId=3b1a5813-b2ea-4e93-81d3-622b526439c9</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>variable</element>
+        <element_prototype/>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_link/>
+        <internal_type display_value="String">string</internal_type>
+        <label>title</label>
+        <mandatory>false</mandatory>
+        <max_length>65000</max_length>
+        <model display_value="Get Books Details API">051488809323c210ef267c5efaba1078</model>
+        <model_id>051488809323c210ef267c5efaba1078</model_id>
+        <model_table>sys_hub_action_type_definition</model_table>
+        <name>var__m_sys_hub_action_output_051488809323c210ef267c5efaba1078</name>
+        <next_element/>
+        <order>1</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_action_output</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-17 10:40:34</sys_created_on>
+        <sys_id>eaf9994883e30210c4fab5a6feaad39c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-17 10:40:34</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_action_output>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=eaf9994883e30210c4fab5a6feaad39c"/>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=eaf9994883e30210c4fab5a6feaad39c"/>
+    <sys_hub_pill_compound action="delete_multiple" query="attached_to=051488809323c210ef267c5efaba1078"/>
+    <sys_hub_action_status_metadata action="delete_multiple" query="action_type_id=051488809323c210ef267c5efaba1078^sys_idNOT INbe8190809363c210ef267c5efaba1002"/>
+    <sys_hub_action_status_metadata action="INSERT_OR_UPDATE">
+        <action_type_id display_value="Get Books Details API">051488809323c210ef267c5efaba1078</action_type_id>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-17 05:24:05</sys_created_on>
+        <sys_id>be8190809363c210ef267c5efaba1002</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-17 05:24:05</sys_updated_on>
+    </sys_hub_action_status_metadata>
+    <sys_hub_status_condition action="delete_multiple" query="action_status_metadata_id=be8190809363c210ef267c5efaba1002"/>
+    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_action_input_051488809323c210ef267c5efaba1078^sys_idNOT INe28150809363c210ef267c5efaba10a1"/>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>isbn</element>
+        <help/>
+        <hint/>
+        <label>ISBN</label>
+        <language>en</language>
+        <name>var__m_sys_hub_action_input_051488809323c210ef267c5efaba1078</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-17 05:24:04</sys_created_on>
+        <sys_id>e28150809363c210ef267c5efaba10a1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-17 05:24:04</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_action_input_051488809323c210ef267c5efaba1078"/>
+    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_action_output_051488809323c210ef267c5efaba1078^sys_idNOT INb68150809363c210ef267c5efaba10f8,e2f9994883e30210c4fab5a6feaad3a4,e6f9994883e30210c4fab5a6feaad3a0,f28150809363c210ef267c5efaba10fe"/>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>__action_status__</element>
+        <help/>
+        <hint/>
+        <label>Action Status</label>
+        <language>en</language>
+        <name>var__m_sys_hub_action_output_051488809323c210ef267c5efaba1078</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-17 05:24:05</sys_created_on>
+        <sys_id>b68150809363c210ef267c5efaba10f8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-17 05:24:05</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>variable1</element>
+        <help/>
+        <hint/>
+        <label>authors</label>
+        <language>en</language>
+        <name>var__m_sys_hub_action_output_051488809323c210ef267c5efaba1078</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-17 10:40:34</sys_created_on>
+        <sys_id>e2f9994883e30210c4fab5a6feaad3a4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-17 10:40:34</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>variable</element>
+        <help/>
+        <hint/>
+        <label>title</label>
+        <language>en</language>
+        <name>var__m_sys_hub_action_output_051488809323c210ef267c5efaba1078</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-17 10:40:34</sys_created_on>
+        <sys_id>e6f9994883e30210c4fab5a6feaad3a0</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-17 10:40:34</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>__dont_treat_as_error__</element>
+        <help/>
+        <hint/>
+        <label>Don't Treat as Error</label>
+        <language>en</language>
+        <name>var__m_sys_hub_action_output_051488809323c210ef267c5efaba1078</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-17 05:24:05</sys_created_on>
+        <sys_id>f28150809363c210ef267c5efaba10fe</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-17 05:24:05</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_action_output_051488809323c210ef267c5efaba1078"/>
+    <sys_hub_action_plan action="delete_multiple" query="action_id=051488809323c210ef267c5efaba1078"/>
+</record_update>

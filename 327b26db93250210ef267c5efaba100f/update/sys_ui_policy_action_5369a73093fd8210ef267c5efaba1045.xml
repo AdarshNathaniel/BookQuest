@@ -17,7 +17,7 @@
         <sys_updated_by>adarsh.nathaniel</sys_updated_by>
         <sys_updated_on>2024-04-24 05:13:06</sys_updated_on>
         <table>x_1383151_bkquest_book</table>
-        <ui_policy display_value="ST07: Audio Length Visability">0469673093fd8210ef267c5efaba1012</ui_policy>
+        <ui_policy display_value="Audio Length Visability">0469673093fd8210ef267c5efaba1012</ui_policy>
         <visible>true</visible>
     </sys_ui_policy_action>
 </record_update>

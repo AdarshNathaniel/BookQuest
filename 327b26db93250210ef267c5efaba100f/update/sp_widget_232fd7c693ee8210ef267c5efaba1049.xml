@@ -353,14 +353,14 @@
         <sys_created_by>harini.srija</sys_created_by>
         <sys_created_on>2024-06-04 08:27:35</sys_created_on>
         <sys_id>232fd7c693ee8210ef267c5efaba1049</sys_id>
-        <sys_mod_count>290</sys_mod_count>
+        <sys_mod_count>291</sys_mod_count>
         <sys_name>Borrowed Books</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sp_widget_232fd7c693ee8210ef267c5efaba1049</sys_update_name>
         <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-07-05 13:30:23</sys_updated_on>
+        <sys_updated_on>2024-07-12 05:02:44</sys_updated_on>
         <template><![CDATA[<div class="container">
     <h2 class="h1">My Books</h2> <!-- Title for the book list -->
 
@@ -381,9 +381,9 @@
                 </a>
                 <h3 class="book-title">{{book.title}}</h3>
                 <p class="book-author">{{book.author}}</p>
-                <button type="submit" class="btn btn-success" ng-if="book.status === 'Returned'" ng-click="c.openBorrowDetails(book.borrowSysId)">Book Returned</button>
+                <button type="submit" class="btn btn-primary" ng-if="book.status === 'Returned'" ng-click="c.openBorrowDetails(book.borrowSysId)">Book Returned</button>
                 <button type="submit" class="btn btn-danger" ng-if="book.status === 'Overdue'" ng-click="c.openBorrowDetails(book.borrowSysId)">Overdue Book</button>
-                <button type="button" class="btn btn-primary" ng-if="book.status === 'Recently Borrowed'" ng-click="c.openBorrowDetails(book.borrowSysId)">View Borrow Details</button>
+                <button type="button" class="btn btn-success" ng-if="book.status === 'Recently Borrowed'" ng-click="c.openBorrowDetails(book.borrowSysId)">View Borrow Details</button>
             </div>
         </div>
     </div>

@@ -1,31 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element db_object_id="34edf61393a50210ef267c5efaba10b1" label="Book Definition" max_length="40" name="x_1383151_bkquest_book" type="collection">
-        <element label="Are Instances Available" max_length="40" name="are_instances_available" type="boolean"/>
-        <element label="Audio length" max_length="40" name="audio_length" type="glide_duration"/>
-        <element label="Author" max_length="32" name="author" reference="x_1383151_bkquest_author" type="reference"/>
-        <element label="Borrow count" max_length="40" name="borrow_count" read_only="true" type="integer"/>
-        <element label="Cover image" max_length="40" name="cover_image" type="user_image"/>
+        <element attributes="edge_encryption_enabled=true" label="Are Instances Available" max_length="40" name="are_instances_available" type="boolean"/>
+        <element attributes="edge_encryption_enabled=true" label="Audio length" max_length="40" name="audio_length" type="glide_duration"/>
+        <element attributes="edge_encryption_enabled=true,encode_utf8=false" label="Author" max_length="32" name="author" reference="x_1383151_bkquest_author" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" label="Borrow count" max_length="40" name="borrow_count" read_only="true" type="integer"/>
+        <element attributes="edge_encryption_enabled=true,pdf_cell_type=image" label="Cover image" max_length="40" name="cover_image" type="user_image"/>
         <element label="Date of publication" max_length="40" name="date_of_publication" type="glide_date"/>
-        <element label="Genre" max_length="32" name="genre" reference="x_1383151_bkquest_genre_lookup" type="reference"/>
+        <element attributes="edge_encryption_enabled=true,encode_utf8=false" label="Genre" max_length="32" name="genre" reference="x_1383151_bkquest_genre_lookup" type="reference"/>
         <element attributes="edge_encryption_enabled=true" display="true" label="ISBN" mandatory="true" max_length="17" name="isbn" type="string"/>
         <element attributes="edge_encryption_enabled=true" choice="3" default="english" label="Language" mandatory="true" max_length="40" name="language" type="choice">
-            <choice>
-                <element inactive_on_update="false" label="English" value="english"/>
-                <element inactive_on_update="false" label="Hindi" value="hindi"/>
-                <element inactive_on_update="false" label="Spanish" value="spanish"/>
-            </choice>
+            <choice/>
         </element>
-        <element label="Number of pages" max_length="40" name="no_of_pages" type="integer"/>
+        <element attributes="edge_encryption_enabled=true" label="Number of pages" max_length="40" name="no_of_pages" type="integer"/>
         <element label="Plot summary" max_length="1000" name="plot_summary" type="string"/>
-        <element label="Publisher" max_length="32" name="publisher" reference="x_1383151_bkquest_publisher_lookup" type="reference"/>
-        <element label="Stock" mandatory="true" max_length="40" name="quantity" type="integer"/>
+        <element attributes="edge_encryption_enabled=true,encode_utf8=false" label="Publisher" max_length="32" name="publisher" reference="x_1383151_bkquest_publisher_lookup" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" label="Stock" mandatory="true" max_length="40" name="quantity" type="integer"/>
         <element attributes="edge_encryption_enabled=true" label="Title" mandatory="true" max_length="128" name="title" type="string"/>
         <element attributes="edge_encryption_enabled=true" choice="3" default="physical" label="Type" mandatory="true" max_length="40" name="type" type="choice">
-            <choice>
-                <element inactive_on_update="false" label="Physical book" sequence="0" value="physical"/>
-                <element inactive_on_update="false" label="E-book" sequence="1" value="e_book"/>
-                <element inactive_on_update="false" label="Audio book" sequence="2" value="audio"/>
-            </choice>
+            <choice/>
         </element>
         <index name="index">
             <element name="author"/>
@@ -33,11 +25,11 @@
         <index name="index2">
             <element name="genre"/>
         </index>
-        <index name="index3" unique="true">
-            <element name="isbn"/>
-        </index>
-        <index name="index4">
+        <index name="index3">
             <element name="publisher"/>
+        </index>
+        <index name="index4" unique="true">
+            <element name="isbn"/>
         </index>
     </element>
 </database>

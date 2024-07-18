@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_hub_action_type_definition">
+    <sys_hub_action_type_definition action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <acls/>
+        <action_status/>
+        <action_template/>
+        <active>true</active>
+        <annotation/>
+        <callable_by_client_api>false</callable_by_client_api>
+        <category/>
+        <compiler_build/>
+        <copied_from/>
+        <copied_from_name/>
+        <description/>
+        <ih_action>false</ih_action>
+        <internal_name>get_books_details</internal_name>
+        <label_cache/>
+        <latest_snapshot/>
+        <master_snapshot/>
+        <name>Get Books Details</name>
+        <natlang/>
+        <outputs/>
+        <pre_compiled>false</pre_compiled>
+        <state>draft</state>
+        <sys_class_name>sys_hub_action_type_definition</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-16 10:18:44</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>196b40bf939f4210ef267c5efaba10cb</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Get Books Details</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>sys_hub_action_type_definition_196b40bf939f4210ef267c5efaba10cb</sys_update_name>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-16 10:18:44</sys_updated_on>
+        <system_level>false</system_level>
+        <type/>
+    </sys_hub_action_type_definition>
+    <sys_translated_text action="delete_multiple" query="documentkey=196b40bf939f4210ef267c5efaba10cb"/>
+    <sys_variable_value action="delete_multiple" query="document_key=196b40bf939f4210ef267c5efaba10cb"/>
+    <sys_hub_step_instance action="delete_multiple" query="action=196b40bf939f4210ef267c5efaba10cb"/>
+    <sys_hub_action_input action="delete_multiple" query="model=196b40bf939f4210ef267c5efaba10cb"/>
+    <sys_hub_action_output action="delete_multiple" query="model=196b40bf939f4210ef267c5efaba10cb"/>
+    <sys_hub_pill_compound action="delete_multiple" query="attached_to=196b40bf939f4210ef267c5efaba10cb"/>
+    <sys_hub_action_status_metadata action="delete_multiple" query="action_type_id=196b40bf939f4210ef267c5efaba10cb"/>
+    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_action_input_196b40bf939f4210ef267c5efaba10cb"/>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_action_input_196b40bf939f4210ef267c5efaba10cb"/>
+    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_action_output_196b40bf939f4210ef267c5efaba10cb"/>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_action_output_196b40bf939f4210ef267c5efaba10cb"/>
+    <sys_hub_action_plan action="delete_multiple" query="action_id=196b40bf939f4210ef267c5efaba10cb"/>
+</record_update>

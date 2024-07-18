@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_ui_policy">
     <sys_ui_policy action="INSERT_OR_UPDATE">
         <active>true</active>
-        <conditions table="x_1383151_bkquest_book">type=audio^EQ<item display_value="Audio book" endquery="false" field="type" goto="false" newquery="false" operator="=" or="false" value="audio"/>
+        <conditions table="x_1383151_bkquest_book">type=audio^EQ<item display_value="audio" endquery="false" field="type" goto="false" newquery="false" operator="=" or="false" value="audio"/>
             <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
         </conditions>
         <description/>
