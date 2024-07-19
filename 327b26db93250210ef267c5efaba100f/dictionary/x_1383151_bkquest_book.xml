@@ -14,8 +14,8 @@
         <element attributes="edge_encryption_enabled=true" label="Number of pages" max_length="40" name="no_of_pages" type="integer"/>
         <element label="Plot summary" max_length="1000" name="plot_summary" type="string"/>
         <element attributes="edge_encryption_enabled=true,encode_utf8=false" label="Publisher" max_length="32" name="publisher" reference="x_1383151_bkquest_publisher_lookup" type="reference"/>
-        <element attributes="edge_encryption_enabled=true" label="Stock" mandatory="true" max_length="40" name="quantity" type="integer"/>
-        <element attributes="edge_encryption_enabled=true" label="Title" mandatory="true" max_length="128" name="title" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Stock" max_length="40" name="quantity" type="integer"/>
+        <element attributes="edge_encryption_enabled=true" label="Title" max_length="128" name="title" type="string"/>
         <element attributes="edge_encryption_enabled=true" choice="3" default="physical" label="Type" mandatory="true" max_length="40" name="type" type="choice">
             <choice/>
         </element>
