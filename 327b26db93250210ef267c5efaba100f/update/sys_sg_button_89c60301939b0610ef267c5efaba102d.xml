@@ -5,11 +5,11 @@
         <auto_jump_to_destination>false</auto_jump_to_destination>
         <auto_redirection>false</auto_redirection>
         <button_table_field_name/>
-        <cancel_label>Nope</cancel_label>
+        <cancel_label>No</cancel_label>
         <condition/>
         <condition_script/>
         <condition_type>declarative</condition_type>
-        <confirm_label>Yup</confirm_label>
+        <confirm_label>Yes</confirm_label>
         <confirmation_message>Are you sure you want to borrow this book?</confirmation_message>
         <context>record</context>
         <description>Borrow Function</description>
@@ -59,14 +59,14 @@ You can now retrieve your book from the library.</success_message>
         <sys_created_by>adarsh.nathaniel</sys_created_by>
         <sys_created_on>2024-07-08 10:54:06</sys_created_on>
         <sys_id>89c60301939b0610ef267c5efaba102d</sys_id>
-        <sys_mod_count>6</sys_mod_count>
+        <sys_mod_count>7</sys_mod_count>
         <sys_name>Borrow Function</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sys_sg_button_89c60301939b0610ef267c5efaba102d</sys_update_name>
         <sys_updated_by>adarsh.nathaniel</sys_updated_by>
-        <sys_updated_on>2024-07-11 07:32:37</sys_updated_on>
+        <sys_updated_on>2024-07-12 06:22:00</sys_updated_on>
         <table>x_1383151_bkquest_borrow</table>
         <take_value_from_field>false</take_value_from_field>
         <type>write_back</type>

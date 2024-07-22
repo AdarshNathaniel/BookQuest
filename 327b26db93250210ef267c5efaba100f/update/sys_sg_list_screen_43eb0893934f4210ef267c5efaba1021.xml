@@ -9,21 +9,21 @@
         <hide_filters>false</hide_filters>
         <hide_screen_name>false</hide_screen_name>
         <icon display_value="Circle List">07eb0893934f4210ef267c5efaba1020</icon>
-        <name>All Books</name>
+        <name>All Books (Old)</name>
         <parameter_screen/>
         <roles_override/>
         <sys_class_name>sys_sg_list_screen</sys_class_name>
         <sys_created_by>adarsh.nathaniel</sys_created_by>
         <sys_created_on>2024-07-02 10:48:24</sys_created_on>
         <sys_id>43eb0893934f4210ef267c5efaba1021</sys_id>
-        <sys_mod_count>2</sys_mod_count>
-        <sys_name>All Books</sys_name>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>All Books (Old)</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sys_sg_list_screen_43eb0893934f4210ef267c5efaba1021</sys_update_name>
         <sys_updated_by>adarsh.nathaniel</sys_updated_by>
-        <sys_updated_on>2024-07-04 09:39:24</sys_updated_on>
+        <sys_updated_on>2024-07-12 05:58:14</sys_updated_on>
     </sys_sg_list_screen>
     <sys_translated_text action="delete_multiple" query="documentkey=43eb0893934f4210ef267c5efaba1021"/>
 </record_update>

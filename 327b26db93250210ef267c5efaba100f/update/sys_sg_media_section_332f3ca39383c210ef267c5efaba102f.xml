@@ -7,10 +7,10 @@
         <custom_height/>
         <custom_width/>
         <data_item/>
-        <headline>                  Welcome :)</headline>
+        <headline>                  Welcome</headline>
         <hide_header>false</hide_header>
         <hide_section_if_empty>false</hide_section_if_empty>
-        <image_attachment display_value="Blue Welcome to the Library Introduction Video.png" sys_id="331d86b3934b0610ef267c5efaba1055">331d86b3934b0610ef267c5efaba1055</image_attachment>
+        <image_attachment display_value="">331d86b3934b0610ef267c5efaba1055</image_attachment>
         <is_custom_size>false</is_custom_size>
         <is_hidden_preference_name/>
         <orientation>horizontal</orientation>
@@ -20,14 +20,14 @@
         <sys_created_by>adarsh.nathaniel</sys_created_by>
         <sys_created_on>2024-07-03 09:10:51</sys_created_on>
         <sys_id>332f3ca39383c210ef267c5efaba102f</sys_id>
-        <sys_mod_count>6</sys_mod_count>
+        <sys_mod_count>10</sys_mod_count>
         <sys_name>BookQuest</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sys_sg_media_section_332f3ca39383c210ef267c5efaba102f</sys_update_name>
         <sys_updated_by>adarsh.nathaniel</sys_updated_by>
-        <sys_updated_on>2024-07-04 09:29:58</sys_updated_on>
+        <sys_updated_on>2024-07-12 05:43:30</sys_updated_on>
         <table/>
         <text>     to your All-in-One Library Management Platform</text>
         <title>BookQuest</title>

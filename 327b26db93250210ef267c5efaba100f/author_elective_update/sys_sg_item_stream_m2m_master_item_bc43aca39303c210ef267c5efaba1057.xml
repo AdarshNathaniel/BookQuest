@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_item_stream_m2m_master_item">
+    <sys_sg_item_stream_m2m_master_item action="DELETE">
+        <item_stream display_value="Author list stream">4e0e54eb93cf8210ef267c5efaba10dc</item_stream>
+        <master_item display_value="Author ">3443aca39303c210ef267c5efaba1054</master_item>
+        <sys_class_name>sys_sg_item_stream_m2m_master_item</sys_class_name>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-03 07:08:51</sys_created_on>
+        <sys_id>bc43aca39303c210ef267c5efaba1057</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>sys_sg_item_stream_m2m_master_item_bc43aca39303c210ef267c5efaba1057</sys_update_name>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-03 07:08:51</sys_updated_on>
+    </sys_sg_item_stream_m2m_master_item>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="BookQuest">327b26db93250210ef267c5efaba100f</application>
+        <file_path/>
+        <instance_id>0535015fdb717d1002d9172913961922</instance_id>
+        <instance_name>dev186731</instance_name>
+        <name>sys_sg_item_stream_m2m_master_item_bc43aca39303c210ef267c5efaba1057</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_item_stream_m2m_master_item"><sys_sg_item_stream_m2m_master_item action="INSERT_OR_UPDATE"><item_stream display_value="Author list stream">4e0e54eb93cf8210ef267c5efaba10dc</item_stream><master_item display_value="Author ">3443aca39303c210ef267c5efaba1054</master_item><sys_class_name>sys_sg_item_stream_m2m_master_item</sys_class_name><sys_created_by>harini.srija</sys_created_by><sys_created_on>2024-07-03 07:08:51</sys_created_on><sys_id>bc43aca39303c210ef267c5efaba1057</sys_id><sys_mod_count>0</sys_mod_count><sys_name/><sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package><sys_policy/><sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope><sys_update_name>sys_sg_item_stream_m2m_master_item_bc43aca39303c210ef267c5efaba1057</sys_update_name><sys_updated_by>harini.srija</sys_updated_by><sys_updated_on>2024-07-03 07:08:51</sys_updated_on></sys_sg_item_stream_m2m_master_item></record_update>]]></payload>
+        <payload_hash>-1890128238</payload_hash>
+        <record_name/>
+        <reverted_from/>
+        <source>3d9e5eee936e0610ef267c5efaba1086</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>harini.srija</sys_created_by>
+        <sys_created_on>2024-07-03 07:08:51</sys_created_on>
+        <sys_id>7443aca39303c210ef267c5efaba105a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>190776cb4b10000001</sys_recorded_at>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-03 07:08:51</sys_updated_on>
+        <type>Stream M2M item config</type>
+        <update_guid>b843aca33803c21071d9b9d42ce40159</update_guid>
+        <update_guid_history>b843aca33803c21071d9b9d42ce40159:-1890128238</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>adarsh.nathaniel</sys_created_by>
+        <sys_created_on>2024-07-22 09:54:05</sys_created_on>
+        <sys_db_object display_value="" name="sys_sg_item_stream_m2m_master_item">sys_sg_item_stream_m2m_master_item</sys_db_object>
+        <sys_id>417a40524b6b4c9696cb5a6d37188ca4</sys_id>
+        <sys_metadata>bc43aca39303c210ef267c5efaba1057</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_scope_delete display_value="">18e926194902432895b35f3c99259089</sys_scope_delete>
+        <sys_update_name>sys_sg_item_stream_m2m_master_item_bc43aca39303c210ef267c5efaba1057</sys_update_name>
+        <sys_update_version display_value="sys_sg_item_stream_m2m_master_item_bc43aca39303c210ef267c5efaba1057">7443aca39303c210ef267c5efaba105a</sys_update_version>
+        <sys_updated_by>adarsh.nathaniel</sys_updated_by>
+        <sys_updated_on>2024-07-22 09:54:05</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

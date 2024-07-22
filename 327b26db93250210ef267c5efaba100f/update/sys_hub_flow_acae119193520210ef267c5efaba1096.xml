@@ -30,7 +30,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>acae119193520210ef267c5efaba1096</sys_id>
-        <sys_mod_count>25</sys_mod_count>
+        <sys_mod_count>27</sys_mod_count>
         <sys_name>Auto-populate Book Instances (Creation)</sys_name>
         <sys_overrides/>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
@@ -38,7 +38,7 @@
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sys_hub_flow_acae119193520210ef267c5efaba1096</sys_update_name>
         <sys_updated_by>adarsh.nathaniel</sys_updated_by>
-        <sys_updated_on>2024-06-11 09:58:05</sys_updated_on>
+        <sys_updated_on>2024-07-19 09:23:16</sys_updated_on>
         <type>flow</type>
     </sys_hub_flow>
     <sys_translated_text action="delete_multiple" query="documentkey=acae119193520210ef267c5efaba1096"/>
@@ -71,15 +71,15 @@
     </sys_flow_record_trigger>
     <sys_trigger_runner_mapping action="INSERT_OR_UPDATE">
         <active>true</active>
-        <data>{"run_flow_in":"background","run_when_user_list":[],"run_when_setting":"both","run_when_user_setting":"any","run_on_extended":"false"}</data>
+        <data>{"run_on_extended":"false","run_flow_in":"background","run_when_user_list":[],"run_when_setting":"both","run_when_user_setting":"any"}</data>
         <identifier>acae119193520210ef267c5efaba1096</identifier>
         <runner>FDTriggerRunner</runner>
         <sys_created_by>adarsh.nathaniel</sys_created_by>
         <sys_created_on>2024-06-11 09:58:04</sys_created_on>
         <sys_id>cd077718933e4210ef267c5efaba10b5</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>5</sys_mod_count>
         <sys_updated_by>adarsh.nathaniel</sys_updated_by>
-        <sys_updated_on>2024-06-11 09:58:04</sys_updated_on>
+        <sys_updated_on>2024-07-19 09:23:16</sys_updated_on>
         <trigger display_value="">8dc5b99d93920210ef267c5efaba1061</trigger>
     </sys_trigger_runner_mapping>
     <sys_trigger_runner_mapping action="delete_multiple" query="identifier=acae119193520210ef267c5efaba1096^sys_idNOT INcd077718933e4210ef267c5efaba10b5"/>
