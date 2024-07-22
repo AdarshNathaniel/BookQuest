@@ -248,33 +248,34 @@
 				// Ensure the book definition record is found
 				if (bookDefinitionGR.get(bookId)) {
 					// Create a GlideRecord object for the Author table
+					var authorName = '';
 					var authorGR = new GlideRecord('x_1383151_bkquest_author');
 
-					// Ensure the author record is found
+					// Check if the author record is found
 					if (authorGR.get(bookDefinitionGR.author)) {
-						// Get the cover image URL
-						var coverImageURL = bookDefinitionGR.cover_image ? '/sys_attachment.do?sys_id=' + bookDefinitionGR.cover_image : '';
-
-						// Add the book details to the result array
-						data.borrowedBooks.push({
-							//borrowId: borrowGR.number.toString(),
-							borrowDate: borrowGR.borrow_date.toString(),
-							dueDate: borrowGR.due_date.toString(),
-							returnedDate: borrowGR.returned_date.toString(),
-							daysLate: borrowGR.days_late.toString(),
-							//fineAmount: borrowGR.fine_amount.toString(),
-							//finePaidDate: borrowGR.fine_paid_date.toString(),
-							title: bookDefinitionGR.title.toString(),
-							author: authorGR.full_name.toString(),
-							sys_id: bookDefinitionGR.sys_id.toString(),
-							borrowSysId: borrowGR.sys_id.toString(),
-							user_id: currentUserId,
-							coverImage: coverImageURL,
-							status: 'Overdue'
-						});
-					} else {
-						// gs.info("Author record not found for book ID: " + bookId);
+						authorName = authorGR.full_name.toString();
 					}
+
+					// Get the cover image URL
+					var coverImageURL = bookDefinitionGR.cover_image ? '/sys_attachment.do?sys_id=' + bookDefinitionGR.cover_image : '';
+
+					// Add the book details to the result array
+					data.borrowedBooks.push({
+						//borrowId: borrowGR.number.toString(),
+						borrowDate: borrowGR.borrow_date.toString(),
+						dueDate: borrowGR.due_date.toString(),
+						returnedDate: borrowGR.returned_date.toString(),
+						daysLate: borrowGR.days_late.toString(),
+						//fineAmount: borrowGR.fine_amount.toString(),
+						//finePaidDate: borrowGR.fine_paid_date.toString(),
+						title: bookDefinitionGR.title.toString(),
+						author: authorName,
+						sys_id: bookDefinitionGR.sys_id.toString(),
+						borrowSysId: borrowGR.sys_id.toString(),
+						user_id: currentUserId,
+						coverImage: coverImageURL,
+						status: 'Overdue'
+					});
 				} else {
 					// gs.info("Book definition record not found for book instance ID: " + bookInstanceId);
 				}
@@ -304,36 +305,37 @@
 				// Ensure the book definition record is found
 				if (bookDefinitionGR.get(bookId)) {
 					// Create a GlideRecord object for the Author table
+					var authorName = '';
 					var authorGR = new GlideRecord('x_1383151_bkquest_author');
 
-					// Ensure the author record is found
+					// Check if the author record is found
 					if (authorGR.get(bookDefinitionGR.author)) {
-						// Get the cover image URL
-						var coverImageURL = bookDefinitionGR.cover_image ? '/sys_attachment.do?sys_id=' + bookDefinitionGR.cover_image : '';
-
-						// Determine if the book is recently borrowed
-						var isRecentlyBorrowed = borrowGR.days_late == 0 && borrowGR.returned_date.nil();
-
-						// Add the book details to the result array
-						data.borrowedBooks.push({
-							//borrowId: borrowGR.number.toString(),
-							borrowDate: borrowGR.borrow_date.toString(),
-							dueDate: borrowGR.due_date.toString(),
-							returnedDate: borrowGR.returned_date.toString(),
-							daysLate: borrowGR.days_late.toString(),
-							//fineAmount: borrowGR.fine_amount.toString(),
-							//finePaidDate: borrowGR.fine_paid_date.toString(),
-							title: bookDefinitionGR.title.toString(),
-							author: authorGR.full_name.toString(),
-							sys_id: bookDefinitionGR.sys_id.toString(),
-							borrowSysId: borrowGR.sys_id.toString(),
-							user_id: currentUserId,
-							coverImage: coverImageURL,
-							status: isRecentlyBorrowed ? 'Recently Borrowed' : 'Returned'
-						});
-					} else {
-						// gs.info("Author record not found for book ID: " + bookId);
+						authorName = authorGR.full_name.toString();
 					}
+
+					// Get the cover image URL
+					var coverImageURL = bookDefinitionGR.cover_image ? '/sys_attachment.do?sys_id=' + bookDefinitionGR.cover_image : '';
+
+					// Determine if the book is recently borrowed
+					var isRecentlyBorrowed = borrowGR.days_late == 0 && borrowGR.returned_date.nil();
+
+					// Add the book details to the result array
+					data.borrowedBooks.push({
+						//borrowId: borrowGR.number.toString(),
+						borrowDate: borrowGR.borrow_date.toString(),
+						dueDate: borrowGR.due_date.toString(),
+						returnedDate: borrowGR.returned_date.toString(),
+						daysLate: borrowGR.days_late.toString(),
+						//fineAmount: borrowGR.fine_amount.toString(),
+						//finePaidDate: borrowGR.fine_paid_date.toString(),
+						title: bookDefinitionGR.title.toString(),
+						author: authorName,
+						sys_id: bookDefinitionGR.sys_id.toString(),
+						borrowSysId: borrowGR.sys_id.toString(),
+						user_id: currentUserId,
+						coverImage: coverImageURL,
+						status: isRecentlyBorrowed ? 'Recently Borrowed' : 'Returned'
+					});
 				} else {
 					// gs.info("Book definition record not found for book instance ID: " + bookInstanceId);
 				}
@@ -353,15 +355,15 @@
         <sys_created_by>harini.srija</sys_created_by>
         <sys_created_on>2024-06-04 08:27:35</sys_created_on>
         <sys_id>232fd7c693ee8210ef267c5efaba1049</sys_id>
-        <sys_mod_count>291</sys_mod_count>
+        <sys_mod_count>295</sys_mod_count>
         <sys_name>Borrowed Books</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sp_widget_232fd7c693ee8210ef267c5efaba1049</sys_update_name>
         <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-07-12 05:02:44</sys_updated_on>
-        <template><![CDATA[<div class="container">
+        <sys_updated_on>2024-07-20 08:14:12</sys_updated_on>
+        <template><![CDATA[<div class="container" ng-controller="BooksController as c">
     <h2 class="h1">My Books</h2> <!-- Title for the book list -->
 
     <!-- Filter Buttons -->

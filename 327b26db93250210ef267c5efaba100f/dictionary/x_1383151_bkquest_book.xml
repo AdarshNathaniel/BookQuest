@@ -5,19 +5,27 @@
         <element attributes="edge_encryption_enabled=true,encode_utf8=false" label="Author" max_length="32" name="author" reference="x_1383151_bkquest_author" type="reference"/>
         <element attributes="edge_encryption_enabled=true" label="Borrow count" max_length="40" name="borrow_count" read_only="true" type="integer"/>
         <element attributes="edge_encryption_enabled=true,pdf_cell_type=image" label="Cover image" max_length="40" name="cover_image" type="user_image"/>
-        <element label="Date of publication" max_length="40" name="date_of_publication" type="glide_date"/>
-        <element attributes="edge_encryption_enabled=true,encode_utf8=false" label="Genre" max_length="32" name="genre" reference="x_1383151_bkquest_genre_lookup" type="reference"/>
+        <element label="Date of publication (old)" max_length="40" name="date_of_publication" type="glide_date"/>
+        <element attributes="edge_encryption_enabled=true,encode_utf8=false" label="Genre (old)" max_length="32" name="genre" reference="x_1383151_bkquest_genre_lookup" type="reference"/>
+        <element label="Genre" max_length="40" name="genres" type="string"/>
+        <element label="Image Link" max_length="1024" name="image_link" type="url"/>
         <element attributes="edge_encryption_enabled=true" display="true" label="ISBN" mandatory="true" max_length="17" name="isbn" type="string"/>
-        <element attributes="edge_encryption_enabled=true" choice="3" default="english" label="Language" mandatory="true" max_length="40" name="language" type="choice">
-            <choice/>
+        <element attributes="edge_encryption_enabled=true" choice="3" default="English" label="Language" mandatory="true" max_length="40" name="language" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="English" value="English"/>
+            </choice>
         </element>
         <element attributes="edge_encryption_enabled=true" label="Number of pages" max_length="40" name="no_of_pages" type="integer"/>
         <element label="Plot summary" max_length="1000" name="plot_summary" type="string"/>
-        <element attributes="edge_encryption_enabled=true,encode_utf8=false" label="Publisher" max_length="32" name="publisher" reference="x_1383151_bkquest_publisher_lookup" type="reference"/>
+        <element label="Publication Date" max_length="40" name="publication_date" type="string"/>
+        <element label="Publisher" max_length="40" name="publish" type="string"/>
+        <element attributes="edge_encryption_enabled=true,encode_utf8=false" label="Publisher (old)" max_length="32" name="publisher" reference="x_1383151_bkquest_publisher_lookup" type="reference"/>
         <element attributes="edge_encryption_enabled=true" label="Stock" max_length="40" name="quantity" type="integer"/>
         <element attributes="edge_encryption_enabled=true" label="Title" max_length="128" name="title" type="string"/>
-        <element attributes="edge_encryption_enabled=true" choice="3" default="physical" label="Type" mandatory="true" max_length="40" name="type" type="choice">
-            <choice/>
+        <element attributes="edge_encryption_enabled=true" choice="3" default="Physical" label="Type" mandatory="true" max_length="40" name="type" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Physical" value="Physical"/>
+            </choice>
         </element>
         <index name="index">
             <element name="author"/>

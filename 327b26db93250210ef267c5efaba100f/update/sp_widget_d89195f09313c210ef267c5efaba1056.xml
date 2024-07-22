@@ -1,7 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
     <sp_widget action="INSERT_OR_UPDATE">
         <category>custom</category>
-        <client_script/>
+        <client_script><![CDATA[api.controller = function($location, $scope) {
+  var c = this;
+
+  c.searchKeyword = '';
+  c.filteredBooks = [];
+  c.suggestions = [];
+  c.showSuggestions = false;
+
+  c.addNewBook = function() {
+    $location.search({id: "fn_create_book"});
+  };
+
+  c.openBook = function(sysID) {
+    var portalURL = $location.absUrl().split('?')[0];
+    var pageID = 'book_details_page_v1';
+    var url = portalURL + '?id=' + pageID + '&sys_id=' + sysID;
+    window.location.href = url;
+  };
+
+  c.search = function() {
+    if (c.searchKeyword.trim() === '') {
+      c.filteredBooks = [];
+      c.showSuggestions = false;
+    } else {
+      c.filteredBooks = c.data.books.filter(function(book) {
+        return book.title.toLowerCase().includes(c.searchKeyword.toLowerCase());
+      });
+      c.updateSuggestions();
+    }
+  };
+
+  c.updateSuggestions = function() {
+    c.suggestions = c.filteredBooks.slice(0, 5); // Limit to top 5 suggestions
+    c.showSuggestions = true;
+  };
+
+  c.selectSuggestion = function(book) {
+    c.searchKeyword = book.title;
+    c.showSuggestions = false;
+    c.openBook(book.sys_id);
+  };
+
+  // Watch for changes in the search keyword to dynamically filter books
+  $scope.$watch(function() {
+    return c.searchKeyword;
+  }, function(newVal, oldVal) {
+    c.search();
+  });
+};
+]]></client_script>
         <controller_as>c</controller_as>
         <css>@import url('https://fonts.googleapis.com/css2?family=Margarine&amp;display=swap');
 
@@ -64,42 +113,102 @@ body {
     padding-bottom: 30px;
 }
 
-/* Button styles */
-.button-74 {
-    display: inline-block;
-    padding: 16px 32px; /* Increased padding for button */
-    font-size: 1.2em; /* Increase font size for button */
-    background-color: #adbbda;
-    color: black;
-    text-decoration: none;
-    border-radius: 30px; /* Round button corners */
-  	box-shadow: #422800 4px 4px 0 0;
-    transition: background-color 0.3s ease;
+.search-container {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 30px;
 }
 
-.button-74:hover {
-    background-color: #2c3b7b;
-  	color: white;
+.search-title {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: white;
 }
 
-.button-74:focus {
-    outline: none;
+.search-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* Added to position suggestions relative to the form */
 }
 
-/* Book image styles */
-.book {
-    flex: 1;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start; /* Align image to the top */
-    margin-top: -150px; /* Move the image up */
+.form-group {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 500px; /* Reduced max-width for the search bar */
 }
 
-.book-image {
-    width: 200%; /* Increase image size */
-    height: auto;
-    margin-left: 20px; /* Add spacing between text and image */
+.search-input {
+  width: 100%; /* Full width */
+  padding: 10px 40px 10px 20px; /* Padding adjusted for icon placement */
+  font-size: 1.2em; /* Adjust font size as needed */
+  border-radius: 25px; /* Fully rounded corners */
+  border: 1px solid #ccc;
+}
+
+.search-button {
+  position: absolute;
+  right: 10px; /* Position the button within the input */
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+
+.search-button .glyphicon {
+  font-size: 1.5em;
+  color: #3D5280;
+}
+
+.search-button:hover .glyphicon {
+  color: #24334C;
+}
+
+.autocomplete-suggestions {
+  position: absolute;
+  top: 100%; /* Positioned below the search input */
+  left: 0;
+  width: 100%; /* Match width of the form-group */
+  max-height: 150px; /* Reduced max-height for smaller suggestion box */
+  overflow-y: auto;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-top: none;
+  border-radius: 0 0 25px 25px;
+  z-index: 1000;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.autocomplete-suggestions li {
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-bottom: 1px solid #ccc; /* Add line after each suggestion */
+}
+
+.autocomplete-suggestions li:nth-child(odd) {
+  background-color: #f9f9f9; /* Light grey background */
+}
+
+.autocomplete-suggestions li:nth-child(even) {
+  background-color: #fff; /* White background */
+}
+
+.autocomplete-suggestions li:hover {
+  background-color: #f0f0f0;
+}
+
+.autocomplete-suggestions li.selected {
+  background-color: #3D5280;
+  color: white;
 }
 
 /* Margarine font styles */
@@ -129,20 +238,71 @@ body {
         <option_schema/>
         <public>false</public>
         <roles/>
-        <script/>
+        <script><![CDATA[(function() {
+	if (!input) {
+		data.books = [];
+		var bookGR = new GlideRecordSecure('x_1383151_bkquest_book');
+		bookGR.orderBy('title');
+		bookGR.query();
+
+		while (bookGR.next()) {
+			var coverImageSysId = bookGR.getValue('cover_image');
+			var coverImageUrl = '';
+
+			if (coverImageSysId) {
+          var coverImageGR = new GlideRecord('sys_attachment');
+          if (coverImageGR.get(coverImageSysId)) {
+            coverImageUrl = '/sys_attachment.do?sys_id=' + coverImageSysId;
+          }
+        } else {
+          // Default cover image URL
+          coverImageUrl = '/NoBookImage.jpg';
+        }
+
+			var authorSysId = bookGR.getValue('author');
+			var authorName = '';
+			if (authorSysId) {
+				var authorGR = new GlideRecord('x_1383151_bkquest_author');
+				if (authorGR.get(authorSysId)) {
+					authorName = authorGR.getDisplayValue();
+				}
+			}
+			// Assign default value if author name is empty
+        if (!authorName) {
+          authorName = 'Unknown';
+        }
+
+			// Fetch the plot summary from the book record
+			var plotSummary = bookGR.getValue('plot_summary') || 'No plot summary available';
+
+			data.books.push({
+				'sys_id': bookGR.getUniqueValue(),
+				'title': bookGR.getDisplayValue('title'),
+				'author': authorName,
+				'cover_image': coverImageUrl,
+				'plot_summary': plotSummary
+			});
+		}
+	}
+
+	if (input) {
+		// Add server-side functionality here if needed
+	}
+})();
+]]></script>
         <servicenow>false</servicenow>
         <sys_class_name>sp_widget</sys_class_name>
         <sys_created_by>harini.srija</sys_created_by>
         <sys_created_on>2024-07-07 07:43:34</sys_created_on>
         <sys_id>d89195f09313c210ef267c5efaba1056</sys_id>
-        <sys_mod_count>74</sys_mod_count>
+        <sys_mod_count>77</sys_mod_count>
         <sys_name>BookQuest Homepage</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sp_widget_d89195f09313c210ef267c5efaba1056</sys_update_name>
         <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-07-09 14:05:45</sys_updated_on>
+        <sys_updated_on>2024-07-22 06:02:26</sys_updated_on>
         <template><![CDATA[<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -161,8 +321,21 @@ body {
                 <div class="cont-1">
                     <h1 class="margarine-regular">"Where every page <br> is a new Adventure"</h1>
                     <p class="justify">From classics to contemporary, BookQuest offers a wide selection of books to suit every taste and interest. Start exploring our shelves today and uncover your next literary gem.</p>
-                    <div class="search">
-                        <a href="https://dev186731.service-now.com/bq?id=bkq_explorev2" button class="button-74" >Discover Books</a>
+                    <div class="search-container">
+                        <!-- <h1 class="search-title">Ready to start your Quest?</h1> -->
+                        <form class="search-form" role="search" ng-submit="c.search()">
+                            <div class="form-group">
+                                <input type="text" class="form-control search-input" ng-model="c.searchKeyword" placeholder="Search books" autocomplete="off">
+                                <button type="submit" class="search-button">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </button>
+                                <ul ng-show="c.showSuggestions" class="autocomplete-suggestions">
+                                    <li ng-repeat="book in c.suggestions" ng-click="c.selectSuggestion(book)">
+                                        {{ book.title }}
+                                    </li>
+                                </ul>
+                            </div>
+                        </form>
                     </div>
                 </div>
                 <div class="book">

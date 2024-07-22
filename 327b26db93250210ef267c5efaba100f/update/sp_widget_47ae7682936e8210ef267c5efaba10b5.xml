@@ -2,42 +2,51 @@
     <sp_widget action="INSERT_OR_UPDATE">
         <category>custom</category>
         <client_script><![CDATA[api.controller = function($location, $scope) {
-  var c = this;
+    var c = this;
 
-  c.searchKeyword = '';
-  c.filteredBooks = [];
+    c.searchKeyword = '';
+    c.filteredBooks = [];
 
-  c.addNewBook = function() {
-    $location.search({id: "fn_create_book"});
-  };
+    c.addNewBook = function() {
+        $location.search({id: "fn_create_book"});
+    };
 
-  c.openBook = function(sysID) {
-    var portalURL = $location.absUrl().split('?')[0];
-    var pageID = 'book_details_page_v1';
-    var url = portalURL + '?id=' + pageID + '&sys_id=' + sysID;
-    window.location.href = url;
-  };
+    c.openBook = function(sysID) {
+        var portalURL = $location.absUrl().split('?')[0];
+        var pageID = 'book_details_page_v1';
+        var url = portalURL + '?id=' + pageID + '&sys_id=' + sysID;
+        window.location.href = url;
+    };
 
-  // Function to filter books based on searchKeyword
-  c.search = function() {
-    if(c.searchKeyword.trim() === '') {
-      c.filteredBooks = c.data.books; // Show all books if searchKeyword is empty
-    } else {
-      c.filteredBooks = c.data.books.filter(function(book) {
-        return book.title.toLowerCase().includes(c.searchKeyword.toLowerCase());
-      });
-    }
-  };
+    // Function to apply class for truncation
+    c.getTruncateClass = function() {
+        return 'truncate-summary';
+    };
 
-  // Watch for changes in searchKeyword to dynamically update filteredBooks
-  $scope.$watch('c.searchKeyword', function(newVal, oldVal) {
-    if (newVal !== oldVal) {
-      c.search();
-    }
-  });
+    // Function to filter books based on searchKeyword
+    c.search = function() {
+        console.log('Searching for:', c.searchKeyword);
+        if(c.searchKeyword.trim() === '') {
+            c.filteredBooks = c.data.books; // Show all books if searchKeyword is empty
+        } else {
+            c.filteredBooks = c.data.books.filter(function(book) {
+                console.log('Filtering book:', book.title);
+                return book.title.toLowerCase().includes(c.searchKeyword.toLowerCase());
+            });
+        }
+        console.log('Filtered Books:', c.filteredBooks);
+    };
 
-  // Load all books initially
-  c.filteredBooks = c.data.books;
+    // Watch for changes in searchKeyword to dynamically update filteredBooks
+    $scope.$watch('c.searchKeyword', function(newVal, oldVal) {
+        console.log('Search keyword changed:', newVal);
+        if (newVal !== oldVal) {
+            c.search();
+        }
+    });
+
+    // Load all books initially
+    c.filteredBooks = c.data.books;
 };
 ]]></client_script>
         <controller_as>c</controller_as>
@@ -48,7 +57,7 @@
 }
 
 .search-title {
-  font-size: 3em; /* Slightly increased font size */
+  font-size: 3em; 
   margin-bottom: 50px;
   color: white;
 }
@@ -64,36 +73,33 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  max-width: 800px; /* Adjust this value to control the max width */
+  max-width: 800px;
+  position: relative; /* Added position relative */
 }
 
 .search-input {
-  width: 90%; /* Adjusted width to ensure it's large but not overflowing */
-  padding: 15px; /* Increased padding for larger input field */
-  font-size: 1.5em; /* Increased font size */
-  border-radius: 5px 0 0 5px; /* Added border-radius to the left side only */
-  border: 1px solid #ccc; /* Light border for better visibility */
-  border-right: none; /* Remove right border to seamlessly connect with button */
-  /* margin-bottom: 30px; */
+  width: 100%; /* Adjusted width to full width */
+  padding: 15px; 
+  font-size: 1.5em; 
+  border-radius: 25px; /* Rounded corners */
+  border: 1px solid #ccc; 
+  padding-right: 50px; /* Space for the search icon */
 }
 
-.search-button {	
-  padding: 15px 30px; /* Increased padding for larger button */
-  font-size: 1.5em; /* Increased font size */
-  border-radius: 0 5px 5px 0; /* Matching border-radius with input field */
-  background-color: #3D5280; /* Primary color for button */
-  color: white; /* White text color */
-  border: 1px solid #3D5280; /* Matching border color */
-  height: 18px; /* Adjust the height to match the input field */
-  //display: flex;
-  align-items: center;
-  margin-top: -15px;
-  padding-left: 10px;
-  display: none;
+.search-button {
+  position: absolute; /* Absolute positioning */
+  right: 10px; /* Position to the right inside the input */
+  top: 50%; /* Center vertically */
+  transform: translateY(-50%); /* Center vertically */
+  border: none; /* Remove default button border */
+  background: none; /* Remove default button background */
+  color: #333; /* Icon color */
+  font-size: 1.5em; /* Adjust icon size */
+  cursor: pointer;
 }
 
 .search-button:hover {
-  background-color: #24334C /* Darker shade on hover */
+  color: #000; /* Darker shade on hover */
 }
 
 .cards {
@@ -722,6 +728,17 @@ figcaption p {
     font-size: 90%;
   }
 }
+
+/* Ensure this CSS is correctly included in your stylesheets */
+.truncate-summary {
+  display: -webkit-box;
+  -webkit-line-clamp: 5; /* Limits to 5 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.4em; /* Adjust according to your font size */
+  max-height: 7em; /* Adjust according to line-height * number of lines */
+}
 </css>
         <data_table>sp_instance</data_table>
         <demo_data/>
@@ -737,62 +754,60 @@ figcaption p {
         <public>false</public>
         <roles/>
         <script><![CDATA[(function() {
-	if (!input) {
-		data.books = [];
-		var bookGR = new GlideRecordSecure('x_1383151_bkquest_book');
-		bookGR.orderBy('title');
-		bookGR.query();
+    if (!input) {
+        data.books = [];
+        var bookGR = new GlideRecordSecure('x_1383151_bkquest_book');
+        bookGR.orderBy('title');
+        bookGR.query();
 
-		while (bookGR.next()) {
-			var coverImageSysId = bookGR.getValue('cover_image');
-			var coverImageUrl = '';
+        while (bookGR.next()) {
+            var coverImageSysId = bookGR.getValue('cover_image');
+            var coverImageUrl = '';
 
-			// Construct cover image URL
-			if (coverImageSysId) {
-					var coverImageGR = new GlideRecord('sys_attachment');
-					if (coverImageGR.get(coverImageSysId)) {
-							coverImageUrl = '/sys_attachment.do?sys_id=' + coverImageSysId;
-					}
-			} else {
-					// Default cover image URL
-					coverImageUrl = '/NoBookImage.jpg'; // Adjust the path to match your actual image location
-			}
+            // Construct cover image URL
+            if (coverImageSysId) {
+                var coverImageGR = new GlideRecord('sys_attachment');
+                if (coverImageGR.get(coverImageSysId)) {
+                    coverImageUrl = '/sys_attachment.do?sys_id=' + coverImageSysId;
+                }
+            } else {
+                // Default cover image URL
+                coverImageUrl = '/NoBookImage.jpg'; // Adjust the path to match your actual image location
+            }
 
+            // Retrieve author name
+            var authorSysId = bookGR.getValue('author');
+            var authorName = '';
+            if (authorSysId) {
+                var authorGR = new GlideRecord('x_1383151_bkquest_author');
+                if (authorGR.get(authorSysId)) {
+                    authorName = authorGR.getDisplayValue();
+                }
+            }
+            // Assign default value if author name is empty
+            if (!authorName) {
+                authorName = 'Unknown';
+            }
 
-			// Retrieve author name
-			var authorSysId = bookGR.getValue('author');
-			var authorName = '';
-			if (authorSysId) {
-					var authorGR = new GlideRecord('x_1383151_bkquest_author');
-					if (authorGR.get(authorSysId)) {
-							authorName = authorGR.getDisplayValue();
-					}
-			}
-			// Assign default value if author name is empty
-			if (!authorName) {
-					authorName = 'Unknown';
-			}
+            // Fetch the plot summary from the book record
+            var plotSummary = bookGR.getValue('plot_summary') || 'No plot summary available';
 
+            data.books.push({
+                'sys_id': bookGR.getUniqueValue(),
+                'title': bookGR.getDisplayValue('title'),
+                'author': authorName,
+                'cover_image': coverImageUrl,
+                'plot_summary': plotSummary,
+            });
+        }
 
-			// Fetch the plot summary from the book record
-			// Fetch the plot summary from the book record
-			var plotSummary = bookGR.getValue('plot_summary') || 'No plot summary available';
+        // Log the fetched books for debugging
+        gs.info('Books fetched:', JSON.stringify(data.books));
+    }
 
-
-			data.books.push({
-				'sys_id': bookGR.getUniqueValue(),
-				'title': bookGR.getDisplayValue('title'),
-				'author': authorName,
-				'cover_image': coverImageUrl,
-				'plot_summary': plotSummary,
-				
-			});
-		}
-	}
-
-	if (input) {
-		// Add server-side functionality here if needed
-	}
+    if (input) {
+        // Add server-side functionality here if needed
+    }
 })();
 ]]></script>
         <servicenow>false</servicenow>
@@ -800,26 +815,26 @@ figcaption p {
         <sys_created_by>adarsh.nathaniel</sys_created_by>
         <sys_created_on>2024-06-04 06:05:33</sys_created_on>
         <sys_id>47ae7682936e8210ef267c5efaba10b5</sys_id>
-        <sys_mod_count>151</sys_mod_count>
+        <sys_mod_count>186</sys_mod_count>
         <sys_name>Book Search Widget</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sp_widget_47ae7682936e8210ef267c5efaba10b5</sys_update_name>
         <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-07-12 04:46:48</sys_updated_on>
+        <sys_updated_on>2024-07-22 05:50:40</sys_updated_on>
         <template><![CDATA[<div class="search-container">
   <h1 class="search-title">Ready to start your Quest?</h1>
   <form class="search-form" role="search" ng-submit="c.search()" onload="c.onLoadSearchAll()">
     <div class="form-group">
-      <input type="text" class="form-control search-input" ng-model="c.searchKeyword" placeholder="Search books" value="">
+      <input type="text" class="form-control search-input" ng-model="c.searchKeyword" placeholder="Search books">
+      <button type="submit" class="search-button">
+        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+      </button>
     </div>
-
-    <!--<button type="submit" class="btn btn-default search-button">
-      <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-    </button>-->
   </form>
 </div>
+
 
 <div class="container">
   <div class="component">
@@ -840,9 +855,9 @@ figcaption p {
               Books, as a medium, offer readers a gateway to diverse worlds, ideas, and emotions.<br>
               <a href="#" class="btn" ng-click="c.openBook(book.sys_id)">Click Me :)</a>
             </li>
-            <li> </li>
-            <li> Books, as a medium, offer readers a gateway to diverse worlds, ideas, and emotions. They weave narratives that explore human experiences, and inspire imagination, in the journey of understanding ourselves and the world around us.</li>
-            <li> Books, as a medium, offer readers a gateway to diverse worlds, ideas, and emotions.</li>
+            <li></li>
+            <li>Books, as a medium, offer readers a gateway to diverse worlds, ideas, and emotions. They weave narratives that explore human experiences, and inspire imagination, in the journey of understanding ourselves and the world around us.</li>
+            <li>Books, as a medium, offer readers a gateway to diverse worlds, ideas, and emotions.</li>
           </ul>
           <!-- Back cover -->
           <ul class='hardcover_back'>
@@ -855,10 +870,10 @@ figcaption p {
             <li></li>
           </ul>
           <figcaption>
-            <h2>{{ book.title }}</h2>
-            <span>{{ book.author }}</span>
-            <p>{{ book.plot_summary }}</p>
-          </figcaption>
+           <h2 ng-click="c.openBook(book.sys_id)" style="cursor: pointer;">{{ book.title }}</h2>
+          <span>{{ book.author }}</span>
+          <p class="{{ c.getTruncateClass() }}">{{ book.plot_summary }}</p>
+        </figcaption>
         </figure>
       </li>
     </ul>
