@@ -21,7 +21,7 @@
   };
 
   c.search = function() {
-    if (c.searchKeyword.trim() === '') {
+    if (c.searchKeyword.trim().length < 2) {
       c.filteredBooks = [];
       c.showSuggestions = false;
     } else {
@@ -78,7 +78,7 @@ body {
 .container {
     display: flex;
     flex-wrap: wrap; /* Enable wrapping */
-    justify-content: space-between; /* Space between text and image */
+    /* justify-content: space-between; Space between text and image */
     align-items: flex-start; /* Align items to the top */
     max-width: 1200px;
     margin: auto;
@@ -90,13 +90,14 @@ body {
     color: #3d52a0;
     padding: 20px;
     max-width: 50%; /* Adjust width to move text further left */
-    margin-right: 20px; /* Increase margin to create more space between text and image */
+    margin-right: 10px; /* Increase margin to create more space between text and image */
 }
 
 .text-container h1 {
     margin: 0; /* Remove top margin */
     font-size: 3em; /* Increase heading size */
     padding-bottom: 30px;
+    text-align: center;
 }
 
 .text-container p {
@@ -212,14 +213,23 @@ body {
 .image-container {
     flex: 1;
     display: flex;
-    justify-content: flex-end; /* Align image to the right */
-    padding: 20px;
+    justify-content: flex-end;
+    padding: 2rem;
+    width: 50%;
+    /* Optionally, add a margin to move the container up */
+    margin-top: -2.5rem; /* Adjust as needed */
 }
 
 .book-image {
     max-width: 100%; /* Adjust the image to fit within its container */
-    max-width: 800px; /* Increase max-width to make the image larger */
-}</css>
+    max-width: 900px; /* Increase max-width to make the image larger */
+    /* Add margin or adjust positioning to move the image up */
+    margin-top: -1rem; /* Adjust as needed */
+    /* Alternatively, use positioning */
+    position: relative;
+    top: -1rem; /* Adjust as needed */
+}
+</css>
         <data_table>sp_instance</data_table>
         <demo_data/>
         <description/>
@@ -290,14 +300,14 @@ body {
         <sys_created_by>harini.srija</sys_created_by>
         <sys_created_on>2024-07-07 07:43:34</sys_created_on>
         <sys_id>d89195f09313c210ef267c5efaba1056</sys_id>
-        <sys_mod_count>109</sys_mod_count>
+        <sys_mod_count>122</sys_mod_count>
         <sys_name>BookQuest Homepage</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sp_widget_d89195f09313c210ef267c5efaba1056</sys_update_name>
         <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-07-23 06:41:30</sys_updated_on>
+        <sys_updated_on>2024-07-23 10:34:39</sys_updated_on>
         <template><![CDATA[<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -313,7 +323,7 @@ body {
     <div id="homepage-search" class="hidden-xs wrapper-xl">
         <div class="container">
             <div class="text-container">
-                <h1 class="margarine-regular">"Where every page is a new Adventure"</h1>
+                <h1 class="margarine-regular">"Where every page <br> is a new Adventure"</h1>
                 <p class="justify">From classics to contemporary, BookQuest offers a wide selection of books to suit every taste and interest. Start exploring our shelves today and uncover your next literary gem.</p>
                 <div class="search-container">
                     <form class="search-form" role="search" ng-submit="c.search()">

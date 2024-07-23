@@ -150,7 +150,7 @@ h4 {
         <roles/>
         <script><![CDATA[(function() {
     if (!input) {
-        data.authors = [];
+        var authorsArray = [];
         var authorGR = new GlideRecord('x_1383151_bkquest_author');
         authorGR.setLimit(10); // Limit the number of authors to 10
         authorGR.query();
@@ -164,28 +164,34 @@ h4 {
                 var authorImageGR = new GlideRecord('sys_attachment');
                 if (authorImageGR.get(authorImageSysId)) {
                     authorImageUrl = '/sys_attachment.do?sys_id=' + authorImageSysId;
+
+                    // Fetch the author's full name
+                    var authorFullName = authorGR.getValue('full_name') || 'Unknown';
+
+                    // Fetch the number of books written by the author
+                    var booksWritten = parseInt(authorGR.getValue('books_written')) || 0;
+
+                    // Fetch the author's Sys ID
+                    var authorSysId = authorGR.getValue('sys_id');
+
+                    // Add author details to temporary array
+                    authorsArray.push({
+                        'sys_id': authorGR.getUniqueValue(),
+                        'author_image': authorImageUrl,
+                        'full_name': authorFullName,
+                        'books_written': booksWritten
+                    });
                 }
-            } else {
-                // Default author image URL
-                authorImageUrl = '/NoAuthorImage.jpg';
             }
-
-            // Fetch the author's full name
-            var authorFullName = authorGR.getValue('full_name') || 'Unknown';
-
-            // Fetch the number of books written by the author
-            var booksWritten = authorGR.getValue('books_written') || 0;
-
-            // Fetch the author's Sys ID
-            var authorSysId = authorGR.getValue('sys_id');
-
-            data.authors.push({
-                'sys_id': authorGR.getUniqueValue(),
-                'author_image': authorImageUrl,
-                'full_name': authorFullName,
-                'books_written': booksWritten
-            });
         }
+
+        // Sort authors by the number of books written in descending order
+        authorsArray.sort(function(a, b) {
+            return b.books_written - a.books_written;
+        });
+
+        // Set the sorted authors to data.authors
+        data.authors = authorsArray.slice(0, 10); // Limit to 10 authors
     }
 })();
 ]]></script>
@@ -194,14 +200,14 @@ h4 {
         <sys_created_by>harini.srija</sys_created_by>
         <sys_created_on>2024-06-12 04:48:30</sys_created_on>
         <sys_id>90c9ffe8937e8210ef267c5efaba10fd</sys_id>
-        <sys_mod_count>117</sys_mod_count>
+        <sys_mod_count>119</sys_mod_count>
         <sys_name>Author Details</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sp_widget_90c9ffe8937e8210ef267c5efaba10fd</sys_update_name>
         <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-07-23 05:27:48</sys_updated_on>
+        <sys_updated_on>2024-07-23 07:26:08</sys_updated_on>
         <template><![CDATA[<!DOCTYPE html>
 
 <html lang="en">
