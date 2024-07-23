@@ -20,7 +20,7 @@
         <element label="Publication Date" max_length="40" name="publication_date" type="string"/>
         <element label="Publisher" max_length="40" name="publish" type="string"/>
         <element attributes="edge_encryption_enabled=true,encode_utf8=false" label="Publisher (old)" max_length="32" name="publisher" reference="x_1383151_bkquest_publisher_lookup" type="reference"/>
-        <element attributes="edge_encryption_enabled=true" label="Stock" max_length="40" name="quantity" type="integer"/>
+        <element attributes="edge_encryption_enabled=true" default="0" label="Stock" mandatory="true" max_length="40" name="quantity" type="integer"/>
         <element attributes="edge_encryption_enabled=true" label="Title" max_length="128" name="title" type="string"/>
         <element attributes="edge_encryption_enabled=true" choice="3" default="Physical" label="Type" mandatory="true" max_length="40" name="type" type="choice">
             <choice>

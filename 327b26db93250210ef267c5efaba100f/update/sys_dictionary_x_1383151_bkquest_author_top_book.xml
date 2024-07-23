@@ -1,17 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update>
-    <sys_dictionary action="INSERT_OR_UPDATE" element="quantity" table="x_1383151_bkquest_book">
+    <sys_dictionary action="INSERT_OR_UPDATE" element="top_book" table="x_1383151_bkquest_author">
         <active>true</active>
         <array>false</array>
-        <attributes>edge_encryption_enabled=true</attributes>
+        <attributes/>
         <audit>false</audit>
-        <calculation/>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
         <choice/>
         <choice_field/>
         <choice_table/>
-        <column_label>Stock</column_label>
+        <column_label>Top book</column_label>
         <comments/>
         <create_roles/>
-        <default_value>0</default_value>
+        <default_value/>
         <defaultsort/>
         <delete_roles/>
         <dependent/>
@@ -21,16 +26,16 @@
         <dynamic_creation_script/>
         <dynamic_default_value/>
         <dynamic_ref_qual/>
-        <element>quantity</element>
+        <element>top_book</element>
         <element_reference>false</element_reference>
         <foreign_database/>
         <formula/>
         <function_definition/>
         <function_field>false</function_field>
-        <internal_type display_value="Integer">integer</internal_type>
-        <mandatory>true</mandatory>
+        <internal_type display_value="String">string</internal_type>
+        <mandatory>false</mandatory>
         <max_length>40</max_length>
-        <name>x_1383151_bkquest_book</name>
+        <name>x_1383151_bkquest_author</name>
         <next_element/>
         <primary>false</primary>
         <read_only>false</read_only>
@@ -46,14 +51,14 @@
         <staged>false</staged>
         <sys_class_name>sys_dictionary</sys_class_name>
         <sys_created_by>adarsh.nathaniel</sys_created_by>
-        <sys_created_on>2024-04-19 10:11:46</sys_created_on>
-        <sys_name>Stock</sys_name>
+        <sys_created_on>2024-07-22 16:54:24</sys_created_on>
+        <sys_name>Top book</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
-        <sys_update_name>sys_dictionary_x_1383151_bkquest_book_quantity</sys_update_name>
+        <sys_update_name>sys_dictionary_x_1383151_bkquest_author_top_book</sys_update_name>
         <sys_updated_by>adarsh.nathaniel</sys_updated_by>
-        <sys_updated_on>2024-07-23 06:03:50</sys_updated_on>
+        <sys_updated_on>2024-07-22 16:54:24</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>

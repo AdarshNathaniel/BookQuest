@@ -9,15 +9,15 @@
         <sys_created_by>adarsh.nathaniel</sys_created_by>
         <sys_created_on>2024-07-11 01:56:16</sys_created_on>
         <sys_id>0478a48293570a10ef267c5efaba10ff</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>3</sys_mod_count>
         <sys_name>Author Card Template</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sys_sg_view_template_0478a48293570a10ef267c5efaba10ff</sys_update_name>
         <sys_updated_by>adarsh.nathaniel</sys_updated_by>
-        <sys_updated_on>2024-07-11 02:09:14</sys_updated_on>
-        <template_json>{"Type":"ViewGroup","Margin":{"Top":15,"Bottom":17},"Orientation":"Vertical","Alignment":"Left","Distribution":"Auto","Id":"Root","Children":[{"Type":"ViewGroup","Orientation":"Horizontal","Alignment":"Stretch","Distribution":"Auto","Id":"container_02","CellId":"container_02","Children":[{"Type":"Text","TextColor":"#151920","MaxLines":1,"Id":"text_01","CellId":"text_01","TextAlignment":"Left"},{"Type":"Text","TextColor":"#151920","MaxLines":1,"Id":"text_02","CellId":"text_02","TextAlignment":"Right"}]}]}</template_json>
+        <sys_updated_on>2024-07-22 17:21:48</sys_updated_on>
+        <template_json>{"Type":"ViewGroup","Margin":{"Top":15,"Bottom":17},"Orientation":"Vertical","Alignment":"Left","Distribution":"Auto","Id":"Root","Children":[{"Type":"ViewGroup","Orientation":"Horizontal","Alignment":"Stretch","Distribution":"Auto","Id":"container_02","CellId":"container_02","Children":[{"Type":"Text","TextColor":"#151920","MaxLines":1,"Id":"text_01","CellId":"text_01","TextAlignment":"Left"},{"Type":"Text","TextColor":"#4F52BD","MaxLines":1,"Id":"text_02","CellId":"text_02","TextAlignment":"Right"}]}]}</template_json>
     </sys_sg_view_template>
     <sys_translated_text action="delete_multiple" query="documentkey=0478a48293570a10ef267c5efaba10ff"/>
 </record_update>

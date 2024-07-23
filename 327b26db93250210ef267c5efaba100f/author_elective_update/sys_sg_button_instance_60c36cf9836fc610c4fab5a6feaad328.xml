@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_button_instance">
+    <sys_sg_button_instance action="DELETE">
+        <active>true</active>
+        <button display_value="Top Book Navigation Function">58c36cf9836fc610c4fab5a6feaad322</button>
+        <color_theme/>
+        <description>Top Book Function Instance</description>
+        <disable_offline>false</disable_offline>
+        <field_name>cover_image</field_name>
+        <icon/>
+        <label>Check it out</label>
+        <location>field</location>
+        <name>Top Book Function Instance</name>
+        <order>10</order>
+        <parent>2596943d832fc610c4fab5a6feaad393</parent>
+        <parent_table>sys_sg_details_screen</parent_table>
+        <sys_class_name>sys_sg_button_instance</sys_class_name>
+        <sys_created_by>adarsh.nathaniel</sys_created_by>
+        <sys_created_on>2024-07-22 17:13:02</sys_created_on>
+        <sys_id>60c36cf9836fc610c4fab5a6feaad328</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Top Book Function Instance</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_update_name>sys_sg_button_instance_60c36cf9836fc610c4fab5a6feaad328</sys_update_name>
+        <sys_updated_by>adarsh.nathaniel</sys_updated_by>
+        <sys_updated_on>2024-07-22 17:13:02</sys_updated_on>
+        <table>x_1383151_bkquest_book</table>
+    </sys_sg_button_instance>
+    <sys_translated_text action="DELETE" query="documentkey=60c36cf9836fc610c4fab5a6feaad328"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="BookQuest">327b26db93250210ef267c5efaba100f</application>
+        <file_path/>
+        <instance_id>0535015fdb717d1002d9172913961922</instance_id>
+        <instance_name>dev186731</instance_name>
+        <name>sys_sg_button_instance_60c36cf9836fc610c4fab5a6feaad328</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_button_instance"><sys_sg_button_instance action="INSERT_OR_UPDATE"><active>true</active><button display_value="Top Book Navigation Function">58c36cf9836fc610c4fab5a6feaad322</button><color_theme/><description>Top Book Function Instance</description><disable_offline>false</disable_offline><field_name>cover_image</field_name><icon/><label>Check it out</label><location>field</location><name>Top Book Function Instance</name><order>10</order><parent>2596943d832fc610c4fab5a6feaad393</parent><parent_table>sys_sg_details_screen</parent_table><sys_class_name>sys_sg_button_instance</sys_class_name><sys_created_by>adarsh.nathaniel</sys_created_by><sys_created_on>2024-07-22 17:13:02</sys_created_on><sys_id>60c36cf9836fc610c4fab5a6feaad328</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Top Book Function Instance</sys_name><sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package><sys_policy/><sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope><sys_update_name>sys_sg_button_instance_60c36cf9836fc610c4fab5a6feaad328</sys_update_name><sys_updated_by>adarsh.nathaniel</sys_updated_by><sys_updated_on>2024-07-22 17:13:02</sys_updated_on><table>x_1383151_bkquest_book</table></sys_sg_button_instance><sys_translated_text action="delete_multiple" query="documentkey=60c36cf9836fc610c4fab5a6feaad328"/></record_update>]]></payload>
+        <payload_hash>-916915042</payload_hash>
+        <record_name>Top Book Function Instance</record_name>
+        <reverted_from/>
+        <source>4d8e9216939f4a10ef267c5efaba109a</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>adarsh.nathaniel</sys_created_by>
+        <sys_created_on>2024-07-22 17:13:02</sys_created_on>
+        <sys_id>68c36cf9836fc610c4fab5a6feaad32b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>190db6eb0850000001</sys_recorded_at>
+        <sys_updated_by>adarsh.nathaniel</sys_updated_by>
+        <sys_updated_on>2024-07-22 17:13:02</sys_updated_on>
+        <type>Function instance</type>
+        <update_guid>acc36cf9c86fc610f59f59227e94e62a</update_guid>
+        <update_guid_history>acc36cf9c86fc610f59f59227e94e62a:-916915042</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>adarsh.nathaniel</sys_created_by>
+        <sys_created_on>2024-07-22 17:14:11</sys_created_on>
+        <sys_db_object display_value="" name="sys_sg_button_instance">sys_sg_button_instance</sys_db_object>
+        <sys_id>c199f7d0093446ecb7fd3f9ddf3ede64</sys_id>
+        <sys_metadata>60c36cf9836fc610c4fab5a6feaad328</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Top Book Function Instance</sys_name>
+        <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
+        <sys_scope_delete display_value="">18e926194902432895b35f3c99259089</sys_scope_delete>
+        <sys_update_name>sys_sg_button_instance_60c36cf9836fc610c4fab5a6feaad328</sys_update_name>
+        <sys_update_version display_value="sys_sg_button_instance_60c36cf9836fc610c4fab5a6feaad328">68c36cf9836fc610c4fab5a6feaad32b</sys_update_version>
+        <sys_updated_by>adarsh.nathaniel</sys_updated_by>
+        <sys_updated_on>2024-07-22 17:14:11</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
