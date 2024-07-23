@@ -20,7 +20,26 @@
             <element>borrow_status</element>
             <hint/>
             <inactive>false</inactive>
-            <label>Extend</label>
+            <label>Borrowed</label>
+            <language>en</language>
+            <name>x_1383151_bkquest_borrow</name>
+            <sequence/>
+            <synonyms/>
+            <sys_created_by>adarsh.nathaniel</sys_created_by>
+            <sys_created_on>2024-07-23 17:08:24</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>adarsh.nathaniel</sys_updated_by>
+            <sys_updated_on>2024-07-23 17:08:24</sys_updated_on>
+            <value>Borrowed</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>borrow_status</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Extended</label>
             <language>en</language>
             <name>x_1383151_bkquest_borrow</name>
             <sequence/>
@@ -29,9 +48,9 @@
             <sys_created_on>2024-06-21 07:31:45</sys_created_on>
             <sys_domain>global</sys_domain>
             <sys_domain_path>/</sys_domain_path>
-            <sys_mod_count>1</sys_mod_count>
-            <sys_updated_by>harini.srija</sys_updated_by>
-            <sys_updated_on>2024-06-21 07:32:01</sys_updated_on>
+            <sys_mod_count>2</sys_mod_count>
+            <sys_updated_by>adarsh.nathaniel</sys_updated_by>
+            <sys_updated_on>2024-07-23 17:07:12</sys_updated_on>
             <value>extend</value>
         </sys_choice>
         <sys_choice action="INSERT_OR_UPDATE">
@@ -58,7 +77,7 @@
             <element>borrow_status</element>
             <hint/>
             <inactive>false</inactive>
-            <label>Return</label>
+            <label>Returned</label>
             <language>en</language>
             <name>x_1383151_bkquest_borrow</name>
             <sequence/>
@@ -67,9 +86,9 @@
             <sys_created_on>2024-06-21 07:31:36</sys_created_on>
             <sys_domain>global</sys_domain>
             <sys_domain_path>/</sys_domain_path>
-            <sys_mod_count>1</sys_mod_count>
-            <sys_updated_by>harini.srija</sys_updated_by>
-            <sys_updated_on>2024-06-21 07:31:53</sys_updated_on>
+            <sys_mod_count>2</sys_mod_count>
+            <sys_updated_by>adarsh.nathaniel</sys_updated_by>
+            <sys_updated_on>2024-07-23 17:07:35</sys_updated_on>
             <value>return</value>
         </sys_choice>
     </sys_choice>

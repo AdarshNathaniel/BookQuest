@@ -4,9 +4,10 @@
         <element label="Borrow date" max_length="40" name="borrow_date" type="glide_date"/>
         <element choice="3" default="Borrowed" hint="You can extend a book only once" label="Borrow status" max_length="40" name="borrow_status" type="choice">
             <choice>
-                <element inactive_on_update="false" label="Extend" value="extend"/>
+                <element inactive_on_update="false" label="Borrowed" value="Borrowed"/>
+                <element inactive_on_update="false" label="Extended" value="extend"/>
                 <element inactive_on_update="false" label="Overdue" value="overdue"/>
-                <element inactive_on_update="false" label="Return" value="return"/>
+                <element inactive_on_update="false" label="Returned" value="return"/>
             </choice>
         </element>
         <element default="14" hint="The borrowing period can only be 2 weeks" label="Borrow period" max_length="40" name="days" type="integer"/>
