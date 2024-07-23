@@ -274,14 +274,14 @@ color: #555;
         <sys_created_by>adarsh.nathaniel</sys_created_by>
         <sys_created_on>2024-06-14 05:39:58</sys_created_on>
         <sys_id>39b8525d93720210ef267c5efaba1001</sys_id>
-        <sys_mod_count>178</sys_mod_count>
+        <sys_mod_count>179</sys_mod_count>
         <sys_name>Book Details Widget v1</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sp_widget_39b8525d93720210ef267c5efaba1001</sys_update_name>
-        <sys_updated_by>adarsh.nathaniel</sys_updated_by>
-        <sys_updated_on>2024-06-28 05:30:32</sys_updated_on>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-23 05:51:03</sys_updated_on>
         <template><![CDATA[<div class="container book-details-card">
   <div class="row">
     <div class="col-md-3">
@@ -332,7 +332,7 @@ color: #555;
               <h3>Classification</h3>
               <dl class="dl-horizontal flex-grow-1">
                 <dt>Genre:</dt>
-                <dd>{{c.data.book.genre}}</dd>
+                <dd>{{c.data.book.genres}}</dd>
                 <dt>Publisher:</dt>
                 <dd>{{c.data.book.publisher}}</dd>
               </dl>

@@ -279,56 +279,27 @@ a {
   border-radius: 0px 5px 5px 0px;
 }
 
-/*
-	3. opening cover, back cover and pages
-*/
+/* 3. opening cover, back cover and pages */
 
 .hardcover_front {
-  -webkit-transform: rotateY(-34deg) translateZ(8px);
-  -moz-transform: rotateY(-34deg) translateZ(8px);
   transform: rotateY(-34deg) translateZ(8px);
   z-index: 100;
+  transform-origin: 0% 100%;
+  transition: all 0.8s ease, z-index 0.6s;
 }
 
 .hardcover_back {
-  -webkit-transform: rotateY(-15deg) translateZ(-8px);
-  -moz-transform: rotateY(-15deg) translateZ(-8px);
   transform: rotateY(-15deg) translateZ(-8px);
+  transform-origin: 0% 100%;
 }
 
-.page li:nth-child(1) {
-  -webkit-transform: rotateY(-28deg);
-  -moz-transform: rotateY(-28deg);
-  transform: rotateY(-28deg);
-}
+.page li:nth-child(1) { transform: rotateY(-28deg); }
+.page li:nth-child(2) { transform: rotateY(-30deg); }
+.page li:nth-child(3) { transform: rotateY(-32deg); }
+.page li:nth-child(4) { transform: rotateY(-34deg); }
+.page li:nth-child(5) { transform: rotateY(-36deg); }
 
-.page li:nth-child(2) {
-  -webkit-transform: rotateY(-30deg);
-  -moz-transform: rotateY(-30deg);
-  transform: rotateY(-30deg);
-}
-
-.page li:nth-child(3) {
-  -webkit-transform: rotateY(-32deg);
-  -moz-transform: rotateY(-32deg);
-  transform: rotateY(-32deg);
-}
-
-.page li:nth-child(4) {
-  -webkit-transform: rotateY(-34deg);
-  -moz-transform: rotateY(-34deg);
-  transform: rotateY(-34deg);
-}
-
-.page li:nth-child(5) {
-  -webkit-transform: rotateY(-36deg);
-  -moz-transform: rotateY(-36deg);
-  transform: rotateY(-36deg);
-}
-
-/*
-	4. position, transform &amp; transition
-*/
+/* 4. position, transform &amp; transition */
 
 .hardcover_front,
 .hardcover_back,
@@ -341,23 +312,10 @@ a {
   left: 0;
   width: 100%;
   height: 100%;
-  -webkit-transform-style: preserve-3d;
-  -moz-transform-style: preserve-3d;
   transform-style: preserve-3d;
 }
 
-.hardcover_front,
-.hardcover_back {
-  -webkit-transform-origin: 0% 100%;
-  -moz-transform-origin: 0% 100%;
-  transform-origin: 0% 100%;
-}
 
-.hardcover_front {
-  -webkit-transition: all 0.8s ease, z-index 0.6s;
-  -moz-transition: all 0.8s ease, z-index 0.6s;
-  transition: all 0.8s ease, z-index 0.6s;
-}
 
 /* HARDCOVER front */
 .hardcover_front li:first-child {
@@ -815,14 +773,14 @@ figcaption p {
         <sys_created_by>adarsh.nathaniel</sys_created_by>
         <sys_created_on>2024-06-04 06:05:33</sys_created_on>
         <sys_id>47ae7682936e8210ef267c5efaba10b5</sys_id>
-        <sys_mod_count>186</sys_mod_count>
+        <sys_mod_count>194</sys_mod_count>
         <sys_name>Book Search Widget</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sp_widget_47ae7682936e8210ef267c5efaba10b5</sys_update_name>
         <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-07-22 05:50:40</sys_updated_on>
+        <sys_updated_on>2024-07-22 13:48:09</sys_updated_on>
         <template><![CDATA[<div class="search-container">
   <h1 class="search-title">Ready to start your Quest?</h1>
   <form class="search-form" role="search" ng-submit="c.search()" onload="c.onLoadSearchAll()">

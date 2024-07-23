@@ -45,35 +45,11 @@ BookDetailsScript.prototype = {
 
         // Fetch additional fields
         var isbn = bookGR.getValue('isbn') || 'Unknown';
-        var dateOfPublication = bookGR.getValue('date_of_publication') || 'Unknown';
-
-        // Fetch publisher details
-        var publisherSysId = bookGR.getValue('publisher');
-        var publisherName = '';
-        if (publisherSysId) {
-          var publisherGR = new GlideRecord('x_1383151_bkquest_publisher_lookup');
-          if (publisherGR.get(publisherSysId)) {
-            publisherName = publisherGR.getDisplayValue();
-          }
-        }
-        // Assign default value if publisher name is empty
-        if (!publisherName) {
-          publisherName = 'Unknown';
-        }
+        var dateOfPublication = bookGR.getValue('publication_date') || 'Unknown'; // Updated field
+        var publisherName = bookGR.getValue('publish') || 'Unknown'; // Updated field
 
         // Fetch genre details
-        var genreSysId = bookGR.getValue('genre');
-        var genreName = '';
-        if (genreSysId) {
-          var genreGR = new GlideRecord('x_1383151_bkquest_genre_lookup');
-          if (genreGR.get(genreSysId)) {
-            genreName = genreGR.getDisplayValue();
-          }
-        }
-        // Assign default value if genre name is empty
-        if (!genreName) {
-          genreName = 'Unknown';
-        }
+        var genres = bookGR.getValue('genres') || 'Unknown'; // Updated field
 
         var language = bookGR.getValue('language') || 'Unknown';
         var type = bookGR.getValue('type') || 'Unknown';
@@ -85,9 +61,9 @@ BookDetailsScript.prototype = {
           'cover_image': coverImageUrl,
           'plot_summary': bookGR.getValue('plot_summary') || 'No plot summary available',
           'isbn': isbn,
-          'date_of_publication': dateOfPublication,
-          'publisher': publisherName,
-          'genre': genreName,
+          'date_of_publication': dateOfPublication, // Updated field
+          'publisher': publisherName, // Updated field
+          'genres': genres, // Updated field
           'language': language,
           'type': type
         };
@@ -104,13 +80,13 @@ BookDetailsScript.prototype = {
         <sys_created_by>adarsh.nathaniel</sys_created_by>
         <sys_created_on>2024-06-17 04:38:47</sys_created_on>
         <sys_id>7686699a93320210ef267c5efaba105c</sys_id>
-        <sys_mod_count>4</sys_mod_count>
+        <sys_mod_count>5</sys_mod_count>
         <sys_name>BookDetailsScript</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sys_script_include_7686699a93320210ef267c5efaba105c</sys_update_name>
-        <sys_updated_by>adarsh.nathaniel</sys_updated_by>
-        <sys_updated_on>2024-06-17 09:35:37</sys_updated_on>
+        <sys_updated_by>harini.srija</sys_updated_by>
+        <sys_updated_on>2024-07-23 05:49:19</sys_updated_on>
     </sys_script_include>
 </record_update>

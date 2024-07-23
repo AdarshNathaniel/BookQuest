@@ -6,8 +6,8 @@
         <bootstrap_alt>false</bootstrap_alt>
         <class_name/>
         <container_class_name/>
-        <name>BookQuest homepage - Container 7</name>
-        <order>7</order>
+        <name>BookQuest homepage - Container 5</name>
+        <order>5</order>
         <semantic_tag/>
         <sp_page display_value="bookquest_index">363d86a193e60210ef267c5efaba10b7</sp_page>
         <subheader>false</subheader>
@@ -15,14 +15,14 @@
         <sys_created_by>harini.srija</sys_created_by>
         <sys_created_on>2024-06-03 04:23:42</sys_created_on>
         <sys_id>5dcd5db193664210ef267c5efaba10a4</sys_id>
-        <sys_mod_count>24</sys_mod_count>
-        <sys_name>BookQuest homepage - Container 7</sys_name>
+        <sys_mod_count>30</sys_mod_count>
+        <sys_name>BookQuest homepage - Container 5</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sp_container_5dcd5db193664210ef267c5efaba10a4</sys_update_name>
         <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-07-22 05:54:19</sys_updated_on>
+        <sys_updated_on>2024-07-23 06:26:54</sys_updated_on>
         <title/>
         <width>container</width>
     </sp_container>

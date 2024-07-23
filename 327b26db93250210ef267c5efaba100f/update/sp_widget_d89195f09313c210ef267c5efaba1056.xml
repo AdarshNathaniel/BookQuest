@@ -72,143 +72,128 @@ body {
 #homepage-search {
     padding: 20px;
     margin-top: -20px; /* Move the whole section up */
-  	margin-bottom: 0; 
-}
-
-.wrapper-xl {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    text-align: center;
+    margin-bottom: 0; 
 }
 
 .container {
     display: flex;
     flex-wrap: wrap; /* Enable wrapping */
-    justify-content: center; /* Center content horizontally */
+    justify-content: space-between; /* Space between text and image */
     align-items: flex-start; /* Align items to the top */
     max-width: 1200px;
     margin: auto;
 }
 
-.cont-1 {
+/* Container for text */
+.text-container {
     flex: 1;
     color: #3d52a0;
     padding: 20px;
-    font-size: 1.2em; /* Increase text size */
-    text-align: center; /* Center text */
+    max-width: 50%; /* Adjust width to move text further left */
+    margin-right: 20px; /* Increase margin to create more space between text and image */
 }
 
-.cont-1 h1 {
+.text-container h1 {
     margin: 0; /* Remove top margin */
     font-size: 3em; /* Increase heading size */
-  	padding-bottom: 30px;
+    padding-bottom: 30px;
 }
 
-.cont-1 p {
+.text-container p {
     margin: 10px 0 20px; /* Adjust margins */
     font-size: 1.2em; /* Increase paragraph text size */
-    text-align: justify;/* Justify paragraph text */
+    text-align: justify; /* Justify paragraph text */
     padding-bottom: 30px;
 }
 
 .search-container {
-  text-align: center;
-  margin-top: 50px;
-  margin-bottom: 30px;
-}
-
-.search-title {
-  font-size: 2.5em;
-  margin-bottom: 20px;
-  color: white;
+    margin-top: 20px; /* Space between text and search bar */
 }
 
 .search-form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative; /* Added to position suggestions relative to the form */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Added to position suggestions relative to the form */
 }
 
 .form-group {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  max-width: 500px; /* Reduced max-width for the search bar */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 500px; /* Reduced max-width for the search bar */
 }
 
 .search-input {
-  width: 100%; /* Full width */
-  padding: 10px 40px 10px 20px; /* Padding adjusted for icon placement */
-  font-size: 1.2em; /* Adjust font size as needed */
-  border-radius: 25px; /* Fully rounded corners */
-  border: 1px solid #ccc;
+    width: 100%; /* Full width */
+    padding: 10px 40px 10px 20px; /* Padding adjusted for icon placement */
+    font-size: 1.2em; /* Adjust font size as needed */
+    border-radius: 25px; /* Fully rounded corners */
+    border: 1px solid #ccc;
 }
 
 .search-button {
-  position: absolute;
-  right: 10px; /* Position the button within the input */
-  top: 50%;
-  transform: translateY(-50%);
-  border: none;
-  background: transparent;
-  padding: 0;
-  cursor: pointer;
+    position: absolute;
+    right: 10px; /* Position the button within the input */
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
 }
 
 .search-button .glyphicon {
-  font-size: 1.5em;
-  color: #3D5280;
+    font-size: 1.5em;
+    color: #3D5280;
 }
 
 .search-button:hover .glyphicon {
-  color: #24334C;
+    color: #24334C;
 }
 
 .autocomplete-suggestions {
-  position: absolute;
-  top: 100%; /* Positioned below the search input */
-  left: 0;
-  width: 100%; /* Match width of the form-group */
-  max-height: 150px; /* Reduced max-height for smaller suggestion box */
-  overflow-y: auto;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-top: none;
-  border-radius: 0 0 25px 25px;
-  z-index: 1000;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 100%; /* Positioned below the search input */
+    left: 0;
+    width: 100%; /* Match width of the form-group */
+    max-height: 150px; /* Reduced max-height for smaller suggestion box */
+    overflow-y: auto;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-top: none;
+    border-radius: 0 0 25px 25px;
+    z-index: 1000;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .autocomplete-suggestions li {
-  padding: 10px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  border-bottom: 1px solid #ccc; /* Add line after each suggestion */
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-bottom: 1px solid #ccc; /* Add line after each suggestion */
 }
 
 .autocomplete-suggestions li:nth-child(odd) {
-  background-color: #f9f9f9; /* Light grey background */
+    background-color: #f9f9f9; /* Light grey background */
 }
 
 .autocomplete-suggestions li:nth-child(even) {
-  background-color: #fff; /* White background */
+    background-color: #fff; /* White background */
 }
 
 .autocomplete-suggestions li:hover {
-  background-color: #f0f0f0;
+    background-color: #f0f0f0;
 }
 
 .autocomplete-suggestions li.selected {
-  background-color: #3D5280;
-  color: white;
+    background-color: #3D5280;
+    color: white;
 }
 
 /* Margarine font styles */
@@ -223,8 +208,18 @@ body {
     text-align: justify;
 }
 
+/* Container for image */
+.image-container {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end; /* Align image to the right */
+    padding: 20px;
+}
 
-</css>
+.book-image {
+    max-width: 100%; /* Adjust the image to fit within its container */
+    max-width: 800px; /* Increase max-width to make the image larger */
+}</css>
         <data_table>sp_instance</data_table>
         <demo_data/>
         <description/>
@@ -295,14 +290,14 @@ body {
         <sys_created_by>harini.srija</sys_created_by>
         <sys_created_on>2024-07-07 07:43:34</sys_created_on>
         <sys_id>d89195f09313c210ef267c5efaba1056</sys_id>
-        <sys_mod_count>77</sys_mod_count>
+        <sys_mod_count>109</sys_mod_count>
         <sys_name>BookQuest Homepage</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sp_widget_d89195f09313c210ef267c5efaba1056</sys_update_name>
         <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-07-22 06:02:26</sys_updated_on>
+        <sys_updated_on>2024-07-23 06:41:30</sys_updated_on>
         <template><![CDATA[<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -316,32 +311,29 @@ body {
 </head>
 <body>
     <div id="homepage-search" class="hidden-xs wrapper-xl">
-        <div class="wrapper-xl">
-            <div class="container">
-                <div class="cont-1">
-                    <h1 class="margarine-regular">"Where every page <br> is a new Adventure"</h1>
-                    <p class="justify">From classics to contemporary, BookQuest offers a wide selection of books to suit every taste and interest. Start exploring our shelves today and uncover your next literary gem.</p>
-                    <div class="search-container">
-                        <!-- <h1 class="search-title">Ready to start your Quest?</h1> -->
-                        <form class="search-form" role="search" ng-submit="c.search()">
-                            <div class="form-group">
-                                <input type="text" class="form-control search-input" ng-model="c.searchKeyword" placeholder="Search books" autocomplete="off">
-                                <button type="submit" class="search-button">
-                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                                </button>
-                                <ul ng-show="c.showSuggestions" class="autocomplete-suggestions">
-                                    <li ng-repeat="book in c.suggestions" ng-click="c.selectSuggestion(book)">
-                                        {{ book.title }}
-                                    </li>
-                                </ul>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="book">
-                    <img src="book1.svg" alt="book" class="book-image">
+        <div class="container">
+            <div class="text-container">
+                <h1 class="margarine-regular">"Where every page is a new Adventure"</h1>
+                <p class="justify">From classics to contemporary, BookQuest offers a wide selection of books to suit every taste and interest. Start exploring our shelves today and uncover your next literary gem.</p>
+                <div class="search-container">
+                    <form class="search-form" role="search" ng-submit="c.search()">
+                        <div class="form-group">
+                            <input type="text" class="form-control search-input" ng-model="c.searchKeyword" placeholder="Search books" autocomplete="off">
+                            <button type="submit" class="search-button">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </button>
+                            <ul ng-show="c.showSuggestions" class="autocomplete-suggestions">
+                                <li ng-repeat="book in c.suggestions" ng-click="c.selectSuggestion(book)">
+                                    {{ book.title }}
+                                </li>
+                            </ul>
+                        </div>
+                    </form>
                 </div>
             </div>
+           <div class="image-container">
+                <img src="BookQuest.png" alt="book" class="book-image">
+            </div> 
         </div>
     </div>
 </body>

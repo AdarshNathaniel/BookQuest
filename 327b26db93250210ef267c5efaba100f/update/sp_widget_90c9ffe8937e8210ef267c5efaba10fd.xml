@@ -152,6 +152,7 @@ h4 {
     if (!input) {
         data.authors = [];
         var authorGR = new GlideRecord('x_1383151_bkquest_author');
+        authorGR.setLimit(10); // Limit the number of authors to 10
         authorGR.query();
 
         while (authorGR.next()) {
@@ -179,27 +180,28 @@ h4 {
             var authorSysId = authorGR.getValue('sys_id');
 
             data.authors.push({
-								'sys_id': authorGR.getUniqueValue(),
+                'sys_id': authorGR.getUniqueValue(),
                 'author_image': authorImageUrl,
                 'full_name': authorFullName,
                 'books_written': booksWritten
             });
         }
     }
-})();]]></script>
+})();
+]]></script>
         <servicenow>false</servicenow>
         <sys_class_name>sp_widget</sys_class_name>
         <sys_created_by>harini.srija</sys_created_by>
         <sys_created_on>2024-06-12 04:48:30</sys_created_on>
         <sys_id>90c9ffe8937e8210ef267c5efaba10fd</sys_id>
-        <sys_mod_count>116</sys_mod_count>
+        <sys_mod_count>117</sys_mod_count>
         <sys_name>Author Details</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sp_widget_90c9ffe8937e8210ef267c5efaba10fd</sys_update_name>
         <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-07-10 10:10:03</sys_updated_on>
+        <sys_updated_on>2024-07-23 05:27:48</sys_updated_on>
         <template><![CDATA[<!DOCTYPE html>
 
 <html lang="en">
