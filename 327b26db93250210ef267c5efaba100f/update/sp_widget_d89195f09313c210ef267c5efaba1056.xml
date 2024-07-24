@@ -124,7 +124,7 @@ body {
     justify-content: center;
     align-items: center;
     width: 100%;
-    max-width: 500px; /* Reduced max-width for the search bar */
+    max-width: 700px; /* Increased max-width for the search bar */
 }
 
 .search-input {
@@ -154,6 +154,7 @@ body {
 .search-button:hover .glyphicon {
     color: #24334C;
 }
+
 
 .autocomplete-suggestions {
     position: absolute;
@@ -300,14 +301,14 @@ body {
         <sys_created_by>harini.srija</sys_created_by>
         <sys_created_on>2024-07-07 07:43:34</sys_created_on>
         <sys_id>d89195f09313c210ef267c5efaba1056</sys_id>
-        <sys_mod_count>122</sys_mod_count>
+        <sys_mod_count>123</sys_mod_count>
         <sys_name>BookQuest Homepage</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sp_widget_d89195f09313c210ef267c5efaba1056</sys_update_name>
         <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-07-23 10:34:39</sys_updated_on>
+        <sys_updated_on>2024-07-24 05:44:45</sys_updated_on>
         <template><![CDATA[<!DOCTYPE html>
 <html lang="en">
 <head>
