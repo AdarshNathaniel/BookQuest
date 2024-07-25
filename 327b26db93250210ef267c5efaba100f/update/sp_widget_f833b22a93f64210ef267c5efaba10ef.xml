@@ -206,14 +206,14 @@ li {
         <sys_created_by>harini.srija</sys_created_by>
         <sys_created_on>2024-06-18 04:48:06</sys_created_on>
         <sys_id>f833b22a93f64210ef267c5efaba10ef</sys_id>
-        <sys_mod_count>146</sys_mod_count>
+        <sys_mod_count>147</sys_mod_count>
         <sys_name>Author Page Details</sys_name>
         <sys_package display_value="BookQuest" source="x_1383151_bkquest">327b26db93250210ef267c5efaba100f</sys_package>
         <sys_policy/>
         <sys_scope display_value="BookQuest">327b26db93250210ef267c5efaba100f</sys_scope>
         <sys_update_name>sp_widget_f833b22a93f64210ef267c5efaba10ef</sys_update_name>
         <sys_updated_by>harini.srija</sys_updated_by>
-        <sys_updated_on>2024-06-26 10:37:19</sys_updated_on>
+        <sys_updated_on>2024-07-25 04:31:30</sys_updated_on>
         <template><![CDATA[<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -241,7 +241,7 @@ li {
               </div>
               <div class="col-md-8">
                 <h2 class="card-title">{{author.fullName}}</h2>
-                <h3 class="books-count">Books: {{author.booksWritten}}</h3>
+                <h3 class="books-count">Books on shelf: {{author.booksWritten}}</h3>
                 <hr>
                 <div class="about-author">
                   <h3>About the Author</h3>
